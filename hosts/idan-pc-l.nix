@@ -32,16 +32,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.networkmanager.enable = true;
-  services.network-manager-applet.enable = true;
-
-  xdg.portal.enable = true;
-  xdg.portal.wlr.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
   users.defaultUserShell = pkgs.fish;
-
-  services.caelestia.enable = true; # Enable Cealestia
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -33,7 +33,7 @@
 
               users.users.idan = {
                 isNormalUser = true;
-                extraGroups = [ "wheel" "networkmanager" "video" ];
+                extraGroups = [ "wheel" "video" ];
                 shell = pkgs.fish;
               };
 

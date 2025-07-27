@@ -15,6 +15,11 @@
   services.getty.autoLogin.enable = true;
   services.getty.autoLogin.user = "idan";
 
+  environment.systemPackages = with pkgs; [
+    quickshell
+  ];
+  services.caelestia.enable = true; # Enable Cealestia
+
   # Make Hyprland start on login to TTY1
   systemd.user.services.hyprland-session = {
     enable = true;

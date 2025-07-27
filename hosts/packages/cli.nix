@@ -7,4 +7,8 @@
 
   # enable nix-index auto integration with fish
   programs.command-not-found.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    libqalculate
+  ]
 }

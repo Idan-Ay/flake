@@ -2,10 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-    capitaine-cursors
+    capitaine-cursors # Cursor Pack 
+
+    material-symbols
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  environment.variables = {
+  environment.sessionVariables = {
     XCURSOR_THEME = "capitaine-cursors";
     XCURSOR_SIZE = "24";
   };
