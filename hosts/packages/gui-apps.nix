@@ -5,6 +5,8 @@
     kitty            # GPU-accelerated terminal
     google-chrome    # unfree
     vscode           # Visual Studio Code (unfree, full version)
+    blender
+    
 
     mate.engrampa    # Archive manager
   ];

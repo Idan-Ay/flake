@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
+
+    caelestia-shell.url = "github:caelestia-dots/shell-nixos";
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }:
@@ -21,6 +23,9 @@
           modules = [
             ./hosts/idan-pc-l.nix
             home-manager.nixosModules.home-manager
+
+            # Include the caelestia-shell module
+            caelestia-shell.nixosModules.default
 
             {
               home-manager.useGlobalPkgs = true;

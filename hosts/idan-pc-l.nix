@@ -11,7 +11,8 @@
     ./packages/drivers.nix
     ./packages/gui-apps.nix
     ./packages/session.nix
-    ./packages/cursor.nix
+    ./packages/sound.nix
+    ./packages/theming.nix
   ];
 
   
@@ -34,25 +35,13 @@
   networking.networkmanager.enable = true;
   services.network-manager-applet.enable = true;
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  users.users.idan = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
-    shell = pkgs.fish;
-  };
-
   users.defaultUserShell = pkgs.fish;
+
+  services.caelestia.enable = true; # Enable Cealestia
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
