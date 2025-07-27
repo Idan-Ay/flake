@@ -2,16 +2,12 @@
 
 {
   environment.systemPackages = with pkgs; [
-    orchis-theme
-    papirus-nord
-    arc-icon-theme
+    capitaine-cursors
   ];
 
   environment.variables = {
-    GTK_THEME = "Orchis-Red-Dark";
-    XCURSOR_THEME = "Arc-Dark";
+    XCURSOR_THEME = "capitaine-cursors";
     XCURSOR_SIZE = "24";
-    ICON_THEME = "Papirus-Nord";
   };
 
   fonts = {

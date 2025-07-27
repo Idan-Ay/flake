@@ -11,7 +11,7 @@
     ./packages/drivers.nix
     ./packages/gui-apps.nix
     ./packages/session.nix
-    ./packages/theming.nix
+    ./packages/cursor.nix
   ];
 
   
