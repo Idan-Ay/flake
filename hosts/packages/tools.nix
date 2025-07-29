@@ -1,0 +1,38 @@
+{ config, pkgs, ... }:
+
+{
+  programs.fish.enable = true; # Fish Shell
+
+  programs.git.enable = true; # Git
+
+  programs.zoxide.enable = true; # tracks visited folders, lets you z myproject
+
+  # enable nix-index auto integration with fish
+  programs.command-not-found.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    kitty # GPU-accelerated terminal
+
+    ddcutil # Control Monitor brightness
+
+    ripgrep # Easy file content search
+    fzf # fuzzy finder
+    zoxide # smarter cd
+    
+    libqalculate # Calculator
+
+    grim # Screenshot tool
+    swappy # Handles screenshot
+
+    mpv # Image/Media viewer
+    
+    nnn # File Manager
+    p7zip # for .7z/.zip
+    atool # for .tar, .gz, etc.
+
+    micro # Code editor
+    wl-clipboard # Cut/Copy/Paste for micro
+
+    bottom # Task manager
+  ];
+}

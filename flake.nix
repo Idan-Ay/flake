@@ -6,10 +6,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
 
-    caelestia-shell.url = "github:caelestia-dots/shell-nixos";
+    caelestia-shell.url = "github.com:miliu2cc/caelestia-shell-nixos";
+    caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, ... }:
+  outputs = { self, nixpkgs, flake-utils, home-manager, caelestia-shell, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -21,10 +22,8 @@
           system = "x86_64-linux";
 
           modules = [
-            ./hosts/idan-pc-l.nix
+            ./hosts/system.nix
             home-manager.nixosModules.home-manager
-
-            # Include the caelestia-shell module
             caelestia-shell.nixosModules.default
 
             {
@@ -38,6 +37,12 @@
               };
 
               home-manager.users.idan = import ./home/idan.nix;
+
+              services.caelestia-shell.enable = true;
+              services.caelestia-shell.config = {
+                bar.workspaces.shown = 4;
+                dashboard.weatherLocation = "50.9289883,6.3601925";
+              };
             }
           ];
         };

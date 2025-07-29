@@ -8,7 +8,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
@@ -18,7 +18,6 @@
   environment.systemPackages = with pkgs; [
     quickshell
   ];
-  services.caelestia.enable = true; # Enable Cealestia
 
   # Make Hyprland start on login to TTY1
   systemd.user.services.hyprland-session = {

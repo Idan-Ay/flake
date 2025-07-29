@@ -7,12 +7,14 @@
   imports = [
     ./hardware-configuration.nix
 
-    ./packages/cli.nix
+    ./packages/tools.nix
     ./packages/drivers.nix
-    ./packages/gui-apps.nix
+    ./packages/applications.nix
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/theming.nix
+
+    ./config/hyprland.nix
   ];
 
   
