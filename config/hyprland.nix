@@ -50,10 +50,11 @@
                 "SUPER,O,exec,obsidian"
                 "SUPER,E,exec,blender"
                 "SUPER,C,exec,code"
-                "SUPER,G,exec,chatgpt"
 
                 "PRINT,exec,grim -g \"$(slurp)\" - | swappy -f -"
+                "SUPER,X,exec,grimblast copy active"
 
+                "SUPER,G,exec,google-chrome 'https://chatgpt.com'"
                 "SUPER,T,exec,google-chrome 'https://translate.google.com/details?sl=en&tl=de&op=translate'"
                 "SUPER,Y,exec,google-chrome 'https://www.youtube.com'"
                 "SUPER,M,exec,google-chrome 'https://mail.google.com'"

@@ -24,6 +24,7 @@
     libqalculate # Calculator
 
     grim # Screenshot tool
+    grimblast # Screenshot in window tool
     swappy # Handles screenshot
 
     mpv # Image/Media viewer

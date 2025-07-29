@@ -2,11 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    google-chrome    # unfree
+    google-chrome # unfree
     blender
     obsidian
     gimp3
-    chatgpt
     vscode
   ];
 }
