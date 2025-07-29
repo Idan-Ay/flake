@@ -33,7 +33,6 @@
     atool # for .tar, .gz, etc.
 
     micro # Code editor
-    wl-clipboard # Cut/Copy/Paste for micro
 
     bottom # Task manager
   ];

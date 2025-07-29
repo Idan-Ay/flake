@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
     wayland.windowManager.hyprland = {
@@ -49,6 +49,16 @@
                 "SUPER,B,exec,google-chrome"
                 "SUPER,O,exec,obsidian"
                 "SUPER,E,exec,blender"
+                "SUPER,C,exec,code"
+                "SUPER,G,exec,chatgpt"
+
+                "PRINT,exec,grim -g \"$(slurp)\" - | swappy -f -"
+
+                "SUPER,T,exec,google-chrome 'https://translate.google.com/details?sl=en&tl=de&op=translate'"
+                "SUPER,Y,exec,google-chrome 'https://www.youtube.com'"
+                "SUPER,M,exec,google-chrome 'https://mail.google.com'"
+                "SUPER,R,exec,google-chrome 'https://www.desmos.com/calculator?lang=en'"
+                "SUPER,D,exec,google-chrome 'https://discord.com/app'"
 
                 "SUPER,Q,killactive,"
                 "SUPER,F,fullscreen,"

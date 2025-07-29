@@ -17,6 +17,7 @@
 
     ./config/hyprland.nix
     ./config/fish.nix
+    ./config/kitty.nix
   ];
 
   
