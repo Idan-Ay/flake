@@ -13,8 +13,10 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/theming.nix
+    ./packages/key-remap.nix
 
     ./config/hyprland.nix
+    ./config/fish.nix
   ];
 
   

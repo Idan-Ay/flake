@@ -18,6 +18,8 @@
     ripgrep # Easy file content search
     fzf # fuzzy finder
     zoxide # smarter cd
+
+    fastfetch # View system information
     
     libqalculate # Calculator
 
