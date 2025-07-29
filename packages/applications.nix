@@ -6,5 +6,7 @@
     blender
     obsidian
     gimp3
+    chatgpt
+    vscode
   ];
 }

@@ -22,7 +22,7 @@
           system = "x86_64-linux";
 
           modules = [
-            ./hosts/system.nix
+            ./system.nix
             home-manager.nixosModules.home-manager
             caelestia-shell.nixosModules.default
 
@@ -35,8 +35,6 @@
                 extraGroups = [ "wheel" "video" "input" ];
                 shell = pkgs.fish;
               };
-
-              home-manager.users.idan = import ./home/idan.nix;
 
               services.caelestia-shell.enable = true;
               services.caelestia-shell.config = {

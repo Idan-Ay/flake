@@ -1,11 +1,11 @@
+{ config, pkgs, ... }:
+
 {
   boot.kernelModules = [ "uinput" ];
 
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
   '';
-
-  users.users.idan.extraGroups = [ "input" ];
 
   services.interception-tools = {
     enable = true;
