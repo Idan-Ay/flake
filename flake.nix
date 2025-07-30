@@ -10,39 +10,33 @@
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, caelestia-shell, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in {
-        nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+  outputs = { self, nixpkgs, flake-utils, home-manager, caelestia-shell, ... }: {
+    
+    # THIS is what nixos-install needs
+    nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./system.nix
+        home-manager.nixosModules.home-manager
+        caelestia-shell.nixosModules.default
 
-          modules = [
-            ./system.nix
-            home-manager.nixosModules.home-manager
-            caelestia-shell.nixosModules.default
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = false;
 
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = false;
+          users.users.idan = {
+            isNormalUser = true;
+            extraGroups = [ "wheel" "video" "input" ];
+            shell = nixpkgs.legacyPackages.x86_64-linux.fish;
+          };
 
-              users.users.idan = {
-                isNormalUser = true;
-                extraGroups = [ "wheel" "video" "input" ];
-                shell = pkgs.fish;
-              };
-
-              services.caelestia-shell.enable = true;
-              services.caelestia-shell.config = {
-                bar.workspaces.shown = 4;
-                dashboard.weatherLocation = "50.9289883,6.3601925";
-              };
-            }
-          ];
-        };
-      });
+          services.caelestia-shell.enable = true;
+          services.caelestia-shell.config = {
+            bar.workspaces.shown = 4;
+            dashboard.weatherLocation = "50.9289883,6.3601925";
+          };
+        }
+      ];
+    };
+  };
 }
