@@ -20,6 +20,7 @@
     ./config/kitty.nix
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   networking.hostName = "idan-pc-l";
   time.timeZone = "Europe/Berlin";
@@ -35,7 +36,11 @@
   };
   console.keyMap = "us";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  zramSwap = {
+    enable = true;
+    memoryPercent = 15;    # ~4.8GB out of 32GB RAM
+    algorithm = "zstd";    # Fast and efficient compression
+  };
 
   users.defaultUserShell = pkgs.fish;
 
