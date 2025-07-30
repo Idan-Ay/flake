@@ -13,6 +13,8 @@
   environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     kitty # GPU-accelerated terminal
 
+    # playerctl # Media shortcuts
+
     ddcutil # Control Monitor brightness
 
     ripgrep # Easy file content search

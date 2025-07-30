@@ -9,9 +9,4 @@
     alsa.enable = true;
     pulse.enable = true;
   };
-
-  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
-    cava
-    aubio
-  ])];
 }
