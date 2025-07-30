@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
 
-    caelestia-shell.url = "github.com:miliu2cc/caelestia-shell-nixos";
+    caelestia-shell.url = "github:miliu2cc/caelestia-shell-nixos";
     caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 

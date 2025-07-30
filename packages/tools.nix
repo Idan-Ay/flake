@@ -10,7 +10,7 @@
   # enable nix-index auto integration with fish
   programs.command-not-found.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     kitty # GPU-accelerated terminal
 
     ddcutil # Control Monitor brightness
@@ -36,5 +36,5 @@
     micro # Code editor
 
     bottom # Task manager
-  ];
+  ])];
 }

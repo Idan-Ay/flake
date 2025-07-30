@@ -10,8 +10,8 @@
     pulse.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     cava
     aubio
-  ];
+  ])];
 }

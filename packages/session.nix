@@ -15,9 +15,9 @@
   services.getty.autoLogin.enable = true;
   services.getty.autoLogin.user = "idan";
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     quickshell
-  ];
+  ])];
 
   # Make Hyprland start on login to TTY1
   systemd.user.services.hyprland-session = {

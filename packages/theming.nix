@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     capitaine-cursors # Cursor Pack 
 
     material-symbols
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
+  ])];
 
   environment.sessionVariables = {
     XCURSOR_THEME = "capitaine-cursors";
