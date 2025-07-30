@@ -83,7 +83,6 @@ EOF
           default = caelestia-shell;
           caelestia-shell = caelestia-shell;
         };
-        };
       }
     ) // {
       nixosModules.default = { config, lib, pkgs, ... }:
