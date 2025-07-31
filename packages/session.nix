@@ -14,9 +14,9 @@
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
   services.getty.autologinUser = "idan";
 
-  environment.systemPackages =  lib.mkAfter [ (with pkgs; [
+  environment.systemPackages = lib.mkAfter (with pkgs; [
     quickshell
-  ])];
+  ]);
 
   # Make Hyprland start on login to TTY1
   systemd.user.services.hyprland-session = {
