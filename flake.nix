@@ -11,8 +11,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, caelestia-shell, ... }: {
-    
-    # THIS is what nixos-install needs
+
     nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -23,12 +22,6 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = false;
-
-          users.users.idan = {
-            isNormalUser = true;
-            extraGroups = [ "wheel" "video" "input" ];
-            shell = nixpkgs.legacyPackages.x86_64-linux.fish;
-          };
 
           services.caelestia-shell.enable = true;
           services.caelestia-shell.config = {

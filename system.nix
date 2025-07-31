@@ -21,6 +21,12 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager.users.idan = import ./home.nix;
+
+  users.users.idan = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "video" "input" ];
+    shell = pkgs.fish;
+  };
   
   networking.hostName = "idan-pc-l";
   time.timeZone = "Europe/Berlin";
