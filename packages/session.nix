@@ -12,8 +12,7 @@
   };
 
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
-  services.getty.autoLogin.enable = true;
-  services.getty.autoLogin.user = "idan";
+  services.getty.autologinUser = "idan";
 
   environment.systemPackages =  lib.mkAfter [ (with pkgs; [
     quickshell
