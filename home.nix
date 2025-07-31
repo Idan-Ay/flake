@@ -6,7 +6,7 @@
 
   programs.home-manager.enable = true;
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   xdg.configFile = {
     "kitty/kitty.conf".source = ./config/kitty.conf;
