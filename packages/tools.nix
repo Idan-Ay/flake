@@ -29,6 +29,8 @@
     grimblast # Screenshot in window tool
     swappy # Handles screenshot
 
+    slurp # Region selector
+
     mpv # Image/Media viewer
     
     nnn # File Manager

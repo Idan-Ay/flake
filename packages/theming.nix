@@ -5,7 +5,7 @@
     capitaine-cursors # Cursor Pack 
 
     material-symbols
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    jetbrains-mono
   ]);
 
   environment.sessionVariables = {
