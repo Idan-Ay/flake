@@ -15,12 +15,12 @@
     ./packages/theming.nix
     ./packages/interception-tools.nix
 
-    ./config/hyprland.nix
     ./config/fish.nix
-    ./config/kitty.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  home-manager.users.idan = import ./home.nix;
   
   networking.hostName = "idan-pc-l";
   time.timeZone = "Europe/Berlin";

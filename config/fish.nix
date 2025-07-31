@@ -2,8 +2,6 @@
 
 {
   programs.fish = {
-    enable = true;
-
     shellInit = ''
       set -gx FLAKES ~/flakes
       set -gx SYSTEM_ID (whoami)"@"(hostname)
