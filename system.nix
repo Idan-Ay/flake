@@ -59,13 +59,14 @@
 
   security.sudo.enable = true;
 
-  boot.initrd.supportedFilesystems = [ "ext4" ];
+  boot.initrd.supportedFilesystems = [ "ext4" "vfat" ];
+
   fileSystems."/" = {
-    device = "/dev/nvme0n1p5";
+    device = "/dev/disk/by-uuid/fea238da-616e-47f1-b6b7-a516b4f06bbd";
     fsType = "ext4";
   };
   fileSystems."/boot" = {
-    device = "/dev/nvme0n1p1";
+    device = "/dev/disk/by-uuid/B0E4-2D85";
     fsType = "vfat";
   };
 }
