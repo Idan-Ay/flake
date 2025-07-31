@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: 
 
 {
   boot.kernelModules = [ "uinput" ];
@@ -9,10 +9,10 @@
 
   services.interception-tools = {
     enable = true;
-    plugins = with pkgs; [ intercept-remap ];
+    plugins = [ pkgs.interception-tools-plugins.dual-function-keys ];
     udevmonConfig = ''
       - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | \
-              ${pkgs.intercept-remap}/bin/intercept-remap /etc/intercept-remap.yaml | \
+              ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys /etc/key-remap.yaml | \
               ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
         DEVICE:
           EVENTS:
@@ -20,6 +20,6 @@
     '';
   };
 
-  environment.etc."intercept-remap.yaml".text =
-  builtins.readFile ../config/intercept-remap.yaml;
+  environment.etc."key-remap.yaml".text =
+    builtins.readFile ../config/key-remap.yaml;
 }
