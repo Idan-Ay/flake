@@ -18,7 +18,6 @@
         ./system.nix
         home-manager.nixosModules.home-manager
         caelestia-shell.nixosModules.default
-
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = false;

@@ -69,4 +69,6 @@
     device = "/dev/disk/by-uuid/B0E4-2D85";
     fsType = "vfat";
   };
+
+  system.stateVersion = "25.05";
 }
