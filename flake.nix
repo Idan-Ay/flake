@@ -9,18 +9,25 @@
     caelestia-cli.url = "github:t7h-dots/cli";
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, ... }: {
+  outputs = { self, nixpkgs, flake-utils, home-manager, ... } @ inputs: {
 
     nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+
       modules = [
-        ./system.nix
         home-manager.nixosModules.home-manager
+        ./system.nix
+        ./packages/session.nix
         {
+          home-manager.users.idan = import ./home.nix;
+          
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = false;
         }
       ];
+      specialArgs = {
+      	inherit inputs;
+      };
     };
   };
 }

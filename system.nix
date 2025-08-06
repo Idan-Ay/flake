@@ -13,7 +13,7 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/theming.nix
-    ./packages/interception-tools.nix
+#    ./packages/interception-tools.nix
 
     ./config/fish.nix
   ];
