@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
 
-    caelestia-shell.url = "path:./modules/caelestia-shell-nixos";
+    caelestia-cli.url = "github:t7h-dots/cli";
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }: {
