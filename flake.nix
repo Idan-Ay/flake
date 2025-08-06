@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
+
+    caelestia-shell.url = "path:./modules/caelestia-shell-nixos";
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... }: {
