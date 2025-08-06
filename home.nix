@@ -9,6 +9,10 @@
   
   xdg.configFile = {
     "kitty/kitty.conf".source = ./config/kitty.conf;
-    "hypr/hyprland.conf".source = ./config/hyprland.conf;
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = builtins.readFile ./config/hyprland.conf;
   };
 }

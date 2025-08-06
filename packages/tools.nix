@@ -15,6 +15,10 @@
 
     # playerctl # Media shortcuts
 
+    lm_sensors # Hardware monitoring
+    
+    networkmanager # Network settings
+    
     ddcutil # Control Monitor brightness
 
     ripgrep # Easy file content search

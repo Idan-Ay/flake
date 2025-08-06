@@ -16,7 +16,6 @@
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     quickshell
-    inputs.caelestia-cli.packages.${pkgs.system}.default
   ]);
 
   # Make Hyprland start on login to TTY1

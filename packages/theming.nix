@@ -4,7 +4,6 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     capitaine-cursors # Cursor Pack 
 
-    material-symbols
     jetbrains-mono
   ]);
 
@@ -16,6 +15,8 @@
   fonts = {
     packages = with pkgs; [
       twemoji-color-font
+      nerd-fonts.jetbrains-mono
+      material-symbols
     ];
     fontconfig.defaultFonts = {
       emoji = [ "Twemoji Mozilla" ];

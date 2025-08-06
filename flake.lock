@@ -1,21 +1,23 @@
 {
   "nodes": {
-    "caelestia-cli": {
+    "caelestia-shell": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1750346725,
-        "narHash": "sha256-kEpL2ILzkebvVbBjZlwc4Nc3EmKHJP8t5AN5Pe4Qvqk=",
-        "owner": "t7h-dots",
-        "repo": "cli",
-        "rev": "2cec7601b28934466761946fc444175107c75bd9",
+        "lastModified": 1754490072,
+        "narHash": "sha256-gmOMhJgzra7hauuwUKJ4u0MafdqSAvM6u/dQPf/BW9s=",
+        "owner": "Idan-Ay",
+        "repo": "caelestia-shell-nixos",
+        "rev": "0a98f5a867bc6448e2d41f400603e67a628c4053",
         "type": "github"
       },
       "original": {
-        "owner": "t7h-dots",
-        "repo": "cli",
+        "owner": "Idan-Ay",
+        "repo": "caelestia-shell-nixos",
         "type": "github"
       }
     },
@@ -57,7 +59,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1754457347,
@@ -105,28 +107,12 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1754214453,
-        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "caelestia-cli": "caelestia-cli",
+        "caelestia-shell": "caelestia-shell",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
