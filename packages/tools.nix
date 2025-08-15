@@ -5,35 +5,25 @@
 
   programs.git.enable = true; # Git
 
-  programs.zoxide.enable = true; # tracks visited folders, lets you z myproject
-
   # enable nix-index auto integration with fish
   programs.command-not-found.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    kitty # GPU-accelerated terminal
+    foot # terminal
 
-    # playerctl # Media shortcuts
+    anyrun # launcher
 
-    lm_sensors # Hardware monitoring
-    
-    networkmanager # Network settings
-    
-    ddcutil # Control Monitor brightness
+    playerctl # Media shortcuts
 
+    fd # fast directory search
     ripgrep # Easy file content search
-    fzf # fuzzy finder
     zoxide # smarter cd
 
     fastfetch # View system information
-    
-    libqalculate # Calculator
 
     grim # Screenshot tool
     grimblast # Screenshot in window tool
     swappy # Handles screenshot
-
-    slurp # Region selector
 
     mpv # Image/Media viewer
     
