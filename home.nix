@@ -26,6 +26,6 @@
     "hypr/UserConfigs" = {
       source = ./config/hypr/UserConfigs;
       recursive = true;
-    }
+    };
   };
 }
