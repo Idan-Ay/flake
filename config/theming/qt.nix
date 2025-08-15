@@ -12,7 +12,7 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "qt5ct";  # qt6ct handles Qt6 apps
+    platformTheme = "qtct";  # qt6ct handles Qt6 apps
     style.name = "kvantum";   # force Kvantum as the Qt style
   };
 

@@ -9,9 +9,9 @@
   programs.command-not-found.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    foot # terminal
+    ironbar # GTK bar
 
-    anyrun # launcher
+    foot # terminal
 
     playerctl # Media shortcuts
 
