@@ -10,6 +10,7 @@
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     ironbar # GTK bar
+    anyrun # Launcher
 
     foot # terminal
 
