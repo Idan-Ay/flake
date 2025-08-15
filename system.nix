@@ -12,7 +12,7 @@
     ./packages/applications.nix
     ./packages/session.nix
     ./packages/sound.nix
-    ./packages/theming.nix
+    ./packages/fonts.nix
 #    ./packages/interception-tools.nix
 
     ./config/fish.nix
