@@ -18,5 +18,7 @@
       source = ./config/hypr/UserConfigs;
       recursive = true;
     };
+
+    "foot/foot.ini".source = ./config/foot.ini;
   };
 }

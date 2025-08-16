@@ -37,5 +37,7 @@
     micro # Code editor
 
     bottom # Task manager
+
+    wl-clipboard # Clipboard support for some programs
   ]);
 }
