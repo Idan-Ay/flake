@@ -8,7 +8,10 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
