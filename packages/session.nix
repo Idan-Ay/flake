@@ -7,7 +7,7 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     swaybg # background
 
-    ironbar # GTK bar
+    waybar # Bar
     anyrun # Launcher
     
     playerctl # Media shortcuts
