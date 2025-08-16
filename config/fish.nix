@@ -3,7 +3,7 @@
 {
   programs.fish = {
     shellInit = ''
-      set -gx FLAKES /home/idan/flakes
+      set -gx FLAKES /home/idan/flake
       set -gx SYSTEM_ID (whoami)"@"(hostname)
       alias rebuild="sudo nixos-rebuild switch --flake $FLAKES#$SYSTEM_ID"
       alias update="nix flake update $FLAKES && rebuild"

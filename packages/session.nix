@@ -4,6 +4,15 @@
   # Enable Hyprland (Wayland window manager)
   programs.hyprland.enable = true;
 
+  environment.systemPackages = lib.mkAfter (with pkgs; [
+    swaybg # background
+
+    ironbar # GTK bar
+    anyrun # Launcher
+    
+    playerctl # Media shortcuts
+  ]);
+
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)
   xdg.portal = {
     enable = true;

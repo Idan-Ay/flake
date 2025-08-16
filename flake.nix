@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, flake-utils, home-manager, ... } @ inputs: {
@@ -19,6 +24,8 @@
           
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = false;
+
+          home-manager.extraSpecialArgs = { inherit inputs; };
         }
       ];
     };

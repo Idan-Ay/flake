@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -21,6 +21,6 @@
 
     "foot/foot.ini".source = ./config/foot.ini;
 
-    "ironbar/ironbar.yaml".source = ./config/ironbar.yaml;
+    "ironbar/config.json".source = ./config/ironbar.json;
   };
 }

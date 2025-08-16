@@ -11,12 +11,7 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
-    ironbar # GTK bar
-    anyrun # Launcher
-
     foot # terminal
-
-    playerctl # Media shortcuts
 
     fd # fast directory search
     ripgrep # Easy file content search

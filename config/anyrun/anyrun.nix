@@ -1,6 +1,6 @@
-let
-  anyrunFlake = builtins.getFlake "github:anyrun-org/anyrun";
-in {
+{ pkgs, inputs, ...}:
+
+{
   programs.anyrun = {
       enable = true;
       config = {
@@ -14,15 +14,19 @@ in {
         closeOnClick = false;
         showResultsImmediately = false;
         maxEntries = null;
+        
+        plugins = [
+          inputs.anyrun.packages.${pkgs.system}.applications
+          inputs.anyrun.packages.${pkgs.system}.websearch
+          inputs.anyrun.packages.${pkgs.system}.dictionary
+          inputs.anyrun.packages.${pkgs.system}.kidex
+          inputs.anyrun.packages.${pkgs.system}.translate
+          inputs.anyrun.packages.${pkgs.system}.shell
+          inputs.anyrun.packages.${pkgs.system}.rink
+          inputs.anyrun.packages.${pkgs.system}.randr
+        ];
       };
 
-      plugins = [
-        anyrunFlake.packages.${pkgs.system}.applications
-        anyrunFlake.packages.${pkgs.system}.websearch
-        anyrunFlake.packages.${pkgs.system}.dictionary
-        anyrunFlake.packages.${pkgs.system}.files
-        anyrunFlake.packages.${pkgs.system}.translate
-      ];
 
       extraCss = builtins.readFile ./style.css;
     };
