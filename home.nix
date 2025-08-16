@@ -20,5 +20,7 @@
     };
 
     "foot/foot.ini".source = ./config/foot.ini;
+
+    "ironbar/ironbar.yaml".source = ./config/ironbar.yaml;
   };
 }

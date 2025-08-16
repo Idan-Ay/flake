@@ -14,6 +14,14 @@
       maxEntries = null;
     };
 
+    plugins = [
+      anyrunFlake.packages.${pkgs.system}.applications
+      anyrunFlake.packages.${pkgs.system}.websearch
+      anyrunFlake.packages.${pkgs.system}.dictionary
+      anyrunFlake.packages.${pkgs.system}.files
+      anyrunFlake.packages.${pkgs.system}.translate
+    ]
+
     extraCss = builtins.readFile ./style.css;
   };
 }
