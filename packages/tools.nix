@@ -9,6 +9,8 @@
   programs.command-not-found.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
+    home-manager
+
     ironbar # GTK bar
     anyrun # Launcher
 
