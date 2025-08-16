@@ -9,7 +9,7 @@
 
   imports = [
     ./config/anyrun/anyrun.nix
-    ./config/gtk.nix
+    ./config/theming.nix
   ];
   
   xdg.configFile = { 
