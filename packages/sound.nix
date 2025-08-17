@@ -9,5 +9,5 @@
     pulse.enable = true;
   };
 
-  environment.systemPackages = lib.mkAfter ([pkgs.pavucontrol])
+  environment.systemPackages = lib.mkAfter ([pkgs.pavucontrol]);
 }
