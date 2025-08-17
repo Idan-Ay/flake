@@ -1,0 +1,4 @@
+set preview true
+map <c-c> copy
+map <c-x> cut
+map <c-v> paste

@@ -24,10 +24,10 @@
     swappy # Handles screenshot
 
     mpv # Image/Media viewer
-    
-    nnn # File Manager
-    p7zip # for .7z/.zip
-    atool # for .tar, .gz, etc.
+
+    lf # file manager
+    avfs # archive-as-directories
+    p7zip unzip zip unrar atool
 
     micro # Code editor
 

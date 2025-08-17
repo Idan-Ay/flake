@@ -1,0 +1,61 @@
+/* global */
+* {
+  font-size: 13px;
+  min-height: 0;
+}
+
+#waybar {
+  background: none;
+}
+
+#workspaces,
+#taskbar,
+#pulseaudio,
+#clock,
+#custom-power {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 100px;
+}
+
+#workspaces,
+#taskbar {
+  padding: 3px 0;
+}
+
+#pulseaudio,
+#clock,
+#custom-power {
+    padding: 0 12px;
+}
+
+#workspaces button {
+  background-color: rgba(35, 35, 35, 0.6);
+  color: rgba(180, 180, 180, 0.95);
+  border: none;
+
+  padding: 5px;
+}
+
+#workspaces button, #taskbar button {
+  margin: 0 3px;
+  border-radius: 100px;
+}
+
+#workspaces button:hover, #taskbar button:hover {
+  background-color: rgba(55, 55, 55, 0.6);
+}
+
+#workspaces button.active,
+#workspaces button.focused,
+#taskbar button.active {
+  background-color: rgba(55, 55, 55, 0.85);
+  color: rgba(230, 230, 230, 1);
+
+  padding: 0 15px;        /* horizontal breathing room */
+  border-radius: 100px;  /* pill */
+}
+
+#workspaces button.urgent {
+  background-color: rgba(200, 80, 80, 0.85);
+  color: white;
+}

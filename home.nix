@@ -25,5 +25,7 @@
       source = ./config/waybar;
       recursive = true;
     };
+
+    "lf/lfrc".source = ./config/lfrc;
   };
 }

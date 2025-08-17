@@ -1,7 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 10,
+  "height": 16,
+  "margin": "8 10 0 10",
+
+  "spacing": 10,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["wlr/taskbar"],
@@ -13,14 +16,13 @@
 
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 6,
+    "icon-size": 16,
     "on-click": "activate",
-    "on-click-middle": "close",
-    "on-click-right": "minimize"
+    "on-click-middle": "close"
   },
 
   "pulseaudio": {
-    "format": "{volume}% ",
+    "format": "   {volume}%",
     "format-muted": "mute ",
     "scroll-step": 3,
     "on-click": "pavucontrol"
