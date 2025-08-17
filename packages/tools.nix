@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.fish.enable = true; # Fish Shell
-
   programs.git.enable = true; # Git
 
   # enable nix-index auto integration with fish

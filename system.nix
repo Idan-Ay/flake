@@ -14,13 +14,17 @@
     ./packages/sound.nix
     ./packages/fonts.nix
 #    ./packages/interception-tools.nix
-
-    ./config/fish.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager.users.idan = import ./home.nix;
+
+  programs.fish = {
+    enable = true;
+    loginShellInit = "source ${./config/fish/hyprland.fish}";
+    interactiveShellInit = "source ${./config/fish/buildHelper.fish}";
+  };
 
   users.users.idan = {
     isNormalUser = true;
