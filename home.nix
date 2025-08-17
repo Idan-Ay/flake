@@ -27,5 +27,10 @@
     };
 
     "lf/lfrc".source = ./config/lfrc;
+
+    "wallpapers" = {
+      source = ./config/wallpapers;
+      recursive = true;
+    };
   };
 }

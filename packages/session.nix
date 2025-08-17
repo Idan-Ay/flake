@@ -11,8 +11,6 @@
     anyrun # Launcher
 
     wlogout # logout gui
-    
-    playerctl # Media shortcuts
   ]);
 
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)

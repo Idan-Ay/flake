@@ -25,19 +25,18 @@
 #pulseaudio,
 #clock,
 #custom-power {
-    padding: 0 14px;
+    padding: 0 15px;
 }
 
 #workspaces button {
   background-color: rgba(35, 35, 35, 0.6);
   color: rgba(180, 180, 180, 0.95);
   border: none;
-
-  padding: 5px;
 }
 
 #workspaces button, #taskbar button {
   margin: 0 3px;
+  padding: 6px;
   border-radius: 100px;
 }
 
@@ -51,7 +50,7 @@
   background-color: rgba(55, 55, 55, 0.85);
   color: rgba(230, 230, 230, 1);
 
-  padding: 0 15px;        /* horizontal breathing room */
+  padding: 6px 15px;
   border-radius: 100px;  /* pill */
 }
 

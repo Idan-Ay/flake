@@ -1,7 +1,9 @@
-function randomwall --description "Set a random wallpaper with swaybg"
-    set -l dir "$XDG_CONFIG_HOME/wallpapers"
-    set -l imgs (command find $dir -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \))
-
+function randomWallpaper --description "Set a random wallpaper with swaybg"
+    set -l dir "$HOME/.config/wallpapers"
+    set -l imgs (command find -L "$dir" -maxdepth 1 -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) \
+    -print0 | string split0)
+    
     if test (count $imgs) -eq 0
     echo "No images found in $dir"
     return 1
@@ -9,7 +11,7 @@ function randomwall --description "Set a random wallpaper with swaybg"
 
     # pick one at random
     set -l n (count $imgs)
-    set -l idx (math "(random % $n) + 1")
+    set -l idx (random 1 1 $n)
     set -l img $imgs[$idx]
 
     # ensure only one swaybg instance

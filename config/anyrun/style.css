@@ -1,0 +1,50 @@
+window {
+    background: transparent;
+}
+
+#main {
+    /* background: transparent; */
+    border-radius: 10px;
+    background: rgba(5, 5, 5, 0.5);
+}
+
+#entry {
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    /* background: rgba(0, 0, 0, 0.2); */
+    background: transparent;
+    color: #fff;
+
+    border: none;
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* background: rgba(5, 5, 5, 0.5); */
+}
+#entry:focus {
+    border: none;
+    outline: none;
+}
+
+#plugin {
+    border-radius: 10px;
+
+    background: transparent;
+    color: #fff;
+
+    /* background: rgba(0, 0, 0, 1); */
+}
+
+#match {
+    border-radius: 10px;
+    background: transparent;
+}
+
+
+#match:selected {
+    background-color: rgba(36, 36, 36, 0.5);
+}
+
+#results {
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: transparent;
+}

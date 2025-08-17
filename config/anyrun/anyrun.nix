@@ -11,8 +11,8 @@
         ignoreExclusiveZones = false;
         layer = "overlay";
         hidePluginInfo = false;
-        closeOnClick = false;
-        showResultsImmediately = false;
+        closeOnClick = true;
+        showResultsImmediately = true;
         maxEntries = null;
         
         plugins = [

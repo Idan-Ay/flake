@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 16,
+  "height": 21,
   "margin": "8 10 0 10",
 
   "spacing": 10,
@@ -16,7 +16,7 @@
 
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 16,
+    "icon-size": 18,
     "on-click": "activate",
     "on-click-middle": "close"
   },
