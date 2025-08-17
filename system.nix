@@ -22,8 +22,9 @@
 
   programs.fish = {
     enable = true;
-    loginShellInit = "source ${./config/fish/hyprland.fish}";
-    interactiveShellInit = "source ${./config/fish/buildHelper.fish}";
+    loginShellInit = builtins.readFile ./config/fish/hyprland.fish;
+    shellInit = builtins.readFile ./config/fish/randomWallpaper.fish;
+    interactiveShellInit = builtins.readFile ./config/fish/buildHelper.fish;
   };
 
   users.users.idan = {
