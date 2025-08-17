@@ -20,5 +20,10 @@
     };
 
     "foot/foot.ini".source = ./config/foot.ini;
+
+    "waybar" = {
+      source = ./config/waybar;
+      recursive = true;
+    };
   };
 }

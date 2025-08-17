@@ -1,0 +1,40 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 10,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": ["pulseaudio", "clock", "custom/power"],
+
+  "hyprland/workspaces": {
+    "on-click": "hyprctl dispatch workspace {name}"
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 6,
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% ",
+    "format-muted": "mute ",
+    "scroll-step": 3,
+    "on-click": "pavucontrol"
+  },
+
+  "clock": {
+    "locale": "de_DE.UTF-8",
+    "format": "{:%H:%M  %d.%m.%Y}", 
+    "tooltip-format": "{:%H:%M:%S  %A, %d. %B %Y}"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Power menu",
+    "on-click": "wlogout -p layer-shell"
+  }
+}

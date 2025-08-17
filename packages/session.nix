@@ -9,6 +9,8 @@
 
     waybar # Bar
     anyrun # Launcher
+
+    wlogout # logout gui
     
     playerctl # Media shortcuts
   ]);
