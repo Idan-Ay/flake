@@ -22,9 +22,10 @@
 
   programs.fish = {
     enable = true;
-    loginShellInit = builtins.readFile ./config/fish/hyprland.fish;
-    shellInit = builtins.readFile ./config/fish/randomWallpaper.fish;
-    interactiveShellInit = builtins.readFile ./config/fish/shortcuts.fish;
+    
+    loginShellInit = builtins.readFile ./config/fish/loginShellInit.fish;
+    shellInit = builtins.readFile ./config/fish/shellInit.fish;
+    interactiveShellInit = builtins.readFile ./config/fish/interactiveShellInit.fish;
   };
 
   users.users.idan = {
