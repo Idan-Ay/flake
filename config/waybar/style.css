@@ -11,8 +11,7 @@
 #workspaces,
 #taskbar,
 #pulseaudio,
-#clock,
-#custom-power {
+#clock {
   background-color: rgba(0,0,0,0.75);
   border-radius: 100px;
 }
@@ -23,8 +22,7 @@
 }
 
 #pulseaudio,
-#clock,
-#custom-power {
+#clock {
     padding: 0 15px;
 }
 

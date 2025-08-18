@@ -8,7 +8,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["wlr/taskbar"],
-  "modules-right": ["pulseaudio", "clock", "custom/power"],
+  "modules-right": ["pulseaudio", "clock"],
 
   "hyprland/workspaces": {
     "on-click": "hyprctl dispatch workspace {name}"
@@ -32,11 +32,5 @@
     "locale": "de_DE.UTF-8",
     "format": "{:%H:%M  %d.%m.%Y}", 
     "tooltip-format": "{:%H:%M:%S  %A, %d. %B %Y}"
-  },
-
-  "custom/power": {
-    "format": "⏻",
-    "tooltip": "Power menu",
-    "on-click": "wlogout -p layer-shell"
   }
 }

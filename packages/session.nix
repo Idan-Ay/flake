@@ -9,8 +9,6 @@
 
     waybar # Bar
     anyrun # Launcher
-
-    wlogout # logout gui
   ]);
 
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)

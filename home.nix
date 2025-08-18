@@ -28,11 +28,6 @@
 
     "lf/lfrc".source = ./config/lfrc;
 
-    "wlogout" = {
-      source = ./config/wlogout;
-      recursive = true;
-    };
-
     "wallpapers" = {
       source = ./config/wallpapers;
       recursive = true;

@@ -3,7 +3,7 @@
 {
   fonts = {
     packages = with pkgs; [
-      nerd-fonts.jetbrains-mono   # pick this OR jetbrains-mono (not both)
+      nerd-fonts.jetbrains-mono
       twemoji-color-font
       material-symbols
     ];
