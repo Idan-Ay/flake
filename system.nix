@@ -13,6 +13,7 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
+    ./packages/interception-tools.nix
 #    ./packages/interception-tools.nix
   ];
 
