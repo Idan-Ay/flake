@@ -1,4 +1,5 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
+
 {
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -11,12 +12,16 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Orchis-Dark";
-      package = pkgs.orchis-theme;
+      name = "Orchis-Grey-Dark";
+      package = pkgs.orchis-theme.override {
+        tweaks = [ "black" ];
+      };
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
   };
+
+  xdg.configFile."gtk-3.0/gtk.css" = ./gtk3.css;
 }

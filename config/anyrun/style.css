@@ -6,37 +6,34 @@ window {
     /* background: transparent; */
     border-radius: 10px;
     background: transparent;
-    background: rgba(15, 15, 15, 0.5);
 }
 
 #entry {
     padding: 10px 20px;
     border-radius: 10px;
-
+    
     background: transparent;
     color: #fff;
-
-    border: none;
+    /* background: rgba(0, 0, 0, 0.5); */
 }
 
-#plugin {
+#main {
     background: transparent;
     color: #fff;
     
-    padding: 5px 10px;
+    padding: 5px 5px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#plugin, #match {
+    background: transparent;
 }
 
 #match {
-    border-radius: 10px;
-    background: transparent;
+    border-radius: 5px;
+    padding: 2px 5px;
 }
-
 
 #match:selected {
-    background-color: rgba(36, 36, 36, 0.5);
-}
-
-#results {
-    /* background: rgba(0, 0, 0, 0.5); */
-    background: transparent;
+    background-color: rgba(70, 70, 70, 0.5);
 }

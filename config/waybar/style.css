@@ -13,7 +13,7 @@
 #pulseaudio,
 #clock,
 #custom-power {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.75);
   border-radius: 100px;
 }
 
@@ -29,7 +29,7 @@
 }
 
 #workspaces button {
-  background-color: rgba(35, 35, 35, 0.6);
+  background-color: rgba(35, 35, 35, 0.75);
   color: rgba(180, 180, 180, 0.95);
   border: none;
 }
@@ -41,7 +41,7 @@
 }
 
 #workspaces button:hover, #taskbar button:hover {
-  background-color: rgba(55, 55, 55, 0.6);
+  background-color: rgba(55, 55, 55, 0.75);
 }
 
 #workspaces button.active,

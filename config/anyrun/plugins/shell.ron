@@ -1,0 +1,5 @@
+Config(
+  prefix: ">",
+  shell: "fish",
+  args: ["-c"],
+)
