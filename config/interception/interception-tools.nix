@@ -21,5 +21,5 @@
   };
 
   environment.etc."key-remap.yaml".text =
-    builtins.readFile ../config/key-remap.yaml;
+    builtins.readFile ./key-remap.yaml;
 }

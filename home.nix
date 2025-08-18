@@ -10,6 +10,7 @@
   imports = [
     ./config/anyrun/anyrun.nix
     ./config/theming/theming.nix
+    ./config/interception/interception-tools.nix
   ];
   
   xdg.configFile = { 

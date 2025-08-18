@@ -19,6 +19,7 @@
 #workspaces,
 #taskbar {
   padding: 3px 0;
+  min-width: 10px;
 }
 
 #pulseaudio,
