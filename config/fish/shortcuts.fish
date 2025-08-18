@@ -1,3 +1,6 @@
+alias f="foot"
+
+# Rubuild Helper
 set -gx FLAKES /home/idan/flake
 set -gx SYSTEM_ID (whoami)"@"(hostname)
 alias rebuild="sudo nixos-rebuild switch --flake $FLAKES#$SYSTEM_ID"

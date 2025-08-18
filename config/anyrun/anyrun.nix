@@ -10,7 +10,7 @@
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = false;
+      hidePluginInfo = true;
       closeOnClick = true;
       showResultsImmediately = true;
       maxEntries = null;
@@ -25,7 +25,6 @@
         inputs.anyrun.packages.${pkgs.system}.randr
       ];
     };
-
 
     extraCss = builtins.readFile ./style.css;
   };
