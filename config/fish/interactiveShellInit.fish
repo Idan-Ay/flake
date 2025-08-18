@@ -1,5 +1,3 @@
-alias f="foot"
-
 # Rubuild Helper
 set -gx FLAKES /home/idan/flake
 set -gx SYSTEM_ID (whoami)"@"(hostname)

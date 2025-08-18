@@ -1,3 +1,15 @@
+function f --description 'Run command in foot and stay open'
+    if test (count $argv) -eq 0
+        # no args → just open foot with an interactive fish
+        foot -e fish
+    else
+        # join all arguments into one string
+        set cmd (string join ' ' $argv)
+        # run the command, then drop into fish so the terminal stays open
+        foot -e fish -C "$cmd; and exec fish"
+    end
+end
+
 function randomWallpaper --description "Set a random wallpaper with swaybg"
     set -l dir "$HOME/.config/wallpapers"
     set -l imgs (command find -L "$dir" -maxdepth 1 -type f \
