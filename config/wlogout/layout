@@ -1,0 +1,20 @@
+# SUSPEND
+{
+  label: suspend,
+  action: systemctl suspend,
+  keybind: 1
+}
+
+# REBOOT
+{
+  label: reboot,
+  action: systemctl reboot,
+  keybind: 2
+}
+
+# SHUT DOWN
+{
+  label: shutdown,
+  action: systemctl poweroff,
+  keybind: 3
+}
