@@ -34,5 +34,7 @@
     };
 
     "mimeapps.list".source = ./config/mimeapps.list;
+
+    "mpv.conf".source = ./config/mpv/mpv.conf;
   };
 }
