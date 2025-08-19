@@ -19,6 +19,7 @@
 
     grim # Screenshot tool
     grimblast # Screenshot in window tool
+    slurp
     swappy # Handles screenshot
 
     lf # file manager
