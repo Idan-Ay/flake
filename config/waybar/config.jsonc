@@ -23,9 +23,10 @@
 
   "pulseaudio": {
     "format": "   {volume}%",
-    "format-muted": "mute ",
-    "scroll-step": 3,
-    "on-click": "pavucontrol"
+    "format-muted": "   mute",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "tooltip": false
   },
 
   "clock": {
