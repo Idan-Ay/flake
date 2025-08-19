@@ -21,8 +21,6 @@
     grimblast # Screenshot in window tool
     swappy # Handles screenshot
 
-    mpv # Image/Media viewer
-
     lf # file manager
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
