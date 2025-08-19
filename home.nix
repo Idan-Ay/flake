@@ -32,5 +32,7 @@
       source = ./config/wallpapers;
       recursive = true;
     };
+
+    "mimeapps.list".source = ./config/mimeapps.list;
   };
 }
