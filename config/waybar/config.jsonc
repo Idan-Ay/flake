@@ -25,7 +25,7 @@
     "format": "   {volume}%",
     "format-muted": "   mute",
     "scroll-step": 5,
-    "on-click": "pavucontrol",
+    "on-click": "hyprctl dispatch exec '[float] pavucontrol'",
     "tooltip": false
   },
 
