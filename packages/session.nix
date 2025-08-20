@@ -22,5 +22,5 @@
 
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
   services.getty.autologinUser = "idan";
-  services.displayManager.defaultSession = "Hyprland";
+  services.displayManager.defaultSession = "Niri";
 }
