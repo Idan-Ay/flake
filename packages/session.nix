@@ -2,7 +2,7 @@
 
 {
   # Enable Hyprland (Wayland window manager)
-  programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     swaybg # background
@@ -15,8 +15,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-hyprland
+    extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
   };
