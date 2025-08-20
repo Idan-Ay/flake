@@ -5,7 +5,9 @@
   programs.niri.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    swaybg # background
+    xwayland-satellite # Xwayland outside your Wayland compositor
+
+    swaybg # Wallpaper
 
     waybar # Bar
     anyrun # Launcher

@@ -17,11 +17,6 @@
 
     fastfetch # View system information
 
-    grim # Screenshot tool
-    grimblast # Screenshot in window tool
-    slurp
-    swappy # Handles screenshot
-
     lf # file manager
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
