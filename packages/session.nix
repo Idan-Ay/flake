@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  # Enable Hyprland (Wayland window manager)
+  # Enable Niri (Wayland window manager)
   programs.niri.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
@@ -17,9 +17,15 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [ "wlr" "gtk" ];
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
+    XDG_CURRENT_DESKTOP = "niri";
   };
 
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)

@@ -15,7 +15,7 @@ input {
         repeat-delay 300
         repeat-rate 25
 
-        accel-speed 1.0
+        // accel-speed 1.0
 
         numlock
     }
@@ -29,48 +29,49 @@ input {
 output "eDP-1" {
     mode "3440x1440"
     scale 1.0
-    transform "0"
+//    transform "0"
     focus-at-startup
 }
 
 output "HDMI-A-1" {
     mode "1920x1080"
     scale 1.25
-    transform "0"
+//    transform "0"
 }
 
 spawn-at-startup "waybar"
 // spawn-at-startup "anyrun"
 
-spawn-at-startup "fish -c randomWallpaper"
+spawn-at-startup "fish" "-c" "randomWallpaper"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+Enter { spawn "foot"; }
+    Mod+Return { spawn "foot"; }
     Mod+T { spawn "foot"; }
-    Mod+N { spawn "lf"; }
+    Mod+S { spawn "lf"; }
     Mod+B { spawn "google-chrome-stable"; }
     Mod+G { spawn "code"; }
     Mod+E { spawn "obsidian"; }
     Mod+R { spawn "blender"; }
 
-    Mod { spawn "anyrun"; }
+    Mod+Space { spawn "anyrun"; }
 
     Mod+Q { close-window; }
     Mod+F { maximize-column; }
     Mod+D { fullscreen-window; }
 
-    Mod+C { screenshot-window show-pointer=false write-to-disk=false; }
+    Mod+C { screenshot-window write-to-disk=false; }
     Print { screenshot show-pointer=false; }
 
     // Window keybinds
-    Mod+H { switch-preset-window-height; }
+    Mod+U { switch-preset-window-height; }
+    Mod+H { switch-preset-column-width; }
 
     Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "10%"; }
-    Mod+Bracketleft { set-column-height "-10%"; }
-    Mod+Bracketright { set-column-height "10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Bracketleft { set-window-height "-10%"; }
+    Mod+Bracketright { set-window-height "+10%"; }
 
     Mod+j { focus-column-left; }
     Mod+l { focus-column-right; }
@@ -87,10 +88,10 @@ binds {
 
     Mod+Semicolon { toggle-column-tabbed-display; }
 
-    Mod+H { toggle-window-floating; }
-    Mod+Ctrl+H { switch-focus-between-floating-and-tiling; }
+    Mod+N { toggle-window-floating; }
+    Mod+Ctrl+N { switch-focus-between-floating-and-tiling; }
 
-    Mod+O { toggle-overwiew; }
+    Mod+O { toggle-overview; }
 
     Mod+7 { focus-workspace 1; }
     Mod+8 { focus-workspace 2; }
@@ -113,26 +114,34 @@ layout {
         proportion 0.66667
     }
 
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+
+
     focus-ring {
+    	width 3
 
-        width 3
+        active-color "rgba(55, 55, 55, 0.75)"
+        inactive-color "rgba(35, 35, 35, 0.75)"
+    }
 
-        focus-ring {
-            active-color "rgba(55, 55, 55, 0.75)"
-            inactive-color "rgba(35, 35, 35, 0.75)"
-        }
-
-        prefer-no-csd
-
-        insert-hint {
-            color "rgba(55, 55, 55, 0.75)"
-        }
+    insert-hint {
+        color "rgba(55, 55, 55, 0.75)"
     }
 }
 
+prefer-no-csd
+
+
 overview {
     zoom 0.5
-    workspace-shadow { off }
+    workspace-shadow {
+    	off
+    }
 }
 
 window-rule {

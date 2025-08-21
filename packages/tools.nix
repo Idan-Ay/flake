@@ -6,6 +6,8 @@
   # enable nix-index auto integration with fish
   programs.command-not-found.enable = true;
 
+  services.gvfs.enable = true;
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -20,6 +22,10 @@
     lf # file manager
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
+
+    xfce.thunar # gui file manager
+    xfce.thunar-archive-plugin  # lets Thunar open/extract zip/tar/etc.
+    xarchiver
 
     micro # Code editor
 
