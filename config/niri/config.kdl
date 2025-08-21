@@ -179,9 +179,9 @@ window-rule {
     match app-id="pavucontrol"
 
     open-floating true
-    default-floating-position x="-8" y="-8" relative-to="top-right"
-    default-window-height { proportion 0.5; }
-    default-column-width { proportion 0.3; }
+    default-floating-position x=-20 y=-20 relative-to="top-right"
+    default-window-height { proportion 0.6; }
+    default-column-width { proportion 0.2; }
 }
 
 animations {
