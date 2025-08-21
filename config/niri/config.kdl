@@ -12,8 +12,7 @@ input {
     warp-mouse-to-focus mode="center-xy"
 
     keyboard {
-        repeat-delay 300
-        repeat-rate 15
+        repeat-delay 200
 
         // accel-speed 1.0
 
@@ -47,26 +46,26 @@ spawn-at-startup "fish" "-c" "randomWallpaper"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+Return { spawn "foot"; }
-    Mod+T { spawn "foot"; }
-    Mod+S { spawn "lf"; }
-    Mod+B { spawn "google-chrome-stable"; }
-    Mod+G { spawn "code"; }
-    Mod+E { spawn "obsidian"; }
-    Mod+R { spawn "blender"; }
+    Mod+Return repeat=false { spawn "foot"; }
+    Mod+T repeat=false { spawn "foot"; }
+    Mod+S repeat=false { spawn "lf"; }
+    Mod+B repeat=false { spawn "google-chrome-stable"; }
+    Mod+G repeat=false { spawn "code"; }
+    Mod+E repeat=false { spawn "obsidian"; }
+    Mod+R repeat=false { spawn "blender"; }
 
-    Mod+Space { spawn "anyrun"; }
+    Mod+Space repeat=false { spawn "anyrun"; }
 
     Mod+Q { close-window; }
-    Mod+F { maximize-column; }
-    Mod+D { fullscreen-window; }
+    Mod+F repeat=false { maximize-column; }
+    Mod+D repeat=false { fullscreen-window; }
 
-    Mod+C { screenshot-window write-to-disk=false; }
-    Print { screenshot show-pointer=false; }
+    Mod+C repeat=false { screenshot-window write-to-disk=false; }
+    Print repeat=false { screenshot show-pointer=false; }
 
     // Window keybinds
-    Mod+U { switch-preset-window-height; }
-    Mod+H { switch-preset-column-width; }
+    Mod+U repeat=false { switch-preset-window-height; }
+    Mod+H repeat=false { switch-preset-column-width; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
@@ -88,20 +87,39 @@ binds {
 
     Mod+Semicolon { toggle-column-tabbed-display; }
 
-    Mod+N { toggle-window-floating; }
-    Mod+Ctrl+N { switch-focus-between-floating-and-tiling; }
+    Mod+N repeat=false { toggle-window-floating; }
+    Mod+Ctrl+N repeat=false { switch-focus-between-floating-and-tiling; }
 
-    Mod+O { toggle-overview; }
+    Mod+O repeat=false { toggle-overview; }
 
-    Mod+7 { focus-workspace 1; }
-    Mod+8 { focus-workspace 2; }
-    Mod+9 { focus-workspace 3; }
-    Mod+0 { focus-workspace 4; }
+    Mod+7 repeat=false { focus-workspace 1; }
+    Mod+8 repeat=false { focus-workspace 2; }
+    Mod+9 repeat=false { focus-workspace 3; }
+    Mod+0 repeat=false { focus-workspace 4; }
 
-    Mod+Ctrl+7 { move-column-to-workspace 1; }
-    Mod+Ctrl+8 { move-column-to-workspace 2; }
-    Mod+Ctrl+9 { move-column-to-workspace 3; }
-    Mod+Ctrl+0 { move-column-to-workspace 4; }
+    Mod+Ctrl+7 repeat=false { move-column-to-workspace 1; }
+    Mod+Ctrl+8 repeat=false { move-column-to-workspace 2; }
+    Mod+Ctrl+9 repeat=false { move-column-to-workspace 3; }
+    Mod+Ctrl+0 repeat=false { move-column-to-workspace 4; }
+
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; };
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; };
+
+    Mod+Up   { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; };
+    Mod+Down { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; };
+
+    XF86AudioMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; };
+    Mod+Z repeat=false         { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; };
+
+    Mod+X repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; };
+
+    XF86AudioPlay repeat=false { spawn "playerctl" "play-pause"; };
+    XF86AudioNext repeat=false { spawn "playerctl" "next"; };
+    XF86AudioPrev repeat=false { spawn "playerctl" "previous"; };
+
+    Super+Right { spawn "playerctl" "position" "5+"; };
+    Super+Left  { spawn "playerctl" "position" "5-"; };
+
 }
 
 layout {
@@ -145,7 +163,7 @@ overview {
 }
 
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 15
     clip-to-geometry true
 }
 
@@ -158,12 +176,12 @@ window-rule {
 
 // "dropdown"
 window-rule {
-    match app-id="^dropdown$"
+    match app-id="pavucontrol"
 
     open-floating true
-    default-floating-position x=0 y=0 relative-to="top-right"
-    default-window-height { proportion 0.3; }
-    default-column-width { proportion 0.2; }
+    default-floating-position x="-8" y="-8" relative-to="top-right"
+    default-window-height { proportion 0.5; }
+    default-column-width { proportion 0.3; }
 }
 
 animations {

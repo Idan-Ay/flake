@@ -32,5 +32,7 @@
     bottom # Task manager
 
     wl-clipboard # Clipboard support for some programs
+
+    playerctl # Media shortcuts
   ]);
 }

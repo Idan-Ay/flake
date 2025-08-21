@@ -28,6 +28,8 @@
     XDG_CURRENT_DESKTOP = "niri";
   };
 
+  environment.sessionVariables.GSK_RENDERER = "gl";
+
   # Set up graphical session to auto-start on TTY1 (no display manager like LightDM)
   services.getty.autologinUser = "idan";
   services.displayManager.defaultSession = "niri-session";
