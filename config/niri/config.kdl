@@ -13,7 +13,7 @@ input {
 
     keyboard {
         repeat-delay 300
-        repeat-rate 25
+        repeat-rate 15
 
         // accel-speed 1.0
 
@@ -35,7 +35,7 @@ output "eDP-1" {
 
 output "HDMI-A-1" {
     mode "1920x1080"
-    scale 1.25
+    scale 1.5
 //    transform "0"
 }
 
