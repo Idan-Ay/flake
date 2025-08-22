@@ -11,4 +11,5 @@ headerbar:backdrop, .titlebar:backdrop {
 
 * {
     box-shadow: none;
+    border-radius: 0 !important;
 }
