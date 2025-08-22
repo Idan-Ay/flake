@@ -10,7 +10,7 @@
 
   "modules-left": ["niri/workspaces"],
   "modules-center": ["wlr/taskbar"],
-  "modules-right": ["pulseaudio", "clock"],
+  "modules-right": ["pulseaudio", "pulseaudio#mic", "clock"],
 
   "niri/workspaces": {
     "disable-scroll": false,
@@ -33,9 +33,16 @@
   "pulseaudio": {
     "format": "   {volume}%",
     "format-muted": "   mute",
-    "scroll-step": 5,
+    "scroll-step": 4,
     "on-click": "pavucontrol",
     "tooltip": false
+  },
+
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   },
 
   "clock": {

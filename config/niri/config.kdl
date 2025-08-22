@@ -14,14 +14,11 @@ input {
     keyboard {
         repeat-delay 200
 
-        // accel-speed 1.0
-
         numlock
     }
 
     tablet {
-        map-to-output "eDP-1"
-        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+        map-to-output "HDMI-A-2"
     }
 }
 
@@ -62,7 +59,7 @@ binds {
     Mod+F repeat=false { maximize-column; }
     Mod+D repeat=false { fullscreen-window; }
 
-    Mod+C repeat=false { screenshot-window write-to-disk=false; }
+    Mod+V repeat=false { screenshot-window write-to-disk=false; }
     Print repeat=false { screenshot show-pointer=false; }
 
     // Window keybinds
@@ -87,8 +84,6 @@ binds {
     Mod+Comma { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Semicolon { toggle-column-tabbed-display; }
-
     Mod+N repeat=false { toggle-window-floating; }
     Mod+Ctrl+N repeat=false { switch-focus-between-floating-and-tiling; }
 
@@ -104,6 +99,8 @@ binds {
     Mod+Ctrl+9 repeat=false { move-column-to-workspace 3; }
     Mod+Ctrl+0 repeat=false { move-column-to-workspace 4; }
 
+
+    // Sound/Media control
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; }
 
@@ -111,9 +108,10 @@ binds {
     Mod+Down { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; }
 
     XF86AudioMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    Mod+Z repeat=false         { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
 
-    Mod+X repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Mod+Z repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    Mod+M repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Mod+X repeat=false { spawn "playerctl" "play-pause"; }
 
     XF86AudioPlay repeat=false { spawn "playerctl" "play-pause"; }
     XF86AudioNext repeat=false { spawn "playerctl" "next"; }
@@ -123,14 +121,10 @@ binds {
     Mod+Left  { spawn "playerctl" "position" "5-"; }
 
     // Screen shortcuts
-    Mod+2 { spawn "niri" "msg" "output" "HDMI-A-2" "on"; }
-    Mod+3 { spawn "niri" "msg" "output" "HDMI-A-2" "off"; }
-    Mod+4 {
-        spawn "/bin/sh" "-c" "niri msg output DP-4 transform normal && niri msg output HDMI-A-2 on";
-    }
-    Mod+5 {
-        spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off";
-    }
+    Mod+2 repeat=false { spawn "niri" "msg" "output" "HDMI-A-2" "on"; }
+    Mod+3 repeat=false { spawn "niri" "msg" "output" "HDMI-A-2" "off"; }
+    Mod+4 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform normal && niri msg output HDMI-A-2 on"; }
+    Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off"; }
 }
 
 layout {
@@ -193,11 +187,6 @@ window-rule {
     default-floating-position x=20 y=20 relative-to="top-right"
     default-window-height { proportion 0.6; }
     default-column-width { proportion 0.2; }
-}
-
-window-rule {
-    open-on-output "HDMI-A-2"
-    open-maximized true
 }
 
 animations {
