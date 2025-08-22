@@ -104,24 +104,33 @@ binds {
     Mod+Ctrl+9 repeat=false { move-column-to-workspace 3; }
     Mod+Ctrl+0 repeat=false { move-column-to-workspace 4; }
 
-    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; };
-    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; };
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; }
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; }
 
-    Mod+Up   { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; };
-    Mod+Down { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; };
+    Mod+Up   { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; }
+    Mod+Down { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; }
 
-    XF86AudioMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; };
-    Mod+Z repeat=false         { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; };
+    XF86AudioMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    Mod+Z repeat=false         { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
 
-    Mod+X repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; };
+    Mod+X repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    XF86AudioPlay repeat=false { spawn "playerctl" "play-pause"; };
-    XF86AudioNext repeat=false { spawn "playerctl" "next"; };
-    XF86AudioPrev repeat=false { spawn "playerctl" "previous"; };
+    XF86AudioPlay repeat=false { spawn "playerctl" "play-pause"; }
+    XF86AudioNext repeat=false { spawn "playerctl" "next"; }
+    XF86AudioPrev repeat=false { spawn "playerctl" "previous"; }
 
-    Super+Right { spawn "playerctl" "position" "5+"; };
-    Super+Left  { spawn "playerctl" "position" "5-"; };
+    Mod+Right { spawn "playerctl" "position" "5+"; }
+    Mod+Left  { spawn "playerctl" "position" "5-"; }
 
+    // Screen shortcuts
+    Mod+2 { spawn "niri" "msg" "output" "HDMI-A-2" "on"; }
+    Mod+3 { spawn "niri" "msg" "output" "HDMI-A-2" "off"; }
+    Mod+4 {
+        spawn "/bin/sh" "-c" "niri msg output DP-4 transform normal && niri msg output HDMI-A-2 on";
+    }
+    Mod+5 {
+        spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off";
+    }
 }
 
 layout {
@@ -184,6 +193,11 @@ window-rule {
     default-floating-position x=20 y=20 relative-to="top-right"
     default-window-height { proportion 0.6; }
     default-column-width { proportion 0.2; }
+}
+
+window-rule {
+    open-on-output "HDMI-A-2"
+    open-maximized true
 }
 
 animations {
