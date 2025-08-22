@@ -19,6 +19,17 @@
 
   home-manager.users.idan = import ./home.nix;
 
+  services.greetd = {
+    enable = true;
+
+    settings = {
+      default_session = {
+        command = "niri-session";
+        user = "idan";
+      };
+    };
+  };
+
   programs.fish = {
     enable = true;
     
@@ -60,6 +71,7 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    CHROME_PASSWORD_STORE = "basic";
   };
 
   security.sudo.enable = true;

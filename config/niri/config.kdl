@@ -25,16 +25,18 @@ input {
     }
 }
 
-output "eDP-1" {
-    mode "3440x1440"
+output "DP-4" {
+    mode "3440x1440@165.001"
     scale 1.0
+    position x=0 y=0
 //    transform "0"
     focus-at-startup
 }
 
-output "HDMI-A-1" {
-    mode "1920x1080"
-    scale 1.5
+output "HDMI-A-2" {
+    mode "1920x1080@60.000"
+    scale 1.0
+    position x=760 y=1440
 //    transform "0"
 }
 
@@ -179,7 +181,7 @@ window-rule {
     match app-id="pavucontrol"
 
     open-floating true
-    default-floating-position x=-20 y=-20 relative-to="top-right"
+    default-floating-position x=20 y=20 relative-to="top-right"
     default-window-height { proportion 0.6; }
     default-column-width { proportion 0.2; }
 }
