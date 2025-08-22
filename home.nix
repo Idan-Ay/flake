@@ -13,12 +13,6 @@
   ];
   
   xdg.configFile = { 
-    "hypr/hyprland.conf".source = ./config/hypr/hyprland.conf;
-    "hypr/UserConfigs" = {
-      source = ./config/hypr/UserConfigs;
-      recursive = true;
-    };
-
     "foot/foot.ini".source = ./config/foot.ini;
 
     "waybar" = {
