@@ -48,7 +48,7 @@ binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+T repeat=false { spawn "foot"; }
     Mod+S repeat=false { spawn "lf"; }
-    Mod+B repeat=false { spawn "google-chrome-stable"; }
+    Mod+B repeat=false { spawn "brave"; }
     Mod+G repeat=false { spawn "code"; }
     Mod+E repeat=false { spawn "obsidian"; }
     Mod+R repeat=false { spawn "blender"; }

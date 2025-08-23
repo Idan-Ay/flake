@@ -26,9 +26,8 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri";
     XDG_CURRENT_DESKTOP = "niri";
+    GSK_RENDERER = "gl";
   };
-
-  environment.sessionVariables.GSK_RENDERER = "gl";
 
   services.getty.autologinUser = "idan";
 }

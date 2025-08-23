@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    google-chrome # unfree
+    brave # unfree
     blender
     obsidian
     gimp3
