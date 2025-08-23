@@ -125,6 +125,9 @@ binds {
     Mod+3 repeat=false { spawn "niri" "msg" "output" "HDMI-A-2" "off"; }
     Mod+4 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform normal && niri msg output HDMI-A-2 on"; }
     Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off"; }
+
+    Mod+Semicolon repeat=false { focus-monitor-next; }
+    Mod+Ctrl+Semicolon repeat=false { move-window-to-monitor-next; }
 }
 
 layout {
