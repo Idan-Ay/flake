@@ -8,6 +8,6 @@
     gimp3
     vscode # unfree
     
-    rclone # for cloud sync
+    # rclone # for cloud sync
   ]);
 }
