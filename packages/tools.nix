@@ -38,7 +38,5 @@
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
-
-    rclone # for cloud sync
   ]);
 }

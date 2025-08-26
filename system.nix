@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-latest, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -9,7 +9,7 @@
 
     ./packages/tools.nix
     ./packages/drivers.nix
-    ./packages/applications.nix
+    ./packages/latest.nix
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
