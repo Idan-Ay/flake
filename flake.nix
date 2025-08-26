@@ -2,7 +2,7 @@
   description = "Idan's NixOS flake with system-wide packages and user config via Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     home-manager.url = "github:nix-community/home-manager";
 
     anyrun = {

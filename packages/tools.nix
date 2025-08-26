@@ -8,6 +8,8 @@
 
   services.gvfs.enable = true;
 
+  services.timesyncd.enable = true;
+
   services.gnome.gnome-keyring.enable = false;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
@@ -36,5 +38,7 @@
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
+
+    rclone # for cloud sync
   ]);
 }
