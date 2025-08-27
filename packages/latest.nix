@@ -7,7 +7,5 @@
     obsidian
     gimp3
     vscode # unfree
-    
-    # rclone # for cloud sync
   ]);
 }
