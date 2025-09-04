@@ -8,7 +8,20 @@
 
   services.gvfs.enable = true;
 
-  services.timesyncd.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
+  services.blueman.enable = true;
 
   services.gnome.gnome-keyring.enable = false;
 
@@ -38,8 +51,5 @@
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
-
-    BlueZ  # Bluetooth support
-    Blueman # Bluetooth gui
   ]);
 }

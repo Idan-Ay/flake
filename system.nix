@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-latest, ... }:
+{ config, pkgs, pkgsLatest, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -71,7 +71,11 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    CHROME_PASSWORD_STORE = "basic";
+    OZONE_PLATFORM = "wayland";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
+    XDG_CURRENT_DESKTOP = "niri";
+    GSK_RENDERER = "gl";
   };
 
   security.sudo.enable = true;
