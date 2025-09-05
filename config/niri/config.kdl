@@ -130,6 +130,8 @@ binds {
     Mod+Ctrl+Semicolon repeat=false { move-window-to-monitor-next; }
 }
 
+prefer-no-csd
+
 layout {
     gaps 8
     center-focused-column "never"
@@ -146,21 +148,20 @@ layout {
         proportion 0.66667
     }
 
-
-
     focus-ring {
-    	width 3
-
-        active-color "rgba(55, 55, 55, 0.75)"
-        inactive-color "rgba(35, 35, 35, 0.75)"
+        off
     }
 
-    insert-hint {
-        color "rgba(55, 55, 55, 0.75)"
+    shadow {
+        on
+        softness 0
+        spread 2
+        offset x=0 y=0
+        draw-behind-window false
+        color "rgba(255, 255, 255, 0.9)"
+        inactive-color "#00000001"
     }
 }
-
-prefer-no-csd
 
 debug {
     wait-for-frame-completion-in-pipewire
@@ -174,7 +175,7 @@ overview {
 }
 
 window-rule {
-    geometry-corner-radius 15
+    geometry-corner-radius 16
     clip-to-geometry true
 }
 

@@ -1,20 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 21,
-  "margin": "8 8 0 8",
-
-  "spacing": 10,
+  "height": 36,
+  "margin": "0 8 0 8",
 
   "output": "DP-4",
 
   "modules-left": ["niri/workspaces"],
   "modules-center": ["wlr/taskbar"],
   "modules-right": ["pulseaudio", "pulseaudio#mic", "clock"],
-
-  "niri/workspaces": {
-    "disable-scroll": false
-  },
 
   "wlr/taskbar": {
     "format": "{icon}",
@@ -35,7 +29,8 @@
     "format": "{format_source}",
     "format-source": "󰍬",
     "format-source-muted": "󰍭",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "disable-scroll": true
   },
 
   "clock": {

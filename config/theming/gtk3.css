@@ -1,11 +1,5 @@
 /* Some themes paint window frames; neutralize them */
 headerbar, .titlebar {
-    background: rgba(0, 0, 0, 0.9); /* black at 50% */
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-headerbar:backdrop, .titlebar:backdrop {
-    background: rgba(0, 0, 0, 0.75); /* slightly dimmer when unfocused */
     background-color: rgba(0, 0, 0, 0.75);
 }
 

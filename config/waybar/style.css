@@ -6,14 +6,12 @@
 
 #waybar {
   background: none;
+  background-color: rgba(0,0,0,0.75);
+  border-radius: 0 0 16px 16px;
 }
 
-#workspaces,
-#taskbar,
-#pulseaudio,
-#clock {
-  background-color: rgba(0,0,0,0.75);
-  border-radius: 100px;
+#workspaces {
+  margin-left: 3px;
 }
 
 #workspaces,
@@ -24,32 +22,23 @@
 
 #pulseaudio,
 #clock {
-    padding: 0 15px;
+  padding: 0 12px;
 }
 
-#workspaces button {
-  background-color: rgba(35, 35, 35, 0.75);
-  color: rgba(180, 180, 180, 0.95);
-  border: none;
+#workspaces button,
+#workspaces button,
+#taskbar button {
+  padding: 3px 8px;
 }
 
-#workspaces button, #taskbar button {
-  margin: 0 3px;
-  padding: 6px;
-  border-radius: 100px;
-}
-
-#workspaces button:hover, #taskbar button:hover {
-  background-color: rgba(55, 55, 55, 0.75);
-}
 
 #workspaces button.active,
 #workspaces button.focused,
 #taskbar button.active {
-  background-color: rgba(55, 55, 55, 0.85);
   color: rgba(230, 230, 230, 1);
+  border: rgba(255, 255, 255, 0.9) solid 2px;
 
-  padding: 6px 15px;
+  padding: 3px 15px;
   border-radius: 100px;  /* pill */
 }
 
