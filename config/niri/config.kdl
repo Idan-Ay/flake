@@ -162,6 +162,9 @@ layout {
 
 prefer-no-csd
 
+debug {
+    wait-for-frame-completion-in-pipewire
+}
 
 overview {
     zoom 0.5
