@@ -11,12 +11,12 @@
 }
 
 #workspaces {
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 #workspaces,
 #taskbar {
-  padding: 3px 0;
+  padding: 2px 0;
   min-width: 10px;
 }
 
@@ -28,7 +28,7 @@
 #workspaces button,
 #workspaces button,
 #taskbar button {
-  padding: 3px 8px;
+  padding: 2px 8px;
 }
 
 
@@ -38,7 +38,7 @@
   color: rgba(230, 230, 230, 1);
   border: rgba(255, 255, 255, 0.9) solid 2px;
 
-  padding: 3px 15px;
+  padding: 2px 15px;
   border-radius: 100px;  /* pill */
 }
 
