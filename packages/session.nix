@@ -10,7 +10,6 @@
     swaybg # Wallpaper
 
     waybar # Bar
-    anyrun # Launcher
   ]);
 
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)
