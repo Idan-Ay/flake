@@ -3,7 +3,7 @@ import QtQuick // for Text
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 
-import "modules" as Modules
+import Modules
 
 PanelWindow {
     anchors {
@@ -24,16 +24,16 @@ PanelWindow {
         Rectangle {
             color: "Black"
             width: parent.width
-            height: 14
+            height: 12
         }
         Rectangle {
             anchors.fill: parent
             color: "Black"
-            radius: 16
+            radius: 8
         }
     }
 
-    // Modules.timedate {}
+    // TimeDate {}
 
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]

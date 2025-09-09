@@ -4,13 +4,13 @@ window {
 
 #main {
     /* background: transparent; */
-    border-radius: 10px;
+    border-radius: 12px;
     background: transparent;
 }
 
 #entry {
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     
     background: transparent;
     color: #fff;
@@ -31,7 +31,7 @@ window {
 }
 
 #match {
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 2px 5px;
 }
 
