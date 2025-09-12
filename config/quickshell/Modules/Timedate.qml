@@ -1,3 +1,7 @@
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
 Scope {
     Row { // Time & Date
         id: clock

@@ -32,7 +32,7 @@ PanelWindow {
     }
 
     Scope {
-        TimeDate {}
+        Timedate {}
     }
 
     PwObjectTracker {
