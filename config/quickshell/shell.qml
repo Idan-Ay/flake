@@ -35,7 +35,9 @@ PanelWindow {
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
 
-        Pipewire {}
+        spacing: 10
+
         Taskbar {}
+        Pipewire {}
     }
 }

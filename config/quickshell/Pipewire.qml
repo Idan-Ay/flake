@@ -10,6 +10,8 @@ Row {
 
     id: sound
 
+    anchors.verticalCenter: parent.verticalCenter
+
     spacing: 10
 
     // Bind the node so audio.* properties are valid & reactive
