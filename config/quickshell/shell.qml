@@ -3,8 +3,6 @@ import QtQuick // for Text
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 
-import Modules
-
 PanelWindow {
     anchors {
         top: true
@@ -33,7 +31,9 @@ PanelWindow {
         }
     }
 
-    // TimeDate {}
+    Scope {
+        TimeDate {}
+    }
 
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]

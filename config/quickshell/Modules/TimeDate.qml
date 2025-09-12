@@ -1,4 +1,5 @@
-Row { // Time & Date
+Scope {
+    Row { // Time & Date
         id: clock
         anchors.centerIn: parent
         spacing: 6
@@ -48,3 +49,4 @@ Row { // Time & Date
             }
         }
     }
+}
