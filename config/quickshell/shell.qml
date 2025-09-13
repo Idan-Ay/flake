@@ -15,6 +15,9 @@ PanelWindow {
     Item { // Background
         anchors.fill: parent
 
+        anchors.leftMargin: 8
+        anchors.rightMargin: 8
+
         layer.enabled: true
         opacity: 0.75
         Rectangle {
@@ -33,8 +36,12 @@ PanelWindow {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
 
+        spacing: 10
+
         Workspaces {}
         Media {}
+
+        anchors.leftMargin: 12
     }
 
     Timedate {}
@@ -47,5 +54,7 @@ PanelWindow {
 
         Taskbar {}
         Pipewire {}
+
+        anchors.rightMargin: 126
     }
 }

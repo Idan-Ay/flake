@@ -9,7 +9,7 @@
 
     swaybg # Wallpaper
 
-    waybar # Bar
+    # waybar # Bar
   ]);
 
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)
