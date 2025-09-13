@@ -10,15 +10,39 @@ Box {
     readonly property MprisPlayer activePlayer: MprisController.activePlayer
     readonly property bool playerAvailable: activePlayer !== null
 
+    width: 380
+
     Row {
         spacing: 6
 
+        anchors.centerIn: parent
+
+        Text {
+            text: activePlayer.trackTitle;
+            color: "white"
+            font.pixelSize: 14
+
+            width: 270
+            height: 16
+
+            elide: Text.ElideRight
+
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
         // Previous
         Rectangle {
-            width: 22
+            width: 20
             height: width
+            radius: 100
+
+            color: "transparent"
+
             Text {
-                text: "Previous"
+                text: "󰒮"
+                color: "white"
+                anchors.centerIn: parent
+                font.pixelSize: 18
             }
             MouseArea {
                 anchors.fill: parent
@@ -28,10 +52,22 @@ Box {
 
         // Play/Pause
         Rectangle {
-            width: 22
+            width: 20
             height: width
+            radius: 100
+
+            color: "transparent"
+
+            border.width: 2
+            border.color: "#ffffff"
+
+            anchors.verticalCenter: parent.verticalCenter
+
             Text {
-                // text: Mpris.PlaybackState === "Playing" ? "Pause" : "Continue"
+                text: activePlayer && activePlayer.playbackState === 1 ? "󰏤" : "󰐊"
+                color: "white"
+                anchors.centerIn: parent
+                font.pixelSize: 16
             }
             MouseArea {
                 anchors.fill: parent
@@ -41,10 +77,17 @@ Box {
 
         // Next
         Rectangle {
-            width: 22
+            width: 20
             height: width
+            radius: 100
+
+            color: "transparent"
+
             Text {
-                text: "Next"
+                text: "󰒭"
+                color: "white"
+                anchors.centerIn: parent
+                font.pixelSize: 18
             }
             MouseArea {
                 anchors.fill: parent

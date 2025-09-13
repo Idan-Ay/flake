@@ -44,7 +44,7 @@ Row {
 
     Box {
         anchors.verticalCenter: parent.verticalCenter
-        width: 250
+        width: 240
 
         Row {
             anchors.centerIn: parent
@@ -52,13 +52,13 @@ Row {
             Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 width: 13
-                height: 20
+                height: 14
                 color: "transparent"
                 Text {
                     anchors.centerIn: parent
                     text: ""
                     color: sound.volume !== 0 ? "white" : "gray"
-                    font.pixelSize: 20
+                    font.pixelSize: 18
                     font.bold: true
                 }
             }
@@ -67,7 +67,7 @@ Row {
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     height: 14
-                    width: 4
+                    width: 3
                     radius: 100
                     color: index+1 <= Math.round(sound.volume * 20) ? "white" : "gray"
                 }
@@ -91,7 +91,7 @@ Row {
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     height: 14
-                    width: 4
+                    width: 3
                     radius: 100
                     color: index+11 <= Math.round(sound.volume * 20) ? "white" : "gray"
                 }
