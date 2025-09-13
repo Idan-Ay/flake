@@ -10,6 +10,9 @@ Box {
     readonly property MprisPlayer activePlayer: MprisController.activePlayer
     readonly property bool playerAvailable: activePlayer !== null
 
+    visible: activePlayer
+    enabled: visible
+
     width: 380
 
     Row {

@@ -55,6 +55,6 @@ PanelWindow {
         Taskbar {}
         Pipewire {}
 
-        anchors.rightMargin: 126
+        anchors.rightMargin: 12
     }
 }
