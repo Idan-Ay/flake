@@ -161,6 +161,10 @@ layout {
         color "rgba(255, 255, 255, 0.9)"
         inactive-color "#00000001"
     }
+
+    insert-hint {
+        color "rgba(255, 255, 255, 0.25)"
+    }
 }
 
 debug {
