@@ -28,11 +28,12 @@ PanelWindow {
             radius: 8
         }
     }
-    
+
     Row {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
 
+        Workspaces {}
         Media {}
     }
 

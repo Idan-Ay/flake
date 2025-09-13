@@ -3,9 +3,6 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Hyprland
-import qs.Common
-import qs.Services
-import qs.Widgets
 
 Rectangle {
     id: root
@@ -353,15 +350,6 @@ Rectangle {
                                 visible: !modelData.isSteamApp
                             }
 
-                            DankIcon {
-                                anchors.centerIn: parent
-                                size: 18
-                                name: "sports_esports"
-                                color: Theme.surfaceText
-                                opacity: modelData.active ? 1.0 : appMouseArea.containsMouse ? 0.8 : 0.6
-                                visible: modelData.isSteamApp
-                            }
-
                             MouseArea {
                                 id: appMouseArea
                                 hoverEnabled: true
@@ -397,59 +385,6 @@ Rectangle {
                                 }
                             }
                         }
-                    }
-                }
-
-                DankIcon {
-                    visible: hasIcon && iconData.type === "icon" && (!SettingsData.showWorkspaceApps || icons.length === 0)
-                    anchors.centerIn: parent
-                    name: (hasIcon && iconData.type === "icon") ? iconData.value : ""
-                    size: Theme.fontSizeSmall
-                    color: isActive ? Qt.rgba(Theme.surfaceContainer.r, Theme.surfaceContainer.g, Theme.surfaceContainer.b, 0.95) : Theme.surfaceTextMedium
-                    weight: isActive && !isPlaceholder ? 500 : 400
-                }
-
-                StyledText {
-                    visible: hasIcon && iconData.type === "text" && (!SettingsData.showWorkspaceApps || icons.length === 0)
-                    anchors.centerIn: parent
-                    text: (hasIcon && iconData.type === "text") ? iconData.value : ""
-                    color: isActive ? Qt.rgba(Theme.surfaceContainer.r, Theme.surfaceContainer.g, Theme.surfaceContainer.b, 0.95) : Theme.surfaceTextMedium
-                    font.pixelSize: Theme.fontSizeSmall
-                    font.weight: (isActive && !isPlaceholder) ? Font.DemiBold : Font.Normal
-                }
-
-                StyledText {
-                    visible: (SettingsData.showWorkspaceIndex && !hasIcon && (!SettingsData.showWorkspaceApps || icons.length === 0))
-                    anchors.centerIn: parent
-                    text: {
-                        const isPlaceholder = CompositorService.isHyprland ? (modelData?.id === -1) : (modelData === -1)
-
-                        if (isPlaceholder) {
-                            return index + 1
-                        }
-
-                        return CompositorService.isHyprland ? (modelData?.id || "") : (modelData - 1)
-                    }
-                    color: isActive ? Qt.rgba(Theme.surfaceContainer.r, Theme.surfaceContainer.g, Theme.surfaceContainer.b, 0.95) : isPlaceholder ? Theme.surfaceTextAlpha : Theme.surfaceTextMedium
-                    font.pixelSize: Theme.fontSizeSmall
-                    font.weight: (isActive && !isPlaceholder) ? Font.DemiBold : Font.Normal
-                }
-
-                Behavior on width {
-		    // When having more icons, animation becomes clunky
-		    enabled: (!SettingsData.showWorkspaceApps || SettingsData.maxWorkspaceIcons <= 3)
-                    NumberAnimation {
-                        duration: Theme.mediumDuration
-                        easing.type: Theme.emphasizedEasing
-                    }
-                }
-
-                Behavior on color {
-		    // When having more icons, animation becomes clunky
-		    enabled: (!SettingsData.showWorkspaceApps || SettingsData.maxWorkspaceIcons <= 3)
-                    ColorAnimation {
-                        duration: Theme.mediumDuration
-                        easing.type: Theme.emphasizedEasing
                     }
                 }
             }
