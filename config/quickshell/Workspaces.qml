@@ -20,19 +20,16 @@ Rectangle {
     property var workspaceList: {
         if (CompositorService.isNiri) {
             const baseList = getNiriWorkspaces()
-            return SettingsData.showWorkspacePadding ? padWorkspaces(baseList) : baseList
+            return baseList
         }
         if (CompositorService.isHyprland) {
             const baseList = getHyprlandWorkspaces()
-            return SettingsData.showWorkspacePadding ? padWorkspaces(baseList) : baseList
+            return baseList
         }
         return [1]
     }
 
     function getWorkspaceIcons(ws) {
-        if (!SettingsData.showWorkspaceApps || !ws) {
-            return []
-        }
 
         let targetWorkspaceId
         if (CompositorService.isNiri) {
@@ -121,7 +118,7 @@ Rectangle {
             return [1, 2]
         }
 
-        if (!root.screenName || !SettingsData.workspacesPerMonitor) {
+        if (!root.screenName) {
             return NiriService.getCurrentOutputWorkspaceNumbers()
         }
 
@@ -134,7 +131,7 @@ Rectangle {
             return 1
         }
 
-        if (!root.screenName || !SettingsData.workspacesPerMonitor) {
+        if (!root.screenName) {
             return NiriService.getCurrentWorkspaceNumber()
         }
 
@@ -145,7 +142,7 @@ Rectangle {
     function getHyprlandWorkspaces() {
         const workspaces = Hyprland.workspaces?.values || []
         
-        if (!root.screenName || !SettingsData.workspacesPerMonitor) {
+        if (!root.screenName) {
             // Show all workspaces on all monitors if per-monitor filtering is disabled
             const sorted = workspaces.slice().sort((a, b) => a.id - b.id)
             return sorted.length > 0 ? sorted : [{
@@ -173,7 +170,7 @@ Rectangle {
     }
 
     function getHyprlandActiveWorkspace() {
-        if (!root.screenName || !SettingsData.workspacesPerMonitor) {
+        if (!root.screenName) {
             return Hyprland.focusedWorkspace ? Hyprland.focusedWorkspace.id : 1
         }
 
@@ -220,13 +217,8 @@ Rectangle {
 
     width: workspaceRow.implicitWidth + padding * 2
     height: widgetHeight
-    radius: SettingsData.topBarNoBackground ? 0 : Theme.cornerRadius
-    color: {
-        if (SettingsData.topBarNoBackground)
-            return "transparent"
-        const baseColor = Theme.surfaceTextHover
-        return Qt.rgba(baseColor.r, baseColor.g, baseColor.b, baseColor.a * Theme.widgetTransparency)
-    }
+    radius: 6
+    color: "white"
     visible: CompositorService.isNiri || CompositorService.isHyprland
 
     MouseArea {
@@ -262,7 +254,7 @@ Rectangle {
         id: workspaceRow
 
         anchors.centerIn: parent
-        spacing: Theme.spacingS
+        spacing: 6
 
         Repeater {
             model: root.workspaceList
@@ -291,23 +283,12 @@ Rectangle {
                     }
                     return CompositorService.isHyprland ? modelData : null
                 }
-                property var iconData: workspaceData?.name ? SettingsData.getWorkspaceNameIcon(workspaceData.name) : null
+                property var iconData: null
                 property bool hasIcon: iconData !== null
-                property var icons: SettingsData.showWorkspaceApps ? root.getWorkspaceIcons(CompositorService.isHyprland ? modelData : (modelData === -1 ? null : modelData)) : []
 
-                width: {
-                    if (SettingsData.showWorkspaceApps) {
-                        if (icons.length > 0) {
-                            return isActive ? widgetHeight * 1.0 + Theme.spacingXS + contentRow.implicitWidth : widgetHeight * 0.8 + contentRow.implicitWidth
-                        } else {
-                            return isActive ? widgetHeight * 1.0 + Theme.spacingXS : widgetHeight * 0.8
-                        }
-                    }
-                    return isActive ? widgetHeight * 1.2 + Theme.spacingXS : widgetHeight * 0.8
-                }
-                height: SettingsData.showWorkspaceApps ? widgetHeight * 0.8 : widgetHeight * 0.6
+                height: 0.6
                 radius: height / 2
-                color: isActive ? Theme.primary : isPlaceholder ? Theme.surfaceTextLight : isHovered ? Theme.outlineButton : Theme.surfaceTextAlpha
+                color: "white"
 
                 MouseArea {
                     id: mouseArea
@@ -333,10 +314,9 @@ Rectangle {
                     id: contentRow
                     anchors.centerIn: parent
                     spacing: 4
-                    visible: SettingsData.showWorkspaceApps && icons.length > 0
 
                     Repeater {
-                        model: icons.slice(0, SettingsData.maxWorkspaceIcons)
+                        model: icons.slice(0, 4)
                         delegate: Item {
                             width: 18
                             height: 18
