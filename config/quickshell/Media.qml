@@ -2,11 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Mpris
 
-Rectangle {
+Box {
     id: media
-
-    color: Qt.rgba(5, 5, 5, 0.05);
-    radius: 6
 
     anchors.verticalCenter: parent.verticalCenter
 
@@ -23,6 +20,10 @@ Rectangle {
             Text {
                 text: "Previous"
             }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: activePlayer.previous()
+            }
         }
 
         // Play/Pause
@@ -31,6 +32,10 @@ Rectangle {
             height: width
             Text {
                 // text: Mpris.PlaybackState === "Playing" ? "Pause" : "Continue"
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: activePlayer.togglePlaying()
             }
         }
 
@@ -43,7 +48,7 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: activePlayer.togglePlaying()
+                onClicked: activePlayer.next()
             }
         }
     }

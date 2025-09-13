@@ -28,15 +28,9 @@ Row {
             ? defaultAudioSource.audio.muted
             : true
 
-    Rectangle {
-
-        color: Qt.rgba(5, 5, 5, 0.05);
-        radius: 6
-
+    Box {
         anchors.verticalCenter: parent.verticalCenter
-
         width: 42
-        height: 22
 
         Text {
             anchors.centerIn: parent
@@ -48,15 +42,9 @@ Row {
         }
     }
 
-    Rectangle {
-
-        color: Qt.rgba(5, 5, 5, 0.05);
-        radius: 6
-
+    Box {
         anchors.verticalCenter: parent.verticalCenter
-
         width: 250
-        height: 22
 
         Row {
             anchors.centerIn: parent
