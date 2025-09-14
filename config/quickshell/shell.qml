@@ -58,3 +58,5 @@ PanelWindow {
         anchors.rightMargin: 12
     }
 }
+
+PipewireMenu {}
