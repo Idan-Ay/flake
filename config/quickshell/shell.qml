@@ -59,4 +59,16 @@ PanelWindow {
 
         anchors.rightMargin: 12
     }
+
+    PopupWindow {
+        visible: true
+        width: 412
+        height: 312
+
+        anchor.window: bar
+
+        color: "transparent"
+
+        Widgets {}
+    }
 }
