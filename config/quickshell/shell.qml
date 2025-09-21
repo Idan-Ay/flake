@@ -1,5 +1,6 @@
 import Quickshell // for PanelWindow
 import QtQuick // for Text
+import Quickshell.Io
 
 PanelWindow {
 
@@ -62,12 +63,13 @@ PanelWindow {
 
     PopupWindow {
         visible: true
-        width: 412
-        height: 312
+        implicitWidth: 1600
+        implicitHeight: 300
 
         anchor.window: bar
 
-        color: "transparent"
+        // color: "transparent"
+        color: "red"
 
         Widgets {}
     }
