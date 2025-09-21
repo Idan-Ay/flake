@@ -3,16 +3,12 @@ import QtQuick
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 
-Row {
+Rectangle {
     PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
+        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource, Pipewire.nodes]
     }
 
     id: sound
-
-    anchors.verticalCenter: parent.verticalCenter
-
-    spacing: 10
 
     // Bind the node so audio.* properties are valid & reactive
     property var defaultAudioSink: Pipewire.defaultAudioSink
@@ -24,76 +20,90 @@ Row {
         : false
 
     property var defaultAudioSource: Pipewire.defaultAudioSource
-        property bool inputMuted: defaultAudioSource && defaultAudioSource.audio
-            ? defaultAudioSource.audio.muted
-            : true
+    
+    property bool inputMuted: defaultAudioSource && defaultAudioSource.audio
+        ? defaultAudioSource.audio.muted
+        : true
 
-    Box {
-        anchors.verticalCenter: parent.verticalCenter
-        width: 42
-
-        Text {
-            anchors.centerIn: parent
-
-            text: !sound.inputMuted ? "" : " "
-
-            font.pixelSize: 18
-            color: !sound.inputMuted ? "white" : "gray"
-        }
+    width: 292
+    height: 30
+    color: "transparent"
+    MouseArea {
+        anchors.fill: parent
+        onClicked: menu.visible = true
     }
-
-    Box {
+    
+    Row {
         anchors.verticalCenter: parent.verticalCenter
-        width: 240
+        spacing: 10
 
-        Row {
-            anchors.centerIn: parent
-            spacing: 4
-            Rectangle {
-                anchors.verticalCenter: parent.verticalCenter
-                width: 13
-                height: 14
-                color: "transparent"
-                Text {
-                    anchors.centerIn: parent
-                    text: ""
-                    color: sound.volume !== 0 ? "white" : "gray"
-                    font.pixelSize: 18
-                    font.bold: true
-                }
+        Box {
+            anchors.verticalCenter: parent.verticalCenter
+            width: 42
+
+            Text {
+                anchors.centerIn: parent
+
+                text: !sound.inputMuted ? "" : " "
+
+                font.pixelSize: 18
+                color: !sound.inputMuted ? "white" : "gray"
             }
-            Repeater {
-                model: 10
+        }
+
+        Box {
+            anchors.verticalCenter: parent.verticalCenter
+            width: 240
+
+            Row {
+                anchors.centerIn: parent
+                spacing: 4
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
+                    width: 13
                     height: 14
-                    width: 3
-                    radius: 100
-                    color: index+1 <= Math.round(sound.volume * 20) ? "white" : "gray"
+                    color: "transparent"
+                    Text {
+                        anchors.centerIn: parent
+                        text: ""
+                        color: sound.volume !== 0 ? "white" : "gray"
+                        font.pixelSize: 18
+                        font.bold: true
+                    }
                 }
-            }
-            Rectangle {
-                anchors.verticalCenter: parent.verticalCenter
-                color: "transparent"
-                width: 42
-                height: 14
-                Text {
-                    anchors.centerIn: parent
-                    color: "white"
-                    font.pixelSize: 14
-                    font.bold: true
-
-                    text: !sound.volumeMuted ? Math.round(sound.volume * 100) + "%" : "---"
+                Repeater {
+                    model: 10
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        height: 14
+                        width: 3
+                        radius: 100
+                        color: index+1 <= Math.round(sound.volume * 20) ? "white" : "gray"
+                    }
                 }
-            }
-            Repeater {
-                model: 10
                 Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
+                    color: "transparent"
+                    width: 42
                     height: 14
-                    width: 3
-                    radius: 100
-                    color: index+11 <= Math.round(sound.volume * 20) ? "white" : "gray"
+                    Text {
+                        anchors.centerIn: parent
+                        color: "white"
+                        font.pixelSize: 14
+                        font.bold: true
+
+                        text: !sound.volumeMuted ? Math.round(sound.volume * 100) + "%" : "---"
+                    }
+                }
+                Repeater {
+                    model: 10
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        height: 14
+                        width: 3
+                        radius: 100
+                        color: index+11 <= Math.round(sound.volume * 20) ? "white" : "gray"
+                    }
                 }
             }
         }

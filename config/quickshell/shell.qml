@@ -2,11 +2,14 @@ import Quickshell // for PanelWindow
 import QtQuick // for Text
 
 PanelWindow {
+
     anchors {
         top: true
         left: true
         right: true
     }
+
+    id: bar
 
     implicitHeight: 30
 
@@ -52,11 +55,8 @@ PanelWindow {
 
         spacing: 10
 
-        Taskbar {}
         Pipewire {}
 
         anchors.rightMargin: 12
     }
 }
-
-PipewireMenu {}
