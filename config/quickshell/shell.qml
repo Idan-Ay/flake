@@ -1,8 +1,12 @@
+//@ pragma IconTheme Papirus-Dark
+
 import Quickshell // for PanelWindow
 import QtQuick // for Text
 import Quickshell.Io
+import Quickshell.Wayland
 
 PanelWindow {
+
 
     anchors {
         top: true
@@ -10,7 +14,9 @@ PanelWindow {
         right: true
     }
 
-    id: bar
+    id: set
+
+    property bool anyWindowsOpen: ToplevelManager.toplevels.count > 0
 
     implicitHeight: 30
 
@@ -61,16 +67,33 @@ PanelWindow {
         anchors.rightMargin: 12
     }
 
-    PopupWindow {
-        visible: true
-        implicitWidth: 1600
-        implicitHeight: 300
+    PanelWindow {
 
-        anchor.window: bar
+        anchors.right: true
 
-        // color: "transparent"
-        color: "red"
+        implicitWidth: 0
+        implicitHeight: 0
 
-        Widgets {}
+        Item {
+            id: widgetItem
+            y: -278
+        }
+
+        visible: set.anyWindowsOpen
+
+
+        PopupWindow {
+            visible: true
+            implicitWidth: 1450
+            implicitHeight: 556
+
+            anchor {
+                item: widgetItem
+            }
+
+            color: "transparent"
+
+            Widgets {}
+        }
     }
 }

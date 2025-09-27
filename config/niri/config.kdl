@@ -166,6 +166,8 @@ layout {
     insert-hint {
         color "rgba(255, 255, 255, 0.25)"
     }
+
+    background-color "transparent"
 }
 
 debug {
@@ -199,6 +201,14 @@ window-rule {
     default-floating-position x=20 y=20 relative-to="top-right"
     default-window-height { proportion 0.6; }
     default-column-width { proportion 0.2; }
+}
+
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
 
 animations {

@@ -42,7 +42,6 @@
 
     xfce.thunar # gui file manager
     xfce.thunar-archive-plugin  # lets Thunar open/extract zip/tar/etc.
-    xarchiver
 
     micro # Code editor
 
@@ -51,5 +50,7 @@
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
+
+    blur-effect
   ]);
 }

@@ -33,9 +33,9 @@
   programs.fish = {
     enable = true;
     
-    loginShellInit = builtins.readFile ./config/fish/loginShellInit.fish;
-    shellInit = builtins.readFile ./config/fish/shellInit.fish;
-    interactiveShellInit = builtins.readFile ./config/fish/interactiveShellInit.fish;
+    loginShellInit = builtins.readFile ./scripts/loginShellInit.fish;
+    shellInit = builtins.readFile ./scripts/shellInit.fish;
+    interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
   };
 
   users.users.idan = {
