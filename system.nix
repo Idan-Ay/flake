@@ -38,7 +38,7 @@
     interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
   };
 
-  system.activationScripts.text = builtins.readFile ./scripts/activationScripts.fish
+  system.activationScripts.text = builtins.readFile ./scripts/activationScripts.fish;
 
   users.users.idan = {
     isNormalUser = true;
