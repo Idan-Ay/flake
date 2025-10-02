@@ -12,8 +12,10 @@ Box {
     readonly property string mainOutput: "DP-4"
 
     property var workspaces: ({})
+    property var windows
     readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
     property int focusedWorkspaceIndex: 0
+    property int focusedWorkspaceId
     property int workspacesMainOutputCount: 2
 
     width: 100
@@ -81,9 +83,9 @@ Box {
             // case 'WindowsChanged':
             //     handleWindowsChanged(event.WindowsChanged);
             //     break;
-            // case 'WindowClosed':
-            //     handleWindowClosed(event.WindowClosed);
-            //     break;
+            case 'WindowClosed':
+                handleWindowClosed();
+                break;
             // case 'WindowOpenedOrChanged':
             //     handleWindowOpenedOrChanged(event.WindowOpenedOrChanged);
             //     break;
@@ -113,29 +115,55 @@ Box {
         // root.workspaces = data.workspaces
 
         const workspaces = {}
-        let workspacesMainOutputCount = 0
+        let workspacesMainOutputCount_S = 0
         for (const ws of data.workspaces) {
             workspaces[ws.id] = ws
             if (ws.output === root.mainOutput) {
-                workspacesMainOutputCount++
+                workspacesMainOutputCount_S++
             }
         }
-        root.workspacesMainOutputCount = workspacesMainOutputCount
+        
+        root.workspacesMainOutputCount = workspacesMainOutputCount_S
         root.workspaces = workspaces
     }
 
     function handleWorkspaceActivated(data) {
         let focusedWorkspaceIndex = 0
+        
         for (const id in root.workspaces) {
             if (root.workspaces[id] && root.workspaces[id].output === root.mainOutput) {
 
                 if (root.workspaces[id].id === data.id) {
                     root.focusedWorkspaceIndex = focusedWorkspaceIndex
+                    root.focusedWorkspaceId = data.id
                     return
                 }
 
                 focusedWorkspaceIndex++
             }
+        }
+    }
+
+    function handleWindowClosed() {
+        currentWindows.exec(currentWindows.command)
+        for (const index in root.windows) {
+            const window = root.window[index]
+            if (window.workspace_id === root.focusedWorkspaceId) {
+                return
+            }
+        }
+        root.workspacesMainOutputCount--
+    }
+
+    Process {
+        id: currentWindows
+        command: ["niri", "msg", "--json", "windows"]
+
+        stdout: StdioCollector { waitForEnd: true }
+        stderr: StdioCollector { waitForEnd: true }
+
+        onExited: {
+            root.windows = JSON.parse( stdout.text.trim() )
         }
     }
 }
