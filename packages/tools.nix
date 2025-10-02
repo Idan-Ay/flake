@@ -51,6 +51,6 @@
 
     playerctl # Media shortcuts
 
-    imagemagickBig
+    blur-effect
   ]);
 }

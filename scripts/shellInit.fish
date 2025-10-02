@@ -32,21 +32,3 @@ function randomWallpaper --description "Set a random wallpaper with swaybg"
     # set wallpaper; modes: fill | fit | center | tile
     swaybg -m fill -i "$img" &
 end
-
-
-function blurredWallpapers --description "create Blurred Wallpapers"
-    set -l dir "$HOME/.config/wallpapers"
-
-    if not test -d $dir/blurred
-        mkdir "$dir/blurred"
-    end
-    for file in $dir/*;
-        if test -f $file
-            set filename (basename $file)
-            if not test $dir/blurred/$filename
-                echo $file
-                magick "$file" -filter Gaussian -blur 0x8 "$dir/blurred/$filename"
-            end
-        end
-    end
-end
