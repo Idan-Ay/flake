@@ -32,7 +32,7 @@
     "niri/config.kdl".source = ./config/niri/config.kdl;
 
     "quickshell" = {
-      source = ./config/quickshell;
+      source = ./config/DankMaterialShell-master;
       recursive = true;
     };
   };
