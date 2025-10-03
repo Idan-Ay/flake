@@ -42,6 +42,7 @@
 
     xfce.thunar # gui file manager
     xfce.thunar-archive-plugin  # lets Thunar open/extract zip/tar/etc.
+    xarchiver
 
     micro # Code editor
 
