@@ -23,6 +23,8 @@
   };
   services.blueman.enable = true;
 
+  networking.networkmanager.enable = true;
+
   services.gnome.gnome-keyring.enable = false;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
