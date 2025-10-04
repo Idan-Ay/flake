@@ -54,6 +54,6 @@
 
     playerctl # Media shortcuts
 
-    blur-effect
+    imagemagickBig # Create, edit, compose, or convert bitmap images
   ]);
 }

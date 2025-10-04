@@ -41,9 +41,9 @@ function blurredWallpapers --description "create Blurred Wallpapers"
     end
     for file in $dir/*;
         if test -f $file
-            set filename (basename $file)
-            if not test $dir/blurred/$filename
-                echo $file
+            set -l filename (basename $file)
+            if not test -e $dir/blurred/$filename
+                echo "$file"
                 magick "$file" -filter Gaussian -blur 0x8 "$dir/blurred/$filename"
             end
         end
