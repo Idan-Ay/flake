@@ -12,6 +12,8 @@ Item {
     property bool showIcons: true
     property bool equalWidthTabs: true
 
+    property bool animationEnabled: false
+
     signal tabClicked(int index)
     signal actionTriggered(int index)
 
@@ -43,18 +45,9 @@ Item {
                     DankIcon {
                         name: modelData.icon || ""
                         anchors.horizontalCenter: parent.horizontalCenter
-                        size: Theme.iconSize
+                        size: 35
                         color: tabItem.isActive ? Theme.primary : Theme.surfaceText
                         visible: hasIcon
-                    }
-
-                    StyledText {
-                        text: modelData.text || ""
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: Theme.fontSizeMedium
-                        color: tabItem.isActive ? Theme.primary : Theme.surfaceText
-                        font.weight: tabItem.isActive ? Font.Medium : Font.Normal
-                        visible: hasText
                     }
                 }
 
@@ -83,83 +76,27 @@ Item {
                     }
                 }
 
+                Rectangle {
+                    height: 5
+                    width: isActive & tabBar.animationEnabled ? 50 : height
+                    color: Theme.primary
+                    radius: 100
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                    }
+
+                    Behavior on width {
+                        enabled: tabBar.animationEnabled
+                        NumberAnimation {
+                            duration: Theme.mediumDuration
+                            easing.type: Theme.standardEasing
+                        }
+                    }
+                }
             }
         }
     }
 
-    Rectangle {
-        id: indicator
-        y: parent.height + 7
-        height: 3
-        width: 60
-        topLeftRadius: Theme.cornerRadius
-        topRightRadius: Theme.cornerRadius
-        bottomLeftRadius: 0
-        bottomRightRadius: 0
-        color: Theme.primary
-        visible: false
-        
-        property bool animationEnabled: false
-        property bool initialSetupComplete: false
-        
-        Behavior on x {
-            enabled: indicator.animationEnabled
-            NumberAnimation {
-                duration: Theme.mediumDuration
-                easing.type: Theme.standardEasing
-            }
-        }
-        
-        Behavior on width {
-            enabled: indicator.animationEnabled
-            NumberAnimation {
-                duration: Theme.mediumDuration
-                easing.type: Theme.standardEasing
-            }
-        }
-    }
-
-    Rectangle {
-        width: parent.width
-        height: 1
-        y: parent.height + 10
-        color: Theme.outlineStrong
-    }
-
-    function updateIndicator(enableAnimation = true) {
-        if (tabRepeater.count === 0 || currentIndex < 0 || currentIndex >= tabRepeater.count) {
-            return
-        }
-        
-        const item = tabRepeater.itemAt(currentIndex)
-        if (!item || item.isAction) {
-            return
-        }
-        
-        const tabPos = item.mapToItem(tabBar, 0, 0)
-        const tabCenterX = tabPos.x + item.width / 2
-        const indicatorWidth = 60
-        
-        if (tabPos.x < 10 && currentIndex > 0) {
-            Qt.callLater(() => updateIndicator(enableAnimation))
-            return
-        }
-        
-        indicator.animationEnabled = enableAnimation
-        indicator.width = indicatorWidth
-        indicator.x = tabCenterX - indicatorWidth / 2
-        indicator.visible = true
-    }
-
-    onCurrentIndexChanged: {
-        if (indicator.initialSetupComplete) {
-            Qt.callLater(() => updateIndicator(true))
-        } else {
-            Qt.callLater(() => {
-                updateIndicator(false)
-                indicator.initialSetupComplete = true
-            })
-        }
-    }
-    onWidthChanged: Qt.callLater(() => updateIndicator(indicator.initialSetupComplete))
+    onWidthChanged: Qt.callLater(() => tabBar.animationEnabled = true)
 }

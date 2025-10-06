@@ -40,7 +40,7 @@ output "HDMI-A-2" {
 // spawn-at-startup "waybar"
 // spawn-at-startup "anyrun"
 spawn-at-startup "quickshell"
-
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "fish" "-c" "randomWallpaper"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

@@ -55,5 +55,9 @@
     playerctl # Media shortcuts
 
     imagemagickBig # Create, edit, compose, or convert bitmap images
+
+    glib # C library of programming buildings blocks
+
+    cliphist # Wayland clipboard manager
   ]);
 }
