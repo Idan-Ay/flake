@@ -19,8 +19,8 @@ Item {
     property real valueOverride: -1
     readonly property bool containsMouse: sliderMouseArea.containsMouse
 
-    property color thumbOutlineColor: Theme.surfaceContainer
-    property color trackColor: enabled ? Theme.outline : Theme.outline
+    property color thumbOutlineColor: Theme.surfaceVariant
+    property color trackColor: Theme.primaryContainer
 
     signal sliderValueChanged(int newValue)
     signal sliderDragFinished(int finalValue)

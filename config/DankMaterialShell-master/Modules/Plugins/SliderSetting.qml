@@ -73,7 +73,6 @@ Column {
         rightIcon: root.rightIcon
         unit: root.unit
         wheelEnabled: false
-        thumbOutlineColor: Theme.surfaceContainerHighest
         onSliderValueChanged: newValue => {
             root.value = newValue
         }

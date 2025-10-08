@@ -65,8 +65,6 @@ Row {
         showValue: true
         unit: "%"
         valueOverride: actualVolumePercent
-        thumbOutlineColor: Theme.surfaceContainer
-        trackColor: root.sliderTrackColor.a > 0 ? root.sliderTrackColor : Theme.surfaceContainerHigh
         onIsDraggingChanged: {
             AudioService.suppressOSD = isDragging
         }

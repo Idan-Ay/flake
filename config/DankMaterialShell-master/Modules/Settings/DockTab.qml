@@ -388,7 +388,6 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
-                            thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDockSpacing(
                                                           newValue)
@@ -416,7 +415,6 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
-                            thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDockBottomGap(
                                                           newValue)
@@ -481,7 +479,6 @@ Item {
                         unit: "%"
                         showValue: true
                         wheelEnabled: false
-                        thumbOutlineColor: Theme.surfaceContainerHigh
                         onSliderValueChanged: newValue => {
                                                   SettingsData.setDockTransparency(
                                                       newValue / 100)

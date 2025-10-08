@@ -93,7 +93,6 @@ Rectangle {
             showValue: true
             unit: "%"
             valueOverride: actualVolumePercent
-            thumbOutlineColor: Theme.surfaceVariant
 
             onSliderValueChanged: function(newValue) {
                 if (AudioService.source && AudioService.source.audio) {

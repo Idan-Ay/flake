@@ -22,6 +22,6 @@ DankOSD {
         anchors.centerIn: parent
         name: SessionService.idleInhibited ? "motion_sensor_active" : "motion_sensor_idle"
         size: Theme.iconSize
-        color: SessionService.idleInhibited ? Theme.primary : Theme.outline
+        color: SessionService.idleInhibited ? Theme.primary : Theme.surfaceContainer
     }
 }

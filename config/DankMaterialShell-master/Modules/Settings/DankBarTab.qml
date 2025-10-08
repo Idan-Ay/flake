@@ -904,7 +904,6 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
-                            thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarSpacing(
                                                           newValue)
@@ -932,7 +931,6 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
-                            thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarBottomGap(
                                                           newValue)
@@ -960,7 +958,6 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
-                            thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarInnerPadding(
                                                           newValue)

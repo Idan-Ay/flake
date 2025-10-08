@@ -91,8 +91,6 @@ Row {
                 DisplayService.setBrightness(newValue)
             }
         }
-        thumbOutlineColor: Theme.surfaceContainer
-        trackColor: Theme.surfaceContainerHigh
     }
 
     Menu {

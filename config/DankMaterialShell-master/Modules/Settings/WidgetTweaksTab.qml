@@ -127,7 +127,6 @@ Item {
                                 unit: "%"
                                 showValue: true
                                 wheelEnabled: false
-                                thumbOutlineColor: Theme.surfaceContainerHigh
                                 onSliderValueChanged: newValue => {
                                                           SettingsData.setOSLogoBrightness(
                                                               newValue / 100)
@@ -156,7 +155,6 @@ Item {
                                 unit: "%"
                                 showValue: true
                                 wheelEnabled: false
-                                thumbOutlineColor: Theme.surfaceContainerHigh
                                 onSliderValueChanged: newValue => {
                                                           SettingsData.setOSLogoContrast(
                                                               newValue / 100)

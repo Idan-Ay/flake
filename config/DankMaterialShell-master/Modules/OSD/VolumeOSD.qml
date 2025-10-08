@@ -92,7 +92,6 @@ DankOSD {
                 enabled: AudioService.sink && AudioService.sink.audio
                 showValue: true
                 unit: "%"
-                thumbOutlineColor: Theme.surfaceContainer
                 valueOverride: displayPercent
 
                 Component.onCompleted: {
