@@ -1,22 +1,33 @@
-pragma Singleton
-pragma ComponentBehavior: Bound
+// pragma Singleton
+// pragma ComponentBehavior: Bound
 
-import QtQuick
-import Quickshell
-import Quickshell.Io
-import qs.Common
+// import QtQuick
+// import Quickshell
+// import Quickshell.Io
+// import qs.Common
 
-Singleton {
+// Singleton {
+//     id: root
 
-    property bool getRandomWallpaperOnStatup: true
-    property bool getBlurredWallpaperOnCover: true
+//     property bool getRandomWallpaperOnStatup: true
+//     property bool getBlurredWallpaperOnCover: true
 
-    function getRandomWallpaper() {
-        const dir = SessionData.wallpaperPath
-        const randomWallpaper = dir[0]
-        SessionData.setWallpaper(randomWallpaper)
-    }
-}
+//     function getRandomWallpaper() {
+//         const dir = SessoinData.wallpaperPath
+//         const randomWallpaper = dir[0]
+//         SessionData.setWallpaper(randomWallpaper)
+//     }
+
+//     function switchToBlurWallpaper() {
+//         const dir = SessionData.wallpaperPath
+//         SessionData.setWallpaper(p+"blurred/"+dir[0])
+//     }
+
+//     IpcHandler {
+//         target: blur
+//         function callS(): void {switchToBlurWallpaper()}
+//     }
+// }
 
 // SessionData.setMonitorWallpaper(prevCyclingProcess.targetScreenName, prevWallpaper)
 // return CompositorService.filterCurrentWorkspace(CompositorService.sortedToplevels, parentScreen.name);

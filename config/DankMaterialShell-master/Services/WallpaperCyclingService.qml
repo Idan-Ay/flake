@@ -1,12 +1,56 @@
-// pragma Singleton
-// pragma ComponentBehavior: Bound
+pragma Singleton
+pragma ComponentBehavior: Bound
 
-// import QtQuick
-// import Quickshell
-// import Quickshell.Io
-// import qs.Common
+import QtQuick
+import Quickshell
+import Quickshell.Io
+import qs.Common
 
-// Singleton {
+Singleton {
+
+    id: root
+
+    property bool getRandomWallpaperOnStatup: true
+    property bool getBlurredWallpaperOnCover: true
+
+    property string randomWallpaperBaseName
+
+    property string parentPath: "~/.config/wallpapers"
+    property string blurredPath: "~/.config/wallpapers/blurred"
+
+    function getRandomWallpaper() {
+        // SessionData.setWallpaper(root.parentPath+"/"+root.randomWallpaperBaseName)
+        getAllWallpapers.exec(getAllWallpapers.command)
+        console.log(root.randomWallpaperBaseName)
+    }
+    Process {
+        id: getAllWallpapers
+        command: ["ls", parent]
+
+        stdout: StdioCollector { waitForEnd: true }
+        stderr: StdioCollector { waitForEnd: true }
+
+        onExited: {
+            root.randomWallpaperBaseName = stdout.text.trim()
+        }
+    }
+
+    function switchToBlurWallpaper() {
+        const dir = SessionData.wallpaperPath
+        const path = dir.split("/")
+        const basename = path[path.length-1]
+
+        SessionData.setWallpaper(blurredPath+"/"+basename)
+    }
+
+    ShellRoot {
+        IpcHandler {
+            target: "wallpaper-cycling"
+            function blur() { switchToBlurWallpaper() }
+        }
+    }
+
+
 //     id: root
 
 //     property bool cyclingActive: false
@@ -436,4 +480,4 @@
 //         }
 //     }
 
-// }
+}
