@@ -13,7 +13,7 @@ Singleton {
     property bool getRandomWallpaperOnStatup: true
     property bool getBlurredWallpaperOnCover: true
 
-    property string randomWallpaperBaseName
+    property string allWallpapersBaseName
 
     property string parentPath: "~/.config/wallpapers"
     property string blurredPath: "~/.config/wallpapers/blurred"
@@ -21,7 +21,7 @@ Singleton {
     function getRandomWallpaper() {
         // SessionData.setWallpaper(root.parentPath+"/"+root.randomWallpaperBaseName)
         getAllWallpapers.exec(getAllWallpapers.command)
-        console.log(root.randomWallpaperBaseName)
+        console.log(root.allWallpapersBaseName)
     }
     Process {
         id: getAllWallpapers
@@ -31,7 +31,7 @@ Singleton {
         stderr: StdioCollector { waitForEnd: true }
 
         onExited: {
-            root.randomWallpaperBaseName = stdout.text.trim()
+            root.allWallpapersBaseName = stdout.text.trim()
         }
     }
 

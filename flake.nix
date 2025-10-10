@@ -22,25 +22,14 @@
     in {
       nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs pkgsLatest quickshell; };
+        modules = [./system.nix];
+      };
 
-        specialArgs = { inherit inputs pkgsLatest; };
-
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./system.nix
-          {
-            home-manager.users.idan = import ./home.nix;
-            
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = false;
-
-            home-manager.extraSpecialArgs = { inherit inputs; };
-
-            environment.systemPackages = [
-              quickshell.packages.${system}.default
-            ];
-          }
-        ];
+      homeConfigurations.idan-pc-l = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [ ./home.nix ];
+        extraSpecialArgs = { inherit inputs; };
       };
     };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, quickshell, ... }:
 
 {
   # Enable Niri (Wayland window manager)
@@ -10,6 +10,7 @@
     swaybg # Wallpaper
 
     # waybar # Bar
+    quickshell.packages.${system}.default
   ]);
 
   # Enable xdg-desktop-portal support (e.g. for file pickers, screenshots)

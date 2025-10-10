@@ -17,8 +17,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  home-manager.users.idan = import ./home.nix;
-
   services.greetd = {
     enable = true;
 
