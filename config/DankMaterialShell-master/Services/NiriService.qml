@@ -340,6 +340,7 @@ Singleton {
 
     function handleOverviewChanged(data) {
         inOverview = data.is_open
+        WallpaperCyclingService.updateWallpaperBlurState()
     }
 
     function handleConfigLoaded(data) {

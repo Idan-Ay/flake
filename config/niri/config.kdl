@@ -207,7 +207,7 @@ window-rule {
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
-    match namespace="^wallpaper$"
+    match namespace="^quickshell$"
     place-within-backdrop true
 }
 

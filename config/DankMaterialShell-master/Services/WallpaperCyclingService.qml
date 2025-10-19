@@ -21,7 +21,7 @@ Singleton {
     property string parentPath: Quickshell.env("HOME") + "/.config/wallpapers"
     property string blurredPath: parentPath + "/blurred"
 
-    property var blurredScreens
+    property var blurredScreens: []
 
     property real lastUpdated
 
@@ -33,10 +33,6 @@ Singleton {
         target: CompositorService
         function onSortedToplevelsChanged() { updateWallpaperBlurStateTimer.start() }
     }
-    // Connections {
-    //     target: NiriService
-    //     function onAllWorkspacesChanged() { updateWallpaperBlurState() }
-    // }
 
     function getRandomWallpaper() {
         getAllWallpapers.exec(getAllWallpapers.command)
@@ -72,29 +68,25 @@ Singleton {
     }
 
     function updateWallpaperBlurState() {
-        let blurredScreens_S = []
-
-        console.log("update Wallpaper blur State")
 
         for (const index in root.screens) {
             const screen = root.screens[index].name
             const filteredTopLevels = CompositorService.filterCurrentWorkspace(CompositorService.sortedToplevels, screen);
 
-            if (root.blurredScreens && root.blurredScreens[index] === !filteredTopLevels.length < 1) {
-                console.log("skipped")
+            const doBlur = !filteredTopLevels.length < 1 || NiriService.inOverview
+
+            if (root.blurredScreens && root.blurredScreens[index] === doBlur) {
                 continue
             }
-            console.log(screen)
             
-            if (filteredTopLevels.length < 1) {
-                blurredScreens_S[index] = false
-                switchToDefaultWallpaper(screen)
-            } else {
-                blurredScreens_S[index] = true
+            if (doBlur) {
+                root.blurredScreens[index] = true
                 switchToBlurWallpaper(screen)
+            } else {
+                root.blurredScreens[index] = false
+                switchToDefaultWallpaper(screen)
             }
         }
-        root.blurredScreens = blurredScreens_S
     }
 
     function switchToBlurWallpaper(screen) {

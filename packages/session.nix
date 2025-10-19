@@ -7,8 +7,6 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite # Xwayland outside your Wayland compositor
 
-    swaybg # Wallpaper
-
     # waybar # Bar
     quickshell.packages.${system}.default
   ]);

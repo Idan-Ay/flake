@@ -432,7 +432,7 @@ LazyLoader {
                     property: "transitionProgress"
                     from: 0.0
                     to: 1.0
-                    duration: root.actualTransitionType === "none" ? 0 : 1000
+                    duration: root.actualTransitionType === "none" ? 0 : 200
                     easing.type: Easing.InOutCubic
                     onFinished: {
                         Qt.callLater(() => {
