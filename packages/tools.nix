@@ -42,9 +42,7 @@
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
 
-    xfce.thunar # gui file manager
-    xfce.thunar-archive-plugin  # lets Thunar open/extract zip/tar/etc.
-    xarchiver
+    nautilus
 
     micro # Code editor
 
