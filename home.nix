@@ -35,5 +35,7 @@
       source = ./config/DankMaterialShell-master;
       recursive = true;
     };
+
+    "better-control/settings.json".source = ./config/better-control/settings.json;
   };
 }
