@@ -8,6 +8,4 @@
     alsa.enable = true;
     pulse.enable = true;
   };
-
-  environment.systemPackages = lib.mkAfter ([pkgs.pavucontrol]);
 }

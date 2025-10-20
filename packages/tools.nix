@@ -21,9 +21,10 @@
       };
     };
   };
-  services.blueman.enable = true;
 
   networking.networkmanager.enable = true;
+
+  services.udisks2.enable = true;
 
   services.gnome.gnome-keyring.enable = false;
 
@@ -42,11 +43,12 @@
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
 
-    nautilus
+    nautilus # Graphical file manager
+    better-control # settings
 
+    resources # Graphical task manager
+    
     micro # Code editor
-
-    bottom # Task manager
 
     wl-clipboard # Clipboard support for some programs
 
