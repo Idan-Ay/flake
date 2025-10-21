@@ -6,6 +6,6 @@
     blender
     obsidian
     gimp3
-    vscode # unfree
+    vscodium
   ]);
 }
