@@ -1,18 +1,57 @@
-placessidebar {
+@import url("file:///nix/store/46kyvaa30fnv77446wphnmyfdhh7633n-orchis-theme-2025-04-25/share/themes/Orchis-Grey-Dark/gtk-4.0/gtk.css");
+
+
+dialog-host, widget,
+window.background.csd .sidebar-pane,
+window.background.csd .content-pane,
+window.background.csd .top-bar,
+window.background.csd .vertical,
+window.background.csd windowhandle,
+window.background.csd headerbar,
+window.background.csd revealer {
 	background: none;
 }
 
-.view {
-	border-radius: 10px;
-	margin: 0 12px 12px 0;
-	background-color: rgb(5, 5, 5);
+window.background.csd {
+	background-color: rgba(0, 0, 0, 0.75);
 }
 
-.background {
+.background .resources-columnview {
+	margin: 0 12px;
+	padding: 12px;
+}
+
+row.activatable {
+	border-radius: 0 8px 8px 0;
+}
+
+.view row.activatable {
+	border-radius: 8px;
+}
+
+.background .view {
+	border-radius: 8px;
+}
+.background .view:hover {
+	border-radius: 8px;
+}
+
+
+.nautilus-window.view.csd.background placessidebar,
+.nautilus-window .sidebar-pane,
+.nautilus-window .content-pane {
+	background: none;
+}
+
+.nautilus-window .view {
+    margin: 0 12px 12px 0;
+}
+
+.nautilus-window.view.csd.background {
 	background-color: rgba(0, 0, 0, 0.75);
 	margin: 0;
 }
 
-.navigation-sidebar {
+.nautilus-window.view.csd.background placessidebar .navigation-sidebar {
 	background-color: rgb(30, 30, 30);
 }

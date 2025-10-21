@@ -59,5 +59,7 @@
     glib # C library of programming buildings blocks
 
     cliphist # Wayland clipboard manager
+
+    eyedropper # color picker
   ]);
 }
