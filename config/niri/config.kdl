@@ -37,11 +37,9 @@ output "HDMI-A-2" {
 //    transform "0"
 }
 
-// spawn-at-startup "waybar"
-// spawn-at-startup "anyrun"
+spawn-at-startup "vicinae" "server"
 spawn-at-startup "quickshell"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "fish" "-c" "randomWallpaper"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -54,7 +52,7 @@ binds {
     Mod+E repeat=false { spawn "obsidian"; }
     Mod+R repeat=false { spawn "blender"; }
 
-    Mod+Space repeat=false { spawn "anyrun"; }
+    Mod+Space repeat=false { spawn "vicinae" "toggle"; }
 
     Mod+Q { close-window; }
     Mod+F repeat=false { maximize-column; }

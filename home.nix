@@ -8,9 +8,13 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./config/anyrun/anyrun.nix
     ./config/theming/theming.nix
   ];
+
+  services.vicinae = {
+      enable = true;
+      autoStart = true;
+  };
   
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;
