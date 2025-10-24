@@ -5,7 +5,7 @@
   programs.niri.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    xwayland-satellite # Xwayland outside your Wayland compositor
+    xwayland
 
     # waybar # Bar
     quickshell.packages.${system}.default
@@ -15,8 +15,11 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = [ "wlr" "gtk" ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+    config.common.default = [ "wlr" "gtk" "gnome" ];
   };
 
   services.getty.autologinUser = "idan";

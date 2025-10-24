@@ -74,7 +74,6 @@
     XDG_SESSION_DESKTOP = "niri";
     XDG_CURRENT_DESKTOP = "niri";
     GSK_RENDERER = "gl";
-    NIXOS_XDG_OPEN_USE_PORTAL = 1;
   };
 
   security.sudo.enable = true;

@@ -39,7 +39,8 @@ row.activatable {
 
 .nautilus-window.view.csd.background placessidebar,
 .nautilus-window .sidebar-pane,
-.nautilus-window .content-pane {
+.nautilus-window .content-pane,
+.nautilus-window.view.csd.background placessidebar .navigation-sidebar {
 	background: none;
 }
 
@@ -50,8 +51,4 @@ row.activatable {
 .nautilus-window.view.csd.background {
 	background-color: rgba(0, 0, 0, 0.75);
 	margin: 0;
-}
-
-.nautilus-window.view.csd.background placessidebar .navigation-sidebar {
-	background-color: rgb(30, 30, 30);
 }

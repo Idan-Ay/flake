@@ -26,8 +26,6 @@
 
   services.udisks2.enable = true;
 
-  services.gnome.gnome-keyring.enable = false;
-
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
