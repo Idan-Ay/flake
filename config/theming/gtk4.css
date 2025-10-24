@@ -52,3 +52,16 @@ row.activatable {
 	background-color: rgba(0, 0, 0, 0.75);
 	margin: 0;
 }
+
+
+.nautilus-window flap.unfolded > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box,
+.nautilus-window .sidebar-pane > toolbarview > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box {
+  background: none;
+  border-width: 0;
+  border-style: hidden;
+  border-color: transparent;
+  border-image: none;
+  border-image-width: 28px 9px 28px 46px;
+  border-image-slice: 28 9 28 46 fill;
+  border-image-repeat: stretch; border-image-source: -gtk-scaled(url("assets/row-selected-blackness-dark-transparent.png"));
+}
