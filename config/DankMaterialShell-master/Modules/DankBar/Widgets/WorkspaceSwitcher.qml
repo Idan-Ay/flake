@@ -346,7 +346,7 @@ Rectangle {
                             const baseWidth = isActive ? root.widgetHeight * 0.9 + Theme.spacingXS : root.widgetHeight * 0.7;
                             return baseWidth + iconsWidth;
                         }
-                        return isActive ? root.widgetHeight * 1.05 : root.widgetHeight * 0.7;
+                        return isActive ? root.widgetHeight * 1.15 : root.widgetHeight * 0.3;
                     }
                 }
                 height: {
@@ -359,7 +359,7 @@ Rectangle {
                         }
                         return isActive ? root.widgetHeight * 1.05 : root.widgetHeight * 0.7;
                     } else {
-                        return SettingsData.showWorkspaceApps ? widgetHeight * 0.7 : widgetHeight * 0.5;
+                        return SettingsData.showWorkspaceApps ? widgetHeight * 0.7 : widgetHeight * 0.3;
                     }
                 }
                 radius: Math.min(width, height) / 2
