@@ -7,6 +7,8 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland
 
+    preload # Makes applications run faster by prefetching binaries and shared objects
+
     # waybar # Bar
     quickshell.packages.${system}.default
   ]);

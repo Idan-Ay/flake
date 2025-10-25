@@ -2,14 +2,18 @@
 
 {
   services.xserver.wacom.enable = true;
+  
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
-  # Use the official proprietary NVIDIA driver
+  hardware.graphics = {
+    enable = true;
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;
-    open = false;  # use proprietary driver
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement.enable = false;
+    open = true;
+    nvidiaSettings = false;
   };
 
   environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer.json".source = 
@@ -17,10 +21,8 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Recommended for Wayland (Hyprland, Sway, etc.)
   environment.variables = {
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";  # workaround for cursor issues
+    LIBVA_DRIVER_NAME = "nvidia";
   };
 
   services.xserver.inputClassSections = [

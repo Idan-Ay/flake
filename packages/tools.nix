@@ -45,6 +45,7 @@
     better-control # settings
 
     resources # Graphical task manager
+    bottom # Terminal task manager
     
     micro # Code editor
 
