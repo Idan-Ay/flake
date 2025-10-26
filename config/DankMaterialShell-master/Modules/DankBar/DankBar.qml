@@ -69,6 +69,8 @@ Item {
             readonly property real effectiveBarThickness: Math.max(barWindow.widgetThickness + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
             readonly property real widgetThickness: Math.max(20, 26 + SettingsData.dankBarInnerPadding * 0.6)
 
+            readonly property real verticalMargin: 8
+
             screen: modelData
             implicitHeight: !isVertical ? px(effectiveBarThickness + SettingsData.dankBarSpacing + (SettingsData.dankBarGothCornersEnabled ? _wingR : 0)) : 0
             implicitWidth: isVertical ? px(effectiveBarThickness + SettingsData.dankBarSpacing + (SettingsData.dankBarGothCornersEnabled ? _wingR : 0)) : 0
@@ -359,8 +361,8 @@ Item {
                 Item {
                     id: barUnitInset
                     anchors.fill: parent
-                    anchors.leftMargin: !barWindow.isVertical ? px(SettingsData.dankBarSpacing) : (axis.edge === "left" ? px(SettingsData.dankBarSpacing) : 0)
-                    anchors.rightMargin: !barWindow.isVertical ? px(SettingsData.dankBarSpacing) : (axis.edge === "right" ? px(SettingsData.dankBarSpacing) : 0)
+                    anchors.leftMargin: !barWindow.isVertical ? px(SettingsData.dankBarSpacing + barWindow.verticalMargin) : (axis.edge === "left" ? px(SettingsData.dankBarSpacing) : 0)
+                    anchors.rightMargin: !barWindow.isVertical ? px(SettingsData.dankBarSpacing + barWindow.verticalMargin) : (axis.edge === "right" ? px(SettingsData.dankBarSpacing) : 0)
                     anchors.topMargin: barWindow.isVertical ? px(SettingsData.dankBarSpacing) : (axis.outerVisualEdge() === "bottom" ? 0 : px(SettingsData.dankBarSpacing))
                     anchors.bottomMargin: barWindow.isVertical ? px(SettingsData.dankBarSpacing) : (axis.outerVisualEdge() === "bottom" ? px(SettingsData.dankBarSpacing) : 0)
 
