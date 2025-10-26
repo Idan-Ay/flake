@@ -127,6 +127,7 @@ Item {
                                 unit: "%"
                                 showValue: true
                                 wheelEnabled: false
+                                trackColor: Theme.surfaceVariant
                                 onSliderValueChanged: newValue => {
                                                           SettingsData.setOSLogoBrightness(
                                                               newValue / 100)
@@ -155,6 +156,7 @@ Item {
                                 unit: "%"
                                 showValue: true
                                 wheelEnabled: false
+                                trackColor: Theme.surfaceVariant
                                 onSliderValueChanged: newValue => {
                                                           SettingsData.setOSLogoContrast(
                                                               newValue / 100)

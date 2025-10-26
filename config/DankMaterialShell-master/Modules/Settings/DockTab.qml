@@ -388,6 +388,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDockSpacing(
                                                           newValue)
@@ -415,6 +416,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDockBottomGap(
                                                           newValue)
@@ -479,6 +481,7 @@ Item {
                         unit: "%"
                         showValue: true
                         wheelEnabled: false
+                        trackColor: Theme.surfaceVariant
                         onSliderValueChanged: newValue => {
                                                   SettingsData.setDockTransparency(
                                                       newValue / 100)

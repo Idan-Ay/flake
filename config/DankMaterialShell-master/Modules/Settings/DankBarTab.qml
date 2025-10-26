@@ -904,6 +904,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarSpacing(
                                                           newValue)
@@ -931,6 +932,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarBottomGap(
                                                           newValue)
@@ -958,6 +960,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarInnerPadding(
                                                           newValue)

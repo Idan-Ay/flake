@@ -785,6 +785,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarTransparency(
                                                           newValue / 100)
@@ -853,6 +854,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setDankBarWidgetTransparency(
                                                           newValue / 100)
@@ -881,6 +883,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setPopupTransparency(
                                                           newValue / 100)
@@ -916,6 +919,7 @@ Item {
                             unit: ""
                             showValue: true
                             wheelEnabled: false
+                            trackColor: Theme.surfaceVariant
                             onSliderValueChanged: newValue => {
                                                       SettingsData.setCornerRadius(
                                                           newValue)
