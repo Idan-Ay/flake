@@ -18,7 +18,7 @@ input {
     }
 
     tablet {
-        map-to-output "HDMI-A-1"
+        map-to-output "HDMI-A-2"
     }
 }
 
@@ -26,15 +26,13 @@ output "DP-4" {
     mode "3440x1440@165.001"
     scale 1.0
     position x=0 y=0
-//    transform "0"
     focus-at-startup
 }
 
-output "HDMI-A-1" {
+output "HDMI-A-2" {
     mode "1920x1080@60.000"
     scale 1.25
     position x=952 y=1440
-//    transform "0"
 }
 
 spawn-at-startup "vicinae" "server"
@@ -182,7 +180,7 @@ overview {
 }
 
 window-rule {
-    geometry-corner-radius 7
+    geometry-corner-radius 1
     clip-to-geometry true
 }
 

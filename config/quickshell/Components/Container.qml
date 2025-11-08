@@ -4,8 +4,6 @@ import Quickshell
 
 Shape {
     id: shape
-    width: bar.width - 8
-    height: bar.height
 
     property color bg: Qt.rgba(0,0,0,0.75)
 

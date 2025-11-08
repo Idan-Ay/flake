@@ -9,7 +9,7 @@ headerbar, .titlebar {
 
 * {
 	border: none;
-	border-radius: 8px;
+	border-radius: 0;
     box-shadow: none;
 }
 
