@@ -7,7 +7,6 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
-import qs.Common
 
 Singleton {
     id: root
@@ -117,7 +116,7 @@ Singleton {
         }
     }
 
-    DankSocket {
+    Socket {
         id: eventStreamSocket
         path: root.socketPath
         connected: CompositorService.isNiri
@@ -141,7 +140,7 @@ Singleton {
         }
     }
 
-    DankSocket {
+    Socket {
         id: requestSocket
         path: root.socketPath
         connected: CompositorService.isNiri
