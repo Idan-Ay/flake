@@ -1,6 +1,9 @@
 import QtQuick
 import Quickshell
 
+import qs.Components
+import qs.Services
+
 Container {
         width: 150
         height: 23
@@ -19,11 +22,11 @@ Container {
 
             Repeater {
 
-                model: 3
+                model: NiriService.workspaces.length
 
                 Rectangle {
 
-                    width: 12
+                    width: NiriService.focusedWorkspaceIndex === Index ? 36 : 12
                     height: 12
 
                     color: Qt.rgba(1, 1, 1, 0.75)

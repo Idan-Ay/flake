@@ -7,6 +7,8 @@ Shape {
 
     property color bg: Qt.rgba(0,0,0,0.75)
 
+    property int indent: 8
+
     ShapePath {
         startX: 0; startY: 0
 
@@ -15,8 +17,8 @@ Shape {
         fillColor: shape.bg
 
         PathLine { x: shape.width; y: 0 }
-        PathLine { x: shape.width; y: shape.height - 8 }
-        PathLine { x: shape.width - 8; y: shape.height}
+        PathLine { x: shape.width; y: shape.height - shape.indent }
+        PathLine { x: shape.width - shape.indent; y: shape.height}
         PathLine { x: 0; y: shape.height }
         PathLine { x: 0; y: 0 }
     }

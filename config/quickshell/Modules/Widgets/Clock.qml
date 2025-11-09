@@ -1,28 +1,29 @@
 import QtQuick
 import Quickshell
 
-Item {
+import qs.Components
+
+
+Container {
+
     SystemClock {
-            id: clock
-            precision: SystemClock.Seconds
+        id: clock
+        precision: SystemClock.Seconds
     }
 
-    Container {
+    width: 400
+    height: 23
 
-        width: 400
-        height: 23
+    anchors.horizontalCenter: parent.horizontalCenter
 
-        anchors.horizontalCenter: parent.horizontalCenter
+    bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
 
-        bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
+    Text {
+        anchors.centerIn: parent
 
-        Text {
-            anchors.centerIn: parent
-
-            text: Qt.formatDateTime(clock.date, "hh:mm : ddd, dd.MM.yyyy, MMMM")
-            font.family: "JetBrainsMono Nerd Font"
-            font.pixelSize: 14
-            color: "white"
-        }
+        text: Qt.formatDateTime(clock.date, "hh:mm : ddd, dd.MM.yyyy, MMMM")
+        font.family: "JetBrainsMono Nerd Font"
+        font.pixelSize: 14
+        color: "white"
     }
 }
