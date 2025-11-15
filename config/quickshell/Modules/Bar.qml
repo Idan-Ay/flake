@@ -51,5 +51,11 @@ PanelWindow {
                 }
             }
         }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: console.log("openMenu")
+        }
     }
+
+    Menu {}
 }
