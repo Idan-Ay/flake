@@ -4,7 +4,7 @@ import Quickshell
 import qs.Components
 
 
-Container {
+Element {
 
     SystemClock {
         id: clock

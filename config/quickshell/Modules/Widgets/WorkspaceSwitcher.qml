@@ -4,7 +4,7 @@ import Quickshell
 import qs.Components
 import qs.Services
 
-Container {
+Element {
         width: 150
         height: 23
 

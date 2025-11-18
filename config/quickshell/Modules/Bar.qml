@@ -28,7 +28,7 @@ PanelWindow {
     WorkspaceSwitcher {}
     Clock {}
 
-    Container {
+    Element {
         width: 69
         height: 23
 
@@ -36,8 +36,6 @@ PanelWindow {
             right: parent.right
             rightMargin: 12
         }
-        
-        bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
 
         Row {
             anchors.centerIn: parent

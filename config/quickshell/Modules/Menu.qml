@@ -4,16 +4,28 @@ import Quickshell
 import qs.Components
 
 PopupWindow {
-    anchor.window: toplevel
-    anchor.rect.x: parentWindow.width / 2 - width / 2
+    anchor.window: bar
+    anchor.rect.x: parentWindow.width - width - 18
     anchor.rect.y: parentWindow.height
-    width: 500
-    height: 500
+    implicitHeight: 500
+    implicitWidth: 500
     visible: true
+
+    color: "transparent"
 
     Container { // Background
         anchors.fill: parent
-
         indent: 10
+
+        Container {
+            anchors {
+                rightMargin: 8
+                leftMargin: 8
+                topMargin: 8
+            }
+
+
+            bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
+        }
     }
 }
