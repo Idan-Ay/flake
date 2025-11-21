@@ -16,14 +16,5 @@ Element {
 
     anchors.horizontalCenter: parent.horizontalCenter
 
-    bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
-
-    Text {
-        anchors.centerIn: parent
-
-        text: Qt.formatDateTime(clock.date, "hh:mm : ddd, dd.MM.yyyy, MMMM")
-        font.family: "JetBrainsMono Nerd Font"
-        font.pixelSize: 14
-        color: "white"
-    }
+    SText { text: Qt.formatDateTime(clock.date, "hh:mm : ddd, dd.MM.yyyy, MMMM") }
 }

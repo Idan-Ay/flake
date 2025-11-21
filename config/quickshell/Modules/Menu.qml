@@ -17,15 +17,36 @@ PopupWindow {
         anchors.fill: parent
         indent: 10
 
-        Container {
+        Column {
+            id: menuColumn
             anchors {
-                rightMargin: 8
-                leftMargin: 8
-                topMargin: 8
+                topMargin: 16
+                rightMargin: 16
+                leftMargin: 16
+                top: parent.top
+                left: parent.left
+                right: parent.right
             }
-
-
-            bg: Qt.rgba(0.15, 0.15, 0.15, 0.75)
+            width: 500 - 32
+            spacing: 32
+            Element {
+                width: menuColumn.width
+                height: 32
+                SText { text: "bluetooth" }
+            }
+            Row {
+                spacing: 32
+                Element {
+                    width: menuColumn.width/2 - 16
+                    height: 32
+                    SText { text: "output" }
+                }
+                Element {
+                    width: menuColumn.width/2 - 16
+                    height: 32
+                    SText { text: "input" }
+                }
+            }
         }
     }
 }
