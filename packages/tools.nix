@@ -26,6 +26,8 @@
 
   services.udisks2.enable = true;
 
+  programs.neovim.enable = true;
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -60,5 +62,8 @@
     cliphist # Wayland clipboard manager
 
     eyedropper # color picker
+
+    vim
+    vimPlugins.LazyVim
   ]);
 }

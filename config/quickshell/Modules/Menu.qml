@@ -46,6 +46,11 @@ PopupWindow {
                     SText { text: "input" }
                 }
             }
+
+            Slider {
+                width: 500 - 32
+                height: 20
+            }
         }
     }
 }
