@@ -9,7 +9,6 @@ PopupWindow {
     anchor.rect.y: parentWindow.height
     implicitHeight: 500
     implicitWidth: 500
-    visible: true
 
     color: "transparent"
 

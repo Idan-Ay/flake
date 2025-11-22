@@ -8,6 +8,8 @@ PanelWindow {
 
     id: bar
 
+    property bool menuVisible: false
+
     anchors {
         top: true
         left: true
@@ -51,9 +53,11 @@ PanelWindow {
         }
         MouseArea {
             anchors.fill: parent
-            onClicked: console.log("openMenu")
+            onClicked: menuVisible = !menuVisible
         }
     }
 
-    Menu {}
+    Menu {
+        visible: menuVisible
+    }
 }
