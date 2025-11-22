@@ -47,7 +47,7 @@ PopupWindow {
                 }
             }
 
-            Slider {
+            SSlider {
                 width: 500 - 32
                 height: 20
             }
