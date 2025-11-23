@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import Quickshell.Services.Pipewire
 
 import qs.Components
 
@@ -47,10 +48,19 @@ PopupWindow {
                 }
             }
 
-            SSlider {
-                width: 500 - 32
-                height: 20
-            }
+            Repeater {
+                // modelt 
+                Rectangle {
+                    width: 500 - 32
+                    height: 20
+                    color: "transparent"
+
+                    SSlider {
+                        width: 500 - 32 - 6
+                        height: 20
+                    }
+                }
+            } 
         }
     }
 }

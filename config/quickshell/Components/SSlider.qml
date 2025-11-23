@@ -5,21 +5,18 @@ import Quickshell
 import qs.Components
 
 
-Element {
+Slider {
+    id: slider
+    anchors.centerIn: parent
+    width: parent.width * 0.95
 
-    Slider {
-        id: slider
-        anchors.centerIn: parent
-        width: parent.width * 0.95
+    from: 0
+    to: 1
+    stepSize: 0.01
+    value: 0.5
+    live: true
 
-        from: 0
-        to: 1
-        stepSize: 0.01
-        value: 0.5
-        live: true
-
-        onValueChanged: {
-            console.log("slider value:", value)
-        }
+    onValueChanged: {
+        console.log("slider value:", value)
     }
 }

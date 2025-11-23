@@ -10,6 +10,11 @@ PanelWindow {
 
     property bool menuVisible: false
 
+    Component.onCompleted: {
+        Screens.mainOutput = bar.screen
+    }
+    onScreenChanged: Screens.mainOutput = bar.screen
+
     anchors {
         top: true
         left: true
@@ -53,7 +58,7 @@ PanelWindow {
         }
         MouseArea {
             anchors.fill: parent
-            onClicked: menuVisible = !menuVisible
+            onClicked: menuVisible = !menuVisible;
         }
     }
 

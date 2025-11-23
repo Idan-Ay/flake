@@ -11,8 +11,6 @@ pragma ComponentBehavior
 Singleton {
     id: root
 
-    readonly property string mainOutput: "DP-4"
-
     readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
 
     property var workspaces: {[]}
@@ -99,7 +97,7 @@ Singleton {
         root.workspaces = data.workspaces
         root.workspacesOnMainOutputLength = 0
         for (const workspace of data.workspaces) {
-            if (workspace.output === root.mainOutput) {
+            if (workspace.output === Screens.mainOutput) {
                 root.workspacesOnMainOutputLength++
             }
         }
@@ -111,7 +109,7 @@ Singleton {
     function handleWorkspaceActivated(data) {
         for (const workspace of root.workspaces) {
             if (workspace.id === data.id
-                && workspace.output === root.mainOutput) {
+                && workspace.output === Screens.mainOutput) {
                 root.selectedWorkspaceOnMainOutputIndex = workspace.idx - 1
             }
         }
