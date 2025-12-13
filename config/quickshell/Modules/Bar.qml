@@ -35,36 +35,41 @@ PanelWindow {
 
     WorkspaceSwitcher {}
     Clock {}
-    Taskbar {}
 
-    Element {
-        width: 69
-        height: 23
-
+    Row {
+        spacing: 6;
+        
         anchors {
             right: parent.right
             rightMargin: 12
         }
 
-        Row {
-            anchors.centerIn: parent
-            spacing: 5
-            Repeater {
-                model: 3
-                Rectangle {
-                    width: 5
-                    height: 5
-                    color: "white"
+        Taskbar {}    
+        Element {
+            width: 69
+            height: 23
+
+
+            Row {
+                anchors.centerIn: parent
+                spacing: 5
+                Repeater {
+                    model: 3
+                    Rectangle {
+                        width: 5
+                        height: 5
+                        color: "white"
+                    }
                 }
             }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: menuVisible = !menuVisible;
+            }
         }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: menuVisible = !menuVisible;
-        }
-    }
 
-    Menu {
-        visible: menuVisible
+        Menu {
+            visible: menuVisible
+        }
     }
 }

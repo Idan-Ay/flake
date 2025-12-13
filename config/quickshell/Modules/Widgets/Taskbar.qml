@@ -7,9 +7,16 @@ import QtQuick.Effects
 
 import qs.Components
 
-Element {
+Rectangle {
+    color: "transparent"
+    
+    width: taskRow.width
+    height: 26
+   
     Row {
         spacing: 6
+        
+        id: taskRow
 
         Repeater {
             model: ToplevelManager.toplevels
@@ -19,29 +26,25 @@ Element {
                 readonly property bool active: modelData.activated
 
                 // Animate the icon "badge" getting larger when active
-                width:  active ? 62 : 42
-                height: 22
+                width: 32
+                height: 26
                 Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutQuad } }
 
-                // Border "badge" behind the icon
                 Rectangle {
-                    anchors.fill: parent
-                    radius: 6
-                    color: Qt.rgba(5, 5, 5, 0.05);
-                    border.width: active ? 2 : 0
-                    border.color: active ? "#ffffff" : "transparent"
-                    antialiasing: true
+                    visible: active
+                    width: 5
+                    height: 2
 
-                    Behavior on border.width { NumberAnimation { duration: 120; easing.type: Easing.OutQuad } }
-                    Behavior on border.color { ColorAnimation { duration: 120; easing.type: Easing.OutQuad } }
+                    anchors {
+                        top: parent.top
+                        horizontalCenter: parent.horizontalCenter
+                    }
                 }
 
-                // The icon itself
                 IconImage {
                     id: appIcon
                     anchors.centerIn: parent
-                    // Leave a little padding so the border is visible
-                    width: 18
+                    width: 16
                     height: width
 
                     readonly property var entry: DesktopEntries.heuristicLookup(modelData.appId)

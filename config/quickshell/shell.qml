@@ -9,4 +9,9 @@ ShellRoot {
         asynchronous: false
         sourceComponent: Bar{}
     }
+
+    Loader {
+        asynchronous: false
+        sourceComponent: Wallpaper{}
+    }
 }
