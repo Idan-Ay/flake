@@ -1,22 +1,91 @@
 import QtQuick
+import QtCore
 import Quickshell
+import Qt.labs.folderlistmodel
+import Quickshell.Wayland
+import QtQuick.Effects
 
-PanelWindow {
-        id: wallpaperWindow
+Item {
+    readonly property string configDir: StandardPaths.writableLocation(
+        StandardPaths.ConfigLocation
+    )
 
-        required property var modelData
+    FolderListModel {
+        id: imagesModel
+        folder: configDir + "/wallpapers"
+        nameFilters: ["*.png", "*.jpg", "*.jpeg"]
+        showDirs: false
+        showHidden: false
+    }
 
-        screen: modelData
+    function getRandomWallpaper() {
+        let index = Math.floor(Math.random() * imagesModel.count)
+        return imagesModel.get(index, "fileUrl")
+    }
+    readonly property string randomWallpaper: getRandomWallpaper()
+    
+    Variants {
+        model: Quickshell.screens;
 
-        WlrLayershell.layer: WlrLayer.Background
-        WlrLayershell.exclusionMode: ExclusionMode.Ignore
+        delegate: Component {
+            PanelWindow {
 
-        anchors.top: true
-        anchors.bottom: true
-        anchors.left: true
-        anchors.right: true
+                required property var modelData
 
-        Image {
-            
+                screen: modelData
+
+                aboveWindows: false
+                exclusiveZone: 0
+                
+                id: wallpaperWindow
+                
+                anchors {
+                    top: true
+                    bottom: true
+                    left: true
+                    right: true
+                }
+
+                Image {
+                    anchors.fill: parent
+                    source: randomWallpaper
+                    fillMode: Image.PreserveAspectCrop
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                }
+
+                PanelWindow {
+
+                    screen: modelData
+                    
+                    anchors.top: true
+                    anchors.bottom: true
+                    anchors.left: true
+                    anchors.right: true
+                
+                    WlrLayershell.layer: WlrLayer.Background
+                    WlrLayershell.namespace: "dms:blurredWallpaper"
+                    WlrLayershell.exclusionMode: ExclusionMode.Ignore
+
+                    Image {
+                        id: blurredImage
+                        anchors.fill: parent
+                        source: randomWallpaper
+                        fillMode: Image.PreserveAspectCrop
+                        horizontalAlignment: Image.AlignHCenter
+                        verticalAlignment: Image.AlignVCenter            
+                    }
+                    
+                    MultiEffect {
+                        source: blurredImage
+                        anchors.fill: parent
+                        blurEnabled: true
+                        blur: 0.8
+                        blurMax: 75
+                        autoPaddingEnabled: false
+                    }
+                }
+            }
         }
+    }
 }

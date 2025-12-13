@@ -191,21 +191,8 @@ window-rule {
     open-maximized true
 }
 
-// "dropdown"
-window-rule {
-    match app-id="pavucontrol"
-
-    open-floating true
-    default-floating-position x=20 y=20 relative-to="top-right"
-    default-window-height { proportion 0.6; }
-    default-column-width { proportion 0.2; }
-}
-
-// Make the wallpaper stationary, rather than moving with workspaces.
 layer-rule {
-    // This is for swaybg; change for other wallpaper tools.
-    // Find the right namespace by running niri msg layers.
-    match namespace="^quickshell$"
+    match namespace="blurredWallpaper"
     place-within-backdrop true
 }
 
