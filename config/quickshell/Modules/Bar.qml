@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 
 import qs.Components
+import qs.Services
 import qs.Modules.Widgets
 
 PanelWindow {
@@ -11,9 +12,9 @@ PanelWindow {
     property bool menuVisible: false
 
     Component.onCompleted: {
-        Screens.mainOutput = bar.screen
+        Screens.mainOutput = bar.screen.name
     }
-    onScreenChanged: Screens.mainOutput = bar.screen
+    onScreenChanged: Screens.mainOutput = bar.screen.name
 
     anchors {
         top: true
@@ -34,6 +35,7 @@ PanelWindow {
 
     WorkspaceSwitcher {}
     Clock {}
+    Taskbar {}
 
     Element {
         width: 69
