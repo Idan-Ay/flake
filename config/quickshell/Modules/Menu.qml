@@ -53,10 +53,19 @@ PopupWindow {
                 id: defaultAudioSink
                 node: Pipewire.defaultAudioSink
             }
-            
-            PwObjectTracker {
-                objects: [Pipewire.defaultAudioSink, defaultAudioSink.linkGroups]
+
+            function volumesToBound() {
+                let bound = []
+                for (const group of defaultAudioSink.linkGroups) {
+                    console.log("update")
+                    bound.push( group.source.audio.volume )
+                }
+                return bound
             }
+            
+            // PwObjectTracker {
+            //     objects: menuColumn.volumesToBound()
+            // }
 
             Repeater {
                 model: defaultAudioSink.linkGroups
@@ -71,6 +80,10 @@ PopupWindow {
 
                         width: 499
 
+                        PwObjectTracker {
+                            objects: [modelData.source]
+                        }
+
                         property string name: modelData.source.name
                         property real volume: modelData.source.audio.volume
                         // property real volume: 3
@@ -80,17 +93,14 @@ PopupWindow {
                             text: containSlider.name
                         }
 
-                        Slider {
+                        SSlider {
                             id: slider
-                            width: parent.width 
-                            height: 19
+                            stepSize: 0.01
 
-                            from: -1
-                            to: 0
-                            stepSize: -1.01
-                            live: true
+                            value: modelData.source.audio.volume
 
-                            onValueChanged: console.log(containSlider.volume)
+                            onValueChanged: {modelData.source.audio.volume = value
+                            console.log(value)}
                         }
                     }
                 }

@@ -44,7 +44,7 @@ PanelWindow {
             rightMargin: 12
         }
 
-        Taskbar {}    
+        // Taskbar {}
         Element {
             width: 69
             height: 23
