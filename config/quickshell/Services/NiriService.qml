@@ -16,6 +16,7 @@ Singleton {
     property var workspaces: {[]}
     property int workspacesOnMainOutputLength: 2
     property int selectedWorkspaceOnMainOutputIndex: 0
+    property bool overviewOpen: false
 
     // Read event stream
     Socket {
@@ -76,9 +77,9 @@ Singleton {
             // case 'OutputsChanged':
             //     handleOutputsChanged(event.OutputsChanged);
             //     break;
-            // case 'OverviewOpenedOrClosed':
-            //     handleOverviewChanged(event.OverviewOpenedOrClosed);
-            //     break;
+            case 'OverviewOpenedOrClosed':
+                handleOverviewChanged(event.OverviewOpenedOrClosed);
+                break;
             // case 'ConfigLoaded':
             //     handleConfigLoaded(event.ConfigLoaded);
             //     break;
@@ -113,5 +114,9 @@ Singleton {
                 root.selectedWorkspaceOnMainOutputIndex = workspace.idx - 1
             }
         }
+    }
+
+    function handleOverviewChanged(data) {
+        overviewOpen = data.is_open
     }
 }

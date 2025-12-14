@@ -1,6 +1,5 @@
 import QtQuick
 import Quickshell
-import QtQuick.Controls
 import Quickshell.Services.Pipewire
 
 import qs.Components
@@ -54,18 +53,34 @@ PopupWindow {
                 node: Pipewire.defaultAudioSink
             }
 
-            function volumesToBound() {
-                let bound = []
-                for (const group of defaultAudioSink.linkGroups) {
-                    console.log("update")
-                    bound.push( group.source.audio.volume )
-                }
-                return bound
+            PwObjectTracker {
+                objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
             }
-            
-            // PwObjectTracker {
-            //     objects: menuColumn.volumesToBound()
-            // }
+
+            Column {
+                width: 499 - 32
+                height: 19
+                SText {
+                    anchors.centerIn: null
+                    text: "output"
+                }
+                SSlider {
+                    value: Pipewire.defaultAudioSink.audio.volume
+                    onValueChanged: Pipewire.defaultAudioSink.audio.volume = value
+                }
+            }
+            Column {
+                width: 499 - 32
+                height: 19
+                SText {
+                    anchors.centerIn: null
+                    text: "input"
+                }
+                SSlider {
+                    value: Pipewire.defaultAudioSource.audio.volume
+                    onValueChanged: Pipewire.defaultAudioSource.audio.volume = value
+                }
+            }
 
             Repeater {
                 model: defaultAudioSink.linkGroups
@@ -85,8 +100,6 @@ PopupWindow {
                         }
 
                         property string name: modelData.source.name
-                        property real volume: modelData.source.audio.volume
-                        // property real volume: 3
 
                         SText {
                             anchors.centerIn: null
@@ -95,12 +108,11 @@ PopupWindow {
 
                         SSlider {
                             id: slider
-                            stepSize: 0.01
+
+                            width: parent.width -32
 
                             value: modelData.source.audio.volume
-
-                            onValueChanged: {modelData.source.audio.volume = value
-                            console.log(value)}
+                            onValueChanged: modelData.source.audio.volume = value
                         }
                     }
                 }

@@ -1,10 +1,13 @@
 import Quickshell
+import QtQuick.Controls
 
 Slider {
-    width: parent.width - 32
+    width: parent.width
     height: 19
+ 
+    stepSize: 0.01
 
     from: 0
-    to: 1
+    to: 1.2
     live: true
 }
