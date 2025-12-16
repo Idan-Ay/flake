@@ -1,6 +1,8 @@
 import QtQuick
+import QtQuick.Controls
 import Quickshell
 import Quickshell.Services.Pipewire
+import Quickshell.Bluetooth
 
 import qs.Components
 
@@ -31,9 +33,144 @@ PopupWindow {
             spacing: 32
             Element {
                 width: menuColumn.width
-                height: 32
-                SText { text: "bluetooth" }
+                height: bluetoothDeviceColumn.height + 19
+
+                Column {
+                    spacing: 4
+
+                    Rectangle {
+                        width: parent.width
+                        height: 19
+                        color: "transparent"
+                        SText { text: "bluetooth" }
+                        Row {
+                            spacing: 12
+                            anchors.right: parent.right
+                            Rectangle {
+                                width: 19
+                                height: 19
+
+                                color: "transparent"
+
+                                SText {
+                                    text: "R"
+                                    anchors.centerIn: parent
+                                    color: Bluetooth.defaultAdapter.discovering ? "grey" : "white"
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        if (!Bluetooth.defaultAdapter.discovering) {
+                                            Bluetooth.defaultAdapter.discovering = true
+                                            waitForDiscoveringDisable.start()
+                                        }
+                                    }
+                                }
+                                Timer {
+                                    id: waitForDiscoveringDisable
+                                    interval: 5000;
+                                    onTriggered: Bluetooth.defaultAdapter.discovering = false
+                                }
+                            }
+                            Switch {
+                                checked: Bluetooth.defaultAdapter.enabled
+                                onClicked: Bluetooth.defaultAdapter.enabled = checked
+                                height: 19
+                                width: 32
+                            }
+                        }
+                    }
+                    Rectangle {
+                        width: menuColumn.width - 14
+                        height: 2
+                    }
+
+                    id: bluetoothDeviceColumn
+                    width: menuColumn.width - 16
+                    Repeater {
+                        model: Bluetooth.devices
+                        Rectangle {
+                            id: deviceElement
+
+                            width: parent.width
+                            height: 19
+
+                            color: "transparent"
+
+                            property bool forgetting: false
+
+                            SText {
+                                text: modelData.name + " (" + modelData.icon + ") " +
+                                        (modelData.betteryAvailable ? modelData.battery + "%" : "") +
+                                        (modelData.state === 1 ? "connected" : "") +
+                                        (modelData.state === 3 ? "connecting..." : "") +
+                                        (modelData.state === 0 ? "disconnected" : "") +
+                                        (deviceElement.forgetting ? " | forgetting..." : "")
+                            }
+
+                            MouseArea {
+                                width: parent.width - 20
+                                height: parent.height
+                                onClicked: {
+                                    modelData.pair()
+                                    modelData.connect()
+                                }
+                            }
+
+                            Row {
+                                anchors {
+                                    verticalCenter: parent.verticalCenter
+                                    right: parent.right
+                                }
+                                    
+                                Rectangle {
+                                    enabled: modelData.paired
+                                    visible: modelData.paired
+
+                                    width: 19
+                                    height: 19
+
+                                    color: "transparent"
+
+                                    SText {
+                                        text: "d"
+                                        anchors.centerIn: parent
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            modelData.disconnect()
+                                        }
+                                    }
+                                }
+
+                                Rectangle {
+                                    enabled: modelData.paired
+                                    visible: modelData.paired
+
+                                    width: 19
+                                    height: 19
+
+                                    color: "transparent"
+
+                                    SText {
+                                        text: "f"
+                                        anchors.centerIn: parent
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            deviceElement.forgetting = true
+                                            modelData.forget()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
             Row {
                 spacing: 32
                 Element {

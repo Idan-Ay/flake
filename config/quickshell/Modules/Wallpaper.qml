@@ -117,6 +117,20 @@ Item {
                 }
 
                 PanelWindow {
+                    screen: modelData
+
+                    anchors {
+                        bottom: true
+                        left: true
+                        right: true
+                    }
+                    implicitHeight: 20
+                    visible: NiriService.overviewOpen
+
+                    color: "transparent"
+                }
+
+                PanelWindow {
 
                     screen: modelData
                     
@@ -136,6 +150,13 @@ Item {
                         fillMode: Image.PreserveAspectCrop
                         horizontalAlignment: Image.AlignHCenter
                         verticalAlignment: Image.AlignVCenter            
+                    }
+
+                    Rectangle {
+                        color: "black"
+                        opacity: 0.75
+                        anchors.fill: parent
+                        z: 1
                     }
                     
                     MultiEffect {
