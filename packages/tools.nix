@@ -44,6 +44,7 @@
     p7zip unzip zip unrar atool
 
     nautilus # Graphical file manager
+    nemo
     better-control # settings
 
     resources # Graphical task manager
