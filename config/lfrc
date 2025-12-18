@@ -7,7 +7,7 @@ cmd open ${{
     for i in $fx;
         do xdg-open "$i" >/dev/null 2>&1 &
     done
-}}  
+}}
 map <enter> open
 
 map <backspace2> :delete

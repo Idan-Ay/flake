@@ -10,7 +10,7 @@ PopupWindow {
     anchor.window: bar
     anchor.rect.x: parentWindow.width - width - 18
     anchor.rect.y: parentWindow.height
-    implicitHeight: 500
+    implicitHeight: menuColumn.height + 78
     implicitWidth: 500
 
     color: "transparent"
@@ -174,14 +174,133 @@ PopupWindow {
             Row {
                 spacing: 32
                 Element {
+                    id: outputSwitcher
                     width: menuColumn.width/2 - 16
-                    height: 32
-                    SText { text: "output" }
+                    height: outputColumn.height + 19
+                    
+                    Column {
+                        id: outputColumn
+                        spacing: 4
+
+                        SText { text: "output" }
+
+                        Rectangle {
+                            width: outputSwitcher.width - 14
+                            height: 2
+                        }
+
+                        width: outputSwitcher.width - 16
+
+                        function getSinkNodes() {
+                            let sinkNodes = []
+                            for (const node of Pipewire.nodes.values) {
+                                if (node.isSink && !node.isStream) {
+                                    sinkNodes.push(node)
+                                }
+                            }
+                            return sinkNodes
+                        }
+                        Repeater {
+                            model: outputColumn.getSinkNodes()
+                            Rectangle {
+
+                                width: parent.width
+                                height: 19
+
+                                color: "transparent"
+
+                                SText {
+                                    text: modelData.description || modelData.name
+                                    width: parent.width - 12
+                                    elide: Text.ElideRight
+                                }
+
+                                Rectangle {
+                                    visible: modelData === Pipewire.defaultAudioSink
+                                    width: 4
+                                    height: 4
+                                    color: "white"
+                                    anchors {
+                                        verticalCenter: parent.verticalCenter
+                                        right: parent.right
+                                    }
+                                }
+
+                                MouseArea {
+                                    width: parent.width - 20
+                                    height: parent.height
+                                    onClicked: {
+                                        Pipewire.preferredDefaultAudioSink = modelData
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                
                 Element {
+                    id: inputSwitcher
                     width: menuColumn.width/2 - 16
-                    height: 32
-                    SText { text: "input" }
+                    height: inputColumn.height + 19
+                    
+                    Column {
+                        id: inputColumn
+                        spacing: 4
+
+                        SText { text: "input" }
+
+                        Rectangle {
+                            width: inputSwitcher.width - 14
+                            height: 2
+                        }
+
+                        width: inputSwitcher.width - 16
+
+                        function getSourceNodes() {
+                            let sinkNodes = []
+                            for (const node of Pipewire.nodes.values) {
+                                if (!node.isSink && !node.isStream && node.audio) {
+                                    sinkNodes.push(node)
+                                }
+                            }
+                            return sinkNodes
+                        }
+                        Repeater {
+                            model: inputColumn.getSourceNodes()
+                            Rectangle {
+
+                                width: parent.width
+                                height: 19
+
+                                color: "transparent"
+
+                                SText {
+                                    text: modelData.description || modelData.name
+                                    width: parent.width - 12
+                                    elide: Text.ElideRight
+                                }
+
+                                Rectangle {
+                                    visible: modelData === Pipewire.defaultAudioSource
+                                    width: 4
+                                    height: 4
+                                    color: "white"
+                                    anchors {
+                                        verticalCenter: parent.verticalCenter
+                                        right: parent.right
+                                    }
+                                }
+
+                                MouseArea {
+                                    width: parent.width - 20
+                                    height: parent.height
+                                    onClicked: {
+                                        Pipewire.preferredDefaultAudioSource = modelData
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -219,8 +338,14 @@ PopupWindow {
                 }
             }
 
+            SText {
+                text: "applications:"
+                height: 46
+                verticalAlignment: Text.AlignBottom
+            }
             Repeater {
                 model: defaultAudioSink.linkGroups
+
                 Rectangle {
                     width: 499 - 32
                     height: 19

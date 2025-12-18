@@ -3,12 +3,10 @@ headerbar, .titlebar {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-* {
-	border: none;
-	border-radius: 0;
-    box-shadow: none;
+.titlebar {
+    border-radius: 0;
 }
-
+ 
 .tiled {
 	background-color: rgba(0, 0, 0, 0.75);
 }

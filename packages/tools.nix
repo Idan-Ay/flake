@@ -43,15 +43,10 @@
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
 
-    nautilus # Graphical file manager
-    nemo
-    better-control # settings
+    nemo # Graphical file manager
 
-    resources # Graphical task manager
     bottom # Terminal task manager
     
-    micro # Code editor
-
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts

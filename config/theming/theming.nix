@@ -12,11 +12,11 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Blackout";  # Exact folder name
-      package = pkgs.stdenv.mkDerivation {  # If not in nixpkgs, create a simple derivation
+      name = "Blackout";
+      package = pkgs.stdenv.mkDerivation {
         pname = "blackout";
         version = "1.0";
-        src = ./Blackout;  # Or builtins.path as above
+        src = ./Blackout;
         installPhase = "mkdir -p $out/share/themes/Blackout; cp -r . $out/share/themes/Blackout";
       };
     };
@@ -35,7 +35,7 @@
 
   xdg.enable = true;
 
-  # xdg.configFile."gtk-3.0/gtk.css".source = ./gtk3.css;
+  xdg.configFile."gtk-3.0/gtk.css".source = ./gtk3.css;
   # xdg.configFile."gtk-4.0/gtk.css".source = ./gtk4.css;
 
   # xdg.configFile."gtk-4.0/assets" = {
