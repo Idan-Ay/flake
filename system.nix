@@ -13,6 +13,7 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
+    ./packages/nvim/nvim.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -9,7 +9,6 @@
 
   imports = [
     ./config/theming/theming.nix
-    ./packages/home/nvim.nix
   ];
 
   services.vicinae = {
@@ -19,11 +18,6 @@
 
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;
-
-    "waybar" = {
-      source = ./config/waybar;
-      recursive = true;
-    };
 
     "lf/lfrc".source = ./config/lfrc;
 
