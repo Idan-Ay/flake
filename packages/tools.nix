@@ -26,29 +26,7 @@
 
   services.udisks2.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    configure = {
-      customRC = ''
-
-          let mapleader = "\<Space>"
-
-          lua << EOF
-            ${builtins.readFile /home/user/.config/nvim/init.lua}
-
-            ${builtins.readFile /home/user/.config/nvim/lua/config/lazy.lua}
-
-            ${builtins.readFile /home/user/.config/nvim/lua/config/keymaps.lua}
-
-            ${builtins.readFile /home/user/.config/nvim/lua/config/autocmds.lua}
-          EOF
-
-        '';
-    };
-  };
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager

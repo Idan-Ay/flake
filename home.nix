@@ -9,6 +9,7 @@
 
   imports = [
     ./config/theming/theming.nix
+    ./packages/home/nvim.nix
   ];
 
   services.vicinae = {

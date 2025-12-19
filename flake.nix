@@ -11,13 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly.url = "github:neovim/neovim?dir=contrib";
-    neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
-
-    huez-nvim = { url = "github:vague2k/huez.nvim"; flake = false; };
-    blame-me-nvim = { url = "github:hougesen/blame-me.nvim"; flake = false; };
-    cmake-tools-nvim = { url = "github:Civitasv/cmake-tools.nvim"; flake = false; };
-    cmake-gtest-nvim = { url = "github:hfn92/cmake-gtest.nvim"; flake = false; };
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { 
@@ -28,12 +22,7 @@
     home-manager,
     quickshell,
     vicinae,
-    lazyvim,
-    neovim-nightly,
-    huez-nvim,
-    blame-me-nvim,
-    cmake-tools-nvim,
-    cmake-gtest-nvim,
+    nixvim,
     ... 
     } @ inputs:
     let
@@ -48,7 +37,11 @@
 
       homeConfigurations.idan-pc-l = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./home.nix vicinae.homeManagerModules.default lazyvim.homeManagerModules.default ];
+        modules = [
+          ./home.nix
+          vicinae.homeManagerModules.default
+          nixvim.homeModules.default
+        ];
         extraSpecialArgs = { inherit inputs; };
       };
     };
