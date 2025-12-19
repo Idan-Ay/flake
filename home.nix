@@ -9,13 +9,14 @@
 
   imports = [
     ./config/theming/theming.nix
+    ./packages/home/nvim.nix
   ];
 
   services.vicinae = {
       enable = true;
       autoStart = true;
   };
-  
+
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;
 

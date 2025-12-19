@@ -10,6 +10,8 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?ref=a5431dd02dc23d9ef1680e67777fed00fe5f7cda";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
   outputs = { 
@@ -19,6 +21,7 @@
     flake-utils, home-manager,
     quickshell,
     vicinae,
+    lazyvim,
     ... 
     } @ inputs:
     let
@@ -33,7 +36,7 @@
 
       homeConfigurations.idan-pc-l = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./home.nix vicinae.homeManagerModules.default ];
+        modules = [ ./home.nix vicinae.homeManagerModules.default lazyvim.homeManagerModules.default ];
         extraSpecialArgs = { inherit inputs; };
       };
     };

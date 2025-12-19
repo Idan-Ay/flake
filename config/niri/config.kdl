@@ -46,11 +46,9 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+T repeat=false { spawn "foot"; }
-    Mod+S repeat=false { spawn "lf"; }
-    Mod+B repeat=false { spawn "brave"; }
+    Mod+S repeat=false { spawn "nemo"; }
+    Mod+B repeat=false { spawn "vivaldi"; }
     Mod+G repeat=false { spawn "code"; }
-    Mod+E repeat=false { spawn "obsidian"; }
-    Mod+R repeat=false { spawn "blender"; }
 
     Mod+Space repeat=false { spawn "vicinae" "toggle"; }
 
