@@ -29,7 +29,7 @@
 
     # "mimeapps.list".source = ./config/mimeapps.list;
 
-    "niri/config.kdl".source = ./config/niri/config.kdl;
+    "niri/config.kdl".source = ./config/niri.kdl;
 
     "quickshell" = {
       source = ./config/quickshell;
