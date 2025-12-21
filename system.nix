@@ -1,4 +1,4 @@
-{ config, pkgs, pkgsLatest, ... }:
+{ pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -30,7 +30,7 @@
 
   programs.fish = {
     enable = true;
-    
+
     loginShellInit = builtins.readFile ./scripts/loginShellInit.fish;
     shellInit = builtins.readFile ./scripts/shellInit.fish;
     interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
