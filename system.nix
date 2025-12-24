@@ -73,7 +73,8 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri";
     XDG_CURRENT_DESKTOP = "niri";
-    GSK_RENDERER = "gl";
+    GSK_RENDERER = "vulkan";
+    GTK_USE_PORTAL = 1;
   };
 
   security.sudo.enable = true;

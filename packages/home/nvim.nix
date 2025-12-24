@@ -11,6 +11,7 @@
       smartindent = true;
       mouse = "a";
       splitright = true;
+      tabstop = 2;
 
       # lines
       number = true;
@@ -48,6 +49,7 @@
           cssls.enable = true;
           jsonls.enable = true;
           lua_ls.enable = true;
+          qmlls.enable = true;
           nixd.enable = true;
         };
       };

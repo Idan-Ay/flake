@@ -50,39 +50,39 @@ binds {
     Mod+B repeat=false { spawn "vivaldi"; }
     Mod+G repeat=false { spawn "code"; }
 
-    Mod+Space repeat=false { spawn "vicinae" "toggle"; }
+    Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 
     Mod+Q { close-window; }
     Mod+F repeat=false { maximize-column; }
     Mod+D repeat=false { fullscreen-window; }
 
-    Mod+V repeat=false { screenshot-window write-to-disk=false; }
+    Mod+C repeat=false { screenshot-window write-to-disk=false; }
     Print repeat=false { screenshot show-pointer=false; }
 
     // Window keybinds
-    Mod+U repeat=false { switch-preset-window-height; }
-    Mod+H repeat=false { switch-preset-column-width; }
+    Mod+Slash repeat=false { switch-preset-window-height; }
+    Mod+Apostrophe repeat=false { switch-preset-column-width; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
     Mod+Bracketleft { set-window-height "-10%"; }
     Mod+Bracketright { set-window-height "+10%"; }
 
-    Mod+j { focus-column-left; }
+    Mod+h { focus-column-left; }
     Mod+l { focus-column-right; }
-    Mod+i { focus-window-up; }
-    Mod+k { focus-window-down; }
+    Mod+k { focus-window-up; }
+    Mod+j { focus-window-down; }
 
-    Mod+Ctrl+j { move-column-left; }
+    Mod+Ctrl+h { move-column-left; }
     Mod+Ctrl+l { move-column-right; }
-    Mod+Ctrl+i { move-window-up; }
-    Mod+Ctrl+k { move-window-down; }
+    Mod+Ctrl+k { move-window-up; }
+    Mod+Ctrl+j { move-window-down; }
 
     Mod+Comma { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+N repeat=false { toggle-window-floating; }
-    Mod+Ctrl+N repeat=false { switch-focus-between-floating-and-tiling; }
+    Mod+Ctrl+U repeat=false { toggle-window-floating; }
+    Mod+U repeat=false { switch-focus-between-floating-and-tiling; }
 
     Mod+O repeat=false { toggle-overview; }
 
@@ -95,6 +95,8 @@ binds {
     Mod+Ctrl+8 repeat=false { move-column-to-workspace 2; }
     Mod+Ctrl+9 repeat=false { move-column-to-workspace 3; }
     Mod+Ctrl+0 repeat=false { move-column-to-workspace 4; }
+
+    Mod+I repeat=false { toggle-column-tabbed-display; }
 
 
     // Sound/Media control
@@ -123,8 +125,8 @@ binds {
     Mod+4 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform normal && niri msg output HDMI-A-2 on"; }
     Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off"; }
 
-    Mod+Semicolon repeat=false { focus-monitor-next; }
-    Mod+Ctrl+Semicolon repeat=false { move-window-to-monitor-next; }
+    Mod+N repeat=false { focus-monitor-next; }
+    Mod+Ctrl+N repeat=false { move-window-to-monitor-next; }
 }
 
 prefer-no-csd
@@ -143,20 +145,27 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
     }
 
     focus-ring {
         off
     }
 
-    shadow {
-        on
-        softness 0
-        spread 2
-        offset x=0 y=0
-        draw-behind-window false
-        color "rgba(255, 255, 255, 0.9)"
-        inactive-color "#00000001"
+    // shadow {
+        // on
+        // softness 0
+        // spread 2
+        // offset x=0 y=0
+        // draw-behind-window false
+        // color "rgba(255, 255, 255, 0.9)"
+        // inactive-color "#00000001"
+    // }
+
+    border {
+        active-color "rgba(255,255,255,0.9)";
+        inactive-color "rgba(0,0,0,0.75)"
+        width 2
     }
 
     insert-hint {
@@ -175,11 +184,6 @@ overview {
     workspace-shadow {
     	off
     }
-}
-
-window-rule {
-    geometry-corner-radius 1
-    clip-to-geometry true
 }
 
 window-rule {

@@ -1,5 +1,3 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
   programs.home-manager.enable = true;
 
@@ -27,15 +25,11 @@
       recursive = true;
     };
 
-    # "mimeapps.list".source = ./config/mimeapps.list;
-
     "niri/config.kdl".source = ./config/niri.kdl;
 
     "quickshell" = {
       source = ./config/quickshell;
       recursive = true;
     };
-
-    "better-control/settings.json".source = ./config/better-control/settings.json;
   };
 }

@@ -1,5 +1,3 @@
-{ config, pkgs, lib, ... }:
-
 {
   services.pulseaudio.enable = false;
   services.pipewire = {
