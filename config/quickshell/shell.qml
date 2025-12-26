@@ -17,6 +17,11 @@ ShellRoot {
 
     Loader {
         asynchronous: false
+        sourceComponent: ScreenBorder{}
+    }
+
+    Loader {
+        asynchronous: false
         sourceComponent: Launcher{}
     }
 }

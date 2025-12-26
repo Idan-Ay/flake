@@ -33,8 +33,6 @@ PanelWindow {
     Container { // Background
         width: bar.width - 8
         height: bar.height
-
-        indent: 10
     }
 
     WorkspaceSwitcher {}
@@ -63,6 +61,7 @@ PanelWindow {
                         width: 5
                         height: 5
                         color: "white"
+                        radius: 100
                     }
                 }
             }

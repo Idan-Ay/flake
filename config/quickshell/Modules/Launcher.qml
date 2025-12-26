@@ -31,9 +31,7 @@ PanelWindow {
     width: 560
     height: 60
     anchors.centerIn: parent
-    Element {
-      anchors.fill: parent
-    }
+    borderColor: "white"
     TextField {
       focus: launcherRoot.launcherActive
       anchors {

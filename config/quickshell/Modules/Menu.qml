@@ -17,7 +17,6 @@ PopupWindow {
 
     Container { // Background
         anchors.fill: parent
-        indent: 10
 
         Column {
             id: menuColumn
@@ -82,7 +81,7 @@ PopupWindow {
                     }
                     Rectangle {
                         width: menuColumn.width - 14
-                        height: 2
+                        height: 1
                     }
 
                     id: bluetoothDeviceColumn
@@ -186,7 +185,7 @@ PopupWindow {
 
                         Rectangle {
                             width: outputSwitcher.width - 14
-                            height: 2
+                            height: 1
                         }
 
                         width: outputSwitcher.width - 16
@@ -219,6 +218,7 @@ PopupWindow {
                                     visible: modelData === Pipewire.defaultAudioSink
                                     width: 4
                                     height: 4
+                                    radius: 100
                                     color: "white"
                                     anchors {
                                         verticalCenter: parent.verticalCenter
@@ -237,12 +237,10 @@ PopupWindow {
                         }
                     }
                 }
-                
                 Element {
                     id: inputSwitcher
                     width: menuColumn.width/2 - 16
                     height: inputColumn.height + 19
-                    
                     Column {
                         id: inputColumn
                         spacing: 4
@@ -251,7 +249,7 @@ PopupWindow {
 
                         Rectangle {
                             width: inputSwitcher.width - 14
-                            height: 2
+                            height: 1
                         }
 
                         width: inputSwitcher.width - 16
@@ -284,6 +282,7 @@ PopupWindow {
                                     visible: modelData === Pipewire.defaultAudioSource
                                     width: 4
                                     height: 4
+                                    radius: 100
                                     color: "white"
                                     anchors {
                                         verticalCenter: parent.verticalCenter

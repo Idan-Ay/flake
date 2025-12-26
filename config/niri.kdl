@@ -163,9 +163,12 @@ layout {
     // }
 
     border {
-        active-color "rgba(255,255,255)";
-        inactive-color "rgba(0,0,0,0.75)"
-        width 2
+        // active-color "rgba(255,255,255)";
+        // inactive-color "rgba(0,0,0,0.75)"
+        // width 2
+        width 1
+        inactive-gradient from="rgb(100,100,100)" to="rgb(60,60,60)" angle=45
+        active-gradient from="rgb(255,255,255)" to="rgb(200,200,200)" angle=45
     }
 
     insert-hint {
@@ -186,10 +189,10 @@ overview {
     }
 }
 
-// window-rule {
-    // geometry-corner-radius 4
-    // clip-to-geometry true
-// }
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
 
 window-rule {
     match app-id="^blender$"

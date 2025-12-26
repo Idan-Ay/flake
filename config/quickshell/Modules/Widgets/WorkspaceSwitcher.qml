@@ -22,6 +22,8 @@ Element {
                     width: NiriService.selectedWorkspaceOnMainOutputIndex === index ? 32 : 10
                     height: 5
 
+                    radius: 100
+
                     // color: NiriService.selectedWorkspaceOnMainOutputIndex === index
                     //         ? Qt.rgba(1, 1, 1, 0.75)
                     //         : Qt.rgba(0.5, 0.5, 0.5, 0.75)

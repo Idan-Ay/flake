@@ -64,47 +64,13 @@ Item {
                     verticalAlignment: Image.AlignVCenter
                 }
 
-                Shape {
+                Rectangle {
                     id: shape
+                    radius: NiriService.overviewOpen ? 8 : 0
                     visible: false
-                    anchors.fill: parent
-
                     layer.enabled: true
                     layer.smooth: true
-
-                    property int indent: NiriService.overviewOpen ? 16 : 0
-
-                    ShapePath {
-                        id: shapePath
-                        startX: 0; startY: 0
-
-                        strokeWidth: -1
-
-                        PathLine { x: shape.width; y: 0}
-                        PathLine { x: shape.width; y: shape.height - shape.indent }
-                        PathLine { x: shape.width - shape.indent; y: shape.height}
-                        PathLine { x: 0; y: shape.height }
-                    }
-                }
-
-
-                Shape {
-                    visible: NiriService.overviewOpen
                     anchors.fill: parent
-
-                    z: 1
-
-                    ShapePath {
-                        startX: shape.width -2 ; startY: 0
-
-                        strokeWidth: 4
-                        strokeColor: "white"
-                        fillColor: "transparent"
-
-                        PathLine { x: shape.width -2 ; y: shape.height - shape.indent -2 }
-                        PathLine { x: shape.width - shape.indent ; y: shape.height -2 }
-                        PathLine { x: 0; y: shape.height -2 }
-                    }
                 }
 
                 MultiEffect {
