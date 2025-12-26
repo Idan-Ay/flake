@@ -13,8 +13,12 @@ PanelWindow {
 
     Component.onCompleted: {
         Screens.mainOutput = bar.screen.name
+        Screens.mainScreen = bar.screen
     }
-    onScreenChanged: Screens.mainOutput = bar.screen.name
+    onScreenChanged: { 
+        Screens.mainOutput = bar.screen.name
+        Screens.mainScreen = bar.screen
+    }
 
     anchors {
         top: true

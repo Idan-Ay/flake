@@ -6,4 +6,5 @@ pragma Singleton
 Singleton {
     id: screens
     property var mainOutput: null
+    property var mainScreen: null
 }

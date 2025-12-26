@@ -163,7 +163,7 @@ layout {
     // }
 
     border {
-        active-color "rgba(255,255,255,0.9)";
+        active-color "rgba(255,255,255)";
         inactive-color "rgba(0,0,0,0.75)"
         width 2
     }
@@ -185,6 +185,11 @@ overview {
     	off
     }
 }
+
+// window-rule {
+    // geometry-corner-radius 4
+    // clip-to-geometry true
+// }
 
 window-rule {
     match app-id="^blender$"

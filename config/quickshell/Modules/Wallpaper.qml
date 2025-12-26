@@ -95,12 +95,13 @@ Item {
                     z: 1
 
                     ShapePath {
-                        startX: shape.width ; startY: shape.height - shape.indent -2
+                        startX: shape.width -2 ; startY: 0
 
                         strokeWidth: 4
                         strokeColor: "white"
                         fillColor: "transparent"
 
+                        PathLine { x: shape.width -2 ; y: shape.height - shape.indent -2 }
                         PathLine { x: shape.width - shape.indent ; y: shape.height -2 }
                         PathLine { x: 0; y: shape.height -2 }
                     }
@@ -116,29 +117,31 @@ Item {
                     maskSpreadAtMin: 1
                 }
 
+                // PanelWindow {
+                    // screen: modelData
+
+                    // anchors {
+                        // bottom: true
+                        // left: true
+                        // right: true
+                    // }
+                    // implicitHeight: 20
+                    // visible: NiriService.overviewOpen
+
+                    // color: "transparent"
+                // }
+
                 PanelWindow {
+
                     screen: modelData
 
                     anchors {
+                        top: true
                         bottom: true
                         left: true
                         right: true
                     }
-                    implicitHeight: 20
-                    visible: NiriService.overviewOpen
 
-                    color: "transparent"
-                }
-
-                PanelWindow {
-
-                    screen: modelData
-                    
-                    anchors.top: true
-                    anchors.bottom: true
-                    anchors.left: true
-                    anchors.right: true
-                
                     WlrLayershell.layer: WlrLayer.Background
                     WlrLayershell.namespace: "dms:blurredWallpaper"
                     WlrLayershell.exclusionMode: ExclusionMode.Ignore
