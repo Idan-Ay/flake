@@ -46,7 +46,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+T repeat=false { spawn "foot"; }
-    Mod+S repeat=false { spawn "nemo"; }
+    Mod+S repeat=false { spawn "nautilus"; }
     Mod+B repeat=false { spawn "vivaldi"; }
     Mod+G repeat=false { spawn "code"; }
 

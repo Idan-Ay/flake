@@ -6,8 +6,24 @@ variant = "dark"
 inherits = "vicinae-dark"
 
 [colors.core]
-background = "#bf000000"
-secondary_background = "#bf000000"
+accent = "#24c8c8c8"
+accent_foreground = "#2f6fed"
+background = "#000000"
 foreground = "#c8c8c8"
-accent = "#c8c8c8"
+secondary_background = "#000000"
 border = "#c8c8c8"
+
+[colors.input]
+border = "#24c8c8c8"
+border_focus = "#24c8c8c8"
+border_error = "#b9543b"
+
+[colors.button.primary]
+background = "#24c8c8c8"
+foreground = "#e8e6e1"
+hover = { background = "#bb2e2e2e" }
+focus = { outline = "colors.core.accent" }
+
+[colors.list.item.selection]
+background = "#24c8c8c8"
+

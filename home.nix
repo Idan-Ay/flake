@@ -32,8 +32,8 @@
       recursive = true;
     };
 
-    "vicinae.json".source = ./config/vicinae/vicinae.json;
+    "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
   };
 
-  home.file.".local/share/vicinae/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;
+  home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;
 }

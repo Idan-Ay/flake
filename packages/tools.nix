@@ -47,7 +47,7 @@
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
 
-    nemo # Graphical file manager
+    nautilus # Graphical file manager
 
     bottom # Terminal task manager
     

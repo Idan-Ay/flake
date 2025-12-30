@@ -12,12 +12,12 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Blackout";
+      name = "BlackAndWhite";
       package = pkgs.stdenv.mkDerivation {
-        pname = "blackout";
+        pname = "blackandwhite";
         version = "1.0";
-        src = ./Blackout;
-        installPhase = "mkdir -p $out/share/themes/Blackout; cp -r . $out/share/themes/Blackout";
+        src = ./BlackAndWhite;
+        installPhase = "mkdir -p $out/share/themes/BlackAndWhite; cp -r . $out/share/themes/BlackAndWhite";
       };
     };
     iconTheme = {
