@@ -81,5 +81,8 @@ window.background.view.view placessidebar {
   border-width: 0;
   border-style: hidden;
   border-color: transparent;
-	border-image-source: -gtk-scaled(url("assets/row-selected-blackness-dark@2.png"));
+  border-image: none;
+  border-image-width: 28px 9px 28px 46px;
+  border-image-slice: 28 9 28 46 fill;
+  border-image-repeat: stretch; border-image-source: -gtk-scaled(url("assets/row-selected-blackness-dark-transparent.png"));
 }
