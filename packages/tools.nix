@@ -28,6 +28,8 @@
 
   programs.nix-ld.enable = true;
 
+  programs.steam.enable = true;
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -36,6 +38,8 @@
     fd # fast directory search
     ripgrep # Easy file content search
     zoxide # smarter cd
+
+    walker # launcher
 
     fastfetch # View system information
 

@@ -31,5 +31,9 @@
       source = ./config/quickshell;
       recursive = true;
     };
+
+    "vicinae.json".source = ./config/vicinae/vicinae.json;
   };
+
+  home.file.".local/share/vicinae/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;
 }

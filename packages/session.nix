@@ -3,10 +3,10 @@
 {
   # Enable Niri (Wayland window manager)
   programs.niri.enable = true;
+  programs.xwayland.enable = true;
+  services.xserver.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
-    xwayland
-
     preload # Makes applications run faster by prefetching binaries and shared objects
 
     # waybar # Bar

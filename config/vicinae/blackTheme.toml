@@ -1,0 +1,13 @@
+[meta]
+version = 1
+name = "Black"
+description = "A theme for the black nixos config"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+background = "#bf000000"
+secondary_background = "#bf000000"
+foreground = "#c8c8c8"
+accent = "#c8c8c8"
+border = "#c8c8c8"

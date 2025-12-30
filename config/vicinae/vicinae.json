@@ -1,0 +1,22 @@
+{
+    "closeOnFocusLoss": true,
+    "faviconService": "google",
+    "font": {
+        "size": 10.5
+    },
+    "keybinding": "default",
+    "keybinds": {
+    },
+    "popToRootOnClose": true,
+    "rootSearch": {
+        "searchFiles": true
+    },
+    "theme": {
+        "name": "blackTheme"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 0.75,
+        "rounding": 6
+    }
+}

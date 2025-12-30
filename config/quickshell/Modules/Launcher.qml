@@ -34,6 +34,7 @@ PanelWindow {
     borderColor: "white"
     TextField {
       focus: launcherRoot.launcherActive
+      selectByMouse: true
       anchors {
         left: parent.left
         leftMargin: 12
