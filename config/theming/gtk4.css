@@ -1,3 +1,85 @@
-.background {
-				color: "rgba(0,0,0,0.75)"
+@import url("file:///nix/store/46kyvaa30fnv77446wphnmyfdhh7633n-orchis-theme-2025-04-25/share/themes/Orchis-Grey-Dark/gtk-4.0/gtk.css");
+
+/* window, */
+/* columnview, */
+/* columnview listview, */
+/* placessidebar { */
+	/* background: #000000; */
+/* } */
+
+/* #NautilusPathBar { */
+	/* border: 1px white solid; */
+/* } */
+
+/* header { */
+	/* border-bottom: 1px white solid; */
+/* } */
+
+/* .nautilus-window .sidebar-pane scrolledwindow { */
+	/* border-bottom: 1px white solid; */
+	/* border-left: 1px white solid; */
+	/* border-top: 1px white solid; */
+	/* border-radius: 6px 0 0 4px; */
+/* } */
+
+/* .nautilus-window toolbarview .horizontal { */
+	/* border-image: src("./assets/row-selected-blackness-dark@2.png"); */
+/* } */
+
+window.background.view.view.view,
+window.background.view.view columnview,
+window.background.view.view columnview listview,
+window.background.view.view placessidebar {
+	background: #000000;
+}
+
+/* window.background { */
+	/* background-color: rgba(0, 0, 0, 0.75); */
+/* } */
+
+/* .background .resources-columnview { */
+	/* margin: 0 12px; */
+	/* padding: 12px; */
+/* } */
+
+/* row.activatable { */
+	/* border-radius: 0 8px 8px 0; */
+/* } */
+
+/* .view row.activatable { */
+	/* border-radius: 8px; */
+/* } */
+
+/* .background .view { */
+	/* border-radius: 8px; */
+/* } */
+/* .background .view:hover { */
+	/* border-radius: 8px; */
+/* } */
+
+
+/* .nautilus-window.view.background placessidebar, */
+/* .nautilus-window .sidebar-pane, */
+/* .nautilus-window .content-pane, */
+/* .nautilus-window.view.background placessidebar .navigation-sidebar { */
+	/* background: none; */
+/* } */
+
+/* .nautilus-window .view { */
+    /* margin: 0 12px 12px 0; */
+/* } */
+
+/* .nautilus-window.view.background { */
+	/* background-color: rgba(0, 0, 0, 0.75); */
+	/* margin: 0; */
+/* } */
+
+
+.nautilus-window flap.unfolded > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box,
+.nautilus-window .sidebar-pane > toolbarview > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box {
+  background: none;
+  border-width: 0;
+  border-style: hidden;
+  border-color: transparent;
+	border-image-source: -gtk-scaled(url("assets/row-selected-blackness-dark@2.png"));
 }
