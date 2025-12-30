@@ -12,12 +12,9 @@
   gtk = {
     enable = true;
     theme = {
-      name = "BlackAndWhite";
-      package = pkgs.stdenv.mkDerivation {
-        pname = "blackandwhite";
-        version = "1.0";
-        src = ./BlackAndWhite;
-        installPhase = "mkdir -p $out/share/themes/BlackAndWhite; cp -r . $out/share/themes/BlackAndWhite";
+      name = "Orchis-Grey-Dark";
+      package = pkgs.orchis-theme.override {
+        tweaks = [ "black" ];
       };
     };
     iconTheme = {
@@ -36,7 +33,7 @@
   xdg.enable = true;
 
   # xdg.configFile."gtk-3.0/gtk.css".source = ./gtk3.css;
-  # xdg.configFile."gtk-4.0/gtk.css".source = ./gtk4.css;
+  xdg.configFile."gtk4.css".source = ./gtk4.css;
 
   # xdg.configFile."gtk-4.0/assets" = {
   #   source = ./assets4;
