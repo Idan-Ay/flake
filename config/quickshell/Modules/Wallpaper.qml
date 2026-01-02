@@ -39,11 +39,11 @@ Item {
 
                 screen: modelData
 
-                aboveWindows: false
-                exclusiveZone: 0
-                
+                WlrLayershell.layer: WlrLayer.Background
+                WlrLayershell.exclusionMode: ExclusionMode.Ignore
+
                 id: wallpaperWindow
-                
+
                 anchors {
                     top: true
                     bottom: true

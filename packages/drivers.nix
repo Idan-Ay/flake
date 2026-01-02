@@ -22,12 +22,4 @@
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
   };
-
-  services.xserver.inputClassSections = [
-    {
-      identifier = "Huion tablet";
-      matchProduct = "HUION";
-      driver = "wacom";
-    }
-  ];
 }

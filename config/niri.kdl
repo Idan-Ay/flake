@@ -22,6 +22,12 @@ input {
     }
 }
 
+output "DP-3" {
+    mode "3440x1440@165.001"
+    scale 1.0
+    position x=0 y=0
+    focus-at-startup
+}
 output "DP-4" {
     mode "3440x1440@165.001"
     scale 1.0
@@ -29,6 +35,11 @@ output "DP-4" {
     focus-at-startup
 }
 
+output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    scale 1.25
+    position x=952 y=1440
+}
 output "HDMI-A-2" {
     mode "1920x1080@60.000"
     scale 1.25
@@ -73,15 +84,15 @@ binds {
     Mod+k { focus-window-up; }
     Mod+j { focus-window-down; }
 
-    Mod+Ctrl+h { move-column-left; }
-    Mod+Ctrl+l { move-column-right; }
-    Mod+Ctrl+k { move-window-up; }
-    Mod+Ctrl+j { move-window-down; }
+    Mod+Shift+h { move-column-left; }
+    Mod+Shift+l { move-column-right; }
+    Mod+Shift+k { move-window-up; }
+    Mod+Shift+j { move-window-down; }
 
     Mod+Comma { consume-or-expel-window-left; }
     Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Ctrl+U repeat=false { toggle-window-floating; }
+    Mod+Shift+U repeat=false { toggle-window-floating; }
     Mod+U repeat=false { switch-focus-between-floating-and-tiling; }
 
     Mod+O repeat=false { toggle-overview; }
@@ -91,10 +102,10 @@ binds {
     Mod+9 repeat=false { focus-workspace 3; }
     Mod+0 repeat=false { focus-workspace 4; }
 
-    Mod+Ctrl+7 repeat=false { move-column-to-workspace 1; }
-    Mod+Ctrl+8 repeat=false { move-column-to-workspace 2; }
-    Mod+Ctrl+9 repeat=false { move-column-to-workspace 3; }
-    Mod+Ctrl+0 repeat=false { move-column-to-workspace 4; }
+    Mod+Shift+7 repeat=false { move-column-to-workspace 1; }
+    Mod+Shift+8 repeat=false { move-column-to-workspace 2; }
+    Mod+Shift+9 repeat=false { move-column-to-workspace 3; }
+    Mod+Shift+0 repeat=false { move-column-to-workspace 4; }
 
     Mod+I repeat=false { toggle-column-tabbed-display; }
 
@@ -126,7 +137,7 @@ binds {
     Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-4 transform 270 && niri msg output HDMI-A-2 off"; }
 
     Mod+N repeat=false { focus-monitor-next; }
-    Mod+Ctrl+N repeat=false { move-window-to-monitor-next; }
+    Mod+Shift+N repeat=false { move-window-to-monitor-next; }
 }
 
 prefer-no-csd
@@ -176,10 +187,6 @@ layout {
     }
 
     background-color "transparent"
-}
-
-debug {
-    wait-for-frame-completion-in-pipewire
 }
 
 overview {

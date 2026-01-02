@@ -21,9 +21,7 @@ border_error = "#b9543b"
 [colors.button.primary]
 background = "#24c8c8c8"
 foreground = "#e8e6e1"
-hover = { background = "#bb2e2e2e" }
-focus = { outline = "colors.core.accent" }
 
 [colors.list.item.selection]
-background = "#24c8c8c8"
+background = "#bf232323"
 

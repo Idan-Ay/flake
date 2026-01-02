@@ -1,13 +1,13 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
 
     vicinae.url = "github:vicinaehq/vicinae"; 
 
     quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?ref=a5431dd02dc23d9ef1680e67777fed00fe5f7cda";
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,10 +15,8 @@
   };
 
   outputs = { 
-    self,
     nixpkgs,
     nixpkgs-latest,
-    flake-utils,
     home-manager,
     quickshell,
     vicinae,

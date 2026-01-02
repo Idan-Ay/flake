@@ -40,6 +40,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "input" ];
     shell = pkgs.fish;
+    packages = with pkgs; [
+      chromium
+    ];
   };
   
   networking.hostName = "idan-pc-l";
@@ -66,16 +69,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    OZONE_PLATFORM = "wayland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "niri";
-    XDG_CURRENT_DESKTOP = "niri";
-    GSK_RENDERER = "vulkan";
-    GTK_USE_PORTAL = 1;
-  };
 
   security.sudo.enable = true;
 
