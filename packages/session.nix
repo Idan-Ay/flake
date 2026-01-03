@@ -12,6 +12,32 @@
     displayManager.ly.enable = true;
   };
 
+
+  services.greetd = {
+    enable = true;
+
+    settings = {
+      default_session = {
+        command = "niri-session";
+        user = "idan";
+      };
+    };
+  };
+
+  programs.fish = {
+    enable = true;
+
+    loginShellInit = builtins.readFile ./scripts/loginShellInit.fish;
+    shellInit = builtins.readFile ./scripts/shellInit.fish;
+    interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 15;    # ~4.8GB out of 32GB RAM
+    algorithm = "zstd";    # Fast and efficient compression
+  };
+
   services.libinput = {
     enable = true;
 

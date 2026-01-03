@@ -13,5 +13,6 @@
     gimp3
     vivaldi # unfree
     discord # unfree
+    prismlauncher
   ]);
 }
