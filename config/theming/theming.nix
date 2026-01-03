@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.pointerCursor = {
@@ -17,6 +17,10 @@
         tweaks = [ "black" ];
       };
     };
+    gtk4.extraCss = builtins.readFile ./gtk4.css;
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
@@ -33,7 +37,7 @@
   xdg.enable = true;
 
   # xdg.configFile."gtk-3.0/gtk.css".source = ./gtk3.css;
-  xdg.configFile."gtk-4.0/gtk.css".source = ./gtk4.css;
+  # xdg.configFile."gtk-4.0/gtk.css".source = ./gtk4.css;
 
   xdg.configFile."gtk-4.0/assets" = {
     source = ./assets;

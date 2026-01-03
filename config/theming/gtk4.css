@@ -1,4 +1,3 @@
-@import url("file:///nix/store/46kyvaa30fnv77446wphnmyfdhh7633n-orchis-theme-2025-04-25/share/themes/Orchis-Grey-Dark/gtk-4.0/gtk.css");
 
 #NautilusPathBar {
 	border: 1px white solid;
@@ -17,9 +16,10 @@ header {
 
 
 window.background.view.view.view,
-window.background.view.view columnview,
-window.background.view.view columnview listview,
-window.background.view.view placessidebar {
+window.background.view.view.view gridview,
+window.background.view.view.view columnview,
+window.background.view.view.view columnview listview,
+window.background.view.view.view placessidebar {
 	background: #000000;
 }
 

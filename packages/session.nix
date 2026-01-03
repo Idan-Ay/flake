@@ -12,6 +12,15 @@
     displayManager.ly.enable = true;
   };
 
+  services.libinput = {
+    enable = true;
+
+    mouse = {
+      scrollMethod = "button";
+      scrollButton = 274; # BTN_MIDDLE
+    };
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
 

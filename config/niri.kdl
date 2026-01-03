@@ -52,8 +52,8 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
-spawn-at-startup "steam"
-spawn-at-startup "discord"
+spawn-at-startup "steam -silent"
+spawn-at-startup "discord --no-sandbox"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 

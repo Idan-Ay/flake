@@ -64,5 +64,7 @@
     eyedropper # color picker
 
     python3
+
+    prismlauncher
   ]);
 }

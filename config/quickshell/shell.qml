@@ -15,13 +15,8 @@ ShellRoot {
         sourceComponent: Wallpaper{}
     }
 
-    // Loader {
-        // asynchronous: false
-        // sourceComponent: ScreenBorder{}
-    // }
-
-    // Loader {
-        // asynchronous: false
-        // sourceComponent: Launcher{}
-    // }
+    Loader {
+        asynchronous: false
+        sourceComponent: backgroundWidgets{}
+    }
 }

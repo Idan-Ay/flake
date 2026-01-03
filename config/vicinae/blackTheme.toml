@@ -23,5 +23,5 @@ background = "#24c8c8c8"
 foreground = "#e8e6e1"
 
 [colors.list.item.selection]
-background = "#bf232323"
+background = "#bf2d2d2d"
 

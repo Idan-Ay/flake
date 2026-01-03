@@ -1,19 +1,17 @@
 { pkgsLatest, lib, ... }:
 
 {
-  programs.steam = {
+  programs.steam = { # unfree
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
-    brave # unfree
     blender
     obsidian
     gimp3
-    vscodium
-    vivaldi
-    discord
+    vivaldi # unfree
+    discord # unfree
   ]);
 }
