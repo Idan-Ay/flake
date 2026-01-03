@@ -6,7 +6,7 @@ import qs.Components
 
 PanelWindow {
 				anchors {
-								left: true
+								right: true
 								top: true
 								bottom: true
 				}
@@ -28,6 +28,7 @@ PanelWindow {
 								anchors.centerIn: parent
 				
 								Column {
+												spacing: 20
 												width: 600
 												SText {
 																text: Qt.formatDateTime(clock.date, "dddd").toUpperCase()
