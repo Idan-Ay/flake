@@ -1,13 +1,12 @@
 import QtQuick
-import QtCore
 import Quickshell
 
 import qs.Components
 
 PanelWindow {
 				anchors {
-								right: 120
-								top: 120
+								right: true
+								top: true
 				}
 				implicitHeight: 320
 				implicitWidth: 620
@@ -18,6 +17,6 @@ PanelWindow {
 
 				SText {
 								text: "12:20"
-								fontSize: 52
+								font.pixelSize: 52
 				}
 }
