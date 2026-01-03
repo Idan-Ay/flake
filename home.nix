@@ -33,6 +33,8 @@
     };
 
     "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
+
+    "fastfetch/config.jsonc".source = ./config/fastfetch.jsonc;
   };
 
   home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;
