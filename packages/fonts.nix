@@ -5,14 +5,14 @@ let
     pname = "anurati";
     version = "1.0";  # Arbitrary version
 
-    src = ./fonts/anurati;  # Path to your font file(s)/directory
+    src = ./fonts/anurati.otf;  # Path to your font file(s)/directory
 
     # No need for unpackPhase if src is a directory of files
     dontUnpack = true;
 
     installPhase = ''
       mkdir -p $out/share/fonts/opentype  # Or /opentype for .otf files
-      cp $src/*.ttf $src/*.otf $out/share/fonts/opentype/  # Adjust if needed
+      cp $src $out/share/fonts/opentype/anurati.otf  # Adjust if needed
     '';
 
     meta = {

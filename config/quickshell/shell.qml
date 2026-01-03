@@ -14,9 +14,4 @@ ShellRoot {
         asynchronous: false
         sourceComponent: Wallpaper{}
     }
-
-    Loader {
-        asynchronous: false
-        sourceComponent: BackgroundWidgets{}
-    }
 }
