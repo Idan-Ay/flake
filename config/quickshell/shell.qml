@@ -17,6 +17,6 @@ ShellRoot {
 
     Loader {
         asynchronous: false
-        sourceComponent: backgroundWidgets{}
+        sourceComponent: BackgroundWidgets{}
     }
 }

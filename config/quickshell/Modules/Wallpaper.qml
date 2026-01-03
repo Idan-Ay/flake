@@ -83,6 +83,8 @@ Item {
                     maskSpreadAtMin: 1
                 }
 
+                BackgroundWidgets{}
+
                 // PanelWindow {
                     // screen: modelData
 
