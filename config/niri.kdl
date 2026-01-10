@@ -52,8 +52,8 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
-spawn-at-startup "steam -silent"
-spawn-at-startup "discord --no-sandbox"
+spawn-at-startup "steam" "-silent"
+spawn-at-startup "discord"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -61,7 +61,7 @@ binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+T repeat=false { spawn "foot"; }
     Mod+S repeat=false { spawn "nautilus"; }
-    Mod+B repeat=false { spawn "vivaldi"; }
+    Mod+B repeat=false { spawn "zen"; }
     Mod+G repeat=false { spawn "code"; }
 
     Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }

@@ -11,8 +11,8 @@
     blender
     obsidian
     gimp3
-    vivaldi # unfree
     discord # unfree
     prismlauncher
+    godot
   ]);
 }

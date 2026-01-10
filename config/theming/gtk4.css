@@ -20,14 +20,14 @@ window.background.view.view.view gridview,
 window.background.view.view.view columnview,
 window.background.view.view.view columnview listview,
 window.background.view.view.view placessidebar {
-	background: #000000;
+	background: #030303;
 }
 
 
 .nautilus-window flap.unfolded > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box,
 .nautilus-window .sidebar-pane > toolbarview > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box {
 	border-image-width: 9px 4px 9px 50px;
-  border-image-slice: 18 9 18 100 fill;
-	background: black;
+  border-image-slice: 18 8 18 100 fill;
+	background: #030303;
 	border-image-source: url("assets/row-selected-blackness-dark-transparent.png");
 }

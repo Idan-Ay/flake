@@ -3,17 +3,14 @@
   
   boot.blacklistedKernelModules = [ "nouveau" ];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  hardware.graphics.enable = true;
 
   boot.initrd.kernelModules = [
+    "amdgpu"
     "nvidia"
     "nvidia_modeset"
     "nvidia_drm"
     "nvidia_uvm"
-    "amdgpu"
   ];
 
   hardware.nvidia = {

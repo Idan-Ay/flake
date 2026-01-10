@@ -6,6 +6,8 @@
 
     vicinae.url = "github:vicinaehq/vicinae"; 
 
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +23,7 @@
     quickshell,
     vicinae,
     nixvim,
+    zen-browser,
     ... 
     } @ inputs:
     let
@@ -39,6 +42,7 @@
           ./home.nix
           vicinae.homeManagerModules.default
           nixvim.homeModules.default
+          zen-browser.homeModules.default
         ];
         extraSpecialArgs = { inherit inputs; };
       };

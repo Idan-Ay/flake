@@ -3,7 +3,10 @@
 {
   programs.nix-ld.enable = true;
   # Enable Niri (Wayland window manager)
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    useNautilus = true;
+  };
 
   programs.gamemode.enable = true;
 
@@ -27,9 +30,9 @@
   programs.fish = {
     enable = true;
 
-    loginShellInit = builtins.readFile ./scripts/loginShellInit.fish;
-    shellInit = builtins.readFile ./scripts/shellInit.fish;
-    interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
+    loginShellInit = builtins.readFile ../scripts/loginShellInit.fish;
+    shellInit = builtins.readFile ../scripts/shellInit.fish;
+    interactiveShellInit = builtins.readFile ../scripts/interactiveShellInit.fish;
   };
 
   zramSwap = {
@@ -38,14 +41,14 @@
     algorithm = "zstd";    # Fast and efficient compression
   };
 
-  services.libinput = {
-    enable = true;
+  # services.libinput = {
+    # enable = true;
 
-    mouse = {
-      scrollMethod = "button";
-      scrollButton = 274; # BTN_MIDDLE
-    };
-  };
+    # mouse = {
+      # scrollMethod = "button";
+      # scrollButton = 274; # BTN_MIDDLE
+    # };
+  # };
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite

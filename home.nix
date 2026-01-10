@@ -14,6 +14,7 @@
       enable = true;
       autoStart = true;
   };
+  programs.zen-browser.enable = true;
 
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;
