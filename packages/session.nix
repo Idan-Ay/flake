@@ -1,6 +1,16 @@
 { pkgs, lib, quickshell, ... }:
 
 {
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 8384 ];
+    # allowedTCPPortRanges = [
+      # { from = 1714; to = 1764; }
+    # ];
+    # allowedUDPPortRanges = [
+      # { from = 1714; to = 1764; }
+    # ];
+  };
   programs.nix-ld.enable = true;
   # Enable Niri (Wayland window manager)
   programs.niri = {
@@ -15,6 +25,7 @@
     displayManager.ly.enable = true;
   };
 
+  services.avahi.enable = true;
 
   services.greetd = {
     enable = true;

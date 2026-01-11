@@ -17,6 +17,7 @@ PopupWindow {
 
     Container { // Background
         anchors.fill: parent
+        color: Qt.rgba(0,0,0,0.9)
 
         Column {
             id: menuColumn

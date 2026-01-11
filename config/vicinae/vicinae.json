@@ -2,7 +2,8 @@
     "closeOnFocusLoss": true,
     "faviconService": "google",
     "font": {
-        "size": 10.5
+        "size": 10.5,
+        "normal": "monospace"
     },
     "keybinding": "default",
     "popToRootOnClose": true,
@@ -14,7 +15,7 @@
     },
     "window": {
         "csd": true,
-        "opacity": 0.75,
+        "opacity": 0.9,
         "rounding": 4
     }
 }

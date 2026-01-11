@@ -10,6 +10,8 @@
     ./config/nvim.nix
   ];
 
+  services.syncthing.enable = true;
+
   services.vicinae = {
       enable = true;
       autoStart = true;
@@ -35,7 +37,10 @@
 
     "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
 
-    "fastfetch/config.jsonc".source = ./config/fastfetch.jsonc;
+    "fastfetch/config.jsonc" = {
+      source = ./config/fastfetch;
+      recursive = true;
+    };
   };
 
   home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;

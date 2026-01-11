@@ -33,6 +33,10 @@
 
     gh
 
+    notesnook # Note taking app
+
+    # valent # Gui tool for kde connect
+
     foot # terminal
 
     fd # fast directory search
