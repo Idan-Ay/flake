@@ -1,4 +1,4 @@
-{ pkgsLatest, lib, ... }:
+{ pkgsLatest, inputs, lib, ... }:
 
 {
   programs.steam = { # unfree
@@ -14,5 +14,6 @@
     discord # unfree
     prismlauncher
     godot
+    inputs.quickshell.packages.${system}.default
   ]);
 }

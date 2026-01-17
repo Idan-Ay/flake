@@ -1,6 +1,4 @@
 {
-  services.xserver.wacom.enable = true;
-  
   boot.blacklistedKernelModules = [ "nouveau" ];
 
   hardware.graphics.enable = true;
@@ -14,16 +12,18 @@
   ];
 
   hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
+    # modesetting.enable = true;
+    powerManagement.enable = true;
     open = true;
     nvidiaSettings = false;
 
     prime = {
+      # sync.enable = true;
       offload.enable = true;
+      offload.enableOffloadCmd = true;
 
       # Display GPU (AMD)
-      intelBusId = "PCI:10:0:0";
+      amdgpuBusId = "PCI:10:0:0";
       # Render GPU (NVIDIA)
       nvidiaBusId = "PCI:9:0:0";
     };
@@ -33,8 +33,4 @@
     ../config/nvidia/50-limit-free-buffer.json;
 
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
-
-  environment.variables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-  };
 }

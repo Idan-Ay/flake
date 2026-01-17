@@ -20,11 +20,11 @@
     nixpkgs,
     nixpkgs-latest,
     home-manager,
-    quickshell,
     vicinae,
     nixvim,
     zen-browser,
-    ... 
+    quickshell,
+    ...
     } @ inputs:
     let
       system = "x86_64-linux";

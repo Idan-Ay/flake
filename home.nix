@@ -37,7 +37,7 @@
 
     "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
 
-    "fastfetch/config.jsonc" = {
+    "fastfetch" = {
       source = ./config/fastfetch;
       recursive = true;
     };

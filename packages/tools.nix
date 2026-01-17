@@ -26,6 +26,19 @@
 
   services.udisks2.enable = true;
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-vulkan;
+    loadModels = [
+      "drivedenpadev/deepseek-v3.2"
+      "nomic-embed-text"
+    ];
+  };
+  services.open-webui = {
+    enable = true;
+    port = 8080;
+  };
+
   programs.nix-ld.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
@@ -42,6 +55,8 @@
     fd # fast directory search
     ripgrep # Easy file content search
     zoxide # smarter cd
+
+    toybox
 
     walker # launcher
 
@@ -72,5 +87,7 @@
     prismlauncher
 
     jq
+
+    mesa-demos
   ]);
 }

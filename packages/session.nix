@@ -17,6 +17,8 @@
     enable = true;
     useNautilus = true;
   };
+  programs.dconf.enable = true;
+  services.gnome.gnome-settings-daemon.enable = true;
 
   programs.gamemode.enable = true;
 
@@ -51,15 +53,6 @@
     memoryPercent = 15;    # ~4.8GB out of 32GB RAM
     algorithm = "zstd";    # Fast and efficient compression
   };
-
-  # services.libinput = {
-    # enable = true;
-
-    # mouse = {
-      # scrollMethod = "button";
-      # scrollButton = 274; # BTN_MIDDLE
-    # };
-  # };
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite

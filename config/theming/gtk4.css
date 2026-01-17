@@ -12,6 +12,7 @@ header {
 	border-left: 1px white solid;
 	border-top: 1px white solid;
 	border-radius: 6px 0 0 4px;
+	background: none;
 }
 
 
@@ -19,8 +20,9 @@ window.background.view.view.view,
 window.background.view.view.view gridview,
 window.background.view.view.view columnview,
 window.background.view.view.view columnview listview,
-window.background.view.view.view placessidebar {
-	background: #030303;
+window.background.view.view.view placessidebar,
+window.background.view.view.view #NautilusPathBar {
+	background: #010101;
 }
 
 
@@ -28,6 +30,6 @@ window.background.view.view.view placessidebar {
 .nautilus-window .sidebar-pane > toolbarview > placessidebar > scrolledwindow > viewport > list.navigation-sidebar > row.activatable:selected > revealer > box {
 	border-image-width: 9px 4px 9px 50px;
   border-image-slice: 18 8 18 100 fill;
-	background: #030303;
+	background: #010101;
 	border-image-source: url("assets/row-selected-blackness-dark-transparent.png");
 }
