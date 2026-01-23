@@ -112,7 +112,6 @@ PopupWindow {
                                 width: parent.width - 20
                                 height: parent.height
                                 onClicked: {
-                                    modelData.pair()
                                     modelData.connect()
                                 }
                             }

@@ -31,15 +31,12 @@
     package = pkgs.ollama-vulkan;
     loadModels = [
       "drivedenpadev/deepseek-v3.2"
-      "nomic-embed-text"
     ];
-  };
-  services.open-webui = {
-    enable = true;
-    port = 8080;
   };
 
   programs.nix-ld.enable = true;
+
+  programs.java.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
@@ -83,8 +80,6 @@
     eyedropper # color picker
 
     python3
-
-    prismlauncher
 
     jq
 

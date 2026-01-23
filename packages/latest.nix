@@ -12,8 +12,8 @@
     obsidian
     gimp3
     discord # unfree
-    prismlauncher
     godot
+    gdlauncher-carbon
     inputs.quickshell.packages.${system}.default
   ]);
 }

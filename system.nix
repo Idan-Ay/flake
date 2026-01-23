@@ -28,12 +28,8 @@
     };
   };
 
-  programs.fish = {
-    enable = true;
-
-    loginShellInit = builtins.readFile ./scripts/loginShellInit.fish;
-    shellInit = builtins.readFile ./scripts/shellInit.fish;
-    interactiveShellInit = builtins.readFile ./scripts/interactiveShellInit.fish;
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "org.gnome.Nautilus.desktop";
   };
 
   users.users.idan = {
@@ -55,12 +51,6 @@
     };
   };
   console.keyMap = "us";
-
-  zramSwap = {
-    enable = true;
-    memoryPercent = 15;    # ~4.8GB out of 32GB RAM
-    algorithm = "zstd";    # Fast and efficient compression
-  };
 
   users.defaultUserShell = pkgs.fish;
 
