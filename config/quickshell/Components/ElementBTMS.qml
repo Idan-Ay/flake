@@ -31,5 +31,18 @@ Shape {
             controlX: shape.width - 0.5
             controlY: shape.height - 0.5
         }
+
+        PathLine { x: shape.width - 0.5; y: 0.5 }
+
+        PathQuad {
+            x: -0.5
+            y: shape.height - shape.radius - 0.5
+            controlX: -0.5
+            controlY: shape.height - 0.5
+        }
+
+        PathLine {
+            x: - 0.5; y: 0.5
+        }
     }
 }
