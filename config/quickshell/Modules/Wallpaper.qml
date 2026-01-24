@@ -73,6 +73,17 @@ Item {
                     anchors.fill: parent
                 }
 
+                // Rectangle {
+                    // id: border
+                    // visible: true
+                    // color: "transparent"
+                    // border {
+                        // width: 1
+                        // color: NiriService."white"
+                    // }
+                    // anchors.fill: parent
+                // }
+
                 MultiEffect {
                     anchors.fill: parent
                     source: backgroundImage

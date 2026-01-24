@@ -1,3 +1,4 @@
+
 import QtQuick
 import QtQuick.Shapes
 
@@ -20,7 +21,18 @@ Shape {
         joinStyle: ShapePath.RoundJoin
         capStyle: ShapePath.RoundCap
 
-        startX: 0.5; startY: shape.height - 0.5
+        startX: 0.5; startY: -0.5
+
+        PathLine { x: 0.5; y: shape.height - shape.radius - 0.5 }
+
+        PathQuad {
+            x: shape.radius + 0.5
+            y: shape.height - 0.5
+            controlX: 0.5
+            controlY: shape.height - 0.5
+        }
+
+        // PathLine { x: shape.radius + 0.5; y: shape.height - 0.5 }
 
         PathLine { x: shape.width - shape.radius - 0.5; y: shape.height - 0.5 }
 
@@ -34,15 +46,5 @@ Shape {
 
         PathLine { x: shape.width - 0.5; y: 0.5 }
 
-        PathQuad {
-            x: -0.5
-            y: shape.height - shape.radius - 0.5
-            controlX: -0.5
-            controlY: shape.height - 0.5
-        }
-
-        PathLine {
-            x: - 0.5; y: 0.5
-        }
     }
 }

@@ -6,17 +6,41 @@ import Quickshell.Bluetooth
 
 import qs.Components
 
-PopupWindow {
-    anchor.window: bar
-    anchor.rect.x: parentWindow.width - width - 18
-    anchor.rect.y: parentWindow.height
-    implicitHeight: menuColumn.height + 78
-    implicitWidth: 500
+PanelWindow {
+
+    id: panel
+
+    property bool open: false
+    visible: open
+
+    anchors {
+        top: true
+        right: true
+        left: true
+        bottom: true
+    }
 
     color: "transparent"
 
-    Container { // Background
+    MouseArea {
         anchors.fill: parent
+        onClicked: panel.open = false
+    }
+
+    Item {
+        id: positioner
+        anchors.fill: parent
+    }
+
+    ContainerBTLS { // Background
+        height: menuColumn.height + 78
+        width: 500
+
+        anchors {
+            rightMargin: 6 + 8
+            right: positioner.right
+        }
+
         color: Qt.rgba(0,0,0,0.9)
 
         Column {

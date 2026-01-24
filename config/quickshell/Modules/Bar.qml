@@ -9,8 +9,6 @@ PanelWindow {
 
     id: bar
 
-    property bool menuVisible: false
-
     Component.onCompleted: {
         Screens.mainOutput = bar.screen.name
         Screens.mainScreen = bar.screen
@@ -40,7 +38,6 @@ PanelWindow {
 
     Row {
         spacing: 6;
-        
         anchors {
             right: parent.right
             rightMargin: 12
@@ -67,12 +64,13 @@ PanelWindow {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: menuVisible = !menuVisible;
+                onClicked: menu.open = !menu.open;
             }
         }
 
         Menu {
-            visible: menuVisible
+            id: menu
         }
+        Indicator {}
     }
 }
