@@ -1,10 +1,9 @@
+
 import QtQuick
 import QtQuick.Shapes
 
 Shape {
     id: shape
-
-    property bool bottomLeftSmoothing: false
 
     property color borderColor: "white"
     property int borderWidth: 1
@@ -31,5 +30,7 @@ Shape {
             controlX: shape.width - 0.5
             controlY: shape.height - 0.5
         }
+
+        PathLine { x: shape.width - 0.5; y: 0.5 }
     }
 }

@@ -3,14 +3,13 @@ import Quickshell
 
 Rectangle {
     id: shape
-    property bool bottomLeftSmoothing: false
 
-    bottomLeftRadius: bottomLeftSmoothing ? 8 : 0
+		bottomLeftRadius: 8
     bottomRightRadius: 8
     color: Qt.rgba(0,0,0,0.75)
     property color borderColor: Qt.rgba(0.3,0.3,0.3,1)
 
-    Element {
+    ElementBTLS {
         anchors.fill: parent
         borderColor: shape.borderColor
     }
