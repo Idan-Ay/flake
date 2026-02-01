@@ -1,4 +1,4 @@
-{ pkgs, lib, quickshell, ... }:
+{ pkgs, lib, quickshell, dde, ... }:
 
 {
   networking.firewall = {
@@ -18,6 +18,15 @@
     enable = true;
     useNautilus = true;
   };
+  xdg.portal = {
+    enable = true;
+    configPackages = [ pkgs.niri ];
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-gtk 
+    ];
+    config.common.default = "gtk";
+  };
+  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
   programs.dconf.enable = true;
   services.gnome.gnome-settings-daemon.enable = true;
 
@@ -51,8 +60,8 @@
 
   zramSwap = {
     enable = true;
-    memoryPercent = 15;    # ~4.8GB out of 32GB RAM
-    algorithm = "zstd";    # Fast and efficient compression
+    memoryPercent = 15;
+    algorithm = "zstd";
   };
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
@@ -61,6 +70,7 @@
     # waybar # Bar
     quickshell.packages.${system}.default
   ]);
+
 
   services.getty.autologinUser = "idan";
 }

@@ -43,4 +43,14 @@
     source = ./assets;
     recursive = true;
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style = "Orchis-Grey-Dark";
+  }
+  xdg.configFile."qt5/themes" = {
+    recursive = true;
+    source = "./qt";
+  };
 }

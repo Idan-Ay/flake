@@ -14,6 +14,8 @@
     discord # unfree
     godot
     gdlauncher-carbon
+    notesnook
+    # davinci-resolve
     inputs.quickshell.packages.${system}.default
   ]);
 }
