@@ -59,8 +59,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
     Mod+Return repeat=false { spawn "foot"; }
+    Mod+T repeat=false { spawn "foot"; }
     Mod+S repeat=false { spawn "nautilus"; }
     Mod+B repeat=false { spawn "zen"; }
+    Mod+G repeat=false { spawn "code"; }
 
     Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 
@@ -110,7 +112,6 @@ binds {
 
     Mod+I repeat=false { toggle-column-tabbed-display; }
 
-    Mod+G repeat=false { spawn "/bin/sh" "-c" "hyprpicker | wl-copy"; }
 
     // Sound/Media control
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; }
@@ -201,6 +202,13 @@ overview {
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="^blender$"
+    match app-id="^gimp"
+
+    open-maximized true
 }
 
 layer-rule {

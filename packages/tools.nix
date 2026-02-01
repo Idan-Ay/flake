@@ -3,6 +3,9 @@
 {
   programs.git.enable = true; # Git
 
+  # enable nix-index auto integration with fish
+  programs.command-not-found.enable = true;
+
   services.gvfs.enable = true;
 
   hardware.bluetooth = {
@@ -35,16 +38,12 @@
 
   programs.java.enable = true;
 
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "foot";
-  };
-  services.gnome.sushi.enable = true;
-
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
     gh
+
+    notesnook # Note taking app
 
     # valent # Gui tool for kde connect
 
@@ -53,8 +52,6 @@
     fd # fast directory search
     ripgrep # Easy file content search
     zoxide # smarter cd
-
-    hyprpicker # Hyprland color picker
 
     toybox
 
@@ -67,10 +64,9 @@
     p7zip unzip zip unrar atool
 
     nautilus # Graphical file manager
-    kdePackages.dolphin
 
     bottom # Terminal task manager
-
+    
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
@@ -80,6 +76,8 @@
     glib # C library of programming buildings blocks
 
     cliphist # Wayland clipboard manager
+
+    eyedropper # color picker
 
     python3
 

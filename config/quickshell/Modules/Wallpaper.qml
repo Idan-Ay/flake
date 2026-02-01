@@ -73,6 +73,17 @@ Item {
                     anchors.fill: parent
                 }
 
+                // Rectangle {
+                    // id: border
+                    // visible: true
+                    // color: "transparent"
+                    // border {
+                        // width: 1
+                        // color: NiriService."white"
+                    // }
+                    // anchors.fill: parent
+                // }
+
                 MultiEffect {
                     anchors.fill: parent
                     source: backgroundImage
@@ -81,18 +92,6 @@ Item {
                     visible: true
                     maskThresholdMin: 0.5
                     maskSpreadAtMin: 1
-                }
-
-                Rectangle {
-                    id: border
-                    visible: NiriService.overviewOpen
-                    color: "transparent"
-                    radius: 8
-                    border {
-                        width: 1
-                        color: "grey"
-                    }
-                    anchors.fill: parent
                 }
 
                 // PanelWindow {
