@@ -21,6 +21,7 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
+    gtk3.extraCss = builtins.readFile ./gtk3.css;
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
@@ -42,5 +43,16 @@
   xdg.configFile."gtk-4.0/assets" = {
     source = ./assets;
     recursive = true;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style.name = "adwaita-highcontrast";
+  };
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "gnome";
+    QT_STYLE_OVERRIDE = "adwaita-highcontrast";
   };
 }

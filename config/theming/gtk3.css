@@ -1,0 +1,27 @@
+.background {
+	background: rgba(0,0,0,0.75);
+}
+
+menubar, separator, toolbar entry, notebook treeview {
+	background: none;
+}
+
+toolbar entry {
+	border: 1px rgba(70,70,70,0.75) solid;
+}
+
+notebook,
+notebook .horizontal scrolledwindow widget {
+	background: #010101;
+}
+
+notebook {
+	border-bottom: 1px rgba(70,70,70,0.75) solid;
+}
+
+notebook stack paned box.vertical {
+	border-right: 1px #fff solid;
+	border-bottom: 1px #fff solid;
+	border-radius: 0 0 12px 0;
+	margin-bottom: 12px;
+}

@@ -5,6 +5,12 @@
   home.homeDirectory = "/home/idan";
   home.stateVersion = "25.05";
 
+  programs.git = {
+    settings = {
+      user.name = "Idan-Ay";
+    };
+  };
+
   imports = [
     ./config/theming/theming.nix
     ./config/nvim.nix

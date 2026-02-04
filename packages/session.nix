@@ -23,9 +23,33 @@
 
   programs.gamemode.enable = true;
 
-  services = {
-    displayManager.enable = true;
-    displayManager.ly.enable = true;
+  services.displayManager = {
+    enable = true;
+    ly.enable = true;
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        settings = {
+          main = {
+            capslock = "overload(capslock, esc)";
+            esc = "overload(control, capslock)";
+          };
+          capslock = {
+            h = "left";
+            k = "up";
+            j = "down";
+            l = "right";
+            a = "end";
+            i = "home";
+            u = "pageup";
+            d = "pagedown";
+          };
+        };
+      };
+    };
   };
 
   services.avahi.enable = true;

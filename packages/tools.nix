@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  programs.git.enable = true; # Git
+  programs.git.enable = true;
 
   # enable nix-index auto integration with fish
   programs.command-not-found.enable = true;
@@ -45,7 +45,9 @@
 
     notesnook # Note taking app
 
-    # valent # Gui tool for kde connect
+    # web development
+    firefox-devedition
+    ungoogled-chromium
 
     foot # terminal
 
@@ -63,10 +65,16 @@
     avfs # archive-as-directories
     p7zip unzip zip unrar atool
 
-    nautilus # Graphical file manager
+    # xfce.thunar # Xfce file manager
+    # xfce.thunar-volman # Thunar extension for automatic management of removable drives and media
+    # xfce.thunar-vcs-plugin # Thunar plugin providing support for Subversion and Git
+    # xfce.thunar-archive-plugin # Thunar plugin providing file context menus for archives
+    # xfce.thunar-media-tags-plugin # Thunar plugin providing tagging and renaming features for media files
+
+    pcmanfm
 
     bottom # Terminal task manager
-    
+
     wl-clipboard # Clipboard support for some programs
 
     playerctl # Media shortcuts
