@@ -44,15 +44,4 @@
     source = ./assets;
     recursive = true;
   };
-
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style.name = "adwaita-highcontrast";
-  };
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gnome";
-    QT_STYLE_OVERRIDE = "adwaita-highcontrast";
-  };
 }

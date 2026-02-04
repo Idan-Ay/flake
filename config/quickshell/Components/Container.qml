@@ -7,7 +7,7 @@ Rectangle {
 
     bottomLeftRadius: bottomLeftSmoothing ? 8 : 0
     bottomRightRadius: 8
-    color: Qt.rgba(0,0,0,0.75)
+    color: Qt.rgba(0.0039215686, 0.0039215686, 0.0039215686, 0.75)
     property color borderColor: Qt.rgba(0.3,0.3,0.3,1)
 
     Element {

@@ -3,9 +3,6 @@
 {
   programs.git.enable = true;
 
-  # enable nix-index auto integration with fish
-  programs.command-not-found.enable = true;
-
   services.gvfs.enable = true;
 
   hardware.bluetooth = {
@@ -62,16 +59,10 @@
     fastfetch # View system information
 
     lf # file manager
-    avfs # archive-as-directories
+    avfs
     p7zip unzip zip unrar atool
 
-    # xfce.thunar # Xfce file manager
-    # xfce.thunar-volman # Thunar extension for automatic management of removable drives and media
-    # xfce.thunar-vcs-plugin # Thunar plugin providing support for Subversion and Git
-    # xfce.thunar-archive-plugin # Thunar plugin providing file context menus for archives
-    # xfce.thunar-media-tags-plugin # Thunar plugin providing tagging and renaming features for media files
-
-    pcmanfm
+    pcmanfm # gui file manager
 
     bottom # Terminal task manager
 
@@ -85,7 +76,7 @@
 
     cliphist # Wayland clipboard manager
 
-    eyedropper # color picker
+    hyprpicker # color picker
 
     python3
 

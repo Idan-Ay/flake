@@ -59,10 +59,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
     Mod+Return repeat=false { spawn "foot"; }
-    Mod+T repeat=false { spawn "foot"; }
-    Mod+S repeat=false { spawn "nautilus"; }
+    Mod+S repeat=false { spawn "pcmanfm"; }
     Mod+B repeat=false { spawn "zen"; }
-    Mod+G repeat=false { spawn "code"; }
+
+    Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
 
     Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 

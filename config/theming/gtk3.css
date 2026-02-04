@@ -1,8 +1,9 @@
 .background {
-	background: rgba(0,0,0,0.75);
+	background: rgba(1,1,1,0.75);
 }
 
-menubar, separator, toolbar entry, notebook treeview {
+menubar, separator, toolbar entry, notebook treeview, treeview button,
+notebook paned.horizontal box.horizontal scrolledwindow widget:dir(ltr) {
 	background: none;
 }
 
@@ -10,18 +11,19 @@ toolbar entry {
 	border: 1px rgba(70,70,70,0.75) solid;
 }
 
-notebook,
-notebook .horizontal scrolledwindow widget {
-	background: #010101;
-}
-
 notebook {
+	background: #010101;
 	border-bottom: 1px rgba(70,70,70,0.75) solid;
 }
 
 notebook stack paned box.vertical {
 	border-right: 1px #fff solid;
 	border-bottom: 1px #fff solid;
-	border-radius: 0 0 12px 0;
+	border-radius: 0 0 4px 0;
 	margin-bottom: 12px;
+}
+
+notebook stack {
+	margin-right: 12px;
+	margin-left: 12px;
 }

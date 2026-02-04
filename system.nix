@@ -29,7 +29,7 @@
   };
 
   xdg.mime.defaultApplications = {
-    "inode/directory" = "org.gnome.Nautilus.desktop";
+    "inode/directory" = "pcmanfm.desktop";
   };
 
   users.users.idan = {
