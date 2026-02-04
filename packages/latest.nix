@@ -10,10 +10,11 @@
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     blender
     obsidian
-    gimp3
     discord # unfree
     godot
     gdlauncher-carbon
+    kdePackages.kdenlive
+    krita
     inputs.quickshell.packages.${system}.default
   ]);
 }

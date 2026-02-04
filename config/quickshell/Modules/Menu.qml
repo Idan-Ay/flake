@@ -145,7 +145,6 @@ PanelWindow {
                                     verticalCenter: parent.verticalCenter
                                     right: parent.right
                                 }
-                                    
                                 Rectangle {
                                     enabled: modelData.paired
                                     visible: modelData.paired
@@ -200,7 +199,6 @@ PanelWindow {
                     id: outputSwitcher
                     width: menuColumn.width/2 - 16
                     height: outputColumn.height + 19
-                    
                     Column {
                         id: outputColumn
                         spacing: 4
@@ -374,7 +372,6 @@ PanelWindow {
                     height: 19
                     color: "transparent"
 
-                    
                     Column {
                         id: containSlider
 

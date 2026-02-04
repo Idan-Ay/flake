@@ -1,5 +1,7 @@
 import QtQuick
 import Quickshell
+import Quickshell.Services.Pipewire
+import Quickshell.Bluetooth
 
 import qs.Components
 import qs.Services
@@ -16,6 +18,23 @@ PanelWindow {
     onScreenChanged: { 
         Screens.mainOutput = bar.screen.name
         Screens.mainScreen = bar.screen
+    }
+
+    PwObjectTracker {
+        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
+    }
+
+    property bool isMuted: Pipewire.defaultAudioSource.audio.muted
+    property bool isNoSound: Pipewire.defaultAudioSink.audio.muted
+    property real volume: Pipewire.defaultAudioSource.audio.volume
+    property bool bluetoothOn: Bluetooth.defaultAdapter.enabled
+
+    function volumeIconToUse() {
+        if (isNoSound) {
+            return "  "
+        } else {
+            return "  "
+        }
     }
 
     anchors {
@@ -37,12 +56,47 @@ PanelWindow {
     Clock {}
 
     Row {
-        spacing: 6;
+        spacing: 12;
         anchors {
             right: parent.right
             rightMargin: 12
         }
 
+        Row {
+            Rectangle {
+                width: 36
+                height: 27
+                color: "transparent"
+                SText {
+                    anchors.centerIn: parent
+                    text: isNoSound ? "  " : "  "
+                    color: !isNoSound ? "white" : Qt.rgba(0.5,0.5,0.5,1)
+                    font.pixelSize: 15
+                }
+            }
+            Rectangle {
+                width: 36
+                height: 27
+                color: "transparent"
+                SText {
+                    anchors.centerIn: parent
+                    text: isMuted ? " " : ""
+                    color: !isMuted ? "white" : Qt.rgba(0.5,0.5,0.5,1)
+                    font.pixelSize: 15
+                }
+            }
+            Rectangle {
+                width: 36
+                height: 27
+                color: "transparent"
+                SText {
+                    anchors.centerIn: parent
+                    text: bluetoothOn ? "󰂯" : "󰂲"
+                    color: bluetoothOn ? "white" : Qt.rgba(0.5,0.5,0.5,1)
+                    font.pixelSize: 16
+                }
+            }
+        }
         // Taskbar {}
         Element {
             width: 69
@@ -71,6 +125,5 @@ PanelWindow {
         Menu {
             id: menu
         }
-        Indicator {}
     }
 }

@@ -26,7 +26,7 @@ Item {
         return imagesModel.get(index, "fileUrl")
     }
     readonly property string randomWallpaper: getRandomWallpaper()
-    
+
     Variants {
         model: Quickshell.screens;
 
@@ -73,17 +73,6 @@ Item {
                     anchors.fill: parent
                 }
 
-                // Rectangle {
-                    // id: border
-                    // visible: true
-                    // color: "transparent"
-                    // border {
-                        // width: 1
-                        // color: NiriService."white"
-                    // }
-                    // anchors.fill: parent
-                // }
-
                 MultiEffect {
                     anchors.fill: parent
                     source: backgroundImage
@@ -94,19 +83,17 @@ Item {
                     maskSpreadAtMin: 1
                 }
 
-                // PanelWindow {
-                    // screen: modelData
-
-                    // anchors {
-                        // bottom: true
-                        // left: true
-                        // right: true
-                    // }
-                    // implicitHeight: 20
-                    // visible: NiriService.overviewOpen
-
-                    // color: "transparent"
-                // }
+                Rectangle {
+                    id: border
+                    visible: NiriService.overviewOpen
+                    color: "transparent"
+                    border {
+                        width: 1
+                        color: Qt.rgba(0.3,0.3,0.3,1)
+                    }
+                    radius: 8
+                    anchors.fill: parent
+                }
 
                 PanelWindow {
 
