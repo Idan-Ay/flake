@@ -2,6 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.Mpris
 
+import qs.Components
+
 Rectangle {
             width: 360
             height: bar.height - 4
