@@ -46,6 +46,8 @@
 
     imv # image viewer
 
+    obs-studio # video recording
+
     # web development
     firefox-devedition
     ungoogled-chromium
