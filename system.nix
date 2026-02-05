@@ -30,6 +30,11 @@
 
   xdg.mime.defaultApplications = {
     "inode/directory" = "pcmanfm.desktop";
+    "image/jpeg" = "imv.desktop";
+    "image/png" = "imv.desktop";
+    "image/gif" = "imv.desktop";
+    "image/bmp" = "imv.desktop";
+    "image/webp" = "imv.desktop";
   };
 
   users.users.idan = {

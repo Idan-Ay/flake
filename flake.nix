@@ -4,15 +4,7 @@
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
 
-    vicinae.url = "github:vicinaehq/vicinae"; 
-
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim.url = "github:nix-community/nixvim";
   };
 
@@ -20,10 +12,8 @@
     nixpkgs,
     nixpkgs-latest,
     home-manager,
-    vicinae,
     nixvim,
     zen-browser,
-    quickshell,
     ...
     } @ inputs:
     let
@@ -32,7 +22,7 @@
     in {
       nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs pkgsLatest quickshell; };
+        specialArgs = { inherit inputs pkgsLatest; };
         modules = [./system.nix];
       };
 
@@ -40,7 +30,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home.nix
-          vicinae.homeManagerModules.default
           nixvim.homeModules.default
           zen-browser.homeModules.default
         ];

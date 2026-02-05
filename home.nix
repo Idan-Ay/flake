@@ -18,10 +18,6 @@
 
   services.syncthing.enable = true;
 
-  services.vicinae = {
-      enable = true;
-      autoStart = true;
-  };
   programs.zen-browser.enable = true;
 
   xdg.configFile = { 
@@ -47,6 +43,8 @@
       source = ./config/fastfetch;
       recursive = true;
     };
+
+    "imv/config".text = "[options]\nbackground = 010101";
   };
 
   home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;

@@ -1,4 +1,4 @@
-{ pkgsLatest, inputs, lib, ... }:
+{ pkgsLatest, lib, ... }:
 
 {
   programs.steam = { # unfree
@@ -10,11 +10,9 @@
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     blender
     obsidian
-    discord # unfree
     godot
-    gdlauncher-carbon
-    kdePackages.kdenlive
     krita
-    inputs.quickshell.packages.${system}.default
+    discord # unfree
+    davinci-resolve # unfree
   ]);
 }

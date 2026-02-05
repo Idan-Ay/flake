@@ -1,4 +1,4 @@
-{ pkgs, lib, quickshell, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking.firewall = {
@@ -82,8 +82,8 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
 
-    # waybar # Bar
-    quickshell.packages.${system}.default
+    quickshell
+    vicinae
   ]);
 
   services.getty.autologinUser = "idan";

@@ -42,6 +42,10 @@
 
     notesnook # Note taking app
 
+    prismlauncher # Minecraft launcher
+
+    imv # image viewer
+
     # web development
     firefox-devedition
     ungoogled-chromium

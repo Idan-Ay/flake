@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.Pipewire
+import Quickshell.Services.Mpris
 import Quickshell.Bluetooth
 
 import qs.Components
@@ -63,38 +64,32 @@ PanelWindow {
         }
 
         Row {
-            Rectangle {
-                width: 36
-                height: 27
-                color: "transparent"
-                SText {
-                    anchors.centerIn: parent
-                    text: isNoSound ? "  " : "  "
-                    color: !isNoSound ? "white" : Qt.rgba(0.5,0.5,0.5,1)
-                    font.pixelSize: 15
-                }
+            BarIcon {
+                text: isNoSound ? "  " : "  "
+                active: !isNoSound
             }
-            Rectangle {
-                width: 36
-                height: 27
-                color: "transparent"
-                SText {
-                    anchors.centerIn: parent
-                    text: isMuted ? " " : ""
-                    color: !isMuted ? "white" : Qt.rgba(0.5,0.5,0.5,1)
-                    font.pixelSize: 15
-                }
+            BarIcon {
+                text: isMuted ? " " : ""
+                active: !isMuted
             }
+            BarIcon {
+                text: bluetoothOn ? "󰂯" : "󰂲"
+                active: bluetoothOn
+            }
+        }
+
+        Rectangle {
+            width: 120
+            height: bar.height
+
+            SText {
+                text: Mpris.players[0]?.metadata?.title ?? "No track playing"
+            }
+
             Rectangle {
-                width: 36
-                height: 27
-                color: "transparent"
-                SText {
-                    anchors.centerIn: parent
-                    text: bluetoothOn ? "󰂯" : "󰂲"
-                    color: bluetoothOn ? "white" : Qt.rgba(0.5,0.5,0.5,1)
-                    font.pixelSize: 16
-                }
+                width: parent.width
+                height: 1
+                anchors.bottom: parent.bottom
             }
         }
         // Taskbar {}
