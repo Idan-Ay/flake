@@ -7,7 +7,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixvim.url = "github:nix-community/nixvim";
 
-    apple-silicon.url = "github:nix-community/nixos-apple-silicon"
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs = { 
@@ -18,34 +18,48 @@
     zen-browser,
     apple-silicon,
     ...
-    } @ inputs: {
+    } @ inputs:
+    let
+      pkgsLatest = import nixpkgs-latest { system = "x86_64-linux"; config.allowUnfree = true; };
+      pkgsLatestMac = import nixpkgs-latest { system = "aarch64-linux"; config.allowUnfree = true; };
+    in {
       nixosConfigurations = {
 
-        nixpkgs.config.allowUnfree = true;
         nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          pkgsLatest = import nixpkgs-latest { inherit system; config.allowUnfree = true; };
+          # pkgs = nixpkgs.legacyPackages.x86_64-linux;
           specialArgs = { inherit inputs pkgsLatest; };
           modules = [./system-pc.nix];
         };
         mac = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          pkgsLatest = import nixpkgs-latest { inherit system; config.allowUnfree = true; };
-          specialArgs = { inherit inputs pkgsLatest apple-silicon; };
+          system = "aarch64-linux";
+          # pkgs = nixpkgs-latest.legacyPackages.aarch64-linux;
+          specialArgs = { inherit inputs pkgsLatestMac apple-silicon; };
           modules = [./system-mac.nix];
         };
       };
 
-      homeConfigurations.u = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home.nix
-          nixvim.homeModules.default
-          zen-browser.homeModules.default
-        ];
-        extraSpecialArgs = { inherit inputs; };
+      homeConfigurations = {
+        pc = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            ./home.nix
+            nixvim.homeModules.default
+            zen-browser.homeModules.default
+          ];
+          extraSpecialArgs = { inherit inputs; };
+        };
+        mac = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          modules = [
+            ./home.nix
+            nixvim.homeModules.default
+            zen-browser.homeModules.default
+          ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
     };
 }

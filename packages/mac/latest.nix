@@ -1,4 +1,4 @@
-{ pkgsLatest, lib, ... }:
+{ pkgsLatestMac, lib, ... }:
 
 {
   programs.steam = { # unfree
@@ -7,7 +7,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  environment.systemPackages = lib.mkAfter (with pkgsLatest-pc; [
+  environment.systemPackages = lib.mkAfter (with pkgsLatestMac; [
     blender
     obsidian
     godot

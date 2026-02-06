@@ -7,7 +7,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  environment.systemPackages = lib.mkAfter (with pkgsLatest-pc; [
+  environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     blender
     obsidian
     godot

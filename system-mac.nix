@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, apple-silicon, ... }:
 
 {
   networking.hostName = "idan-mac-l";

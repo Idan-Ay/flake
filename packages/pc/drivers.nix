@@ -29,8 +29,8 @@
     };
   };
 
-  environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer.json".source = 
-    ../config/nvidia/50-limit-free-buffer.json;
+  # environment.etc."../../nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer.json".source = 
+    # ../config/nvidia/50-limit-free-buffer.json;
 
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 }

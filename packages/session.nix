@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 8384 25565 ];
