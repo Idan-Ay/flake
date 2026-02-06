@@ -5,27 +5,39 @@
     enable = true;
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
-    # allowedTCPPortRanges = [
-      # { from = 1714; to = 1764; }
-    # ];
-    # allowedUDPPortRanges = [
-      # { from = 1714; to = 1764; }
-    # ];
   };
   programs.nix-ld.enable = true;
-  # Enable Niri (Wayland window manager)
+
   programs.niri = {
     enable = true;
     useNautilus = true;
   };
-  programs.dconf.enable = true;
-  services.gnome.gnome-settings-daemon.enable = true;
 
   programs.gamemode.enable = true;
 
   services.displayManager = {
     enable = true;
     ly.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+
+    settings = {
+      default_session = {
+        command = "niri-session";
+        user = "idan";
+      };
+    };
+  };
+
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "pcmanfm.desktop";
+    "image/jpeg" = "imv.desktop";
+    "image/png" = "imv.desktop";
+    "image/gif" = "imv.desktop";
+    "image/bmp" = "imv.desktop";
+    "image/webp" = "imv.desktop";
   };
 
   services.keyd = {
@@ -52,19 +64,6 @@
     };
   };
 
-  services.avahi.enable = true;
-
-  services.greetd = {
-    enable = true;
-
-    settings = {
-      default_session = {
-        command = "niri-session";
-        user = "idan";
-      };
-    };
-  };
-
   programs.fish = {
     enable = true;
 
@@ -72,6 +71,7 @@
     shellInit = builtins.readFile ../scripts/shellInit.fish;
     interactiveShellInit = builtins.readFile ../scripts/interactiveShellInit.fish;
   };
+  users.defaultUserShell = pkgs.fish;
 
   zramSwap = {
     enable = true;
@@ -86,5 +86,5 @@
     vicinae
   ]);
 
-  services.getty.autologinUser = "idan";
+  security.sudo.enable = true;
 }

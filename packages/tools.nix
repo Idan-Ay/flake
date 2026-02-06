@@ -42,8 +42,6 @@
 
     notesnook # Note taking app
 
-    prismlauncher # Minecraft launcher
-
     imv # image viewer
 
     obs-studio # video recording
