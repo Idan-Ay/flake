@@ -8,8 +8,8 @@
     ./hardware-configuration-pc.nix
 
     ./packages/tools.nix
-    ./packages/drivers.nix
-    ./packages/latest.nix
+    ./packages/pc/drivers.nix
+    ./packages/pc/latest.nix
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
