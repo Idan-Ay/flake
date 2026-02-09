@@ -20,13 +20,13 @@
       system = "x86_64-linux";
       pkgsLatest = import nixpkgs-latest { inherit system; config.allowUnfree = true; };
     in {
-      nixosConfigurations.idan-pc-l = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs pkgsLatest; };
         modules = [./system.nix];
       };
 
-      homeConfigurations.idan-pc-l = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.pc = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home.nix

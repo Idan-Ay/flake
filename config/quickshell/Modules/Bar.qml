@@ -11,13 +11,13 @@ PanelWindow {
 
     id: bar
 
+    property string screenName
+
     Component.onCompleted: {
-        Screens.mainOutput = bar.screen.name
-        Screens.mainScreen = bar.screen
+        bar.screenName = bar.screen.name
     }
     onScreenChanged: { 
-        Screens.mainOutput = bar.screen.name
-        Screens.mainScreen = bar.screen
+        bar.screenName = bar.screen.name
     }
 
     PwObjectTracker {
@@ -52,7 +52,9 @@ PanelWindow {
         height: bar.height
     }
 
-    WorkspaceSwitcher {}
+    WorkspaceSwitcher {
+        screenName: bar.screenName
+    }
     Clock {}
 
     Row {
