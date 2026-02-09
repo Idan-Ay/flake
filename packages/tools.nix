@@ -40,6 +40,8 @@
 
     gh
 
+    nodejs_24
+
     notesnook # Note taking app
 
     imv # image viewer

@@ -29,13 +29,11 @@
 
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          # pkgs = nixpkgs.legacyPackages.x86_64-linux;
           specialArgs = { inherit inputs pkgsLatest; };
           modules = [./system-pc.nix];
         };
         mac = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          # pkgs = nixpkgs-latest.legacyPackages.aarch64-linux;
           specialArgs = { inherit inputs pkgsLatestMac apple-silicon; };
           modules = [./system-mac.nix];
         };

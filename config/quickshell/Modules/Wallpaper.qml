@@ -51,6 +51,45 @@ Item {
                     right: true
                 }
 
+                // property real mouseX
+                // property real mouseY
+
+                // property real animMouseX
+                // property real animMouseY
+
+                // property bool followMouse: !NiriService.overviewOpen
+
+                // property real scaled: followMouse ? 1.01 : 1
+
+                // Behavior on scaled {
+                    // NumberAnimation { duration: 400; easing.type: Easing.OutQuad; }
+                // }
+
+                // Timer {
+                    // interval: 16
+                    // running: wallpaperWindow.followMouse
+                    // repeat: true
+                    // onTriggered: {
+                        // animMouseX += (mouseX - animMouseX)/24
+                        // animMouseY += (mouseY - animMouseY)/24
+                    // }
+                // }
+                // MouseArea {
+                    // id: mainMouseArea
+                    // hoverEnabled: true
+                    // anchors.fill: parent
+
+                    // Handler for when the mouse position changes while hovering (if hoverEnabled is true)
+                    // onPositionChanged: {
+                        // wallpaperWindow.mouseX = mouse.x
+                        // wallpaperWindow.mouseY = mouse.y
+                    // }
+                    // onClicked: {
+                        // console.log(JSON.stringify(NiriService.sortedWindows))
+                        // console.log(modelData.name)
+                    // }
+                // }
+
                 Image {
                     id: backgroundImage
                     smooth: true
@@ -81,6 +120,13 @@ Item {
                     visible: true
                     maskThresholdMin: 0.5
                     maskSpreadAtMin: 1
+
+                    // transform: Scale {
+                        // origin.x: animMouseX
+                        // origin.y: animMouseY
+                        // xScale: wallpaperWindow.scaled
+                        // yScale: wallpaperWindow.scaled
+                    // }
                 }
 
                 Rectangle {

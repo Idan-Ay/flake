@@ -13,10 +13,15 @@ Singleton {
 
     readonly property string socketPath: Quickshell.env("NIRI_SOCKET")
 
+    property var windows: {[]}
+    property var sortedWindows
     property var workspaces: {[]}
-    property int workspacesOnMainOutputLength: 2
-    property int selectedWorkspaceOnMainOutputIndex: 0
+    property var workspacesPerOutput
+    property var selectedWorkspacePerOutputId
+    property var selectedWorkspacePerOutputIndex
     property bool overviewOpen: false
+
+    signal updated()
 
     // Read event stream
     Socket {
@@ -51,7 +56,6 @@ Singleton {
     // Filter events & call functions
     function handleNiriEvent(event) {
         const eventType = Object.keys(event)[0];
-        
         switch (eventType) {
             case 'WorkspacesChanged':
                 handleWorkspacesChanged(event.WorkspacesChanged);
@@ -66,17 +70,19 @@ Singleton {
             //     handleWindowsChanged(event.WindowsChanged);
             //     break;
             // case 'WindowClosed':
-            //     handleWindowClosed();
-            //     break;
+                // handleWindowClosed();
+                // break;
             // case 'WindowOpenedOrChanged':
-            //     handleWindowOpenedOrChanged(event.WindowOpenedOrChanged);
-            //     break;
+                // getWindows.exec()
+                // handleWindowOpenedOrChanged(event.WindowOpenedOrChanged);
+                // break;
             // case 'WindowLayoutsChanged':
             //     handleWindowLayoutsChanged(event.WindowLayoutsChanged);
             //     break;
             // case 'OutputsChanged':
-            //     handleOutputsChanged(event.OutputsChanged);
-            //     break;
+                // handleOutputsChanged(event.OutputsChanged);
+                // console.log("test2")
+                // break;
             case 'OverviewOpenedOrClosed':
                 handleOverviewChanged(event.OverviewOpenedOrClosed);
                 break;
@@ -96,24 +102,31 @@ Singleton {
     // if on main output add 1 to workspacesOnMainOutputLength
     function handleWorkspacesChanged(data) {
         root.workspaces = data.workspaces
-        root.workspacesOnMainOutputLength = 0
+        root.workspacesPerOutput = {}
         for (const workspace of data.workspaces) {
-            if (workspace.output === Screens.mainOutput) {
-                root.workspacesOnMainOutputLength++
+            if (root.workspacesPerOutput[workspace.output]) {
+                root.workspacesPerOutput[workspace.output]++
+            } else {
+                root.workspacesPerOutput[workspace.output] = 1
             }
         }
+        root.updated()
     }
 
     // Search for object with id === selected id
     // Check if on main output
     // Assign index
     function handleWorkspaceActivated(data) {
+        root.selectedWorkspacePerOutputIndex = {}
+        root.selectedWorkspacePerOutputId = {}
         for (const workspace of root.workspaces) {
-            if (workspace.id === data.id
-                && workspace.output === Screens.mainOutput) {
-                root.selectedWorkspaceOnMainOutputIndex = workspace.idx - 1
+            if (workspace.id === data.id) {
+                console.log(workspace.idx)
+                root.selectedWorkspacePerOutputIndex[workspace.output] = workspace.idx - 1
+                root.selectedWorkspacePerOutputId[workspace.output] = workspace.id
             }
         }
+        root.updated()
     }
 
     function handleOverviewChanged(data) {
