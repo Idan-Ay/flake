@@ -14,6 +14,6 @@
     krita
     prismlauncher
     discord # unfree
-    davinci-resolve # unfree
+    # davinci-resolve # unfree
   ]);
 }
