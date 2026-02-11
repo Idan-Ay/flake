@@ -26,9 +26,6 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-vulkan;
-    loadModels = [
-      "drivedenpadev/deepseek-v3.2"
-    ];
   };
 
   programs.nix-ld.enable = true;

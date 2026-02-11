@@ -24,9 +24,6 @@
       pkgsLatestMac = import nixpkgs-latest { system = "aarch64-linux"; config.allowUnfree = true; };
     in {
       nixosConfigurations = {
-
-        nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs pkgsLatest; };
