@@ -6,8 +6,6 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixvim.url = "github:nix-community/nixvim";
-
-    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs = { 
@@ -16,7 +14,6 @@
     home-manager,
     nixvim,
     zen-browser,
-    apple-silicon,
     ...
     } @ inputs:
     let
@@ -31,7 +28,7 @@
         };
         mac = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = { inherit inputs pkgsLatestMac apple-silicon; };
+          specialArgs = { inherit inputs pkgsLatestMac; };
           modules = [./system-mac.nix];
         };
       };
