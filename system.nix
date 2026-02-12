@@ -5,11 +5,11 @@
   imports = [
     ./user.nix
     
-    ./hardware-configuration-pc.nix
+    ./hardware-configuration.nix
 
     ./packages/tools.nix
-    ./packages/pc/drivers.nix
-    ./packages/pc/latest.nix
+    ./packages/drivers.nix
+    ./packages/latest.nix
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
