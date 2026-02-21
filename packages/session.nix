@@ -9,19 +9,40 @@
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
   };
-  programs.nix-ld.enable = true;
 
   programs.niri = {
     enable = true;
-    useNautilus = true;
+    useNautilus = false;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+      niri = {
+        default = [
+          "gtk"
+          "gnome"
+        ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+      };
+    };
+  };
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
   };
 
   programs.gamemode.enable = true;
-
-  services.displayManager = {
-    enable = true;
-    ly.enable = true;
-  };
 
   services.greetd = {
     enable = true;

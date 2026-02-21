@@ -6,6 +6,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+  programs.steam.protontricks.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     blender
@@ -13,6 +14,9 @@
     godot
     krita
     prismlauncher
+    vscodium
+    lutris
+    protonplus
     discord # unfree
     davinci-resolve # unfree
   ]);

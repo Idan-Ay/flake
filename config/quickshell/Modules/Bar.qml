@@ -1,7 +1,5 @@
 import QtQuick
 import Quickshell
-import Quickshell.Services.Pipewire
-import Quickshell.Bluetooth
 
 import qs.Components
 import qs.Services
@@ -18,23 +16,6 @@ PanelWindow {
     }
     onScreenChanged: { 
         bar.screenName = bar.screen.name
-    }
-
-    PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-    }
-
-    property bool isMuted: Pipewire.defaultAudioSource.audio.muted
-    property bool isNoSound: Pipewire.defaultAudioSink.audio.muted
-    property real volume: Pipewire.defaultAudioSource.audio.volume
-    property bool bluetoothOn: Bluetooth.defaultAdapter.enabled
-
-    function volumeIconToUse() {
-        if (isNoSound) {
-            return "  "
-        } else {
-            return "  "
-        }
     }
 
     anchors {
@@ -64,20 +45,7 @@ PanelWindow {
             rightMargin: 12
         }
 
-        Row {
-            BarIcon {
-                text: isNoSound ? "  " : "  "
-                active: !isNoSound
-            }
-            BarIcon {
-                text: isMuted ? " " : ""
-                active: !isMuted
-            }
-            BarIcon {
-                text: bluetoothOn ? "󰂯" : "󰂲"
-                active: bluetoothOn
-            }
-        }
+        ActiveServices {}
 
         // Taskbar {}
         Media {}

@@ -18,8 +18,14 @@ toolbar entry {
 
 notebook,
 toolbar,
-headerbar {
+headerbar,
+.titlebar,
+messagedialog {
 	background: #010101;
+}
+
+messagedialog {
+  border-radius: 0;
 }
 
 notebook,

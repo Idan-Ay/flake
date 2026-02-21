@@ -19,6 +19,8 @@
     };
   };
 
+  security.rtkit.enable = true;
+
   networking.networkmanager.enable = true;
 
   services.udisks2.enable = true;
@@ -31,6 +33,7 @@
   programs.nix-ld.enable = true;
 
   programs.java.enable = true;
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
@@ -38,6 +41,10 @@
     gh
 
     nodejs_24
+    mise
+    mold
+    yarn
+    wget
 
     notesnook # Note taking app
 
