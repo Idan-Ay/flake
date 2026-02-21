@@ -34,6 +34,7 @@ PanelWindow {
     }
 
     Row {
+        spacing: 32;
         WorkspaceSwitcher {
             screenName: bar.screenName
         }
