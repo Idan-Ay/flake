@@ -33,9 +33,13 @@ PanelWindow {
         height: bar.height
     }
 
-    WorkspaceSwitcher {
-        screenName: bar.screenName
+    Row {
+        WorkspaceSwitcher {
+            screenName: bar.screenName
+        }
+        Resources {}
     }
+
     Clock {}
 
     Row {

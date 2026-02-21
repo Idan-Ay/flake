@@ -11,7 +11,7 @@
       smartindent = true;
       mouse = "a";
       splitright = true;
-      tabstop = 2;
+      tabstop = 1;
 
       # lines
       number = true;
