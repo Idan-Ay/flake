@@ -14,8 +14,6 @@
     godot
     krita
     prismlauncher
-    vscodium
-    lutris
     protonplus
     discord # unfree
     davinci-resolve # unfree

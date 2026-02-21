@@ -1,3 +1,6 @@
+import QtQuick
+import Quickshell
+
 Rectangle {
     width: 360
 				height: bar.height - 4

@@ -33,3 +33,12 @@ window.background.view.view.view #NautilusPathBar {
 	background: #010101;
 	border-image-source: url("assets/row-selected-blackness-dark-transparent.png");
 }
+
+window.background.background.background.background .top-bar,
+window.background.background.background.background headerbar {
+  background: none;
+}
+
+.background {
+  background: rgba(1,1,1,0.75)
+}
