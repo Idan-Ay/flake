@@ -36,12 +36,12 @@ toolbar {
 
 notebook {
 	border-bottom: 1px rgba(70,70,70,0.75) solid;
-	border-radius: 0 0 15px 15px;
+	border-radius: 0 0 4px 4px;
 	border: none;
 }
 
 toolbar {
-	border-radius: 15px 15px 0 0;
+	border-radius: 4px 4px 0 0;
 }
 
 notebook stack paned box.vertical {
@@ -58,4 +58,9 @@ notebook stack {
 
 menubar {
   box-shadow: none;
+}
+
+.titlebar {
+  border-radius: 0;
+  background: rgba(1,1,1,0.75);
 }

@@ -3,15 +3,89 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Bluetooth
+import Quickshell.Io
+import Quickshell.Wayland
 
 import qs.Components
 
-PanelWindow {
+WlrLayershell {
+    layer: open ? WlrLayer.Overlay : WlrLayer.Top
+    keyboardFocus: WlrKeyboardFocus.OnDemand  // or Exclusive for full control
 
     id: panel
 
+    PwNodeLinkTracker {
+        id: defaultAudioSink
+        node: Pipewire.defaultAudioSink
+    }
+
+    PwObjectTracker {
+        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
+    }
+
     property bool open: false
+    property string selection
+    property int appSelection: 0
     visible: open
+
+    IpcHandler {
+        target: "open-menu"
+
+        function bluetooth() {
+            open = true
+            selection = "bluetooth"
+        }
+        function output() {
+            open = true
+            selection = "output"
+        }
+        function input() {
+            open = true
+            selection = "input"
+        }
+        function applications() {
+            open = true
+            selection = "applications"
+        }
+    }
+
+    function getSourceNodes() {
+        let sourceNodes = []
+        for (const node of Pipewire.nodes.values) {
+            if (!node.isSink && !node.isStream && node.audio) {
+                sourceNodes.push(node)
+            }
+        }
+        return sourceNodes
+    }
+    function getSinkNodes() {
+        let sinkNodes = []
+        for (const node of Pipewire.nodes.values) {
+            if (node.isSink && !node.isStream) {
+                sinkNodes.push(node)
+            }
+        }
+        return sinkNodes
+    }
+
+    function selectDevice(num) {
+        if (selection === "bluetooth") {
+            if (Bluetooth.devices.values[num].connected) {
+                Bluetooth.devices.values[num].disconnect()
+            } else {
+                Bluetooth.devices.values[num].connect()
+            }
+        }
+        if (selection === "output") {
+            Pipewire.preferredDefaultAudioSink = getSinkNodes()[num]
+        }
+        if (selection === "input") {
+            Pipewire.preferredDefaultAudioSource = getSourceNodes()[num]
+        }
+        if (selection === "applications") {
+            appSelection = num
+        }
+    }
 
     anchors {
         top: true
@@ -33,6 +107,70 @@ PanelWindow {
     }
 
     ContainerBTLS { // Background
+        focus: true
+
+
+        Keys.onPressed: (event) => {
+            switch (event.key) {
+                case Qt.Key_Escape:
+                    open = false
+                    break;
+                case Qt.Key_1:
+                    selectDevice(0)
+                    break;
+                case Qt.Key_2:
+                    selectDevice(1)
+                    break;
+                case Qt.Key_3:
+                    selectDevice(2)
+                    break;
+                case Qt.Key_4:
+                    selectDevice(3)
+                    break;
+                case Qt.Key_5:
+                    selectDevice(4)
+                    break;
+                case Qt.Key_6:
+                    selectDevice(5)
+                    break;
+                case Qt.Key_7:
+                    selectDevice(6)
+                    break;
+                case Qt.Key_8:
+                    selectDevice(7)
+                    break;
+                case Qt.Key_9:
+                    selectDevice(8)
+                    break;
+                case Qt.Key_H:
+                case Qt.Key_L: {
+                    const delta = event.key === Qt.Key_H ? -0.1 : 0.1
+
+                    if (selection === "output") {
+                        Pipewire.defaultAudioSink.audio.volume += delta
+                    } else if (selection === "input") {
+                        Pipewire.defaultAudioSource.audio.volume += delta
+                    } else if (selection === "applications") {
+                        defaultAudioSink.linkGroups[appSelection].source.audio.volume += delta
+                    }
+                    break;
+                }
+                case Qt.Key_R:
+                    if (selection === "bluetooth") {
+                        Bluetooth.defaultAdapter.discovering = true
+                        waitForDiscoveringDisable.start()
+                    }
+                    break;
+                case Qt.Key_D:
+                    if (selection === "bluetooth") {
+                        Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled
+                    }
+                    break;
+            }
+            event.accepted = true
+        }
+
+
         height: menuColumn.height + 78
         width: 500
 
@@ -66,7 +204,7 @@ PanelWindow {
                         width: parent.width
                         height: 19
                         color: "transparent"
-                        SText { text: "bluetooth" }
+                        SText { text: (selection==="bluetooth" ? "* " : "") + "bluetooth" }
                         Row {
                             spacing: 12
                             anchors.right: parent.right
@@ -124,7 +262,7 @@ PanelWindow {
                             property bool forgetting: false
 
                             SText {
-                                text: modelData.name + " (" + modelData.icon + ") " +
+                                text: index+1 + ". " + modelData.name + " (" + modelData.icon + ") " +
                                         (modelData.betteryAvailable ? modelData.battery + "%" : "") +
                                         (modelData.state === 1 ? "connected" : "") +
                                         (modelData.state === 3 ? "connecting..." : "") +
@@ -140,51 +278,25 @@ PanelWindow {
                                 }
                             }
 
-                            Row {
-                                anchors {
-                                    verticalCenter: parent.verticalCenter
-                                    right: parent.right
+                            Rectangle {
+                                anchors.right: parent.right
+
+                                enabled: modelData.paired
+                                visible: modelData.paired
+
+                                width: 19
+                                height: 19
+
+                                color: "transparent"
+
+                                SText {
+                                    text: "d"
+                                    anchors.centerIn: parent
                                 }
-                                Rectangle {
-                                    enabled: modelData.paired
-                                    visible: modelData.paired
-
-                                    width: 19
-                                    height: 19
-
-                                    color: "transparent"
-
-                                    SText {
-                                        text: "d"
-                                        anchors.centerIn: parent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            modelData.disconnect()
-                                        }
-                                    }
-                                }
-
-                                Rectangle {
-                                    enabled: modelData.paired
-                                    visible: modelData.paired
-
-                                    width: 19
-                                    height: 19
-
-                                    color: "transparent"
-
-                                    SText {
-                                        text: "f"
-                                        anchors.centerIn: parent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            deviceElement.forgetting = true
-                                            modelData.forget()
-                                        }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        modelData.disconnect()
                                     }
                                 }
                             }
@@ -197,13 +309,14 @@ PanelWindow {
                 spacing: 32
                 Element {
                     id: outputSwitcher
+
                     width: menuColumn.width/2 - 16
                     height: outputColumn.height + 19
                     Column {
                         id: outputColumn
                         spacing: 4
 
-                        SText { text: "output" }
+                        SText { text: (selection==="output" ? "* " : "") + "output" }
 
                         Rectangle {
                             width: outputSwitcher.width - 14
@@ -212,17 +325,8 @@ PanelWindow {
 
                         width: outputSwitcher.width - 16
 
-                        function getSinkNodes() {
-                            let sinkNodes = []
-                            for (const node of Pipewire.nodes.values) {
-                                if (node.isSink && !node.isStream) {
-                                    sinkNodes.push(node)
-                                }
-                            }
-                            return sinkNodes
-                        }
                         Repeater {
-                            model: outputColumn.getSinkNodes()
+                            model: getSinkNodes()
                             Rectangle {
 
                                 width: parent.width
@@ -231,7 +335,7 @@ PanelWindow {
                                 color: "transparent"
 
                                 SText {
-                                    text: modelData.description || modelData.name
+                                    text: index+1 + ". " + (modelData.description || modelData.name)
                                     width: parent.width - 12
                                     elide: Text.ElideRight
                                 }
@@ -261,13 +365,14 @@ PanelWindow {
                 }
                 Element {
                     id: inputSwitcher
+
                     width: menuColumn.width/2 - 16
                     height: inputColumn.height + 19
                     Column {
                         id: inputColumn
                         spacing: 4
 
-                        SText { text: "input" }
+                        SText { text: (selection==="input" ? "* " : "") + "input" }
 
                         Rectangle {
                             width: inputSwitcher.width - 14
@@ -276,17 +381,8 @@ PanelWindow {
 
                         width: inputSwitcher.width - 16
 
-                        function getSourceNodes() {
-                            let sinkNodes = []
-                            for (const node of Pipewire.nodes.values) {
-                                if (!node.isSink && !node.isStream && node.audio) {
-                                    sinkNodes.push(node)
-                                }
-                            }
-                            return sinkNodes
-                        }
                         Repeater {
-                            model: inputColumn.getSourceNodes()
+                            model: getSourceNodes()
                             Rectangle {
 
                                 width: parent.width
@@ -295,7 +391,7 @@ PanelWindow {
                                 color: "transparent"
 
                                 SText {
-                                    text: modelData.description || modelData.name
+                                    text: index+1 + ". " + (modelData.description || modelData.name)
                                     width: parent.width - 12
                                     elide: Text.ElideRight
                                 }
@@ -325,21 +421,12 @@ PanelWindow {
                 }
             }
 
-            PwNodeLinkTracker {
-                id: defaultAudioSink
-                node: Pipewire.defaultAudioSink
-            }
-
-            PwObjectTracker {
-                objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-            }
-
             Column {
                 width: 499 - 32
                 height: 19
                 SText {
                     anchors.centerIn: null
-                    text: "output"
+                    text: (selection==="output" ? "* " : "") + "output"
                 }
                 SSlider {
                     value: Pipewire.defaultAudioSink.audio.volume
@@ -351,7 +438,7 @@ PanelWindow {
                 height: 19
                 SText {
                     anchors.centerIn: null
-                    text: "input"
+                    text: (selection==="input" ? "* " : "") + "input"
                 }
                 SSlider {
                     value: Pipewire.defaultAudioSource.audio.volume
@@ -360,7 +447,7 @@ PanelWindow {
             }
 
             SText {
-                text: "applications:"
+                text: (selection==="applications" ? "* " : "") + "applications:"
                 height: 46
                 verticalAlignment: Text.AlignBottom
             }
@@ -385,7 +472,7 @@ PanelWindow {
 
                         SText {
                             anchors.centerIn: null
-                            text: containSlider.name
+                            text: (selection==="applications" && appSelection === index ? "* " : "") + (index+1) + ". " + containSlider.name
                         }
 
                         SSlider {

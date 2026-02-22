@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import Quickshell.Wayland
 
 import qs.Components
 import qs.Services
@@ -16,6 +17,13 @@ PanelWindow {
     }
     onScreenChanged: { 
         bar.screenName = bar.screen.name
+    }
+
+    Connections {
+        target: menu
+        onOpenChanged: {
+            bar.WlrLayershell.layer = menu.open ? WlrLayer.Overlay : WlrLayer.Top
+        }
     }
 
     anchors {

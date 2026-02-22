@@ -53,7 +53,6 @@
     obs-studio # video recording
 
     # web development
-    firefox-devedition
     ungoogled-chromium
 
     foot # terminal
