@@ -121,7 +121,6 @@ Singleton {
         root.selectedWorkspacePerOutputId = {}
         for (const workspace of root.workspaces) {
             if (workspace.id === data.id) {
-                console.log(workspace.idx)
                 root.selectedWorkspacePerOutputIndex[workspace.output] = workspace.idx - 1
                 root.selectedWorkspacePerOutputId[workspace.output] = workspace.id
             }
