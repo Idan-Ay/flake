@@ -107,9 +107,13 @@ WlrLayershell {
     }
 
     ContainerBTLS { // Background
+        id: container
         focus: true
-
-
+        onActiveFocusChanged: {
+            if (!activeFocus) {
+                open = false
+            }
+        }
         Keys.onPressed: (event) => {
             switch (event.key) {
                 case Qt.Key_Escape:
@@ -178,8 +182,6 @@ WlrLayershell {
             rightMargin: 6 + 8
             right: positioner.right
         }
-
-        color: Qt.rgba(0,0,0,0.9)
 
         Column {
             id: menuColumn

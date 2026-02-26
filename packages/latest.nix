@@ -15,6 +15,7 @@
     krita
     prismlauncher
     protonplus
+    vscodium
     discord # unfree
     davinci-resolve # unfree
   ]);

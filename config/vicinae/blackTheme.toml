@@ -8,9 +8,9 @@ inherits = "vicinae-dark"
 [colors.core]
 accent = "#24c8c8c8"
 accent_foreground = "#2f6fed"
-background = "#000000"
+background = "#010101"
 foreground = "#c8c8c8"
-secondary_background = "#000000"
+secondary_background = "#010101"
 border = "#c8c8c8"
 
 [colors.input]
