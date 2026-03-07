@@ -7,11 +7,11 @@ import qs.Services
 import qs.Modules.Widgets
 
 PanelWindow {
-
     id: bar
 
-    property string screenName
+    WlrLayershell.namespace: "dms:bar"
 
+    property string screenName
     Component.onCompleted: {
         bar.screenName = bar.screen.name
     }
@@ -26,68 +26,91 @@ PanelWindow {
         }
     }
 
+    exclusionMode: ExclusionMode.Ignore
+
     anchors {
         top: true
         left: true
         right: true
     }
+    margins {
+        right: 8
+    }
 
-    implicitHeight: 27
+    PanelWindow {
+        anchors {
+            top: true
+            left: true
+            right: true
+        }
+        implicitHeight: 27
+        color: "transparent"
+    }
+    property real yPos: NiriService.overviewOpen ? 0 : 27
+    Behavior on yPos {
+        NumberAnimation { duration: 100; easing.type: Easing.InOutQuad; }
+    }
+
+    implicitHeight: yPos
 
     color: "transparent"
 
-    Container { // Background
-        width: bar.width - 8
-        height: bar.height
-    }
+    Container {
+        id: container
 
-    Row {
-        spacing: 18;
-        WorkspaceSwitcher {
-            screenName: bar.screenName
-        }
-        Resources {}
-    }
+        width: parent.width
+        height: 27
 
-    Clock {}
+        anchors.bottom: parent.bottom
 
-    Row {
-        spacing: 12;
-        anchors {
-            right: parent.right
-            rightMargin: 12
+        Row {
+            spacing: 18;
+            WorkspaceSwitcher {
+                screenName: bar.screenName
+            }
+            Resources {}
         }
 
-        ActiveServices {}
+        Clock {}
 
-        // Taskbar {}
-        Media {}
-        Element {
-            width: 69
-            height: 23
+        Row {
+            spacing: 12;
+            anchors {
+                right: parent.right
+                rightMargin: 6
+            }
+
+            ActiveServices {}
+
+            // Taskbar {}
+            Media {}
+            Element {
+                width: 69
+                height: 23
 
 
-            Row {
-                anchors.centerIn: parent
-                spacing: 5
-                Repeater {
-                    model: 3
-                    Rectangle {
-                        width: 5
-                        height: 5
-                        color: "white"
-                        radius: 100
+                Row {
+                    anchors.centerIn: parent
+                    spacing: 5
+                    Repeater {
+                        model: 3
+                        Rectangle {
+                            width: 5
+                            height: 5
+                            color: "white"
+                            radius: 100
+                        }
                     }
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: menu.open = !menu.open;
+                }
             }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: menu.open = !menu.open;
-            }
-        }
 
-        Menu {
-            id: menu
+            Menu {
+                id: menu
+            }
         }
     }
 }

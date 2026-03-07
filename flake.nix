@@ -4,14 +4,17 @@
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
 
+    niri.url = "github:niri-wm/niri/wip/branch";
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = { 
+  outputs = {
     nixpkgs,
     nixpkgs-latest,
     home-manager,
+    niri,
     nixvim,
     zen-browser,
     ...
@@ -22,7 +25,7 @@
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs pkgsLatest; };
+          specialArgs = { inherit inputs pkgsLatest niri; };
           modules = [./system.nix];
         };
       };

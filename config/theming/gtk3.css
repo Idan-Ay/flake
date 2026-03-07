@@ -21,7 +21,7 @@ toolbar,
 headerbar,
 .titlebar,
 messagedialog {
-	background: #010101;
+  background: rgba(1,1,1,0.8);
 }
 
 messagedialog {

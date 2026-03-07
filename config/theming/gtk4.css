@@ -22,7 +22,7 @@ window.background.view.view.view columnview,
 window.background.view.view.view columnview listview,
 window.background.view.view.view placessidebar,
 window.background.view.view.view #NautilusPathBar {
-	background: #010101;
+	background: rgba(1,1,1,0.8);
 }
 
 

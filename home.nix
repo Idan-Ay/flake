@@ -45,6 +45,11 @@
     };
 
     "imv/config".text = "[options]\nbackground = 010101";
+
+    "youtube-tui" = {
+      source = ./config/youtube-tui;
+      recursive = true;
+    };
   };
 
   home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;

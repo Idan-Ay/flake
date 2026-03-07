@@ -10,7 +10,8 @@ import qs.Components
 
 WlrLayershell {
     layer: open ? WlrLayer.Overlay : WlrLayer.Top
-    keyboardFocus: WlrKeyboardFocus.OnDemand  // or Exclusive for full control
+    keyboardFocus: WlrKeyboardFocus.OnDemand
+    namespace: "dms:configMenu"
 
     id: panel
 
@@ -90,9 +91,13 @@ WlrLayershell {
     anchors {
         top: true
         right: true
-        left: true
-        bottom: true
     }
+    margins {
+        top: 3
+        right: 7
+    }
+    implicitHeight: menuColumn.height + 78
+    implicitWidth: 500
 
     color: "transparent"
 
@@ -106,8 +111,16 @@ WlrLayershell {
         anchors.fill: parent
     }
 
-    ContainerBTLS { // Background
+    Rectangle { // Background
         id: container
+
+        color: Qt.rgba(0.0039215686, 0.0039215686, 0.0039215686, 0.9)
+        radius: 4
+        border {
+            width: 1
+            color: "white"
+        }
+
         focus: true
         onActiveFocusChanged: {
             if (!activeFocus) {
@@ -174,14 +187,7 @@ WlrLayershell {
             event.accepted = true
         }
 
-
-        height: menuColumn.height + 78
-        width: 500
-
-        anchors {
-            rightMargin: 6 + 8
-            right: positioner.right
-        }
+        anchors.fill: parent
 
         Column {
             id: menuColumn

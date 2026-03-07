@@ -46,9 +46,13 @@
     yarn
     wget
 
+    youtube-tui
+    yt-dlp
+
     notesnook # Note taking app
 
     imv # image viewer
+    mpv # video viewer
 
     obs-studio # video recording
 

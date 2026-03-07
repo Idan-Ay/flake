@@ -10,13 +10,14 @@
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     blender
-    obsidian
+    obsidian # unfree
+    affine
     godot
     krita
     prismlauncher
     protonplus
     vscodium
-    discord # unfree
-    davinci-resolve # unfree
+    onlyoffice-desktopeditors
+    kdePackages.kdenlive
   ]);
 }

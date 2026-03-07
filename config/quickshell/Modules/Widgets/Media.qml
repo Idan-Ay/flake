@@ -16,7 +16,7 @@ Underline {
     Row {
         anchors.right: parent.right
         Rectangle {
-            height: bar.height - 4
+            height: 23
             width: height
             color: "transparent"
             SText {
@@ -29,7 +29,7 @@ Underline {
             }
         }
         Rectangle {
-            height: bar.height - 4
+            height: 23
             width: height
             color: "transparent"
             SText {
@@ -42,7 +42,7 @@ Underline {
             }
         }
         Rectangle {
-            height: bar.height - 4
+            height: 23
             width: height
             color: "transparent"
             SText {

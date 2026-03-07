@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, niri, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -13,6 +13,7 @@
   programs.niri = {
     enable = true;
     useNautilus = false;
+    package = niri.packages.x86_64-linux.default;
   };
 
   xdg.portal = {
@@ -39,7 +40,6 @@
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "niri";
   };
 
   programs.gamemode.enable = true;
