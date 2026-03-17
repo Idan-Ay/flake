@@ -1,8 +1,5 @@
 { pkgs, lib, ... }:
 
-let
-  jammer = import ./build/jammer.nix { inherit pkgs; };
-in
 {
   programs.git.enable = true;
 
@@ -65,14 +62,6 @@ in
     yarn
     wget
 
-    # (appimage-run.overrideAttrs (oldAttrs: {
-      # pname = "jammer";
-      # src = pkgs.fetchurl {
-        # url = "https://github.com/jooapa/jammer/releases/download/3.52/jammer-3.52-x86_64.AppImage";
-        # sha256 = "sha256:cbc75ae281a3f66af8ce5b0f28a3919dae3158563b355175a766aba60ad07788";
-      # };
-    # }))
-    jammer
     yt-dlp
 
     hydroxide
