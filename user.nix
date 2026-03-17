@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
-  users.users.idan = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "input" ];
     shell = pkgs.fish;
@@ -20,5 +20,5 @@
   };
   console.keyMap = "us";
 
-  services.getty.autologinUser = "idan";
+  services.getty.autologinUser = "${user}";
 }

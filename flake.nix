@@ -6,8 +6,9 @@
 
     niri.url = "github:niri-wm/niri/wip/branch";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixvim.url = "github:nix-community/nixvim";
+
+    nextdns.url = "git+ssh://git@github.com/Idan-Ay/nextdns-flake";
   };
 
   outputs = {
@@ -15,18 +16,22 @@
     nixpkgs-latest,
     home-manager,
     niri,
+    nextdns,
     nixvim,
-    zen-browser,
     ...
     } @ inputs:
     let
       pkgsLatest = import nixpkgs-latest { system = "x86_64-linux"; config.allowUnfree = true; };
+      user = "idan";
     in {
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs pkgsLatest niri; };
-          modules = [./system.nix];
+          specialArgs = { inherit inputs user pkgsLatest niri; };
+          modules = [
+            ./system.nix
+            nextdns.nixosModules.nextdns
+          ];
         };
       };
 
@@ -36,9 +41,8 @@
           modules = [
             ./home.nix
             nixvim.homeModules.default
-            zen-browser.homeModules.default
           ];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs user pkgsLatest; };
         };
       };
     };

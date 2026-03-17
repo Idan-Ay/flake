@@ -19,5 +19,8 @@
     vscodium
     onlyoffice-desktopeditors
     kdePackages.kdenlive
+    youtube-tui
+    gimp
+    audacity
   ]);
 }

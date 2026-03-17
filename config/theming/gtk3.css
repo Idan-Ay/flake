@@ -28,20 +28,12 @@ messagedialog {
   border-radius: 0;
 }
 
-notebook,
 toolbar {
-	margin-left: 8px;
-	margin-right: 8px;
+ border-top: 1px rgba(70,70,70,0.5) solid;
 }
 
 notebook {
-	border-bottom: 1px rgba(70,70,70,0.75) solid;
-	border-radius: 0 0 4px 4px;
-	border: none;
-}
-
-toolbar {
-	border-radius: 4px 4px 0 0;
+	border-bottom: 1px rgba(70,70,70,0.5) solid;
 }
 
 notebook stack paned box.vertical {
@@ -63,4 +55,25 @@ menubar {
 .titlebar {
   border-radius: 0;
   background: rgba(1,1,1,0.75);
+}
+
+
+menu {
+padding: 5px;
+border: 1px #1f1f1f solid;
+box-shadow: none;
+border-radius: 5px;
+}
+
+menu separator {
+background: #4E4E4E;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+menu menuitem {
+padding-top: 2px;
+padding-bottom: 0;
+font-size: 14px;
+border-radius: 3px;
 }

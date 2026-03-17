@@ -4,7 +4,7 @@
   networking.hostName = "idan-pc-l";
   imports = [
     ./user.nix
-    
+
     ./hardware-configuration.nix
 
     ./packages/tools.nix
@@ -13,6 +13,8 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
+
+    ./packages/build/jammer.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

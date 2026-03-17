@@ -1,3 +1,4 @@
+{pkgsLatest, pkgs, config, lib, ...}:
 {
   programs.home-manager.enable = true;
 
@@ -11,14 +12,47 @@
     };
   };
 
+  programs.librewolf = {
+    enable = true;
+    package = pkgsLatest.librewolf;
+    settings = let
+      ffVersion = config.programs.librewolf.package.version;
+    in {
+      "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
+      "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
+      "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
+
+      "gfx.x11-egl.force-enabled" = true;
+      "widget.dmabuf.force-enabled" = true;
+
+      "media.av1.enabled" = true;
+
+      "browser.tabs.closeWindowWithLastTab" = false;
+      "sidebar.verticalTabs" = true;
+      "ui.systemUsesDarkTheme" = 1;
+
+      "privacy.resistFingerprinting" = true;
+      "privacy.resistFingerprinting.pbmode" = true;
+    };
+  };
+
+  # home.packages = [
+    # (pkgs.stdenv.mkDerivation {
+      # name = "jammer";
+      # src = pkgs.fetchurl {
+        # url = "https://github.com/jooapa/jammer";
+        # sha256 = "sha256-o/gTZNj1gWJknXi+vfoD5Wf0vcU+cIAVMxH8nVY9vtY=";
+      # };
+      # installPhase = "install -Dm755 jammer $out/bin/jammer";
+    # })
+  # ];
+
   imports = [
     ./config/theming/theming.nix
     ./config/nvim.nix
   ];
 
   services.syncthing.enable = true;
-
-  programs.zen-browser.enable = true;
 
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;

@@ -35,6 +35,22 @@
   programs.java.enable = true;
   virtualisation.docker.enable = true;
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      yt-dlp = prev.yt-dlp.overrideAttrs (old: {
+        src = prev.fetchFromGitHub {
+          owner = "yt-dlp";
+          repo = "yt-dlp";
+          rev = "master";
+          hash = "sha256-BPZzMT1IrZvgva/m5tYMaDYoUaP3VmpmcYeOUOwuoUY=";
+        };
+      });
+    })
+  ];
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -46,8 +62,18 @@
     yarn
     wget
 
-    youtube-tui
+    # (appimage-run.overrideAttrs (oldAttrs: {
+      # pname = "jammer";
+      # src = pkgs.fetchurl {
+        # url = "https://github.com/jooapa/jammer/releases/download/3.52/jammer-3.52-x86_64.AppImage";
+        # sha256 = "sha256:cbc75ae281a3f66af8ce5b0f28a3919dae3158563b355175a766aba60ad07788";
+      # };
+    # }))
     yt-dlp
+
+    hydroxide
+
+    aerc # tui email client
 
     notesnook # Note taking app
 
@@ -57,7 +83,7 @@
     obs-studio # video recording
 
     # web development
-    ungoogled-chromium
+    brave
 
     foot # terminal
 

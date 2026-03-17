@@ -1,4 +1,4 @@
-{ pkgs, lib, niri, ... }:
+{ pkgs, user, lib, config, niri, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -8,6 +8,26 @@
     enable = true;
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
+  };
+
+  systemd.user.services.hydroxide-imap = {
+    enable = true;
+    wantedBy = [ "default.target" ];
+    description = "hydroxide imap service";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "/run/current-system/sw/bin/hydroxide imap";
+    };
+  };
+
+  systemd.user.services.hydroxide-smtp = {
+    enable = true;
+    wantedBy = [ "default.target" ];
+    description = "hydroxide smtp service";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "/run/current-system/sw/bin/hydroxide smtp";
+    };
   };
 
   programs.niri = {
@@ -44,6 +64,7 @@
 
   programs.gamemode.enable = true;
 
+
   services.greetd = {
     enable = true;
 
@@ -62,6 +83,10 @@
     "image/gif" = "imv.desktop";
     "image/bmp" = "imv.desktop";
     "image/webp" = "imv.desktop";
+
+    "x-scheme-handler/http" = "librewolf.desktop";
+    "x-scheme-handler/https" = "librewolf.desktop";
+    "text/html" = "librewolf.desktop";
   };
 
   services.keyd = {

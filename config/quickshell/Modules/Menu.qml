@@ -93,8 +93,8 @@ WlrLayershell {
         right: true
     }
     margins {
-        top: 3
-        right: 7
+        top: 0
+        right: 8
     }
     implicitHeight: menuColumn.height + 78
     implicitWidth: 500
