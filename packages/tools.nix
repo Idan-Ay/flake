@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 
+let
+  jammer = import ./build/jammer.nix { inherit pkgs; };
+in
 {
   programs.git.enable = true;
 
@@ -69,6 +72,7 @@
         # sha256 = "sha256:cbc75ae281a3f66af8ce5b0f28a3919dae3158563b355175a766aba60ad07788";
       # };
     # }))
+    jammer
     yt-dlp
 
     hydroxide
@@ -92,6 +96,10 @@
     zoxide # smarter cd
 
     toybox
+
+    sdbus-cpp_2
+    sdbus-cpp
+    fmt_9
 
     walker # launcher
 

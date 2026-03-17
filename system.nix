@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   networking.hostName = "idan-pc-l";
@@ -13,8 +13,6 @@
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix
-
-    ./packages/build/jammer.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
