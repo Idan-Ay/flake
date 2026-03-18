@@ -1,4 +1,4 @@
-{ pkgsLatest, lib, ... }:
+{ pkgsLatest, inputs, lib, ... }:
 
 {
   programs.steam = { # unfree

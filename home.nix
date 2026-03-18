@@ -36,17 +36,6 @@
     };
   };
 
-  # home.packages = [
-    # (pkgs.stdenv.mkDerivation {
-      # name = "jammer";
-      # src = pkgs.fetchurl {
-        # url = "https://github.com/jooapa/jammer";
-        # sha256 = "sha256-o/gTZNj1gWJknXi+vfoD5Wf0vcU+cIAVMxH8nVY9vtY=";
-      # };
-      # installPhase = "install -Dm755 jammer $out/bin/jammer";
-    # })
-  # ];
-
   imports = [
     ./config/theming/theming.nix
     ./config/nvim.nix
