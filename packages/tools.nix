@@ -1,8 +1,5 @@
 { pkgs, lib, ... }:
 
-let
-  jammer = import ./build/jammer.nix { inherit pkgs; };
-in
 {
   programs.git.enable = true;
 
@@ -65,8 +62,6 @@ in
     yarn
     wget
 
-    jammer
-    icu
     yt-dlp
 
     hydroxide
