@@ -1,9 +1,9 @@
-{pkgsLatest, pkgs, config, lib, ...}:
+{pkgsLatest, user, pkgs, config, lib, ...}:
 {
   programs.home-manager.enable = true;
 
-  home.username = "idan";
-  home.homeDirectory = "/home/idan";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   home.stateVersion = "25.05";
 
   programs.git = {
@@ -43,6 +43,31 @@
 
   services.syncthing.enable = true;
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = "${config.home.homeDirectory}/Music";
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "PipeWire Sound Server"
+      }
+    '';
+  };
+
+  home.packages = with pkgs; [
+    mpc
+  ];
+
+  # systemd.user.services.mpd-mpris = {
+    # description = "MPD MPRIS service";
+    # wantedBy = [ "default.target" ];
+    # serviceConfig = {
+      # ExecStart = "${pkgs.mpd-mpris}/bin/mpd-mpris";  # adjust path if needed
+      # Restart = "on-failure";
+    # };
+    # enable = true;
+  # };
+
   xdg.configFile = { 
     "foot/foot.ini".source = ./config/foot.ini;
 
@@ -71,6 +96,16 @@
 
     "youtube-tui" = {
       source = ./config/youtube-tui;
+      recursive = true;
+    };
+
+    "rmpc" = {
+      source = ./config/rmpc;
+      recursive = true;
+    };
+
+    "qutebrowser" = {
+      source = ./config/qutebrowser;
       recursive = true;
     };
   };

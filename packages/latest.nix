@@ -22,5 +22,8 @@
     youtube-tui
     gimp
     audacity
+    rmpc # tui music player
+    qutebrowser
+    python313Packages.adblock
   ]);
 }

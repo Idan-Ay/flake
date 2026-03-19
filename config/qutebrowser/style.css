@@ -1,0 +1,8 @@
+.main-header__sign-up-button,
+.main-header__install-cta,
+.notifications,
+.main-header__nav,
+.main-header__logo,
+.layout__footer {
+  display: none!important;
+}

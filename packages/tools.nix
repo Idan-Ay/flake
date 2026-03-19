@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, pkgsLatest, lib, ... }:
 
 {
   programs.git.enable = true;
@@ -63,8 +63,6 @@
     wget
 
     yt-dlp
-
-    hydroxide
 
     aerc # tui email client
 

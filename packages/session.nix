@@ -30,6 +30,16 @@
     };
   };
 
+  systemd.user.services.mpd-mpris = {
+    enable = true;
+    wantedBy = [ "default.target" ];
+    description = "mpd mpris bridge";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "/run/current-system/sw/bin/mpd-mpris";
+    };
+  };
+
   programs.niri = {
     enable = true;
     useNautilus = false;
@@ -130,6 +140,9 @@
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
+
+    hydroxide
+    mpd-mpris # exposing mpd to mpris
 
     quickshell
     vicinae
