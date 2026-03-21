@@ -105,6 +105,7 @@
       nvim-tree.enable = true;
       gitsigns.enable = true;
       lazygit.enable = true;
+
       lualine = {
         enable = true;
         settings = {

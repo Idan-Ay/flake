@@ -94,9 +94,9 @@
     "image/bmp" = "imv.desktop";
     "image/webp" = "imv.desktop";
 
-    "x-scheme-handler/http" = "librewolf.desktop";
-    "x-scheme-handler/https" = "librewolf.desktop";
-    "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "qutebrowser.desktop";
+    "x-scheme-handler/https" = "qutebrowser.desktop";
+    "text/html" = "qutebrowser.desktop";
   };
 
   services.keyd = {

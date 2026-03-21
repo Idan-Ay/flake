@@ -3,6 +3,7 @@
 .notifications,
 .main-header__nav,
 .main-header__logo,
-.layout__footer {
+.layout__footer,
+.cookie-wrapper {
   display: none!important;
 }

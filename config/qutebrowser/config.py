@@ -6,35 +6,31 @@ c.auto_save.session = True
 c.completion.height = "33%"
 c.downloads.position = "bottom"
 c.input.insert_mode.auto_load = True
-c.confirm_quit = ["always"]
+c.tabs.width = 250
+c.tabs.padding = {'bottom': 6, 'left': 0, 'right': 4, 'top': 6}
 
 c.url.start_pages = ['about:blank']
 c.url.default_page = 'about:blank'
 
-c.tabs.padding = {'bottom': 6, 'left': 0, 'right': 4, 'top': 6}
-
 # Privacy
-c.content.cookies.accept = "no-3rdparty"
+c.content.cookies.accept = "never"
+try:
+    with (config.configdir / 'cookies.sites').open() as cookies_file:
+        cookies_sites = js_file.read().split("\n")
+        cookies_file.close()
+
+    for cookies_site in cookies_sites:
+        if cookies_site != '':
+            config.set('content.cookies.accept', "no-3rdparty", cookies_site)
+except FileNotFoundError:
+    print('cookies.sites not found')
+
+
 c.content.canvas_reading = False
 c.content.geolocation = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+
 c.content.javascript.enabled = False
-c.content.blocking.method = "both"
-
-c.url.searchengines = {
-    "DEFAULT": "https://www.ecosia.org/search?method=index&q={}",
-    "gh": "https://github.com/search?q={}",
-    "gho": "https://github.com/{}",
-    "wk": "https://en.wikipedia.org/wiki/{}",
-    "bw": "https://vault.bitwarden.eu/#/vault?search={}",
-}
-
-config.bind("n", "tab-prev")
-config.bind("m", "tab-next")
-config.bind("M", "hint links spawn mpv {hint-url}")
-
-c.content.user_stylesheets = "./style.css"
-
 try:
     with (config.configdir / 'js.sites').open() as js_file:
         js_sites = js_file.read().split("\n")
@@ -46,14 +42,35 @@ try:
 except FileNotFoundError:
     print('js.sites not found')
 
+c.content.blocking.method = "both"
+#
+
+c.url.searchengines = {
+    "DEFAULT": "https://www.ecosia.org/search?method=index&q={}",
+    "gh": "https://github.com/search?q={}",
+    "gho": "https://github.com/{}",
+    "wk": "https://en.wikipedia.org/wiki/{}",
+    "bw": "https://vault.bitwarden.eu/#/vault?search={}",
+    "np": "https://search.nixos.org/packages?channel=25.11&query={}",
+}
+
+config.bind("n", "tab-prev")
+config.bind("m", "tab-next")
+config.bind("M", "hint links spawn mpv {hint-url}")
+config.bind('s', 'config-cycle tabs.show always never')
+
+c.content.user_stylesheets = "./style.css"
+
+
+
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = "auto"
 
 none = "#00000000"
 bg_default = "#010101"
 bg_default_transparent = "#bf010101"
-bg_lighter = "#1C1C1C"
-bg_lighter_transparent = "#bf1C1C1C"
+bg_lighter = "#070707"
+bg_lighter_transparent = "#07ffffff"
 bg_selection = "#fff"
 fg_disabled = "#787878"
 fg_default = "#EBEBEB"

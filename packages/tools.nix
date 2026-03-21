@@ -88,8 +88,6 @@
     sdbus-cpp
     fmt_9
 
-    walker # launcher
-
     fastfetch # View system information
 
     lf # file manager
@@ -97,6 +95,8 @@
     p7zip unzip zip unrar atool
 
     pcmanfm # gui file manager
+
+    gcolor3
 
     bottom # Terminal task manager
 
