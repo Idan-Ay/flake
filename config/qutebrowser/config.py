@@ -13,10 +13,22 @@ c.url.start_pages = ['about:blank']
 c.url.default_page = 'about:blank'
 
 # Privacy
+import qutebrowser.api.interceptor
+
+def rewrite(request: qutebrowser.api.interceptor.Request):
+    if request.request_url.host() == 'www.reddit.com':
+        request.request_url.setHost('old.reddit.com')
+        try:
+            request.redirect(request.request_url)
+        except:
+            pass
+
+qutebrowser.api.interceptor.register(rewrite)
+
 c.content.cookies.accept = "never"
 try:
     with (config.configdir / 'cookies.sites').open() as cookies_file:
-        cookies_sites = js_file.read().split("\n")
+        cookies_sites = cookies_file.read().split("\n")
         cookies_file.close()
 
     for cookies_site in cookies_sites:
@@ -30,7 +42,8 @@ c.content.canvas_reading = False
 c.content.geolocation = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 
-c.content.javascript.enabled = False
+# c.content.javascript.enabled = True
+c.content.javascript.enabled = True
 try:
     with (config.configdir / 'js.sites').open() as js_file:
         js_sites = js_file.read().split("\n")
@@ -38,7 +51,7 @@ try:
 
     for js_site in js_sites:
         if js_site != '':
-            config.set('content.javascript.enabled', True, js_site)
+            config.set('content.javascript.enabled', False, js_site)
 except FileNotFoundError:
     print('js.sites not found')
 

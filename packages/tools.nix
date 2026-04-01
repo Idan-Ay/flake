@@ -1,39 +1,22 @@
-{ pkgs, config, pkgsLatest, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.git.enable = true;
-
-  services.gvfs.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
-      };
-      Policy = {
-        AutoEnable = true;
-      };
-    };
-  };
-
   security.rtkit.enable = true;
-
-  networking.networkmanager.enable = true;
-
-  services.udisks2.enable = true;
 
   services.ollama = {
     enable = true;
     package = pkgs.ollama-vulkan;
   };
 
-  programs.nix-ld.enable = true;
+  programs.java = {
+    enable = true;
+    package = pkgs.javaPackages.compiler.temurin-bin.jre-25;
+  };
 
-  programs.java.enable = true;
   virtualisation.docker.enable = true;
+
+  programs.gamemode.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -48,9 +31,6 @@
     })
   ];
 
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
-
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -64,9 +44,11 @@
 
     yt-dlp
 
-    aerc # tui email client
+    # aerc # tui email client
 
     notesnook # Note taking app
+
+    discord
 
     imv # image viewer
     mpv # video viewer
@@ -106,13 +88,21 @@
 
     imagemagickBig # Create, edit, compose, or convert bitmap images
 
-    glib # C library of programming buildings blocks
-
     cliphist # Wayland clipboard manager
 
     hyprpicker # color picker
 
     python3
+    python313Packages.pygobject3
+    gtk3
+
+    glib # C library of programming buildings blocks
+    sassc
+    librsvg
+    rubyPackages_4_0.glib2
+    rubyPackages_4_0.gdk_pixbuf2
+    bc
+    gnused
 
     jq
 

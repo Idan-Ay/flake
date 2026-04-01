@@ -1,33 +1,27 @@
-{ pkgs, user, lib, config, niri, ... }:
+{ pkgs, lib, niri, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
-  };
-
-  systemd.user.services.hydroxide-imap = {
-    enable = true;
-    wantedBy = [ "default.target" ];
-    description = "hydroxide imap service";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/hydroxide imap";
-    };
-  };
-
-  systemd.user.services.hydroxide-smtp = {
-    enable = true;
-    wantedBy = [ "default.target" ];
-    description = "hydroxide smtp service";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/hydroxide smtp";
-    };
   };
 
   systemd.user.services.mpd-mpris = {
@@ -71,9 +65,6 @@
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
   };
-
-  programs.gamemode.enable = true;
-
 
   services.greetd = {
     enable = true;

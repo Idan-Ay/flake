@@ -22,29 +22,29 @@ input {
     }
 }
 
-output "DP-3" {
-    mode "3440x1440@165.001"
-    scale 1.0
-    position x=0 y=0
-    focus-at-startup
-}
-// output "DP-4" {
+// output "DP-3" {
     // mode "3440x1440@165.001"
     // scale 1.0
     // position x=0 y=0
     // focus-at-startup
 // }
-
-output "HDMI-A-1" {
-    mode "1920x1080@60.000"
-    scale 1.25
-    position x=952 y=1440
+output "DP-4" {
+    mode "3440x1440@165.001"
+    scale 1.0
+    position x=0 y=0
+    focus-at-startup
 }
-// output "HDMI-A-2" {
+
+// output "HDMI-A-1" {
     // mode "1920x1080@60.000"
     // scale 1.25
     // position x=952 y=1440
 // }
+output "HDMI-A-2" {
+    mode "1920x1080@60.000"
+    scale 1.25
+    position x=952 y=1440
+}
 
 spawn-at-startup "vicinae" "server"
 spawn-at-startup "quickshell"
@@ -141,8 +141,8 @@ binds {
     Mod+Left  { spawn "playerctl" "position" "5-"; }
 
     // Screen shortcuts
-    Mod+2 repeat=false { spawn "niri" "msg" "output" "HDMI-A-1" "on"; }
-    Mod+3 repeat=false { spawn "niri" "msg" "output" "HDMI-A-1" "off"; }
+    Mod+2 repeat=false { spawn "niri" "msg" "output" "HDMI-A-2" "on"; }
+    Mod+3 repeat=false { spawn "niri" "msg" "output" "HDMI-A-2" "off"; }
     Mod+4 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-3 transform normal && niri msg output HDMI-A-2 on"; }
     Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-3 transform 270 && niri msg output HDMI-A-2 off"; }
 
@@ -239,6 +239,7 @@ window-rule {
     match app-id="chromium"
     match app-id="ProtonPlus"
     match app-id="gcolor3"
+    match app-id="inkscape"
 
     background-effect {
         blur true

@@ -2,19 +2,23 @@
 {
   boot.blacklistedKernelModules = [ "nouveau" ];
 
-  # hardware.graphics.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages;
+  # boot.kernelPackages = pkgs.linuxPackages;
 
-  boot.initrd.kernelModules = [
+  # boot.initrd.kernelModules = [
     # "amdgpu"
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_drm"
-    "nvidia_uvm"
-  ];
-  boot.kernelModules = [ "nvidia_uvm" ];
+    # "nvidia"
+    # "nvidia_modeset"
+    # "nvidia_drm"
+    # "nvidia_uvm"
+  # ];
+  # boot.kernelModules = [ "nvidia_uvm" ];
 
   hardware.steam-hardware.enable = true;
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "performance";
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -24,23 +28,19 @@
     package = config.boot.kernelPackages.nvidiaPackages.latest;
 
     prime = {
-      # sync.enable = true;
-      offload.enable = false;
-      offload.enableOffloadCmd = false;
+      sync.enable = true;
+      # offload.enable = false;
+      # offload.enableOffloadCmd = false;
 
-      # Display GPU (AMD)
       amdgpuBusId = "PCI:10:0:0";
-      # Render GPU (NVIDIA)
       nvidiaBusId = "PCI:9:0:0";
     };
   };
 
-hardware.nvidia.prime.sync.enable = true;
-
   # environment.etc."../../nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer.json".source = 
     # ../config/nvidia/50-limit-free-buffer.json;
 
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.graphics = {
     enable = true;

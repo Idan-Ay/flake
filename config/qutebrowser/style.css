@@ -1,9 +1,41 @@
+* {
+  border-radius: 0!important;
+}
+
 .main-header__sign-up-button,
 .main-header__install-cta,
 .notifications,
 .main-header__nav,
 .main-header__logo,
 .layout__footer,
-.cookie-wrapper {
+.cookie-wrapper,
+.cookie-notice,
+#didomi-notice,
+#data-protection-consent-dialog,
+.notice-modal,
+body.single-page.comments-page #header,
+body.single-page.comments-page .infobar.listingsignupbar,
+body.single-page.comments-page .footer-parent,
+body.single-page.comments-page .side .spacer,
+body.single-page.comments-page #hsts_pixel,
+body.single-page.comments-page .debuginfo,
+.commentsignupbar {
   display: none!important;
+  visibility: hidden!important;
+}
+
+body.single-page.comments-page .side .spacer:first-child {
+  display: block!important;
+  visibility: visible!important;
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  right: 2rem;
+}
+
+body.single-page.comments-page {
+  max-width: 80rem;
+  margin-inline: auto;
+  min-height: auto;
+  margin-top: 2rem;
 }
