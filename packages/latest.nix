@@ -37,5 +37,14 @@
     protonplus
 
     signal-desktop
+
+    
+    sassc
+    gnumake
+    gnused
+    glib.dev
+    sbclPackages.cl-cffi-gtk-gdk-pixbuf
+    librsvg
+    bc
   ]);
 }
