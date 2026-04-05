@@ -28,19 +28,6 @@
           hash = "sha256-BPZzMT1IrZvgva/m5tYMaDYoUaP3VmpmcYeOUOwuoUY=";
         };
       });
-      themix-gui = prev.themix-gui.overrideAttrs (old: {
-        src = prev.fetchFromGitHub {
-          owner = "themix-project";
-          repo = "oomox";
-          rev = "master";
-          sha256 = "sha256-fIBV1fDZyd2u1e9TscRwCIpo89BNeUNWiiXdniF0P7A=";
-          fetchSubmodules = true;
-        };
-        nativeBuildInputs = old.nativeBuildInputs or [] ++ [ prev.python3 prev.which ];
-
-        # If python3 is needed at runtime, also add to buildInputs
-        buildInputs = old.buildInputs or [] ++ [ prev.python3 ];
-      });
     })
   ];
 
@@ -56,8 +43,6 @@
     wget
 
     yt-dlp
-
-    themix-gui
 
     # aerc # tui email client
 

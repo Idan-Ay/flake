@@ -132,7 +132,6 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
 
-    hydroxide
     mpd-mpris # exposing mpd to mpris
 
     quickshell
