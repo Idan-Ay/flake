@@ -214,6 +214,7 @@ window-rule {
     match app-id="obsproject"
     match app-id="^Notesnook$"
     match app-id="^steam$"
+    match app-id="^discord$"
 
     opacity 0.95
     background-effect {

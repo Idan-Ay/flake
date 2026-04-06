@@ -16,6 +16,11 @@
 
   virtualisation.docker.enable = true;
 
+  virtualisation.virtualbox = {
+    guest.enable = true;
+    host.enable = true;
+  };
+
   programs.gamemode.enable = true;
 
   nixpkgs.overlays = [

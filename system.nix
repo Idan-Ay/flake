@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
 
     ./packages/tools.nix
-    ./packages/oomox.nix
     ./packages/drivers.nix
     ./packages/latest.nix
     ./packages/session.nix

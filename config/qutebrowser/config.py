@@ -25,17 +25,17 @@ def rewrite(request: qutebrowser.api.interceptor.Request):
 
 qutebrowser.api.interceptor.register(rewrite)
 
-c.content.cookies.accept = "never"
-try:
-    with (config.configdir / 'cookies.sites').open() as cookies_file:
-        cookies_sites = cookies_file.read().split("\n")
-        cookies_file.close()
+c.content.cookies.accept = "no-3rdparty"
+# try:
+    # with (config.configdir / 'cookies.sites').open() as cookies_file:
+        # cookies_sites = cookies_file.read().split("\n")
+        # cookies_file.close()
 
-    for cookies_site in cookies_sites:
-        if cookies_site != '':
-            config.set('content.cookies.accept', "no-3rdparty", cookies_site)
-except FileNotFoundError:
-    print('cookies.sites not found')
+    # for cookies_site in cookies_sites:
+        # if cookies_site != '':
+            # config.set('content.cookies.accept', "no-3rdparty", cookies_site)
+# except FileNotFoundError:
+    # print('cookies.sites not found')
 
 
 c.content.canvas_reading = False
