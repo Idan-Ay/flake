@@ -27,7 +27,20 @@
     };
   };
 
+  qt = {
+    enable = true;
+
+    platformTheme.name = "qtct";
+
+    style.name = "kvantum";
+  };
+
   xdg.enable = true;
+
+  xdg.configFile."Kvantum" = {
+    source = ./qt;
+    recursive = true;
+  };
 
   xdg.configFile."gtk-4.0/assets" = {
     source = ./assets;

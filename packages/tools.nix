@@ -41,6 +41,8 @@
 
     gh
 
+    libsecret
+
     nodejs_24
     mise
     mold
