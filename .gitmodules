@@ -1,0 +1,3 @@
+[submodule "config/theming/Orchis-kde"]
+	path = config/theming/Orchis-kde
+	url = https://github.com/vinceliuice/Orchis-kde

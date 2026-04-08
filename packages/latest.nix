@@ -38,7 +38,6 @@
 
     signal-desktop
 
-    
     sassc
     gnumake
     gnused

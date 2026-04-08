@@ -64,6 +64,14 @@
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+  };
+
+  qt = {
+    enable = true;
+    style.name = "kvantum";
+    style.package = orchis-soliddark;
+    platformTheme = "kde";
   };
 
   services.greetd = {
@@ -123,6 +131,12 @@
   };
   users.defaultUserShell = pkgs.fish;
 
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+  };
+
   zramSwap = {
     enable = true;
     memoryPercent = 15;    # ~4.8GB out of 32GB RAM
@@ -133,6 +147,11 @@
     xwayland-satellite
 
     mpd-mpris # exposing mpd to mpris
+
+    libsForQt5.qtstyleplugin-kvantum
+    qt6.qtwayland
+    qt5.qtwayland
+
 
     quickshell
     vicinae

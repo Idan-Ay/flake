@@ -27,23 +27,40 @@
     };
   };
 
-  qt = {
-    enable = true;
-
-    platformTheme.name = "qtct";
-
-    style.name = "kvantum";
-  };
-
-  xdg.enable = true;
-
-  xdg.configFile."Kvantum" = {
-    source = ./qt;
-    recursive = true;
-  };
-
   xdg.configFile."gtk-4.0/assets" = {
     source = ./assets;
     recursive = true;
   };
+
+  # qt = {
+    # enable = true;
+
+    # platformTheme.name = "qt5ct";
+    # style.name = "kvantum";
+  # };
+
+  xdg.configFile = {
+    # "Kvantum/kvantum.kvconfig".text = ''
+      # [General]
+      # theme=Orchis-solidDark
+    # '';
+
+    "Kvantum/Orchis-solidDark".source = ./Orchis-kde/Kvantum/;
+  };
+  home.file.".local/share/" = {
+    "aurorae/themes" = ./Orchis-kde/aurorae;
+    "color-schemes" = ./Orchis-kde/color-schemes;
+    "plasma/desktoptheme/Orchis-dark" = ./Orchis-kde/plasma/desktoptheme/Orchis-dark;
+    "plasma/desktoptheme/Orchis-dark/icons" = ./Orchis-kde/plasma/desktoptheme/icons;
+    "plasma/desktoptheme/Orchis-dark/colors" = ./Orchis-kde/color-schemes
+    "plasma/look-and-feel".source = ./Orchis-kde/plasma/look-and-feel;
+  };
+
+  # xdg.configFile."Kvantum" = {
+    # source = ./qt;
+    # recursive = true;
+  # };
+
+  xdg.enable = true;
+
 }

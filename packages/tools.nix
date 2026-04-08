@@ -39,6 +39,9 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+
     gh
 
     libsecret
@@ -84,6 +87,7 @@
     p7zip unzip zip unrar atool
 
     pcmanfm # gui file manager
+    kdePackages.dolphin
 
     gcolor3
 
@@ -114,5 +118,14 @@
     jq
 
     mesa-demos
+
+    kdePackages.kcalc # Calculator
+    kdePackages.kcharselect # Character map
+    kdePackages.kclock # Clock app
+    kdePackages.kcolorchooser # Color picker
+    kdePackages.kolourpaint # Simple paint program
+    kdePackages.ksystemlog # System log viewer
+    kdePackages.sddm-kcm # SDDM configuration module
+    kdiff3 # File/directory comparison tool
   ]);
 }
