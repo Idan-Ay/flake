@@ -4,11 +4,6 @@
   programs.git.enable = true;
   security.rtkit.enable = true;
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-vulkan;
-  };
-
   programs.java = {
     enable = true;
     package = pkgs.javaPackages.compiler.temurin-bin.jre-25;

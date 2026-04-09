@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, orchis-kde, ... }:
 {
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -36,25 +36,32 @@
     # enable = true;
 
     # platformTheme.name = "qt5ct";
+    # style.name = "adwaita-highcontrastinverse";
     # style.name = "kvantum";
   # };
 
-  xdg.configFile = {
-    # "Kvantum/kvantum.kvconfig".text = ''
-      # [General]
-      # theme=Orchis-solidDark
-    # '';
+  qt = {
+    enable = true;
 
-    "Kvantum/Orchis-solidDark".source = ./Orchis-kde/Kvantum/;
+    platformTheme.name = "qt5ct";
+    # style.name = "adwaita-highcontrast";
+    # style.package = pkgs.adwaita-qt;
+    style.name = "kvantum";
   };
-  home.file.".local/share/" = {
-    "aurorae/themes" = ./Orchis-kde/aurorae;
-    "color-schemes" = ./Orchis-kde/color-schemes;
-    "plasma/desktoptheme/Orchis-dark" = ./Orchis-kde/plasma/desktoptheme/Orchis-dark;
-    "plasma/desktoptheme/Orchis-dark/icons" = ./Orchis-kde/plasma/desktoptheme/icons;
-    "plasma/desktoptheme/Orchis-dark/colors" = ./Orchis-kde/color-schemes
-    "plasma/look-and-feel".source = ./Orchis-kde/plasma/look-and-feel;
+
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=BlackGlass
+    '';
+
+    "Kvantum/BlackGlass".source = ./BlackGlass;
   };
+  # home.file = {
+    # ".local/share/aurorae/themes".source = orchis-kde + "/aurorae";
+    # ".local/share/color-schemes".source = orchis-kde + "/color-schemes";
+    # ".local/share/plasma/look-and-feel".source = orchis-kde + "/plasma/look-and-feel";
+  # };
 
   # xdg.configFile."Kvantum" = {
     # source = ./qt;

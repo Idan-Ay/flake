@@ -11,6 +11,11 @@
     gamescopeSession.enable = true;
   };
 
+  services.ollama = {
+    enable = true;
+    package = pkgsLatest.ollama-vulkan;
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
     qutebrowser
     python313Packages.adblock

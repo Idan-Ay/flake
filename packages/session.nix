@@ -65,14 +65,14 @@
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
+
+    QT_STYLE_OVERRIDE = "kvantum";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
-  qt = {
-    enable = true;
-    style.name = "kvantum";
-    style.package = orchis-soliddark;
-    platformTheme = "kde";
-  };
+  # environment.variables = lib.mkForce {
+    # QT_STYLE_OVERRIDE = "Orchis-solid";
+  # };
 
   services.greetd = {
     enable = true;

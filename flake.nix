@@ -9,6 +9,13 @@
     nixvim.url = "github:nix-community/nixvim";
 
     nextdns.url = "git+ssh://git@github.com/Idan-Ay/nextdns-flake";
+
+    self.submodules = true;
+
+    orchis-kde = {
+      url = "path:./config/theming/Orchis-kde/";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -18,6 +25,7 @@
     niri,
     nextdns,
     nixvim,
+    orchis-kde,
     ...
     } @ inputs:
     let
@@ -42,7 +50,7 @@
             ./home.nix
             nixvim.homeModules.default
           ];
-          extraSpecialArgs = { inherit inputs user pkgsLatest; };
+          extraSpecialArgs = { inherit inputs orchis-kde user pkgsLatest; };
         };
       };
     };
