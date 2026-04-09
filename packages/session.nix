@@ -71,7 +71,7 @@
 
   environment.variables = {
     QT_STYLE_OVERRIDE = "kvantum-dark";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORMTHEME = "kde";
   };
 
   services.greetd = {
