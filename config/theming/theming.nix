@@ -54,12 +54,19 @@
     '';
 
     "Kvantum/BlackGlass".source = ./BlackGlass;
+
+    "kdeglobals".text = ''
+      [General]
+      ColorScheme=BlackGlass
+    '';
   };
-  # home.file = {
+  home.file = {
+    ".local/share/color-schemes/BlackGlass.colors".source = ./color-scheme.colors;
+    "./local/share/desktoptheme/BlackGlass" = ./Orchis-kde/plasma/desktoptheme;
+  };
+
     # ".local/share/aurorae/themes".source = orchis-kde + "/aurorae";
-    # ".local/share/color-schemes".source = orchis-kde + "/color-schemes";
     # ".local/share/plasma/look-and-feel".source = orchis-kde + "/plasma/look-and-feel";
-  # };
 
   # xdg.configFile."Kvantum" = {
     # source = ./qt;
