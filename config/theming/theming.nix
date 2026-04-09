@@ -40,14 +40,12 @@
     # style.name = "kvantum";
   # };
 
-  qt = {
-    enable = true;
+  # qt = {
+    # enable = true;
 
-    platformTheme.name = "qt5ct";
-    # style.name = "adwaita-highcontrast";
-    # style.package = pkgs.adwaita-qt;
-    style.name = "kvantum";
-  };
+    # platformTheme.name = "qtct";
+    # style.name = "kvantum";
+  # };
 
   xdg.configFile = {
     "Kvantum/kvantum.kvconfig".text = ''

@@ -65,14 +65,14 @@
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
-
-    QT_STYLE_OVERRIDE = "kvantum";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
+    QT_AUTO_SCREEN_SCALE_FACTOR=1;
   };
 
-  # environment.variables = lib.mkForce {
-    # QT_STYLE_OVERRIDE = "Orchis-solid";
-  # };
+  environment.variables = {
+    QT_STYLE_OVERRIDE = "kvantum-dark";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
 
   services.greetd = {
     enable = true;
@@ -149,6 +149,7 @@
     mpd-mpris # exposing mpd to mpris
 
     libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
     qt6.qtwayland
     qt5.qtwayland
 
