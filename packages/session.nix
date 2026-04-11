@@ -39,7 +39,7 @@
     xdgOpenUsePortal = true;
 
     config.common = {
-      default = [ "kde" "gtk" "gnome" ];
+      default = [ "gtk" "kde" "gnome" ];
       "org.freedesktop.impl.portal.FileChooser" = "kde";
       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
       "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];

@@ -170,7 +170,10 @@ layout {
     }
 
     focus-ring {
+        // on
         off
+        // inactive-gradient from="rgb(100,100,100)" to="rgb(60,60,60)" angle=45
+        // active-gradient from="rgb(255,255,255)" to="rgb(200,200,200)" angle=45
     }
 
     shadow {
@@ -182,6 +185,7 @@ layout {
         draw-behind-window false
         color "rgb(255, 255, 255)"
         inactive-color "rgb(70,70,70)"
+        // color "rgb(70,70,70)"
     }
 
     border {

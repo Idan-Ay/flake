@@ -59,21 +59,26 @@ menubar {
 
 
 menu {
-padding: 5px;
-border: 1px #1f1f1f solid;
+padding: 7px;
+border: 2px rgba(255,255,255,0.25) solid;
+background: #010101;
 box-shadow: none;
-border-radius: 5px;
+border-radius: 7px;
 }
 
 menu separator {
-background: #4E4E4E;
+background: #202020;
 margin-top: 5px;
 margin-bottom: 5px;
 }
 
 menu menuitem {
-padding-top: 2px;
-padding-bottom: 0;
-font-size: 14px;
+padding-top: 3px;
+padding-bottom: 1px;
+font-size: 13px;
 border-radius: 3px;
+}
+
+menu menuitem:hover {
+background: #595959;
 }
