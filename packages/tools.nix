@@ -18,6 +18,16 @@
 
   programs.gamemode.enable = true;
 
+  programs.steam = { # unfree
+    enable = true;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+
+    protontricks.enable = true;
+    gamescopeSession.enable = true;
+  };
+
   nixpkgs.overlays = [
     (final: prev: {
       yt-dlp = prev.yt-dlp.overrideAttrs (old: {
@@ -35,7 +45,8 @@
     home-manager
 
     libsForQt5.qt5ct
-    kdePackages.qt6ct
+
+    kdePackages.kdialog
 
     gh
 
@@ -81,8 +92,15 @@
     avfs
     p7zip unzip zip unrar atool
 
-    pcmanfm # gui file manager
-    kdePackages.dolphin
+    (pkgs.symlinkJoin {
+      name = "dolphin";
+      buildInputs = [ pkgs.makeWrapper ];
+      paths = [ pkgs.kdePackages.dolphin ];
+      postBuild = ''
+        wrapProgram $out/bin/dolphin \
+          --set QT_QPA_PLATFORMTHEME "qt5ct"
+      '';
+    })
 
     gcolor3
 
@@ -113,14 +131,5 @@
     jq
 
     mesa-demos
-
-    kdePackages.kcalc # Calculator
-    kdePackages.kcharselect # Character map
-    kdePackages.kclock # Clock app
-    kdePackages.kcolorchooser # Color picker
-    kdePackages.kolourpaint # Simple paint program
-    kdePackages.ksystemlog # System log viewer
-    kdePackages.sddm-kcm # SDDM configuration module
-    kdiff3 # File/directory comparison tool
   ]);
 }

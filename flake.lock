@@ -194,18 +194,6 @@
         "type": "github"
       }
     },
-    "orchis-kde": {
-      "flake": false,
-      "locked": {
-        "path": "./config/theming/Orchis-kde/",
-        "type": "path"
-      },
-      "original": {
-        "path": "./config/theming/Orchis-kde/",
-        "type": "path"
-      },
-      "parent": []
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -213,8 +201,7 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-latest": "nixpkgs-latest",
-        "nixvim": "nixvim",
-        "orchis-kde": "orchis-kde"
+        "nixvim": "nixvim"
       }
     },
     "rust-overlay": {

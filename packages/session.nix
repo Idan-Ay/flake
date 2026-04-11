@@ -34,43 +34,36 @@
     };
   };
 
-  programs.niri = {
-    enable = true;
-    useNautilus = false;
-    package = niri.packages.x86_64-linux.default;
-  };
-
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-    ];
-    config = {
-      common = {
-        default = [ "gtk" ];
-      };
-      niri = {
-        default = [
-          "gtk"
-          "gnome"
-        ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
-      };
+    xdgOpenUsePortal = true;
+
+    config.common = {
+      default = [ "kde" "gtk" "gnome" ];
+      "org.freedesktop.impl.portal.FileChooser" = "kde";
+      "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
     };
+
+    extraPortals = [
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
   };
 
   environment.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
+
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
     QT_AUTO_SCREEN_SCALE_FACTOR=1;
+
+    GTK_USE_PORTAL = 1;
   };
 
   environment.variables = {
-    QT_STYLE_OVERRIDE = "kvantum-dark";
+    QT_STYLE_OVERRIDE = "kvantum";
     QT_QPA_PLATFORMTHEME = "kde";
   };
 
@@ -86,7 +79,7 @@
   };
 
   xdg.mime.defaultApplications = {
-    "inode/directory" = "pcmanfm.desktop";
+    "inode/directory" = "dolphin.desktop";
     "image/jpeg" = "imv.desktop";
     "image/png" = "imv.desktop";
     "image/gif" = "imv.desktop";
@@ -96,6 +89,8 @@
     "x-scheme-handler/http" = "qutebrowser.desktop";
     "x-scheme-handler/https" = "qutebrowser.desktop";
     "text/html" = "qutebrowser.desktop";
+
+    "x-scheme-handler/terminal" = "foot.desktop";
   };
 
   services.keyd = {
@@ -131,28 +126,26 @@
   };
   users.defaultUserShell = pkgs.fish;
 
-  services = {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-  };
-
   zramSwap = {
     enable = true;
     memoryPercent = 15;    # ~4.8GB out of 32GB RAM
     algorithm = "zstd";    # Fast and efficient compression
   };
 
+  programs.dconf.enable = true;
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
+
+    niri.packages.x86_64-linux.default
 
     mpd-mpris # exposing mpd to mpris
 
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
-    qt6.qtwayland
-    qt5.qtwayland
-
+    kdePackages.qqc2-desktop-style
+    kdePackages.plasma-integration
+    kdePackages.kcolorscheme
 
     quickshell
     vicinae

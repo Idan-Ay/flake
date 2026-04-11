@@ -1,16 +1,6 @@
 { pkgsLatest, inputs, lib, ... }:
 
 {
-  programs.steam = { # unfree
-    enable = true;
-
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-
-    protontricks.enable = true;
-    gamescopeSession.enable = true;
-  };
-
   services.ollama = {
     enable = true;
     package = pkgsLatest.ollama-vulkan;
@@ -30,7 +20,7 @@
     inkscape
     kdePackages.kdenlive
     audacity
-    onlyoffice-desktopeditors
+    libreoffice
 
     vscodium
 
@@ -42,13 +32,5 @@
     protonplus
 
     signal-desktop
-
-    sassc
-    gnumake
-    gnused
-    glib.dev
-    sbclPackages.cl-cffi-gtk-gdk-pixbuf
-    librsvg
-    bc
   ]);
 }

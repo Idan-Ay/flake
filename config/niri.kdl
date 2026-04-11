@@ -59,7 +59,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
     Mod+Return repeat=false { spawn "foot"; }
-    Mod+S repeat=false { spawn "pcmanfm"; }
+    Mod+S repeat=false { spawn "dolphin"; }
     Mod+B repeat=false { spawn "qutebrowser"; }
 
     Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
@@ -222,7 +222,6 @@ window-rule {
 
 window-rule {
     match app-id="obsproject"
-    match app-id="PrismLauncher"
 
     opacity 0.85
 }

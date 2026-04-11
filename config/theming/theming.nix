@@ -1,4 +1,4 @@
-{ pkgs, lib, orchis-kde, ... }:
+{ pkgs, config, lib, orchis-kde, ... }:
 {
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -27,17 +27,13 @@
     };
   };
 
-  xdg.configFile."gtk-4.0/assets" = {
-    source = ./assets;
-    recursive = true;
+  xdg.configFile."gtk-4.0/assets".source = ./assets;
+
+  qt = {
+    enable = true;
+    kde.settings.kdeglobals.General.TerminalApplication = "foot";
+    kde.settings.kdeglobals.UiSettings.ColorScheme = "BlackGlass";
   };
-
-  # qt = {
-    # enable = true;
-
-    # platformTheme.name = "kde";
-    # style.name = "kvantum";
-  # };
 
   xdg.configFile = {
     "Kvantum/kvantum.kvconfig".text = ''
@@ -46,40 +42,8 @@
     '';
 
     "Kvantum/BlackGlass".source = ./BlackGlass;
-
-    # "kdeglobals".text = ''
-      # [General]
-      # ColorScheme=BlackGlass
-    # '';
   };
-  # home.file = {
-    # ".local/share/color-schemes/BlackGlass.colors".source = ./color-scheme.colors;
-  # };
-
-  # xdg.configFile = {
-    # "Kvantum/kvantum.kvconfig".text = ''
-      # [General]
-      # theme=OrchisDark
-    # '';
-
-    # "kdeglobals".text = ''
-      # [General]
-      # ColorScheme=OrchisDark
-    # '';
-
-    # "kwinrc".text = ''
-      # [org.kde.kdecoration2]
-      # theme=Orchis-dark
-    # '';
-
-    # "Kvantum/OrchisDark".source = orchis-kde + "/Kvantum/Orchis";
-  # };
-  # home.file = {
-    # ".local/share/aurorae/themes".source = orchis-kde + "/aurorae";
-    # ".local/share/color-schemes".source = orchis-kde + "/color-schemes";
-    # ".local/share/plasma/look-and-feel".source = orchis-kde + "/plasma/look-and-feel";
-  # };
-
-  xdg.enable = true;
-
+  home.file = {
+    ".local/share/color-schemes/BlackGlass.colors".source = ./color-scheme.colors;
+  };
 }
