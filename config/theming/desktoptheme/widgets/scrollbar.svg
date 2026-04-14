@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="45"
+   height="30"
+   viewBox="0 0 45 30.000001"
+   version="1.1"
+   id="svg17788"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="scrollbar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17790"
+     pagecolor="#d1d1d1"
+     bordercolor="#6b6b6b"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     shape-rendering="crispEdges"
+     inkscape:zoom="9.4535683"
+     inkscape:cx="26.815271"
+     inkscape:cy="13.434081"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3767"
+       originx="-549"
+       originy="-544"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs17785" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-549,-544)">
+    <rect
+       id="slider-hint-right-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="558"
+       y="565" />
+    <rect
+       id="slider-hint-top-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="556"
+       y="558" />
+    <rect
+       id="slider-hint-left-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="549"
+       y="565" />
+    <rect
+       id="slider-hint-bottom-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="556"
+       y="567" />
+    <rect
+       style="opacity:1;fill:#535353;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="slider-center"
+       width="3"
+       height="3"
+       x="555"
+       y="550" />
+    <rect
+       style="opacity:1;fill:#535353;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="slider-top"
+       width="3"
+       height="3"
+       x="555"
+       y="547" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-top"
+       id="slider-bottom"
+       transform="translate(0,6)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-top"
+       id="slider-right"
+       transform="translate(3,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-top"
+       id="slider-left"
+       transform="translate(-3,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-topright"
+       id="slider-topleft"
+       transform="matrix(-1,0,0,1,1113,-1.0000008e-7)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-topright"
+       id="slider-bottomright"
+       transform="matrix(1,0,0,-1,-6,1103)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#slider-topright"
+       id="slider-bottomleft"
+       transform="rotate(180,559.5,551.5)" />
+    <rect
+       id="mouseover-slider-hint-right-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="588"
+       y="551" />
+    <rect
+       id="mouseover-slider-hint-top-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="586"
+       y="544" />
+    <rect
+       id="mouseover-slider-hint-left-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="579"
+       y="551" />
+    <rect
+       id="mouseover-slider-hint-bottom-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="586"
+       y="553" />
+    <rect
+       style="opacity:1;fill:#808080;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="mouseover-slider-center"
+       width="3"
+       height="3"
+       x="570"
+       y="550" />
+    <rect
+       style="opacity:1;fill:#808080;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="mouseover-slider-top"
+       width="3"
+       height="3"
+       x="570"
+       y="547" />
+    <rect
+       id="background-vertical-hint-right-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="588"
+       y="566" />
+    <rect
+       id="background-vertical-hint-top-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="586"
+       y="559" />
+    <rect
+       id="background-vertical-hint-left-inset"
+       height="1"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="6"
+       x="579"
+       y="566" />
+    <rect
+       id="background-vertical-hint-bottom-inset"
+       height="6"
+       style="opacity:0.5;fill:#008080;fill-opacity:1;fill-rule:evenodd;stroke-width:1"
+       width="1"
+       x="586"
+       y="568" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-top"
+       id="mouseover-slider-bottom"
+       transform="translate(0,6)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-top"
+       id="mouseover-slider-right"
+       transform="translate(3,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-top"
+       id="mouseover-slider-left"
+       transform="translate(-3,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-topright"
+       id="mouseover-slider-topleft"
+       transform="matrix(-1,0,0,1,1143,-2.0000004e-7)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-topright"
+       id="mouseover-slider-bottomright"
+       transform="matrix(1,0,0,-1,-6,1103)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#mouseover-slider-topright"
+       id="mouseover-slider-bottomleft"
+       transform="rotate(180,574.5,551.5)" />
+    <rect
+       style="opacity:1;fill:#1f1f1f;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="background-vertical-center"
+       width="3"
+       height="3"
+       x="570"
+       y="565" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-top"
+       transform="translate(0,-3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-topright"
+       transform="translate(3,-3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-right"
+       transform="translate(3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-topleft"
+       transform="translate(-3,-3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-left"
+       transform="translate(-3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-bottomleft"
+       transform="translate(-3,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-bottom"
+       transform="translate(0,3)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#background-vertical-center"
+       id="background-vertical-bottomright"
+       transform="translate(3,3)" />
+    <rect
+       style="opacity:1;fill:#535353;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="slider-topright"
+       width="3"
+       height="3"
+       x="558"
+       y="547" />
+    <rect
+       style="opacity:1;fill:#808080;fill-opacity:1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="mouseover-slider-topright"
+       width="3"
+       height="3"
+       x="573"
+       y="547" />
+  </g>
+</svg>

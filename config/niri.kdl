@@ -47,11 +47,8 @@ output "HDMI-A-2" {
 }
 
 spawn-at-startup "vicinae" "server"
-spawn-at-startup "/bin/sh" "-c" "QT_QPA_PLATFORMTHEME=qt5ct quickshell"
+spawn-at-startup "quickshell"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
-spawn-at-startup "valent" "--gapplication-service"
 spawn-at-startup "steam" "-silent"
 spawn-at-startup "discord"
 
@@ -59,7 +56,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
     Mod+Return repeat=false { spawn "foot"; }
-    Mod+S repeat=false { spawn "dolphin"; }
+    Mod+S repeat=false { spawn "foot" "yazi"; }
     Mod+B repeat=false { spawn "qutebrowser"; }
 
     Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
@@ -215,14 +212,14 @@ window-rule {
     clip-to-geometry true
 }
 
-window-rule {
-    match app-id="obsproject"
-    match app-id="^Notesnook$"
-    match app-id="^steam$"
-    match app-id="^discord$"
+// window-rule {
+    // match app-id="obsproject"
+    // match app-id="^Notesnook$"
+    // match app-id="^steam$"
+    // match app-id="^discord$"
 
-    opacity 0.95
-}
+    // opacity 0.95
+// }
 
 window-rule {
     match app-id="obsproject"

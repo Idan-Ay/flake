@@ -58,17 +58,18 @@
     mpc
   ];
 
-  # systemd.user.services.mpd-mpris = {
-    # description = "MPD MPRIS service";
-    # wantedBy = [ "default.target" ];
-    # serviceConfig = {
-      # ExecStart = "${pkgs.mpd-mpris}/bin/mpd-mpris";  # adjust path if needed
-      # Restart = "on-failure";
-    # };
-    # enable = true;
-  # };
+  xdg.configFile."xdg-desktop-portal-termfilechooser/config" =
+  {
+    force = true;
+    text =
+    ''
+      [filechooser]
+      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+      create_help_file=0
+    '';
+  };
 
-  xdg.configFile = { 
+  xdg.configFile = {
     "foot/foot.ini".source = ./config/foot.ini;
 
     "lf/lfrc".source = ./config/lfrc;

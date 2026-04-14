@@ -28,6 +28,8 @@
     gamescopeSession.enable = true;
   };
 
+  programs.noisetorch.enable = true;
+
   nixpkgs.overlays = [
     (final: prev: {
       yt-dlp = prev.yt-dlp.overrideAttrs (old: {
@@ -43,10 +45,6 @@
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
-
-    libsForQt5.qt5ct
-
-    kdePackages.kdialog
 
     gh
 
@@ -75,6 +73,7 @@
     brave
 
     foot # terminal
+    kitty
 
     fd # fast directory search
     ripgrep # Easy file content search
@@ -88,19 +87,9 @@
 
     fastfetch # View system information
 
-    lf # file manager
+    yazi
     avfs
     p7zip unzip zip unrar atool
-
-    (pkgs.symlinkJoin {
-      name = "dolphin";
-      buildInputs = [ pkgs.makeWrapper ];
-      paths = [ pkgs.kdePackages.dolphin ];
-      postBuild = ''
-        wrapProgram $out/bin/dolphin \
-          --set QT_QPA_PLATFORMTHEME "qt5ct"
-      '';
-    })
 
     gcolor3
 

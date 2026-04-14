@@ -13,6 +13,8 @@
     obsidian # unfree
     affine
 
+    kdePackages.discover
+
     blender
     godot
     gimp
@@ -20,7 +22,7 @@
     inkscape
     kdePackages.kdenlive
     audacity
-    libreoffice
+    libreoffice-qt
 
     vscodium
 

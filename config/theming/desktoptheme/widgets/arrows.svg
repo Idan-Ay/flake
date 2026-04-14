@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   id="svg2"
+   width="68"
+   height="14"
+   version="1.1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="arrows.svg"
+   viewBox="0 0 68 14"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     pagecolor="#afafaf"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     inkscape:document-units="px"
+     id="namedview43"
+     showgrid="false"
+     inkscape:zoom="38.430742"
+     inkscape:cx="56.06189"
+     inkscape:cy="9.6016883"
+     inkscape:current-layer="svg2"
+     inkscape:pagecheckerboard="true"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs4">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text {&#10;        color:#31363b;&#10;      }&#10;      .ColorScheme-Background{&#10;        color:#eff0f1;&#10;      }&#10;      .ColorScheme-ViewText {&#10;        color:#31363b;&#10;      }&#10;      .ColorScheme-ViewBackground{&#10;        color:#fcfcfc;&#10;      }&#10;      .ColorScheme-ViewHover {&#10;        color:#3daee9;&#10;      }&#10;      .ColorScheme-ViewFocus{&#10;        color:#3daee9;&#10;      }&#10;      .ColorScheme-ButtonText {&#10;        color:#31363b;&#10;      }&#10;      .ColorScheme-ButtonBackground{&#10;        color:#eff0f1;&#10;      }&#10;      .ColorScheme-ButtonHover {&#10;        color:#3daee9;&#10;      }&#10;      .ColorScheme-ButtonFocus{&#10;        color:#3daee9;&#10;      }</style>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="up-arrow"
+     transform="translate(-83.469,-1015.2)">
+    <path
+       style="fill:#ededed;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 86.933,1023.6 0.70711,0.7072 2.8284,-2.8285 2.8284,2.8285 0.70711,-0.7072 -3.5355,-3.5355 z"
+       id="path4222" />
+    <rect
+       style="fill-opacity:0"
+       height="14"
+       width="14"
+       x="83.469002"
+       y="1015.2"
+       id="rect4224" />
+  </g>
+  <g
+     transform="matrix(1,0,0,-1,-65.469,1029.1)"
+     id="down-arrow">
+    <path
+       style="fill:#ededed;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 86.933,1023.6 0.70711,0.7072 2.8284,-2.8285 2.8284,2.8285 0.70711,-0.7072 -3.5355,-3.5355 z"
+       id="path4234" />
+    <rect
+       style="fill-opacity:0"
+       height="14"
+       width="14"
+       y="1015.2"
+       x="83.469002"
+       id="rect4236" />
+  </g>
+  <g
+     transform="matrix(0,1,1,0,-979.159,-83.51)"
+     id="left-arrow">
+    <path
+       style="fill:#ededed;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 86.933,1023.6 0.70711,0.7072 2.8284,-2.8285 2.8284,2.8285 0.70711,-0.7072 -3.5355,-3.5355 z"
+       id="path4240" />
+    <rect
+       style="fill-opacity:0"
+       height="14"
+       width="14"
+       x="83.469002"
+       y="1015.2"
+       id="rect4242" />
+  </g>
+  <g
+     transform="rotate(90,583.3205,499.8105)"
+     id="right-arrow">
+    <path
+       style="fill:#ededed;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 86.933,1023.6 0.70711,0.7072 2.8284,-2.8285 2.8284,2.8285 0.70711,-0.7072 -3.5355,-3.5355 z"
+       id="path4246" />
+    <rect
+       style="fill-opacity:0"
+       height="14"
+       width="14"
+       y="1015.2"
+       x="83.469002"
+       id="rect4248" />
+  </g>
+</svg>

@@ -36,17 +36,16 @@
 
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
 
     config.common = {
-      default = [ "gtk" "kde" "gnome" ];
-      "org.freedesktop.impl.portal.FileChooser" = "kde";
+      default = [ "gtk" "gnome" ];
+      "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
       "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
     };
 
     extraPortals = [
-      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-termfilechooser
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
     ];
@@ -58,13 +57,16 @@
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
     QT_AUTO_SCREEN_SCALE_FACTOR=1;
-
-    GTK_USE_PORTAL = 1;
   };
 
   environment.variables = {
     QT_STYLE_OVERRIDE = "kvantum";
-    QT_QPA_PLATFORMTHEME = "kde";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+
+    GTK_USE_PORTAL = "1"; # legacy
+    GDK_DEBUG = "portals"; # termfilechooser
+
+    TERMCMD = "foot --title filechooser";
   };
 
   services.greetd = {
@@ -79,7 +81,7 @@
   };
 
   xdg.mime.defaultApplications = {
-    "inode/directory" = "dolphin.desktop";
+    "inode/directory" = "lf.desktop";
     "image/jpeg" = "imv.desktop";
     "image/png" = "imv.desktop";
     "image/gif" = "imv.desktop";
@@ -144,8 +146,22 @@
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
     kdePackages.qqc2-desktop-style
-    kdePackages.plasma-integration
     kdePackages.kcolorscheme
+
+    kdePackages.kate
+
+    kdePackages.kio
+    kdePackages.kdf
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    kdePackages.kio-admin
+    kdePackages.qtwayland
+    kdePackages.plasma-integration
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.qtsvg
+    kdePackages.kservice
+
+    shared-mime-info
 
     quickshell
     vicinae

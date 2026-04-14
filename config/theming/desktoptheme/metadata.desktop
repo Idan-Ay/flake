@@ -1,0 +1,16 @@
+[Desktop Entry]
+Comment=The Black Glass Plasma Theme
+Name=Black Glass
+X-KDE-PluginInfo-Author=Phobian347
+X-KDE-PluginInfo-Category=Plasma Theme
+X-KDE-PluginInfo-Email=phobian@tutanota.com
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-License=GPL3
+X-KDE-PluginInfo-Name=BlackGlass
+X-KDE-PluginInfo-Version=2.0
+X-KDE-PluginInfo-Website=
+X-Plasma-API=5.0
+
+
+[BlurBehindEffect]
+enabled=true
