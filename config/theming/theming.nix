@@ -32,9 +32,7 @@
   qt = {
     enable = true;
     kde.settings.kdeglobals.General.TerminalApplication = "foot";
-    kde.settings.kdeglobals.General.ColorScheme = "BlackGlass";
-    kde.settings.dolphinrc.General.ColorScheme = "BlackGlass";
-    kde.settings.arkrc.General.ColorScheme = "BlackGlass";
+    kde.settings.kdeglobals.UiSettings.ColorScheme = "BlackGlass";
   };
 
   xdg.configFile = {
@@ -47,8 +45,5 @@
   };
   home.file = {
     ".local/share/color-schemes/BlackGlass.colors".source = ./color-scheme.colors;
-    # ".local/share/aurorae/themes/BlackGlass".source = ./aurorae;
-    # ".local/share/plasma/desktoptheme/BlackGlass".source = ./desktoptheme;
-    # ".local/share/plasma/look-and-feel/BlackGlass".source = ./look-and-feel;
   };
 }

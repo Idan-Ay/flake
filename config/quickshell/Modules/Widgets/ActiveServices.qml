@@ -4,15 +4,12 @@ import Quickshell.Services.Pipewire
 import Quickshell.Bluetooth
 
 import qs.Components
+import qs.Services
 
 Row {
-    PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-    }
-
-    property bool isMuted: Pipewire.defaultAudioSource.audio.muted
-    property bool isNoSound: Pipewire.defaultAudioSink.audio.muted
-    property real volume: Pipewire.defaultAudioSource.audio.volume
+    property bool isMuted: DeviceService.defaultAudioSource.audio.muted
+    property bool isNoSound: DeviceService.defaultAudioSink.audio.muted
+    property real volume: DeviceService.defaultAudioSource.audio.volume
     property bool bluetoothOn: Bluetooth.defaultAdapter.enabled
 
 		BarIcon {

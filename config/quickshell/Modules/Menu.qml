@@ -7,84 +7,36 @@ import Quickshell.Io
 import Quickshell.Wayland
 
 import qs.Components
+import qs.Services
 
 WlrLayershell {
-    layer: open ? WlrLayer.Overlay : WlrLayer.Top
+    layer: WlrLayer.Overlay
     keyboardFocus: WlrKeyboardFocus.OnDemand
     namespace: "dms:configMenu"
 
     id: panel
 
-    PwNodeLinkTracker {
-        id: defaultAudioSink
-        node: Pipewire.defaultAudioSink
-    }
+    visible: MenuVar.open
 
-    PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-    }
-
-    property bool open: false
-    property string selection
-    property int appSelection: 0
-    visible: open
-
-    IpcHandler {
-        target: "open-menu"
-
-        function bluetooth() {
-            open = true
-            selection = "bluetooth"
-        }
-        function output() {
-            open = true
-            selection = "output"
-        }
-        function input() {
-            open = true
-            selection = "input"
-        }
-        function applications() {
-            open = true
-            selection = "applications"
-        }
-    }
-
-    function getSourceNodes() {
-        let sourceNodes = []
-        for (const node of Pipewire.nodes.values) {
-            if (!node.isSink && !node.isStream && node.audio) {
-                sourceNodes.push(node)
-            }
-        }
-        return sourceNodes
-    }
-    function getSinkNodes() {
-        let sinkNodes = []
-        for (const node of Pipewire.nodes.values) {
-            if (node.isSink && !node.isStream) {
-                sinkNodes.push(node)
-            }
-        }
-        return sinkNodes
-    }
 
     function selectDevice(num) {
-        if (selection === "bluetooth") {
-            if (Bluetooth.devices.values[num].connected) {
-                Bluetooth.devices.values[num].disconnect()
-            } else {
-                Bluetooth.devices.values[num].connect()
-            }
-        }
-        if (selection === "output") {
-            Pipewire.preferredDefaultAudioSink = getSinkNodes()[num]
-        }
-        if (selection === "input") {
-            Pipewire.preferredDefaultAudioSource = getSourceNodes()[num]
-        }
-        if (selection === "applications") {
-            appSelection = num
+        switch (MenuVar.selection) {
+            case "bluetooth":
+                if (Bluetooth.devices.values[num].connected) {
+                    Bluetooth.devices.values[num].disconnect()
+                } else {
+                    Bluetooth.devices.values[num].connect()
+                }
+                break
+            case "output":
+                Pipewire.preferredDefaultAudioSink = DeviceService.getSinkNodes()[num]
+                break
+            case "input":
+                Pipewire.preferredDefaultAudioSource = DeviceService.getSourceNodes()[num]
+                break
+            case "applications":
+                MenuVar.appSelection = num
+                break;
         }
     }
 
@@ -93,7 +45,6 @@ WlrLayershell {
         right: true
     }
     margins {
-        top: 0
         right: 8
     }
     implicitHeight: menuColumn.height + 78
@@ -103,7 +54,7 @@ WlrLayershell {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: panel.open = false
+        onClicked: MenuVar.open = false
     }
 
     Item {
@@ -114,7 +65,7 @@ WlrLayershell {
     Rectangle { // Background
         id: container
 
-        color: Qt.rgba(0.0039215686, 0.0039215686, 0.0039215686, 0.9)
+        color: Qt.rgba(0.0039, 0.0039, 0.0039, 0.9)
         radius: 4
         border {
             width: 1
@@ -124,13 +75,13 @@ WlrLayershell {
         focus: true
         onActiveFocusChanged: {
             if (!activeFocus) {
-                open = false
+                MenuVar.open = false
             }
         }
         Keys.onPressed: (event) => {
             switch (event.key) {
                 case Qt.Key_Escape:
-                    open = false
+                    MenuVar.open = false
                     break;
                 case Qt.Key_1:
                     selectDevice(0)
@@ -163,23 +114,23 @@ WlrLayershell {
                 case Qt.Key_L: {
                     const delta = event.key === Qt.Key_H ? -0.1 : 0.1
 
-                    if (selection === "output") {
-                        Pipewire.defaultAudioSink.audio.volume += delta
-                    } else if (selection === "input") {
-                        Pipewire.defaultAudioSource.audio.volume += delta
-                    } else if (selection === "applications") {
-                        defaultAudioSink.linkGroups[appSelection].source.audio.volume += delta
+                    if (MenuVar.selection === "output") {
+                        DeviceService.defaultAudioSink.audio.volume += delta
+                    } else if (MenuVar.selection === "input") {
+                        DeviceService.defaultAudioSource.audio.volume += delta
+                    } else if (MenuVar.selection === "applications") {
+                        DeviceService.getSinkLinkSource()[MenuVar.appSelection].audio.volume += delta
                     }
                     break;
                 }
                 case Qt.Key_R:
-                    if (selection === "bluetooth") {
+                    if (MenuVar.selection === "bluetooth") {
                         Bluetooth.defaultAdapter.discovering = true
                         waitForDiscoveringDisable.start()
                     }
                     break;
                 case Qt.Key_D:
-                    if (selection === "bluetooth") {
+                    if (MenuVar.selection === "bluetooth") {
                         Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled
                     }
                     break;
@@ -212,7 +163,7 @@ WlrLayershell {
                         width: parent.width
                         height: 19
                         color: "transparent"
-                        SText { text: (selection==="bluetooth" ? "* " : "") + "bluetooth" }
+                        SText { text: (MenuVar.selection==="bluetooth" ? "* " : "") + "bluetooth" }
                         Row {
                             spacing: 12
                             anchors.right: parent.right
@@ -324,7 +275,7 @@ WlrLayershell {
                         id: outputColumn
                         spacing: 4
 
-                        SText { text: (selection==="output" ? "* " : "") + "output" }
+                        SText { text: (MenuVar.selection==="output" ? "* " : "") + "output" }
 
                         Rectangle {
                             width: outputSwitcher.width - 14
@@ -334,7 +285,7 @@ WlrLayershell {
                         width: outputSwitcher.width - 16
 
                         Repeater {
-                            model: getSinkNodes()
+                            model: DeviceService.getSinkNodes()
                             Rectangle {
 
                                 width: parent.width
@@ -380,7 +331,7 @@ WlrLayershell {
                         id: inputColumn
                         spacing: 4
 
-                        SText { text: (selection==="input" ? "* " : "") + "input" }
+                        SText { text: (MenuVar.selection==="input" ? "* " : "") + "input" }
 
                         Rectangle {
                             width: inputSwitcher.width - 14
@@ -390,7 +341,7 @@ WlrLayershell {
                         width: inputSwitcher.width - 16
 
                         Repeater {
-                            model: getSourceNodes()
+                            model: DeviceService.getSourceNodes()
                             Rectangle {
 
                                 width: parent.width
@@ -434,7 +385,7 @@ WlrLayershell {
                 height: 19
                 SText {
                     anchors.centerIn: null
-                    text: (selection==="output" ? "* " : "") + "output"
+                    text: (MenuVar.selection==="output" ? "* " : "") + "output"
                 }
                 SSlider {
                     value: Pipewire.defaultAudioSink.audio.volume
@@ -446,7 +397,7 @@ WlrLayershell {
                 height: 19
                 SText {
                     anchors.centerIn: null
-                    text: (selection==="input" ? "* " : "") + "input"
+                    text: (MenuVar.selection==="input" ? "* " : "") + "input"
                 }
                 SSlider {
                     value: Pipewire.defaultAudioSource.audio.volume
@@ -455,12 +406,12 @@ WlrLayershell {
             }
 
             SText {
-                text: (selection==="applications" ? "* " : "") + "applications:"
+                text: (MenuVar.selection==="applications" ? "* " : "") + "applications:"
                 height: 46
                 verticalAlignment: Text.AlignBottom
             }
             Repeater {
-                model: defaultAudioSink.linkGroups
+                model: DeviceService.getSinkLinkSource()
 
                 Rectangle {
                     width: 499 - 32
@@ -472,15 +423,11 @@ WlrLayershell {
 
                         width: 499
 
-                        PwObjectTracker {
-                            objects: [modelData.source]
-                        }
-
-                        property string name: modelData.source.name
+                        property string name: modelData.name
 
                         SText {
                             anchors.centerIn: null
-                            text: (selection==="applications" && appSelection === index ? "* " : "") + (index+1) + ". " + containSlider.name
+                            text: (MenuVar.selection==="applications" && MenuVar.appSelection === index ? "* " : "") + (index+1) + ". " + containSlider.name
                         }
 
                         SSlider {
@@ -488,8 +435,8 @@ WlrLayershell {
 
                             width: parent.width -32
 
-                            value: modelData.source.audio.volume
-                            onValueChanged: modelData.source.audio.volume = value
+                            value: modelData.audio.volume
+                            onValueChanged: modelData.audio.volume = value
                         }
                     }
                 }

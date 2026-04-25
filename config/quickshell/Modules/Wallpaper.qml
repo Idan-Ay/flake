@@ -90,36 +90,49 @@ Item {
                     // }
                 // }
 
-                Image {
-                    id: backgroundImage
-                    smooth: true
-                    mipmap: true
-                    cache: true
-                    visible: false
-                    anchors.fill: parent
-                    source: randomWallpaper
-                    fillMode: Image.PreserveAspectCrop
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                }
+                // Image {
+                    // id: backgroundImage
+                    // smooth: true
+                    // mipmap: true
+                    // cache: true
+                    // visible: false
+                    // anchors.fill: parent
+                    // source: randomWallpaper
+                    // fillMode: Image.PreserveAspectCrop
+                    // horizontalAlignment: Image.AlignHCenter
+                    // verticalAlignment: Image.AlignVCenter
+                // }
 
-                Rectangle {
-                    id: shape
-                    radius: NiriService.overviewOpen ? 8 : 0
-                    visible: false
-                    layer.enabled: true
-                    layer.smooth: true
-                    anchors.fill: parent
-                }
+                // Video {
+                    // id: backgroundImage
+                    // smooth: true
+                    // mipmap: true
+                    // cache: true
+                    // visible: false
+                    // anchors.fill: parent
+                    // source: "rem-battle-ready-rezero-moewalls-com.mp4"
+                    // fillMode: Video.PreserveAspectCrop
+                    // horizontalAlignment: Video.AlignHCenter
+                    // verticalAlignment: Video.AlignVCenter
+                // }
 
-                MultiEffect {
-                    anchors.fill: parent
-                    source: backgroundImage
-                    maskEnabled: true
-                    maskSource: shape
-                    visible: true
-                    maskThresholdMin: 0.5
-                    maskSpreadAtMin: 1
+                // Rectangle {
+                    // id: shape
+                    // radius: NiriService.overviewOpen ? 8 : 0
+                    // visible: false
+                    // layer.enabled: true
+                    // layer.smooth: true
+                    // anchors.fill: parent
+                // }
+
+                // MultiEffect {
+                    // anchors.fill: parent
+                    // source: backgroundImage
+                    // maskEnabled: true
+                    // maskSource: shape
+                    // visible: true
+                    // maskThresholdMin: 0.5
+                    // maskSpreadAtMin: 1
 
                     // transform: Scale {
                         // origin.x: animMouseX
@@ -127,7 +140,7 @@ Item {
                         // xScale: wallpaperWindow.scaled
                         // yScale: wallpaperWindow.scaled
                     // }
-                }
+                // }
 
                 Rectangle {
                     id: border

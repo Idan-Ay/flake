@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Io
 
 import qs.Components
 import qs.Services
@@ -12,6 +13,8 @@ PanelWindow {
     WlrLayershell.namespace: "dms:bar"
 
     property string screenName
+    property bool menuOpen: false
+
     Component.onCompleted: {
         bar.screenName = bar.screen.name
     }
@@ -19,14 +22,8 @@ PanelWindow {
         bar.screenName = bar.screen.name
     }
 
-    Connections {
-        target: menu
-        onOpenChanged: {
-            bar.WlrLayershell.layer = menu.open ? WlrLayer.Overlay : WlrLayer.Top
-        }
-    }
-
     exclusionMode: ExclusionMode.Ignore
+
 
     anchors {
         top: true
@@ -62,6 +59,7 @@ PanelWindow {
         height: 27
 
         anchors.bottom: parent.bottom
+
 
         Row {
             spacing: 18;
@@ -104,13 +102,32 @@ PanelWindow {
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: menu.open = !menu.open;
+                    onClicked: MenuVar.open = !MenuVar.open
                 }
             }
 
-            Menu {
-                id: menu
+            IpcHandler {
+                target: "open-menu"
+
+                function bluetooth() {
+                    MenuVar.open = true
+                    MenuVar.selection = "bluetooth"
+                }
+                function output() {
+                    MenuVar.open = true
+                    MenuVar.selection = "output"
+                }
+                function input() {
+                    MenuVar.open = true
+                    MenuVar.selection = "input"
+                }
+                function applications() {
+                    MenuVar.open = true
+                    MenuVar.selection = "applications"
+                }
             }
+
+            Menu {}
         }
     }
 }

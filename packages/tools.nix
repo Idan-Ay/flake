@@ -18,16 +18,6 @@
 
   programs.gamemode.enable = true;
 
-  programs.steam = { # unfree
-    enable = true;
-
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-
-    protontricks.enable = true;
-    gamescopeSession.enable = true;
-  };
-
   programs.noisetorch.enable = true;
 
   nixpkgs.overlays = [
@@ -73,7 +63,6 @@
     brave
 
     foot # terminal
-    kitty
 
     fd # fast directory search
     ripgrep # Easy file content search
@@ -88,6 +77,7 @@
     fastfetch # View system information
 
     yazi
+    kdePackages.dolphin
     avfs
     p7zip unzip zip unrar atool
 

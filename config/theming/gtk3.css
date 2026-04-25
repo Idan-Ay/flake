@@ -60,7 +60,7 @@ menubar {
 
 menu {
 padding: 7px;
-border: 2px rgba(255,255,255,0.25) solid;
+border: 1px #fff solid;
 background: #010101;
 box-shadow: none;
 border-radius: 7px;

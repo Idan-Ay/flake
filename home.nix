@@ -49,7 +49,7 @@
     extraConfig = ''
       audio_output {
         type "pipewire"
-        name "PipeWire Sound Server"
+        name " music player"
       }
     '';
   };
@@ -72,7 +72,7 @@
   xdg.configFile = {
     "foot/foot.ini".source = ./config/foot.ini;
 
-    "lf/lfrc".source = ./config/lfrc;
+    "yazi/theme.toml".source = ./config/yazi/theme.toml;
 
     "wallpapers" = {
       source = ./config/wallpapers;

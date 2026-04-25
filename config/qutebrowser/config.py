@@ -83,19 +83,19 @@ none = "#00000000"
 bg_default = "#010101"
 bg_default_transparent = "#bf010101"
 bg_lighter = "#070707"
-bg_lighter_transparent = "#07ffffff"
+bg_lighter_transparent = "#07dcdcdc"
 bg_selection = "#fff"
 fg_disabled = "#787878"
 fg_default = "#EBEBEB"
 fg_selection = "#000"
-bg_lightest = "#bfffffff"
+bg_lightest = "#bfdcdcdc"
 fg_error = "#e06c75"  # red
 bg_hint = "#e5c07b"  # yellow
 fg_matched_text = "#98c379"  # green
 bg_passthrough_mode = "#56b6c2"  # teal
 bg_insert_mode = "#006a6a"  # blue
 bg_warning = "#d19a66"  # orange
-bg_accent = "#fff"
+bg_accent = "#dcdcdc"
 
 ############
 # SETTINGS #

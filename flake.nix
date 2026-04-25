@@ -8,6 +8,8 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     nextdns.url = "git+ssh://git@github.com/Idan-Ay/nextdns-flake";
   };
 
@@ -18,6 +20,7 @@
     niri,
     nextdns,
     nixvim,
+    nix-flatpak,
     ...
     } @ inputs:
     let
@@ -31,6 +34,7 @@
           modules = [
             ./system.nix
             nextdns.nixosModules.nextdns
+            nix-flatpak.nixosModules.nix-flatpak
           ];
         };
       };

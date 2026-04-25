@@ -53,18 +53,15 @@
 
   environment.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
-
     QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
-    QT_AUTO_SCREEN_SCALE_FACTOR=1;
   };
 
   environment.variables = {
     QT_STYLE_OVERRIDE = "kvantum";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    # QT_QPA_PLATFORMTHEME = "qt5ct";
 
-    GTK_USE_PORTAL = "1"; # legacy
-    GDK_DEBUG = "portals"; # termfilechooser
+    # GTK_USE_PORTAL = "1"; # legacy
+    # GDK_DEBUG = "portals";
 
     TERMCMD = "foot --title filechooser";
   };
@@ -81,7 +78,7 @@
   };
 
   xdg.mime.defaultApplications = {
-    "inode/directory" = "lf.desktop";
+    "inode/directory" = "yazi.desktop";
     "image/jpeg" = "imv.desktop";
     "image/png" = "imv.desktop";
     "image/gif" = "imv.desktop";
@@ -141,27 +138,16 @@
 
     niri.packages.x86_64-linux.default
 
-    mpd-mpris # exposing mpd to mpris
+    swww
+    mpvpaper
+    waypaper
 
-    libsForQt5.qtstyleplugin-kvantum
+    # libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
-    kdePackages.qqc2-desktop-style
-    kdePackages.kcolorscheme
-
-    kdePackages.kate
-
-    kdePackages.kio
-    kdePackages.kdf
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
-    kdePackages.kio-admin
-    kdePackages.qtwayland
     kdePackages.plasma-integration
-    kdePackages.kdegraphics-thumbnailers
-    kdePackages.qtsvg
-    kdePackages.kservice
+    # kdePackages.kcolorscheme
 
-    shared-mime-info
+    mpd-mpris # exposing mpd to mpris
 
     quickshell
     vicinae
