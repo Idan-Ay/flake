@@ -46,6 +46,8 @@
     yarn
     wget
 
+    ffmpeg
+
     yt-dlp
 
     # aerc # tui email client
@@ -106,6 +108,8 @@
     sbclPackages.cl-cffi-gtk-gdk-pixbuf
     librsvg
     bc
+
+    socat
 
     jq
 

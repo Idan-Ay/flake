@@ -12,17 +12,51 @@ Element {
 
         property string screenName
 
-        property int numWorkspaces
-        property int selectedWorkspaceIndex
-
-        Connections {
-            target: NiriService
-            onUpdated: {
-                numWorkspaces = NiriService.workspacesPerOutput[root.screenName]
-                selectedWorkspaceIndex = NiriService.selectedWorkspacePerOutputIndex[root.screenName]
+        function getNiriWorkspaces() {
+            if (NiriService.allWorkspaces.length === 0) {
+                return [
+                    {
+                        "id": 1,
+                        "idx": 0,
+                        "name": ""
+                    },
+                    {
+                        "id": 2,
+                        "idx": 1,
+                        "name": ""
+                    }
+                ];
             }
+
+            const fallbackWorkspaces = [
+                {
+                    "id": 1,
+                    "idx": 0,
+                    "name": ""
+                },
+                {
+                    "id": 2,
+                    "idx": 1,
+                    "name": ""
+                }
+            ];
+
+            const displayWorkspaces = NiriService.allWorkspaces.filter(ws => ws.output === root.screenName);
+            let workspaces = displayWorkspaces.length > 0 ? displayWorkspaces : fallbackWorkspaces;
+
+            workspaces = workspaces.slice().sort((a, b) => a.idx - b.idx);
+
+            return workspaces;
         }
 
+        function getNiriActiveWorkspace() {
+            if (NiriService.allWorkspaces.length === 0) {
+                return 1;
+            }
+
+            const activeWs = NiriService.allWorkspaces.find(ws => ws.output === root.screenName && ws.is_active);
+            return activeWs ? activeWs.idx : 1;
+        }
 
         Row {
             spacing: 8
@@ -31,11 +65,11 @@ Element {
 
             Repeater {
 
-                model: root.numWorkspaces
+                model: getNiriWorkspaces()
 
                 Rectangle {
 
-                    width: root.selectedWorkspaceIndex === index ? 32 : 10
+                    width: getNiriActiveWorkspace() === index+1 ? 32 : 10
                     height: 5
 
                     radius: 100
@@ -46,9 +80,9 @@ Element {
 
                     color: Qt.rgba(1, 1, 1, 0.75)
 
-                    Behavior on width {
-                        NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
-                    }
+                    // Behavior on width {
+                        // NumberAnimation { duration: 100; easing.type: Easing.OutQuad; }
+                    // }
                 }
             }
         }
