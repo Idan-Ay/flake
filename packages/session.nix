@@ -24,6 +24,17 @@
     allowedUDPPorts = [ 25565 ];
   };
 
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      DNS=45.90.28.0#764ddb.dns.nextdns.io
+      DNS=2a07:a8c0::#764ddb.dns.nextdns.io
+      DNS=45.90.30.0#764ddb.dns.nextdns.io
+      DNS=2a07:a8c1::#764ddb.dns.nextdns.io
+      DNSOverTLS=yes
+    '';
+  };
+
   systemd.user.services.mpd-mpris = {
     enable = true;
     wantedBy = [ "default.target" ];

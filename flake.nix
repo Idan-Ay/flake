@@ -9,8 +9,6 @@
     nixvim.url = "github:nix-community/nixvim";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-
-    nextdns.url = "git+ssh://git@github.com/Idan-Ay/nextdns-flake";
   };
 
   outputs = {
@@ -18,7 +16,6 @@
     nixpkgs-latest,
     home-manager,
     niri,
-    nextdns,
     nixvim,
     nix-flatpak,
     ...
@@ -33,7 +30,6 @@
           specialArgs = { inherit inputs user pkgsLatest niri; };
           modules = [
             ./system.nix
-            nextdns.nixosModules.nextdns
             nix-flatpak.nixosModules.nix-flatpak
           ];
         };
