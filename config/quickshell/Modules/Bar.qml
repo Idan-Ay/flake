@@ -49,6 +49,7 @@ PanelWindow {
     }
 
     implicitHeight: yPos
+    visible: yPos !== 0
 
     color: "transparent"
 

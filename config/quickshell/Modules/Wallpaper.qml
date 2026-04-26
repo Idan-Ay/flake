@@ -34,15 +34,17 @@ Item {
         randomWallpaper = imagesModel.get(index, "fileUrl")
         return randomWallpaper
     }
+
     function getFileNameWithoutExtension(fileUrl) {
         let parts = fileUrl.split("/")
         let fileName = parts[parts.length - 1]
 
-        // Find the last dot in the filename
         let lastDotIndex = fileName.lastIndexOf(".")
         return fileName.substring(0, lastDotIndex)
     }
+
     property string imageWallpaperPath: "/tmp/image-wallpapers/"
+
     Connections {
         target: NiriService
         function onWindowsChanged() {
@@ -116,7 +118,7 @@ Item {
 
                 Timer {
                     id: applyBlurredImage
-                    interval: 100
+                    interval: 1000
                     onTriggered: blurredImage.source = imageWallpaperPath + getFileNameWithoutExtension(getRandomWallpaper()) + ".png"
                 }
 
