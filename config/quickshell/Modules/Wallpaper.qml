@@ -45,6 +45,29 @@ Item {
 
     property string imageWallpaperPath: "/tmp/image-wallpapers/"
 
+    Process {
+        id: createTmpPath
+        command: [
+            "mkdir", "-p", imageWallpaperPath
+        ]
+    }
+
+    Process {
+        id: ffmpegProcess
+        command: [
+            "ffmpeg",
+            "-i", getRandomWallpaper(),
+            "-vf", "select=eq(n\\,0)",
+            "-vframes", "1",
+            imageWallpaperPath + getFileNameWithoutExtension(getRandomWallpaper()) + ".png"
+        ]
+    }
+
+    Component.onCompleted: {
+        createTmpPath.running = true
+        ffmpegProcess.running = true
+    }
+
     Connections {
         target: NiriService
         function onWindowsChanged() {
@@ -77,6 +100,7 @@ Item {
 
             PanelWindow {
 
+                required property var modelData
                 screen: modelData
 
                 anchors {
@@ -89,24 +113,6 @@ Item {
                 WlrLayershell.layer: WlrLayer.Background
                 WlrLayershell.namespace: "dms:blurredWallpaper"
                 WlrLayershell.exclusionMode: ExclusionMode.Ignore
-
-                Process {
-                    id: createTmpPath
-                    command: [
-                        "mkdir", "-p", imageWallpaperPath
-                    ]
-                }
-
-                Process {
-                    id: ffmpegProcess
-                    command: [
-                        "ffmpeg",
-                        "-i", getRandomWallpaper(),
-                        "-vf", "select=eq(n\\,0)",
-                        "-vframes", "1",
-                        imageWallpaperPath + getFileNameWithoutExtension(getRandomWallpaper()) + ".png"
-                    ]
-                }
 
                 Image {
                     id: blurredImage
@@ -123,8 +129,6 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    createTmpPath.running = true
-                    ffmpegProcess.running = true
                     applyBlurredImage.running = true
                 }
 
