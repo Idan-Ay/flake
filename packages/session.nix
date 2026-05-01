@@ -149,9 +149,7 @@
 
     niri.packages.x86_64-linux.default
 
-    swww
     mpvpaper
-    waypaper
 
     # libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum

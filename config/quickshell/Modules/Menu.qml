@@ -241,8 +241,7 @@ WlrLayershell {
                             Rectangle {
                                 anchors.right: parent.right
 
-                                enabled: modelData.paired
-                                visible: modelData.paired
+                                visible: modelData.connected
 
                                 width: 19
                                 height: 19
