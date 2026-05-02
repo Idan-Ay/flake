@@ -65,7 +65,6 @@
     ''
       [filechooser]
       cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-      create_help_file=0
     '';
   };
 

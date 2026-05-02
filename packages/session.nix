@@ -45,6 +45,19 @@
     };
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      xdg-desktop-portal-termfilechooser = prev.xdg-desktop-portal-termfilechooser.overrideAttrs (old: {
+        src = prev.fetchFromGitHub {
+          owner = "hunkyburrito";
+          repo = "xdg-desktop-portal-termfilechooser";
+          rev = "44826e4";
+          hash = "sha256-dCJvlmjZ1M5q89SkegK+DxE03w15M48ojkcPZ4bCcH0=";
+        };
+      });
+    })
+  ];
+
   xdg.portal = {
     enable = true;
 

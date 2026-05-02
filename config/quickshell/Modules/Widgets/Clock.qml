@@ -17,7 +17,7 @@ Element {
     anchors.horizontalCenter: parent.horizontalCenter
 
     SText {
-        text: Qt.formatDateTime(clock.date, "ddd - hh:mm - dd.MM")
+        text: Qt.formatDateTime(clock.date, "ddd - hh:mm - dd.")
         anchors.centerIn: parent
     }
 }
