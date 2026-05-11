@@ -71,8 +71,6 @@
   xdg.configFile = {
     "foot/foot.ini".source = ./config/foot.ini;
 
-    "yazi/theme.toml".source = ./config/yazi/theme.toml;
-
     "wallpapers" = {
       source = ./config/wallpapers;
       recursive = true;

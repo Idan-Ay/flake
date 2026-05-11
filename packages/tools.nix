@@ -33,6 +33,22 @@
     })
   ];
 
+  programs.yazi = {
+    enable = true;
+    package = (pkgs.yazi.override {
+      _7zz = pkgs._7zz-rar;  # Support for RAR extraction
+    });
+    plugins = {
+      inherit (pkgs.yaziPlugins) wl-clipboard;
+    };
+    #initLua = ./init.lua
+    settings = {
+      # yazi = lib.importTOML ./settings.toml;
+      keymap = lib.importTOML ../config/yazi/keymap.toml;
+      theme = lib.importTOML ../config/yazi/theme.toml;
+    };
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
@@ -78,7 +94,6 @@
 
     fastfetch # View system information
 
-    yazi
     kdePackages.dolphin
     avfs
     p7zip unzip zip unrar atool

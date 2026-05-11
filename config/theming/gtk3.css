@@ -1,5 +1,5 @@
 window.tiled {
-	background: rgba(1,1,1,0.75);
+	background: rgba(1,1,1,0.8);
   border-radius: 0;
 }
 
@@ -13,7 +13,7 @@ notebook paned.horizontal box.horizontal scrolledwindow widget:dir(ltr) {
 }
 
 toolbar entry {
-	border: 1px rgba(70,70,70,0.75) solid;
+	border: 1px rgba(70,70,70,0.8) solid;
 }
 
 notebook,
@@ -54,7 +54,7 @@ menubar {
 
 .titlebar {
   border-radius: 0;
-  background: rgba(1,1,1,0.75);
+  background: rgba(1,1,1,0.8);
 }
 
 

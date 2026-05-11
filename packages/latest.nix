@@ -35,6 +35,7 @@
     kdePackages.kdenlive
     audacity
     libreoffice
+    focuswriter
 
     vscodium
 

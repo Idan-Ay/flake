@@ -69,12 +69,9 @@
 
   environment.variables = {
     QT_STYLE_OVERRIDE = "kvantum";
-    # QT_QPA_PLATFORMTHEME = "qt5ct";
-
-    # GTK_USE_PORTAL = "1"; # legacy
-    # GDK_DEBUG = "portals";
-
     TERMCMD = "foot --title filechooser";
+
+    EDITOR = "nvim";
   };
 
   services.greetd = {
@@ -111,6 +108,7 @@
           main = {
             capslock = "overload(capslock, esc)";
             esc = "overload(control, capslock)";
+            # leftmeta = "overload(meta, M-semicolon)";
           };
           capslock = {
             h = "left";

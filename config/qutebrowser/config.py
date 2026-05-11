@@ -81,14 +81,14 @@ c.colors.webpage.preferred_color_scheme = "auto"
 
 none = "#00000000"
 bg_default = "#010101"
-bg_default_transparent = "#bf010101"
+bg_default_transparent = "#cc010101"
 bg_lighter = "#070707"
 bg_lighter_transparent = "#07dcdcdc"
 bg_selection = "#fff"
 fg_disabled = "#787878"
 fg_default = "#EBEBEB"
 fg_selection = "#000"
-bg_lightest = "#bfdcdcdc"
+bg_lightest = "#ccdcdcdc"
 fg_error = "#e06c75"  # red
 bg_hint = "#e5c07b"  # yellow
 fg_matched_text = "#98c379"  # green

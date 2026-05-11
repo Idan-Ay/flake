@@ -57,6 +57,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+S repeat=false { spawn "foot" "yazi"; }
+    Mod+A repeat=false { spawn "dolphin"; }
     Mod+B repeat=false { spawn "qutebrowser"; }
 
     Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
