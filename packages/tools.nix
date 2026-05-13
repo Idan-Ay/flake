@@ -92,8 +92,6 @@
     sdbus-cpp
     fmt_9
 
-    fastfetch # View system information
-
     kdePackages.dolphin
     avfs
     p7zip unzip zip unrar atool

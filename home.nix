@@ -85,11 +85,6 @@
 
     "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
 
-    "fastfetch" = {
-      source = ./config/fastfetch;
-      recursive = true;
-    };
-
     "imv/config".text = "[options]\nbackground = 010101";
 
     "youtube-tui" = {
