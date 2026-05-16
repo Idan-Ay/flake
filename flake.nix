@@ -4,6 +4,8 @@
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
 
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+
     niri.url = "github:niri-wm/niri/wip/branch";
 
     nixvim.url = "github:nix-community/nixvim";
@@ -18,6 +20,7 @@
     niri,
     nixvim,
     nix-flatpak,
+    nixos-apple-silicon,
     ...
     } @ inputs:
     let
@@ -29,8 +32,17 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs user pkgsLatest niri; };
           modules = [
-            ./system.nix
+            ./system-pc.nix
             nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
+        mac = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs user pkgsLatest niri; };
+          modules = [
+            ./system-pc.nix
+            nix-flatpak.nixosModules.nix-flatpak
+            nixos-apple-silicon.nixosModules.default
           ];
         };
       };

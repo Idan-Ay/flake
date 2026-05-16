@@ -18,7 +18,7 @@ input {
     }
 
     tablet {
-        map-to-output "HDMI-A-1"
+        map-to-output "HDMI-A-2"
     }
 }
 

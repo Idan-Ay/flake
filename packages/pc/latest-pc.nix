@@ -1,12 +1,20 @@
 { pkgsLatest, lib, ... }:
 
 {
-  services.ollama = {
+  programs.steam = { # unfree
     enable = true;
-    package = pkgsLatest.ollama-vulkan;
+    package = pkgsLatest.steam;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+
+    protontricks.enable = true;
+    gamescopeSession.enable = true;
   };
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest; [
+    lutris
+
     qutebrowser
     python313Packages.adblock
 
@@ -29,6 +37,9 @@
     youtube-tui
 
     rmpc
+
+    prismlauncher
+    protonplus
 
     signal-desktop
   ]);
