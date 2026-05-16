@@ -12,7 +12,6 @@
     ./packages/latest.nix
     ./packages/pc/latest-pc.nix
     ./packages/session.nix
-    ./packages/pc/session-pc.nix
     ./packages/sound.nix
     ./packages/fonts.nix
   ];
