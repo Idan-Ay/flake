@@ -1,4 +1,4 @@
-{ pkgs, lib, niri, ... }:
+{ pkgs, lib, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -23,6 +23,8 @@
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
   };
+
+  services.earlyoom.enable = true;
 
   services.resolved = {
     enable = true;
@@ -100,28 +102,57 @@
     "x-scheme-handler/terminal" = "foot.desktop";
   };
 
-  services.keyd = {
+  services.evremap = {
     enable = true;
-    keyboards = {
-      default = {
-        settings = {
-          main = {
-            capslock = "overload(capslock, esc)";
-            esc = "overload(control, capslock)";
-            # leftmeta = "overload(meta, M-semicolon)";
-          };
-          capslock = {
-            h = "left";
-            k = "up";
-            j = "down";
-            l = "right";
-            a = "end";
-            i = "home";
-            u = "pageup";
-            d = "pagedown";
-          };
-        };
-      };
+    settings = {
+      device_name = "Apple SPI Keyboard";
+
+      dual_role = [
+        {
+          input = "KEY_CAPSLOCK";
+          tap = [ "KEY_ESC" ];
+          hold = [ "KEY_RIGHTCTRL" ];
+        }
+      ];
+
+      remap = [
+        {
+          input = [ "KEY_ESC" ];
+          output = [ "KEY_CAPSLOCK" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_H" ];
+          output = [ "KEY_LEFT" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_J" ];
+          output = [ "KEY_DOWN" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_K" ];
+          output = [ "KEY_UP" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_L" ];
+          output = [ "KEY_RIGHT" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_I" ];
+          output = [ "KEY_HOME" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_A" ];
+          output = [ "KEY_END" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_U" ];
+          output = [ "KEY_PAGEUP" ];
+        }
+        {
+          input = [ "KEY_RIGHTCTRL" "KEY_D" ];
+          output = [ "KEY_PAGEDOWN" ];
+        }
+      ];
     };
   };
 
@@ -145,9 +176,9 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
 
-    niri.packages.x86_64-linux.default
-
     mpvpaper
+
+    evsieve
 
     # libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum

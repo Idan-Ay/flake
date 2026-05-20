@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Services.Pipewire
-import Quickshell.Bluetooth
 import Quickshell.Io
 import Quickshell.Wayland
 
@@ -18,16 +17,8 @@ WlrLayershell {
 
     visible: MenuVar.open
 
-
     function selectDevice(num) {
         switch (MenuVar.selection) {
-            case "bluetooth":
-                if (Bluetooth.devices.values[num].connected) {
-                    Bluetooth.devices.values[num].disconnect()
-                } else {
-                    Bluetooth.devices.values[num].connect()
-                }
-                break
             case "output":
                 Pipewire.preferredDefaultAudioSink = DeviceService.getSinkNodes()[num]
                 break
@@ -124,17 +115,6 @@ WlrLayershell {
                     }
                     break;
                 }
-                case Qt.Key_R:
-                    if (MenuVar.selection === "bluetooth") {
-                        Bluetooth.defaultAdapter.discovering = true
-                        waitForDiscoveringDisable.start()
-                    }
-                    break;
-                case Qt.Key_D:
-                    if (MenuVar.selection === "bluetooth") {
-                        Bluetooth.defaultAdapter.enabled = !Bluetooth.defaultAdapter.enabled
-                    }
-                    break;
             }
             event.accepted = true
         }
@@ -153,115 +133,13 @@ WlrLayershell {
             }
             width: 500 - 32
             spacing: 32
-            Element {
-                width: menuColumn.width
-                height: bluetoothDeviceColumn.height + 19
 
-                Column {
-                    spacing: 4
-
-                    Rectangle {
-                        width: parent.width
-                        height: 19
-                        color: "transparent"
-                        SText { text: (MenuVar.selection==="bluetooth" ? "* " : "") + "bluetooth" }
-                        Row {
-                            spacing: 12
-                            anchors.right: parent.right
-                            Rectangle {
-                                width: 19
-                                height: 19
-
-                                color: "transparent"
-
-                                SText {
-                                    text: "R"
-                                    anchors.centerIn: parent
-                                    color: Bluetooth.defaultAdapter.discovering ? "grey" : "white"
-                                }
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        if (!Bluetooth.defaultAdapter.discovering) {
-                                            Bluetooth.defaultAdapter.discovering = true
-                                            waitForDiscoveringDisable.start()
-                                        }
-                                    }
-                                }
-                                Timer {
-                                    id: waitForDiscoveringDisable
-                                    interval: 5000;
-                                    onTriggered: Bluetooth.defaultAdapter.discovering = false
-                                }
-                            }
-                            Switch {
-                                checked: Bluetooth.defaultAdapter.enabled
-                                onClicked: Bluetooth.defaultAdapter.enabled = checked
-                                height: 19
-                                width: 32
-                            }
-                        }
-                    }
-                    Rectangle {
-                        width: menuColumn.width - 14
-                        height: 1
-                    }
-
-                    id: bluetoothDeviceColumn
-                    width: menuColumn.width - 16
-                    Repeater {
-                        model: Bluetooth.devices
-                        Rectangle {
-                            id: deviceElement
-
-                            width: parent.width
-                            height: 19
-
-                            color: "transparent"
-
-                            property bool forgetting: false
-
-                            SText {
-                                text: index+1 + ". " + modelData.name + " (" + modelData.icon + ") " +
-                                        (modelData.betteryAvailable ? modelData.battery + "%" : "") +
-                                        (modelData.state === 1 ? "connected" : "") +
-                                        (modelData.state === 3 ? "connecting..." : "") +
-                                        (modelData.state === 0 ? "disconnected" : "") +
-                                        (deviceElement.forgetting ? " | forgetting..." : "")
-                            }
-
-                            MouseArea {
-                                width: parent.width - 20
-                                height: parent.height
-                                onClicked: {
-                                    modelData.connect()
-                                }
-                            }
-
-                            Rectangle {
-                                anchors.right: parent.right
-
-                                visible: modelData.connected
-
-                                width: 19
-                                height: 19
-
-                                color: "transparent"
-
-                                SText {
-                                    text: "d"
-                                    anchors.centerIn: parent
-                                }
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        modelData.disconnect()
-                                    }
-                                }
-                            }
-                        }
-                    }
+            Underline {
+                SText {
+                    text: "audio settings"
                 }
+                width: menuColumn.width
+                height: 24
             }
 
             Row {
@@ -275,11 +153,12 @@ WlrLayershell {
                         id: outputColumn
                         spacing: 4
 
-                        SText { text: (MenuVar.selection==="output" ? "* " : "") + "output" }
-
-                        Rectangle {
-                            width: outputSwitcher.width - 14
-                            height: 1
+                        Underline {
+                            SText {
+                                text: (MenuVar.selection==="output" ? "* " : "") + "output"
+                            }
+                            width: menuColumn.width - 14
+                            height: 24
                         }
 
                         width: outputSwitcher.width - 16
@@ -331,11 +210,12 @@ WlrLayershell {
                         id: inputColumn
                         spacing: 4
 
-                        SText { text: (MenuVar.selection==="input" ? "* " : "") + "input" }
-
-                        Rectangle {
-                            width: inputSwitcher.width - 14
-                            height: 1
+                        Underline {
+                            SText {
+                                text: (MenuVar.selection==="input" ? "* " : "") + "input"
+                            }
+                            width: menuColumn.width - 14
+                            height: 24
                         }
 
                         width: inputSwitcher.width - 16
@@ -405,42 +285,45 @@ WlrLayershell {
                 }
             }
 
-            SText {
-                text: (MenuVar.selection==="applications" ? "* " : "") + "applications:"
-                height: 46
-                verticalAlignment: Text.AlignBottom
-            }
-            Repeater {
-                model: DeviceService.getSinkLinkSource()
+            Column {
+                spacing: 16
+                SText {
+                    text: (MenuVar.selection==="applications" ? "* " : "") + "applications:"
+                    height: 48
+                    verticalAlignment: Text.AlignBottom
+                }
+                Repeater {
+                    model: DeviceService.getSinkLinkSource()
 
-                Rectangle {
-                    width: 499 - 32
-                    height: 19
-                    color: "transparent"
+                    Rectangle {
+                        width: 499 - 32
+                        height: 32
+                        color: "transparent"
 
-                    Column {
-                        id: containSlider
+                        Column {
+                            id: containSlider
 
-                        width: 499
+                            width: 499
 
-                        property string name: modelData.name
+                            property string name: modelData.name
 
-                        SText {
-                            anchors.centerIn: null
-                            text: (MenuVar.selection==="applications" && MenuVar.appSelection === index ? "* " : "") + (index+1) + ". " + containSlider.name
-                        }
+                            SText {
+                                anchors.centerIn: null
+                                text: (MenuVar.selection==="applications" && MenuVar.appSelection === index ? "* " : "") + (index+1) + ". " + containSlider.name
+                            }
 
-                        SSlider {
-                            id: slider
+                            SSlider {
+                                id: slider
 
-                            width: parent.width -32
+                                width: parent.width -32
 
-                            value: modelData.audio.volume
-                            onValueChanged: modelData.audio.volume = value
+                                value: modelData.audio.volume
+                                onValueChanged: modelData.audio.volume = value
+                            }
                         }
                     }
-                }
-            } 
+                } 
+            }
         }
     }
 }

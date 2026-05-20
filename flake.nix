@@ -6,7 +6,7 @@
 
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
-    niri.url = "github:niri-wm/niri/wip/branch";
+    niri.url = "github:niri-wm/niri";
 
     nixvim.url = "github:nix-community/nixvim";
 
@@ -24,13 +24,14 @@
     ...
     } @ inputs:
     let
-      pkgsLatest = import nixpkgs-latest { system = "x86_64-linux"; config.allowUnfree = true; };
+      pkgsLatest-x86 = import nixpkgs-latest { system = "x86_64-linux"; config.allowUnfree = true; };
+      pkgsLatest-arm = import nixpkgs-latest { system = "aarch64-linux"; config.allowUnfree = true; };
       user = "idan";
     in {
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs user pkgsLatest niri; };
+          specialArgs = { inherit inputs user pkgsLatest-x86 niri; };
           modules = [
             ./system-pc.nix
             nix-flatpak.nixosModules.nix-flatpak
@@ -38,9 +39,9 @@
         };
         mac = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = { inherit inputs user pkgsLatest niri; };
+          specialArgs = { inherit inputs user pkgsLatest-arm niri; };
           modules = [
-            ./system-pc.nix
+            ./system-mac.nix
             nix-flatpak.nixosModules.nix-flatpak
             nixos-apple-silicon.nixosModules.default
           ];
@@ -54,7 +55,15 @@
             ./home.nix
             nixvim.homeModules.default
           ];
-          extraSpecialArgs = { inherit inputs user pkgsLatest; };
+          extraSpecialArgs = { inherit inputs user; };
+        };
+        mac = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          modules = [
+            ./home.nix
+            nixvim.homeModules.default
+          ];
+          extraSpecialArgs = { inherit inputs user; };
         };
       };
     };

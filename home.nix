@@ -1,4 +1,4 @@
-{pkgsLatest, user, pkgs, config, lib, ...}:
+{user, pkgs, config, lib, ...}:
 {
   programs.home-manager.enable = true;
 
@@ -14,7 +14,6 @@
 
   programs.librewolf = {
     enable = true;
-    package = pkgsLatest.librewolf;
     settings = let
       ffVersion = config.programs.librewolf.package.version;
     in {

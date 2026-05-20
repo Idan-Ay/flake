@@ -37,10 +37,11 @@ c.content.cookies.accept = "no-3rdparty"
 # except FileNotFoundError:
     # print('cookies.sites not found')
 
+c.content.javascript.clipboard = "access-paste"
 
-c.content.canvas_reading = False
+# c.content.canvas_reading = False
 c.content.geolocation = False
-c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+# c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 
 # c.content.javascript.enabled = True
 c.content.javascript.enabled = True

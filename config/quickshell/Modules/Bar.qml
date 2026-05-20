@@ -22,8 +22,8 @@ PanelWindow {
         bar.screenName = bar.screen.name
     }
 
-    exclusionMode: ExclusionMode.Ignore
-
+    property bool isBigBar: bar.width > 1700
+    // property bool isBigBar: false
 
     anchors {
         top: true
@@ -34,22 +34,7 @@ PanelWindow {
         right: 8
     }
 
-    PanelWindow {
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
-        implicitHeight: 27
-        color: "transparent"
-    }
-    property real yPos: NiriService.overviewOpen ? 0 : 27
-    Behavior on yPos {
-        NumberAnimation { duration: 100; easing.type: Easing.InOutQuad; }
-    }
-
-    implicitHeight: yPos
-    visible: yPos !== 0
+    implicitHeight: 27
 
     color: "transparent"
 
@@ -60,7 +45,6 @@ PanelWindow {
         height: 27
 
         anchors.bottom: parent.bottom
-
 
         Row {
             spacing: 18;
@@ -80,9 +64,13 @@ PanelWindow {
             }
 
             ActiveServices {}
+            Battery {}
 
             // Taskbar {}
-            Media {}
+            Loader {
+                visible: isBigBar
+                sourceComponent: Media{}
+            }
             Element {
                 width: 69
                 height: 23
@@ -132,3 +120,4 @@ PanelWindow {
         }
     }
 }
+

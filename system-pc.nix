@@ -9,7 +9,6 @@
 
     ./packages/tools.nix
     ./packages/pc/drivers-pc.nix
-    ./packages/latest.nix
     ./packages/pc/latest-pc.nix
     ./packages/session.nix
     ./packages/sound.nix

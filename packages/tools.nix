@@ -11,11 +11,6 @@
 
   virtualisation.docker.enable = true;
 
-  virtualisation.virtualbox = {
-    guest.enable = true;
-    host.enable = true;
-  };
-
   programs.gamemode.enable = true;
 
   programs.noisetorch.enable = true;
@@ -69,8 +64,6 @@
     # aerc # tui email client
 
     notesnook # Note taking app
-
-    discord
 
     imv # image viewer
     mpv # video viewer

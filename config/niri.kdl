@@ -59,8 +59,13 @@ binds {
     Mod+S repeat=false { spawn "foot" "yazi"; }
     Mod+A repeat=false { spawn "dolphin"; }
     Mod+B repeat=false { spawn "qutebrowser"; }
+    Mod+M repeat=false { spawn "foot" "rmpc"; }
+    Mod+R repeat=false { spawn "foot" "impala"; }
+    Mod+E repeat=false { spawn "foot" "bluetui"; }
 
     Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
+
+    Mod+Y repeat=false { spawn "fish" "-c" "toggle_tiny-dfr"; }
 
     Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 
@@ -112,7 +117,6 @@ binds {
 
 
     // Menu Control
-    Mod+Ctrl+b repeat=false { spawn "qs" "ipc" "call" "open-menu" "bluetooth"; }
     Mod+Ctrl+i repeat=false { spawn "qs" "ipc" "call" "open-menu" "input"; }
     Mod+Ctrl+o repeat=false { spawn "qs" "ipc" "call" "open-menu" "output"; }
     Mod+Ctrl+u repeat=false { spawn "qs" "ipc" "call" "open-menu" "applications"; }
@@ -126,14 +130,14 @@ binds {
     Mod+Down { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%-"; }
 
     XF86AudioMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-
-    Mod+Z repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    Mod+M repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    Mod+X repeat=false { spawn "playerctl" "play-pause"; }
+    XF86AudioMicMute repeat=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     XF86AudioPlay repeat=false { spawn "playerctl" "play-pause"; }
     XF86AudioNext repeat=false { spawn "playerctl" "next"; }
     XF86AudioPrev repeat=false { spawn "playerctl" "previous"; }
+
+    XF86MonBrightnessUp { spawn "brightnessctl" "s" "+10"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "s" "10-"; }
 
     Mod+Right { spawn "playerctl" "position" "5+"; }
     Mod+Left  { spawn "playerctl" "position" "5-"; }
