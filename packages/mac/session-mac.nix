@@ -60,5 +60,7 @@
   environment.systemPackages = lib.mkAfter (with pkgs; [
     brightnessctl
     tiny-dfr
+    hyprlock
+    swayidle
   ]);
 }

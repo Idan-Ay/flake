@@ -188,7 +188,6 @@
     mpd-mpris # exposing mpd to mpris
 
     quickshell
-    vicinae
   ]);
 
   security.sudo.enable = true;

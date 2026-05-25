@@ -62,6 +62,7 @@
     yt-dlp
 
     # aerc # tui email client
+    bluetui
 
     notesnook # Note taking app
 
@@ -86,6 +87,7 @@
     fmt_9
 
     kdePackages.dolphin
+
     avfs
     p7zip unzip zip unrar atool
 
@@ -114,6 +116,8 @@
     sbclPackages.cl-cffi-gtk-gdk-pixbuf
     librsvg
     bc
+
+    imagemagick
 
     socat
 

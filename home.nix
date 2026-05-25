@@ -75,6 +75,8 @@
       recursive = true;
     };
 
+    "hypr".source = ./config/hypr;
+
     "niri/config.kdl".source = ./config/niri.kdl;
 
     "quickshell" = {
@@ -82,7 +84,7 @@
       recursive = true;
     };
 
-    "vicinae/vicinae.json".source = ./config/vicinae/vicinae.json;
+    "vicinae/settings.json".source = ./config/vicinae/settings.jsonc;
 
     "imv/config".text = "[options]\nbackground = 010101";
 

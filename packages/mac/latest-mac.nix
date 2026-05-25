@@ -8,6 +8,8 @@
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest-arm; [
     niri.packages.aarch64-linux.default
+    swayidle
+    vicinae
 
     qutebrowser
     python313Packages.adblock
@@ -29,6 +31,8 @@
     vscodium
 
     prismlauncher
+
+    rpi-imager
 
     youtube-tui
     impala

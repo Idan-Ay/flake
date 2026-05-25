@@ -19,9 +19,8 @@ border_focus = "#24c8c8c8"
 border_error = "#b9543b"
 
 [colors.button.primary]
-background = "#24c8c8c8"
+background = "#bf2d2d2d"
 foreground = "#e8e6e1"
 
 [colors.list.item.selection]
 background = "#bf2d2d2d"
-

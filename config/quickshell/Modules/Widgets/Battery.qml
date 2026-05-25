@@ -35,16 +35,23 @@ Underline {
             ? UPower.displayDevice.timeToFull
             : UPower.displayDevice.timeToEmpty
     }
-    
+
+    function isBatterLowAndNotCharging() {
+        return UPower.displayDevice.state !== UPowerDeviceState.Charging
+            && UPower.displayDevice.percentage <= 0.2
+    }
+
     Row {
         anchors.verticalCenter: parent.verticalCenter
         SText {
             text: getBatteryIcon() + Math.round(UPower.displayDevice.percentage * 100) + "%"
+            color: isBatterLowAndNotCharging() ? "#ff283c" : "white"
             elide: Text.ElideRight
             width: 60
         }
         SText {
             text: getTimeFromSec(timeToFullOrEmpty())
+            color: isBatterLowAndNotCharging() ? "#ff283c" : "white"
             elide: Text.ElideRight
             width: 80
         }
