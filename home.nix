@@ -235,11 +235,6 @@
       source = ./config/joplin;
       recursive = true;
     };
-
-    "qutebrowser" = {
-      source = ./config/qutebrowser;
-      recursive = true;
-    };
   };
 
   home.file.".local/share/vicinae/themes/blackTheme.toml".source = ./config/vicinae/blackTheme.toml;
