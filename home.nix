@@ -12,8 +12,140 @@
     };
   };
 
+  # programs.floorp = {
+    # enable = true;
+    # languagePacks = ["en-US" "de"];
+    # policies = {
+      # Cookies = "reject-foreign";
+      # ExtensionSettings = {
+        # "uBlock0@raymondhill.net" = {
+          # default_area = "menupanel";
+          # install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          # installation_mode = "force_installed";
+          # private_browsing = true;
+        # };
+        # "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+          # default_area = "menupanel";
+          # install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+          # installation_mode = "force_installed";
+          # private_browsing = true;
+        # };
+      # };
+    # };
+    # profiles.default = {
+      # search = {
+        # default = "ecosia-search";
+        # force = true;
+        # engines = {
+          # nix-packages = {
+            # name = "Nix Packages";
+            # urls = [{
+              # template = "https://search.nixos.org/packages";
+              # params = [
+                # { name = "type"; value = "packages"; }
+                # { name = "query"; value = "{searchTerms}"; }
+              # ];
+            # }];
+
+            # icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            # definedAliases = [ "@np" ];
+          # };
+
+          # nixos-wiki = {
+            # name = "NixOS Wiki";
+            # urls = [{ template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; }];
+            # iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
+            # definedAliases = [ "@nw" ];
+          # };
+
+          # ecosia-search = {
+            # name = "Ecosia Search";
+            # urls = [{ template = "https://www.ecosia.org/search?method=index&q={searchTerms}"; }];
+            # definedAliases = [ "@es" ];
+          # };
+
+          # bing.metaData.hidden = true;
+        # };
+      # };
+      # extraConfig = ''
+        # user_pref("media.hardware-video-decoding.force-enabled", true);
+        # user_pref("gfx.x11-egl.force-enabled", true);
+        # user_pref("widget.dmabuf.force-enabled", true);
+        # user_pref("browser.tabs.closeWindowWithLastTab", false);
+        # user_pref("media.av1.enabled", true);
+        # user_pref("sidebar.verticalTabs", true);
+        # user_pref("ui.systemUsesDarkTheme", 1);
+        # user_pref("floorp.panelSidebar.enabled", false);
+        # user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+        # user_pref("privacy.fingerprintingProtection", true);
+      # '';
+    # };
+  # };
+
   programs.librewolf = {
     enable = true;
+
+    languagePacks = [
+      "en-US"
+      "en-GB"
+      "de"
+    ];
+
+    policies = {
+
+      Cookies = "reject-foreign";
+
+      SearchEngines = {
+        Add = [
+          {
+            "Name" = "Ecosia Search";
+            "URLTemplate" = "https://www.ecosia.org/search?method=index&q={searchTerms}";
+            "Alias" = "es";
+          }
+          {
+            "Name" = "Brave Search";
+            "URLTemplate" = "https://search.brave.com/search?q={searchTerms}&summary=0";
+            "IconURL" = "https://cdn.search.brave.com/serp/v1/static/brand/eebf5f2ce06b0b0ee6bbd72d7e18621d4618b9663471d42463c692d019068072-brave-lion-favicon.png";
+            "Alias" = "brave";
+          }
+          {
+            "Name" = "OpenStreetMap";
+            "URLTemplate" = "https://www.openstreetmap.org/search?query={searchTerms}";
+            "IconURL" = "https://www.openstreetmap.org/favicon.ico";
+            "Alias" = "osm";
+          }
+          {
+            "Name" = "Nix Packages";
+            "URLTemplate" = "https://search.nixos.org/packages?channel=25.11&query={searchTerms}";
+            "IconURL" = "https://search.nixos.org/images/nix-logo.png";
+            "Alias" = "np";
+          }
+          {
+            "Name" = "Nix Options";
+            "URLTemplate" = "https://search.nixos.org/options?channel=25.11&query={searchTerms}";
+            "IconURL" = "https://search.nixos.org/images/nix-logo.png";
+            "Alias" = "no";
+          }
+        ];
+        Default = "Ecosia Search";
+      };
+
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+      };
+    };
     settings = let
       ffVersion = config.programs.librewolf.package.version;
     in {
@@ -29,11 +161,12 @@
       "browser.tabs.closeWindowWithLastTab" = false;
       "sidebar.verticalTabs" = true;
       "ui.systemUsesDarkTheme" = 1;
+      "browser.toolbars.bookmarks.visibility" = "never";
 
-      "privacy.resistFingerprinting" = true;
-      "privacy.resistFingerprinting.pbmode" = true;
+      "privacy.resistFingerprinting" = false;
     };
   };
+
 
   imports = [
     ./config/theming/theming.nix
@@ -95,6 +228,11 @@
 
     "rmpc" = {
       source = ./config/rmpc;
+      recursive = true;
+    };
+
+    "joplin" = {
+      source = ./config/joplin;
       recursive = true;
     };
 

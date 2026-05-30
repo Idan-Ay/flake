@@ -10,6 +10,7 @@
     ./packages/tools.nix
     ./packages/pc/drivers-pc.nix
     ./packages/pc/latest-pc.nix
+    ./packages/pc/session-pc.nix
     ./packages/session.nix
     ./packages/sound.nix
     ./packages/fonts.nix

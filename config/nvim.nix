@@ -212,22 +212,22 @@
 
       {
         mode = "n";
-        key = "n";
+        key = "<S-Tab>";
         action = ":BufferPrevious<CR>";
       }
       {
         mode = "n";
-        key = "m";
+        key = "<Tab>";
         action = ":BufferNext<CR>";
       }
       {
         mode = "n";
-        key = "N";
+        key = "<leader><S-Tab>";
         action = ":BufferMovePrevious<CR>";
       }
       {
         mode = "n";
-        key = "M";
+        key = "<leader><Tab>";
         action = ":BufferMoveNext<CR>";
       }
       {
@@ -237,12 +237,12 @@
       }
       {
         mode = "n";
-        key = "<leader>c";
+        key = "<leader>d";
         action = ":BufferClose<CR>";
       }
       {
         mode = "n";
-        key = "<leader>r";
+        key = "<leader>u";
         action = ":BufferRestore<CR>";
       }
 

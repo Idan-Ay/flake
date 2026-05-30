@@ -6,17 +6,20 @@
     package = pkgsLatest-arm.ollama-vulkan;
   };
 
+  programs.firefox = {
+    enable = true;
+    package = pkgsLatest-arm.firefox;
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgsLatest-arm; [
     niri.packages.aarch64-linux.default
     swayidle
     vicinae
 
-    qutebrowser
-    python313Packages.adblock
-
     obsidian # unfree
-    logseq
-    affine
+    joplin-cli
+
+    rmpc
 
     blender
     godot
@@ -30,13 +33,11 @@
 
     vscodium
 
-    prismlauncher
-
     rpi-imager
 
-    youtube-tui
-    impala
-    rmpc
+    anki
+
+    prismlauncher
 
     signal-desktop
   ]);

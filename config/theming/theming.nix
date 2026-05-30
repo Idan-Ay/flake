@@ -33,6 +33,8 @@
     enable = true;
     kde.settings.kdeglobals.General.TerminalApplication = "foot";
     kde.settings.kdeglobals.UiSettings.ColorScheme = "BlackGlass";
+    kde.settings.kdenliverc.UiSettings.ColorScheme = "BlackGlass";
+    kde.settings.kdenliverc.UiSettings.ColorSchemePath = "BlackGlass.colors";
   };
 
   xdg.configFile = {

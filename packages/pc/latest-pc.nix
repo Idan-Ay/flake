@@ -12,17 +12,20 @@
     gamescopeSession.enable = true;
   };
 
+  programs.firefox = {
+    enable = true;
+    package = pkgsLatest-x86.firefox;
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgsLatest-x86; [
     niri.packages.x86_64-linux.default
 
     lutris
 
-    qutebrowser
-    python313Packages.adblock
-
     obsidian # unfree
-    logseq
-    affine
+    joplin-cli
+
+    rmpc
 
     blender
     godot
@@ -36,9 +39,7 @@
 
     vscodium
 
-    youtube-tui
-
-    rmpc
+    anki
 
     prismlauncher
     protonplus

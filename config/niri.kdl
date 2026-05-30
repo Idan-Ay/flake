@@ -60,7 +60,8 @@ binds {
     Mod+Return repeat=false { spawn "foot"; }
     Mod+S repeat=false { spawn "foot" "yazi"; }
     Mod+A repeat=false { spawn "dolphin"; }
-    Mod+B repeat=false { spawn "qutebrowser"; }
+    Mod+B repeat=false { spawn "librewolf"; }
+    Mod+N repeat=false { spawn "foot" "joplin"; }
     Mod+M repeat=false { spawn "foot" "rmpc"; }
     Mod+R repeat=false { spawn "foot" "impala"; }
     Mod+E repeat=false { spawn "foot" "bluetui"; }
@@ -79,6 +80,7 @@ binds {
 
     Mod+C repeat=false { screenshot-window write-to-disk=false; }
     Print repeat=false { screenshot show-pointer=false; }
+    Mod+V repeat=false { screenshot show-pointer=false; }
 
     // Window keybinds
     Mod+Slash repeat=false { switch-preset-window-height; }
@@ -152,8 +154,8 @@ binds {
     Mod+4 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-3 transform normal && niri msg output HDMI-A-2 on"; }
     Mod+5 repeat=false { spawn "/bin/sh" "-c" "niri msg output DP-3 transform 270 && niri msg output HDMI-A-2 off"; }
 
-    Mod+N repeat=false { focus-monitor-next; }
-    Mod+Shift+N repeat=false { move-window-to-monitor-next; }
+    Mod+P repeat=false { focus-monitor-next; }
+    Mod+Shift+P repeat=false { move-window-to-monitor-next; }
 }
 
 prefer-no-csd

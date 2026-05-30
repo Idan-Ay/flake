@@ -1,9 +1,15 @@
-{ pkgs, lib, user, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 75;
+    algorithm = "zstd";    # Fast and efficient compression
   };
 
   security.polkit = {
