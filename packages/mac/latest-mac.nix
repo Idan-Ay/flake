@@ -6,11 +6,6 @@
     package = pkgsLatest-arm.ollama-vulkan;
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgsLatest-arm.firefox;
-  };
-
   environment.systemPackages = lib.mkAfter (with pkgsLatest-arm; [
     niri.packages.aarch64-linux.default
     swayidle
