@@ -65,6 +65,7 @@ binds {
     Mod+M repeat=false { spawn "foot" "rmpc"; }
     Mod+R repeat=false { spawn "foot" "impala"; }
     Mod+E repeat=false { spawn "foot" "bluetui"; }
+    Mod+G repeat=false { spawn "foot" "youtube-tui"; }
 
     Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
 

@@ -168,6 +168,8 @@
       "ui.systemUsesDarkTheme" = 1;
       "browser.toolbars.bookmarks.visibility" = "never";
 
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+
       "privacy.resistFingerprinting" = false;
     };
   };

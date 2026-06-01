@@ -6,6 +6,7 @@
     extraGroups = [ "wheel" "video" "input" ];
     shell = pkgs.fish;
   };
+  nix.settings.trusted-users = [ "your-username" ];
 
   time.timeZone = "Europe/Berlin";
 
