@@ -36,9 +36,7 @@
     plugins = {
       inherit (pkgs.yaziPlugins) wl-clipboard;
     };
-    #initLua = ./init.lua
     settings = {
-      # yazi = lib.importTOML ./settings.toml;
       keymap = lib.importTOML ../config/yazi/keymap.toml;
       theme = lib.importTOML ../config/yazi/theme.toml;
     };

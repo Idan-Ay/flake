@@ -76,8 +76,8 @@ binds {
     Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 
     Mod+Q { close-window; }
-    Mod+F repeat=false { maximize-column; }
-    Mod+D repeat=false { fullscreen-window; }
+    Mod+D repeat=false { maximize-column; }
+    Mod+F repeat=false { fullscreen-window; }
 
     Mod+C repeat=false { screenshot-window write-to-disk=false; }
     Print repeat=false { screenshot show-pointer=false; }
@@ -127,7 +127,6 @@ binds {
     Mod+Ctrl+i repeat=false { spawn "qs" "ipc" "call" "open-menu" "input"; }
     Mod+Ctrl+o repeat=false { spawn "qs" "ipc" "call" "open-menu" "output"; }
     Mod+Ctrl+u repeat=false { spawn "qs" "ipc" "call" "open-menu" "applications"; }
-
 
     // Sound/Media control
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "-l" "1.2" "@DEFAULT_AUDIO_SINK@" "2%+"; }

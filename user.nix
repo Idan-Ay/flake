@@ -3,7 +3,7 @@
 {
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "input" ];
+    extraGroups = [ "wheel" "video" "input" "docker" ];
     shell = pkgs.fish;
   };
   nix.settings.trusted-users = [ "your-username" ];

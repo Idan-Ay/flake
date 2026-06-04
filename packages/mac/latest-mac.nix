@@ -10,6 +10,7 @@
     niri.packages.aarch64-linux.default
     swayidle
     vicinae
+    brightnessctl
 
     obsidian # unfree
     joplin-cli
@@ -31,8 +32,6 @@
     rpi-imager
 
     anki
-
-    prismlauncher
 
     signal-desktop
   ]);

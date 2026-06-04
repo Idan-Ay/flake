@@ -29,13 +29,18 @@
   services.resolved = {
     enable = true;
     extraConfig = ''
-      DNS=45.90.28.0#764ddb.dns.nextdns.io
+      DNS=45.90.28.0#76ddb.dns.nextdns.io
       DNS=2a07:a8c0::#764ddb.dns.nextdns.io
       DNS=45.90.30.0#764ddb.dns.nextdns.io
       DNS=2a07:a8c1::#764ddb.dns.nextdns.io
       DNSOverTLS=yes
     '';
   };
+
+  # services.nextdns = {
+    # enable = true;
+    # arguments = [ "-config" "45.90.28.0/24=76ddb" ];
+  # };
 
   systemd.user.services.mpd-mpris = {
     enable = true;

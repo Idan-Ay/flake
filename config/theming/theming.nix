@@ -16,9 +16,11 @@
         tweaks = [ "black" ];
       };
     };
-    gtk4.extraCss = builtins.readFile ./gtk4.css;
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
+    gtk4 = {
+      extraCss = builtins.readFile ./gtk4.css;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+      };
     };
     gtk3.extraCss = builtins.readFile ./gtk3.css;
     iconTheme = {
