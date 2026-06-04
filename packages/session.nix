@@ -37,6 +37,8 @@
     '';
   };
 
+  services.avahi.enable = true;
+
   # services.nextdns = {
     # enable = true;
     # arguments = [ "-config" "45.90.28.0/24=76ddb" ];
