@@ -39,6 +39,10 @@
 
   services.avahi.enable = true;
 
+  services.cron.systemCronJobs = [
+    "*/15 * * * * joblin sync"
+  ];
+
   # services.nextdns = {
     # enable = true;
     # arguments = [ "-config" "45.90.28.0/24=76ddb" ];
