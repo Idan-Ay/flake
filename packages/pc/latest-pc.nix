@@ -14,11 +14,13 @@
 
   environment.systemPackages = lib.mkAfter (with pkgsLatest-x86; [
     niri.packages.x86_64-linux.default
+    vicinae
+
+    discord
 
     lutris
 
     obsidian # unfree
-    joplin-cli
 
     rmpc
 

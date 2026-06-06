@@ -112,8 +112,6 @@
   services.evremap = {
     enable = true;
     settings = {
-      device_name = "Apple SPI Keyboard";
-
       dual_role = [
         {
           input = "KEY_CAPSLOCK";

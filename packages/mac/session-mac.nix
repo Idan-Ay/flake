@@ -12,6 +12,13 @@
     algorithm = "zstd";    # Fast and efficient compression
   };
 
+  services.evremap = {
+    enable = true;
+    settings = {
+      device_name = "Apple SPI Keyboard";
+    };
+  };
+
   security.polkit = {
     enable = true;
     extraConfig = ''
