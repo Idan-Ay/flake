@@ -151,7 +151,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "w";
+        key = "<leader>w";
         action = ":w<CR>";
       }
       {
