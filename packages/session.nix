@@ -40,7 +40,7 @@
   services.avahi.enable = true;
 
   services.cron.systemCronJobs = [
-    "*/15 * * * * joblin sync"
+    "*/15 * * * * joplin sync"
   ];
 
   # services.nextdns = {
