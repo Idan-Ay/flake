@@ -126,17 +126,17 @@
     mpc
   ];
 
-  xdg.configFile."xdg-desktop-portal-termfilechooser/config" =
-  {
-    force = true;
-    text =
-    ''
-      [filechooser]
-      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-    '';
-  };
-
   xdg.configFile = {
+    "xdg-desktop-portal-termfilechooser/config" =
+    {
+      force = true;
+      text =
+      ''
+        [filechooser]
+        cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+      '';
+    };
+
     "foot/foot.ini".source = ./config/foot.ini;
 
     "wallpapers" = {

@@ -18,7 +18,6 @@
     lutris
 
     obsidian # unfree
-    joplin-cli
 
     rmpc
 
@@ -36,7 +35,6 @@
 
     anki
 
-    prismlauncher
     protonplus
 
     signal-desktop

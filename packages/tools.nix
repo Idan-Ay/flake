@@ -25,6 +25,30 @@
           hash = "sha256-BPZzMT1IrZvgva/m5tYMaDYoUaP3VmpmcYeOUOwuoUY=";
         };
       });
+      joplin-cli = prev.joplin-cli.overrideAttrs (old: {
+        installPhase = ''
+          runHook preInstall
+
+          # Remove dev dependencies
+          yarn workspaces focus --production root joplin
+
+          mkdir -p $out/lib/packages
+          mkdir $out/bin
+          mv packages/{app-cli,renderer,tools,utils,lib,htmlpack,turndown{,-plugin-gfm},fork-*} $out/lib/packages/
+          rm -rf $out/lib/packages/lib/node_modules/canvas
+
+          # Remove extra files
+          rm -rf $out/lib/packages/app-cli/{app/*.test.ts,*.md,.*ignore,tests/,tools/,*.js,tsconfig.json,*.sh}
+          mv $out/lib/packages/app-cli/package.json $out/lib/packages/app-cli/app
+
+          # Link final binary
+          chmod +x $out/lib/packages/app-cli/app/main.js
+          ln -s $out/lib/packages/app-cli/app/main.js $out/bin/joplin
+          patchShebangs $out/bin/joplin
+
+          runHook postInstall
+        '';
+      });
     })
   ];
 
@@ -49,6 +73,7 @@
 
     youtube-tui
     impala
+    joplin-cli
 
     libsecret
 
@@ -117,6 +142,8 @@
     sbclPackages.cl-cffi-gtk-gdk-pixbuf
     librsvg
     bc
+
+    prismlauncher
 
     imagemagick
 
