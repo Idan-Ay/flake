@@ -13,7 +13,6 @@
     brightnessctl
 
     obsidian # unfree
-    joplin-cli
 
     rmpc
 

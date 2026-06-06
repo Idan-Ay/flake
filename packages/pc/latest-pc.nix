@@ -38,7 +38,6 @@
 
     anki
 
-    prismlauncher
     protonplus
 
     signal-desktop
