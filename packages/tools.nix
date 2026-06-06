@@ -125,8 +125,6 @@
 
     imagemagickBig # Create, edit, compose, or convert bitmap images
 
-    cliphist # Wayland clipboard manager
-
     hyprpicker # color picker
 
     python3
