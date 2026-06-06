@@ -90,8 +90,6 @@
     # aerc # tui email client
     bluetui
 
-    notesnook # Note taking app
-
     imv # image viewer
     mpv # video viewer
 
