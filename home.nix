@@ -28,6 +28,11 @@
       SearchEngines = {
         Add = [
           {
+            "Name" = "SearXNG";
+            "URLTemplate" = "https://search.iayache.com/search?q={searchTerms}";
+            "Alias" = "sx";
+          }
+          {
             "Name" = "Ecosia Search";
             "URLTemplate" = "https://www.ecosia.org/search?method=index&q={searchTerms}";
             "Alias" = "es";
@@ -57,7 +62,7 @@
             "Alias" = "no";
           }
         ];
-        Default = "Ecosia Search";
+        Default = "SearXNG";
       };
 
       ExtensionSettings = {
