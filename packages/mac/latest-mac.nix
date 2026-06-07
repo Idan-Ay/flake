@@ -1,11 +1,6 @@
 { pkgsLatest-arm, lib, niri, ... }:
 
 {
-  services.ollama = {
-    enable = true;
-    package = pkgsLatest-arm.ollama-vulkan;
-  };
-
   environment.systemPackages = lib.mkAfter (with pkgsLatest-arm; [
     niri.packages.aarch64-linux.default
     swayidle
