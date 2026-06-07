@@ -148,7 +148,7 @@
 	// They show up on the very top of the root search when no search query is active.
 	// Each value is a serialized entrypoint ID.
 	"favorites": [
-		"clipboard:history"
+		// "clipboard:history"
 	],
 
 	// List of entrypoints to suggest as a fallback when no result matches the
