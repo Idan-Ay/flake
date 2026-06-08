@@ -13,6 +13,7 @@
       DO_NOT_TRACK = "True";
       SCARF_NO_ANALYTICS = "True";
       WEBUI_AUTH = "False";
+      ENABLE_WEB_SEARCH = "True";
       WEB_SEARCH_ENGINE = "searxng";
       SEARXNG_QUERY_URL = "https://search.iayache.com/search?q=<query>&format=json";
       WEB_SEARCH_RESULT_COUNT = "5";
