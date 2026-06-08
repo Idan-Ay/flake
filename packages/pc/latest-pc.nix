@@ -41,8 +41,6 @@
 
     obsidian # unfree
 
-    opencode
-
     rmpc
 
     blender
