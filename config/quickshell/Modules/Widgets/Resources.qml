@@ -9,7 +9,7 @@ Row {
     property int lastCpuTotal: 0
     property int lastCpuIdle: 0
 
-    property int memActive: 0
+    property int memAvailable: 0
     property int memTotal: 0
 
     Process {
@@ -31,11 +31,11 @@ Row {
         Component.onCompleted: running = true
     }
     Process {
-        id: activeMemProc
-        command: ["sh", "-c", "grep '^Active:' /proc/meminfo | awk '{print $2}'"]
+        id: availableMemProc
+        command: ["sh", "-c", "grep '^MemAvailable:' /proc/meminfo | awk '{print $2}'"]
         stdout: SplitParser {
             onRead: data => {
-                memActive = parseInt(data)
+                memAvailable = parseInt(data)
             }
         }
         Component.onCompleted: running = true
@@ -57,7 +57,7 @@ Row {
         repeat: true
         onTriggered: {
             cpuProc.running = true
-            activeMemProc.running = true
+            availableMemProc.running = true
         }
     }
 
@@ -75,7 +75,7 @@ Row {
     Underline {
         width: 160
         SText {
-            text: " " + Math.round(100 * memActive / memTotal) + "% " + (memActive / 1000000).toFixed(1) + "GiB"
+            text: " " + Math.round(100 * (memTotal - memAvailable) / memTotal) + "% " + ((memTotal - memAvailable) / 1000000).toFixed(1) + "GiB"
             font.pixelSize: 15
             anchors.verticalCenter: parent.verticalCenter
         }
