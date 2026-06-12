@@ -105,6 +105,7 @@
       "widget.use-xdg-desktop-portal.file-picker" = 1;
 
       "privacy.resistFingerprinting" = false;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
     };
   };
 
