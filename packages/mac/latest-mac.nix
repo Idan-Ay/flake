@@ -7,6 +7,8 @@
     vicinae
     brightnessctl
 
+    ladybird
+
     obsidian # unfree
 
     rmpc

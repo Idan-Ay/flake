@@ -65,14 +65,12 @@ binds {
     Mod+R repeat=false { spawn "foot" "impala"; }
     Mod+E repeat=false { spawn "foot" "bluetui"; }
     Mod+G repeat=false { spawn "foot" "youtube-tui"; }
-
-    Mod+T repeat=false { spawn "/bin/sh" "-c" "hyprpicker|wl-copy"; }
-
-    Mod+Y repeat=false { spawn "fish" "-c" "toggle_tiny-dfr"; }
+    Mod+T repeat=false { spawn "foot" "btm"; }
+    Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
 
     Mod+Ctrl+L repeat=false { spawn "hyprlock"; }
-
-    Mod+Semicolon repeat=false { spawn "vicinae" "toggle"; }
+    Mod+Ctrl+P repeat=false { spawn "/bin/sh" "-c" "pgrep hyprpicker | hyprpicker|wl-copy"; }
+    Mod+Ctrl+B repeat=false { spawn "fish" "-c" "toggle_tiny-dfr"; }
 
     Mod+Q { close-window; }
     Mod+D repeat=false { maximize-column; }
@@ -80,7 +78,7 @@ binds {
 
     Mod+C repeat=false { screenshot-window write-to-disk=false; }
     Print repeat=false { screenshot show-pointer=false; }
-    Mod+V repeat=false { screenshot show-pointer=false; }
+    Mod+Ctrl+S repeat=false { screenshot show-pointer=false; }
 
     // Window keybinds
     Mod+Slash repeat=false { switch-preset-window-height; }

@@ -36,6 +36,8 @@
     niri.packages.x86_64-linux.default
     vicinae
 
+    ladybird
+
     discord
 
     lutris
