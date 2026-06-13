@@ -10,7 +10,7 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
   };
 
   outputs = {
