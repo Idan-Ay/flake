@@ -233,7 +233,8 @@
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-latest": "nixpkgs-latest",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "user-chrome": "user-chrome"
       }
     },
     "rust-overlay": {
@@ -269,6 +270,23 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "user-chrome": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781467318,
+        "narHash": "sha256-TmVnWBIVTJzkyo6loTN9qppI6mWAzxj1R6OiJt+CKIk=",
+        "owner": "Idan-Ay",
+        "repo": "firefox-contrast",
+        "rev": "b6841fc2711fce24925862cc98068769f688ce55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Idan-Ay",
+        "ref": "main",
+        "repo": "firefox-contrast",
         "type": "github"
       }
     }

@@ -1,4 +1,6 @@
-{ config, lib, ... }:
+{ config, lib, inputs, ... }:
+
+
 {
   programs.librewolf = {
     enable = true;
@@ -8,6 +10,12 @@
       "en-GB"
       "de"
     ];
+
+    profiles.default = {
+      isDefault = true;
+      name = "default";
+      path = "default";
+    };
 
     policies = {
 
@@ -54,12 +62,6 @@
       };
 
       ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          default_area = "menupanel";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
-          private_browsing = true;
-        };
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
           default_area = "menupanel";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
@@ -68,6 +70,16 @@
         };
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "{3c078156-979c-498b-8990-85f7987dd929}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "newtaboverride@agenedia.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
           installation_mode = "force_installed";
           private_browsing = true;
         };
@@ -86,14 +98,38 @@
       "media.av1.enabled" = true;
 
       "browser.tabs.closeWindowWithLastTab" = false;
-      "sidebar.verticalTabs" = true;
       "ui.systemUsesDarkTheme" = 1;
       "browser.toolbars.bookmarks.visibility" = "never";
 
       "widget.use-xdg-desktop-portal.file-picker" = 1;
 
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "svg.context-properties.content.enabled" = true;
+      "layers.acceleration.force-enabled" = true;
+      "gfx.webrender.all" = true;
+      "gfx.webrender.enabled" = true;
+      "layout.css.backdrop-filter.enabled" = true;
+
       "privacy.resistFingerprinting" = false;
       "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+
+      "browser.tabs.allow_transparent_browser" = true;
+
+      "browser.startup.homepage" = "http://localhost";
+
+      "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
+      "cookiebanners.service.mode" = 2; # Block cookie banners
+      "privacy.donottrackheader.enabled" = true;
+
+      "privacy.trackingprotection.emailtracking.enabled" = true;
+      "privacy.trackingprotection.enabled" = true;
+      "privacy.trackingprotection.fingerprinting.enabled" = true;
+      "privacy.trackingprotection.socialtracking.enabled" = true;
     };
+  };
+
+  home.file.".librewolf/default/chrome" = {
+    source = inputs.user-chrome;
+    recursive = true;
   };
 }

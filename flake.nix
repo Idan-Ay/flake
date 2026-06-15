@@ -11,6 +11,14 @@
     nixvim.url = "github:nix-community/nixvim";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
+
+    user-chrome = {
+      type = "github";
+      owner = "Idan-Ay";
+      repo = "firefox-contrast";
+      ref = "main";
+      flake = false;
+    };
   };
 
   outputs = {

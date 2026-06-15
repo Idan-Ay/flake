@@ -78,6 +78,7 @@
     libsecret
 
     nodejs_24
+    php
     mise
     mold
     yarn
