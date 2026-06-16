@@ -276,16 +276,16 @@
     "user-chrome": {
       "flake": false,
       "locked": {
-        "lastModified": 1781467318,
-        "narHash": "sha256-TmVnWBIVTJzkyo6loTN9qppI6mWAzxj1R6OiJt+CKIk=",
+        "lastModified": 1781550932,
+        "narHash": "sha256-b+AXP0oYoEkb7HwK9WZTcUKSN2DLC21gTNP1iSJlno8=",
         "owner": "Idan-Ay",
         "repo": "firefox-contrast",
-        "rev": "b6841fc2711fce24925862cc98068769f688ce55",
+        "rev": "adafd27a5a60830ddc42b62c079108d591fc1355",
         "type": "github"
       },
       "original": {
         "owner": "Idan-Ay",
-        "ref": "main",
+        "ref": "v0.2h",
         "repo": "firefox-contrast",
         "type": "github"
       }

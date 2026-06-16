@@ -23,5 +23,5 @@ unset_alt  = { fg = "#F2F4F8", bg = "#0C3A21" }
 active   = { fg = "#010101", bg = "#78A9FF", bold = true }
 inactive = { fg = "#F2F4F8", bg = "#25334D" }
 
-sep_inner  = { open = "▐", close = "▌" }
+sep_inner  = { open = "", close = "" }
 sep_outer = { open = "", close = "" }

@@ -16,7 +16,7 @@
       type = "github";
       owner = "Idan-Ay";
       repo = "firefox-contrast";
-      ref = "main";
+      ref = "v0.2h";
       flake = false;
     };
   };
