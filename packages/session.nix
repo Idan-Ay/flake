@@ -1,4 +1,4 @@
-{ pkgs, lib, user, ... }:
+{ pkgs, lib, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -26,15 +26,25 @@
 
   services.earlyoom.enable = true;
 
-  services.resolved = {
+  # services.resolved = {
+    # enable = true;
+    # extraConfig = ''
+      # DNS=45.90.28.0#76ddb.dns.nextdns.io
+      # DNS=2a07:a8c0::#764ddb.dns.nextdns.io
+      # DNS=45.90.30.0#764ddb.dns.nextdns.io
+      # DNS=2a07:a8c1::#764ddb.dns.nextdns.io
+      # DNSOverTLS=yes
+    # '';
+  # };
+
+  services.nextdns = {
     enable = true;
-    extraConfig = ''
-      DNS=45.90.28.0#76ddb.dns.nextdns.io
-      DNS=2a07:a8c0::#764ddb.dns.nextdns.io
-      DNS=45.90.30.0#764ddb.dns.nextdns.io
-      DNS=2a07:a8c1::#764ddb.dns.nextdns.io
-      DNSOverTLS=yes
-    '';
+    arguments = [ "-config" "76ddb" ];
+  };
+
+  services.tor = {
+    enable = true;
+    client.enable = true;
   };
 
   services.avahi.enable = true;
@@ -42,11 +52,6 @@
   services.cron.systemCronJobs = [
     "*/15 * * * * joplin sync"
   ];
-
-  # services.nextdns = {
-    # enable = true;
-    # arguments = [ "-config" "45.90.28.0/24=76ddb" ];
-  # };
 
   systemd.user.services.mpd-mpris = {
     enable = true;

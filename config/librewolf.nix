@@ -108,7 +108,6 @@
       "layers.acceleration.force-enabled" = true;
       "gfx.webrender.all" = true;
       "gfx.webrender.enabled" = true;
-      "layout.css.backdrop-filter.enabled" = true;
 
       "privacy.resistFingerprinting" = false;
       "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;

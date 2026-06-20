@@ -7,7 +7,7 @@
 
     ./hardware-configuration-pc.nix
 
-    ./packages/tools.nix
+    ./packages/programs.nix
     ./packages/pc/drivers-pc.nix
     ./packages/pc/latest-pc.nix
     ./packages/pc/session-pc.nix
