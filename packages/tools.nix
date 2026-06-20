@@ -85,6 +85,14 @@
 
     ffmpeg
 
+    # Cybersecurity
+    nmap
+    wireshark
+    metasploit
+    aircrack-ng
+    hashcat
+    arp-scan
+
     yt-dlp
 
     # aerc # tui email client
