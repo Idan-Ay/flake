@@ -43,6 +43,10 @@
 
     vscodium
 
+    # Games
+    the-powder-toy
+    osu-lazer
+
     anki
 
     protonplus

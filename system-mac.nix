@@ -5,7 +5,7 @@
 
     ./hardware-configuration-mac.nix
 
-    ./packages/tools.nix
+    ./packages/programs.nix
     ./packages/mac/latest-mac.nix
     ./packages/session.nix
     ./packages/mac/session-mac.nix

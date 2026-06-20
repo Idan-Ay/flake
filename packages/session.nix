@@ -26,15 +26,25 @@
 
   services.earlyoom.enable = true;
 
-  services.resolved = {
+  # services.resolved = {
+    # enable = true;
+    # extraConfig = ''
+      # DNS=45.90.28.0#76ddb.dns.nextdns.io
+      # DNS=2a07:a8c0::#764ddb.dns.nextdns.io
+      # DNS=45.90.30.0#764ddb.dns.nextdns.io
+      # DNS=2a07:a8c1::#764ddb.dns.nextdns.io
+      # DNSOverTLS=yes
+    # '';
+  # };
+
+  services.nextdns = {
     enable = true;
-    extraConfig = ''
-      DNS=45.90.28.0#76ddb.dns.nextdns.io
-      DNS=2a07:a8c0::#764ddb.dns.nextdns.io
-      DNS=45.90.30.0#764ddb.dns.nextdns.io
-      DNS=2a07:a8c1::#764ddb.dns.nextdns.io
-      DNSOverTLS=yes
-    '';
+    arguments = [ "-config" "76ddb" ];
+  };
+
+  services.tor = {
+    enable = true;
+    client.enable = true;
   };
 
   services.avahi.enable = true;
@@ -42,11 +52,6 @@
   services.cron.systemCronJobs = [
     "*/15 * * * * joplin sync"
   ];
-
-  # services.nextdns = {
-    # enable = true;
-    # arguments = [ "-config" "45.90.28.0/24=76ddb" ];
-  # };
 
   systemd.user.services.mpd-mpris = {
     enable = true;
@@ -57,6 +62,42 @@
       ExecStart = "/run/current-system/sw/bin/mpd-mpris";
     };
   };
+
+  # systemd.services.newTabPagePHPServer = {
+    # description = "PHP Server";
+    # wantedBy = [ "multi-user.target" ];
+    # after = [ "network.target" ];
+    # serviceConfig = {
+      # Type = "simple";
+      # User = "${user}";
+      # WorkingDirectory = "/etc/newTabPage.html";
+      # ExecStart = "${pkgs.php}/bin/php -S 0.0.0.0:8000";  # Adjust port as needed
+      # Restart = "always";
+      # RestartSec = "5";
+      # StandardOutput = "syslog";
+      # StandardError = "syslog";
+    # };
+  # };
+
+  systemd.services.php-newtabpage-server = {
+    description = "PHP newTabPage server";
+    after = ["network.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      User = "root";
+      ExecStart = "${pkgs.php}/bin/php -S 0.0.0.0:80 /etc/newTabPage.html";
+      Restart = "always";
+    };
+  };
+
+  environment.etc."newTabPage.html".text = lib.mkForce ''
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>New Tab</title>
+    </head>
+    </html>
+  '';
 
   xdg.portal = {
     enable = true;

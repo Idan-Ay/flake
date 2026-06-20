@@ -25,6 +25,9 @@
 
     vscodium
 
+    # Games
+    the-powder-toy
+
     rpi-imager
 
     anki
