@@ -4,7 +4,7 @@
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
 
-    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon/6a63e9c";
 
     niri.url = "github:niri-wm/niri";
 

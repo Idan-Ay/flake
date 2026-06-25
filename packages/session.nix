@@ -26,26 +26,33 @@
 
   services.earlyoom.enable = true;
 
-  # services.resolved = {
-    # enable = true;
-    # extraConfig = ''
-      # DNS=45.90.28.0#76ddb.dns.nextdns.io
-      # DNS=2a07:a8c0::#764ddb.dns.nextdns.io
-      # DNS=45.90.30.0#764ddb.dns.nextdns.io
-      # DNS=2a07:a8c1::#764ddb.dns.nextdns.io
-      # DNSOverTLS=yes
-    # '';
-  # };
-
-  services.nextdns = {
+  services.resolved = {
     enable = true;
-    arguments = [ "-config" "76ddb" ];
+    settings = {
+      Resolve = {
+        DNS = [
+          "45.90.28.0#76ddb.dns.nextdns.io"
+          "2a07:a8c0::#764ddb.dns.nextdns.io"
+          "45.90.30.0#764ddb.dns.nextdns.io"
+          "2a07:a8c1::#764ddb.dns.nextdns.io"
+        ];
+        DNSOverTLS = true;
+      };
+    };
   };
 
   services.tor = {
     enable = true;
     client.enable = true;
   };
+
+  # networking.proxy = {
+    # HTTP/HTTPS proxy
+    # httpProxy = "http://127.0.0.1:9050";
+    # httpsProxy = "https://127.0.0.1:9050";
+
+    # allProxy = "socks5://127.0.0.1:9050";
+  # };
 
   services.avahi.enable = true;
 
