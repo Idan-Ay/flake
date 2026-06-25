@@ -82,6 +82,8 @@
 
     ffmpeg
 
+    bottles
+
     # Cybersecurity
     nmap
     wireshark
