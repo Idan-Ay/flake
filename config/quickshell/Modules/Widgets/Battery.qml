@@ -45,13 +45,13 @@ Underline {
         anchors.verticalCenter: parent.verticalCenter
         SText {
             text: getBatteryIcon() + Math.round(UPower.displayDevice.percentage * 100) + "%"
-            color: isBatterLowAndNotCharging() ? "#ff283c" : "white"
+            color: isBatterLowAndNotCharging() ? "#F62B5A" : "white"
             elide: Text.ElideRight
             width: 60
         }
         SText {
             text: getTimeFromSec(timeToFullOrEmpty())
-            color: isBatterLowAndNotCharging() ? "#ff283c" : "white"
+            color: isBatterLowAndNotCharging() ? "#F62B5A" : "white"
             elide: Text.ElideRight
             width: 80
         }

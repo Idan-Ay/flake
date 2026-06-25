@@ -13,9 +13,9 @@
     preview_label_style: (fg: "red"),
     preview_metadata_group_style: (fg: "red", modifiers: "Bold"),
     highlighted_item_style: (fg: "red", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "#dcdcdc", modifiers: "Bold"),
-    borders_style: (fg: "#dcdcdc"),
-    highlight_border_style: (fg: "#dcdcdc"),
+    current_item_style: (fg: "black", bg: "#E6E6E6", modifiers: "Bold"),
+    borders_style: (fg: "#E6E6E6"),
+    highlight_border_style: (fg: "#E6E6E6"),
     symbols: (
         song: "S",
         dir: "D",
@@ -27,7 +27,7 @@
         playlist_style: None,
     ),
     level_styles: (
-        info: (fg: "#dcdcdc", bg: "black"),
+        info: (fg: "#E6E6E6", bg: "black"),
         warn: (fg: "red", bg: "black"),
         error: (fg: "red", bg: "black"),
         debug: (fg: "light_green", bg: "black"),
@@ -36,18 +36,18 @@
     progress_bar: (
         symbols: ["█", "█", "█", " ", "█"],
         track_style: None,
-        elapsed_style: (fg: "#dcdcdc"),
-        thumb_style: (fg: "#dcdcdc"),
+        elapsed_style: (fg: "#E6E6E6"),
+        thumb_style: (fg: "#E6E6E6"),
         use_track_when_empty: true,
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
         track_style: (),
         ends_style: (),
-        thumb_style: (fg: "#dcdcdc"),
+        thumb_style: (fg: "#E6E6E6"),
     ),
     tab_bar: (
-        active_style: (fg: "black", bg: "#dcdcdc", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "#E6E6E6", modifiers: "Bold"),
         inactive_style: (),
     ),
     lyrics: (
@@ -85,8 +85,8 @@
             width: "35%",
         ),
         (
-            prop: (kind: Property(Album), style: (fg: "#dcdcdc"),
-                default: (kind: Text("Unknown Album"), style: (fg: "#dcdcdc"))
+            prop: (kind: Property(Album), style: (fg: "#E6E6E6"),
+                default: (kind: Text("Unknown Album"), style: (fg: "#E6E6E6"))
             ),
             label_prop: (kind: Text("Album")),
             width: "30%",
@@ -182,8 +182,8 @@
             panes: [
                 (size: "1", pane: Pane(Property(content: [(kind: Text(""))]))),
                 (size: "100%", pane: Pane(Volume(kind: Slider(symbols: (filled: "─", thumb: "●", track: "─"))))),
-                (size: "3", pane: Pane(Property(content: [(kind: Property(Status(Volume)), style: (fg: "#dcdcdc"))], align: Right))),
-                (size: "2", pane: Pane(Property(content: [(kind: Text("%"), style: (fg: "#dcdcdc"))]))),
+                (size: "3", pane: Pane(Property(content: [(kind: Property(Status(Volume)), style: (fg: "#E6E6E6"))], align: Right))),
+                (size: "2", pane: Pane(Property(content: [(kind: Text("%"), style: (fg: "#E6E6E6"))]))),
             ]
         ),
         "elapsed_and_bitrate": Pane(Property(
@@ -216,30 +216,30 @@
                 ),
                 (
                     size: "100%",
-                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "#dcdcdc"), align: Left)]))
+                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "#E6E6E6"), align: Left)]))
                 ),
                 (
                     size: "6",
                     pane: Pane(Property(content: [
-                        (kind: Text("["), style: (fg: "#dcdcdc", modifiers: "Bold")),
+                        (kind: Text("["), style: (fg: "#E6E6E6", modifiers: "Bold")),
                         (kind: Property(Status(RepeatV2(
                             on_label: "z",
                             off_label: "z",
                             on_style: (fg: "red", modifiers: "Bold"),
-                            off_style: (fg: "#dcdcdc", modifiers: "Dim"),
+                            off_style: (fg: "#E6E6E6", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(RandomV2(
                             on_label: "x",
                             off_label: "x",
                             on_style: (fg: "red", modifiers: "Bold"),
-                            off_style: (fg: "#dcdcdc", modifiers: "Dim"),
+                            off_style: (fg: "#E6E6E6", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(ConsumeV2(
                             on_label: "c",
                             off_label: "c",
                             oneshot_label: "c",
                             on_style: (fg: "red", modifiers: "Bold"),
-                            off_style: (fg: "#dcdcdc", modifiers: "Dim"),
+                            off_style: (fg: "#E6E6E6", modifiers: "Dim"),
                             oneshot_style: (fg: "red", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(SingleV2(
@@ -247,10 +247,10 @@
                             off_label: "v",
                             oneshot_label: "v",
                             on_style: (fg: "red", modifiers: "Bold"),
-                            off_style: (fg: "#dcdcdc", modifiers: "Dim"),
+                            off_style: (fg: "#E6E6E6", modifiers: "Dim"),
                             oneshot_style: (fg: "red", modifiers: "Bold"),
                         )))),
-                        (kind: Text("]"), style: (fg: "#dcdcdc", modifiers: "Bold")),
+                        (kind: Text("]"), style: (fg: "#E6E6E6", modifiers: "Bold")),
                         ],
                         align: Right
                     ))
@@ -260,7 +260,7 @@
         "input_mode": Pane(Property(
             content: [
                 (kind: Transform(Replace(content: (kind: Property(Status(InputMode()))), replacements: [
-                    (match: "Normal", replace: (kind: Text(" NORMAL "), style: (fg: "black", bg: "#dcdcdc"))),
+                    (match: "Normal", replace: (kind: Text(" NORMAL "), style: (fg: "black", bg: "#E6E6E6"))),
                     (match: "Insert", replace: (kind: Text(" INSERT "), style: (fg: "black", bg: "green"))),
                 ])))
             ], align: Center

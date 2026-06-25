@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -21,6 +21,7 @@
       extraConfig = {
         gtk-application-prefer-dark-theme = true;
       };
+      theme = config.gtk.theme;
     };
     gtk3.extraCss = builtins.readFile ./gtk3.css;
     iconTheme = {

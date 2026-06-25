@@ -71,6 +71,8 @@
 
     gh
 
+    onionshare
+
     libsecret
 
     nodejs_24
