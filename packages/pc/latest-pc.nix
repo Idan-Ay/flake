@@ -15,7 +15,6 @@
       # Games
       "org.taisei_project.Taisei"
       "uk.co.powdertoy.tpt"
-      "org.prismlauncher.PrismLauncher"
       "org.srb2.SRB2"
       "org.supertuxproject.SuperTux"
       "net.supertuxkart.SuperTuxKart"
@@ -53,6 +52,9 @@
     focuswriter
 
     vscodium
+
+    # Games
+    prismlauncher
 
     anki
 

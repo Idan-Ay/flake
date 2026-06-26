@@ -5,12 +5,10 @@
     enable = true;
     packages = [
       "io.github.milkshiift.GoofCord"
-      # "com.obsproject.Studio"
 
       # Games
       "org.taisei_project.Taisei"
       "uk.co.powdertoy.tpt"
-      "org.prismlauncher.PrismLauncher"
       "org.supertuxproject.SuperTux"
       "net.supertuxkart.SuperTuxKart"
     ];
@@ -20,6 +18,8 @@
     swayidle
     vicinae
     brightnessctl
+
+    obs-studio
 
     ladybird
 
@@ -38,7 +38,7 @@
     vscodium
 
     # Games
-    the-powder-toy
+    prismlauncher
 
     rpi-imager
 
