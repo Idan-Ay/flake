@@ -103,11 +103,11 @@
           installation_mode = "force_installed";
           private_browsing = true;
         };
-        "foxyproxy@eric.h.jung" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi";
-          installation_mode = "force_installed";
-          private_browsing = true;
-        };
+        # "foxyproxy@eric.h.jung" = {
+          # install_url = "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi";
+          # installation_mode = "force_installed";
+          # private_browsing = true;
+        # };
       };
     };
     settings = let
