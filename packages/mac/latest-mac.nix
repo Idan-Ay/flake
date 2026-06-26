@@ -1,11 +1,11 @@
-{ pkgsLatest-arm, lib, niri, ... }:
+{ pkgsLatest-arm, lib, ... }:
 
 {
   services.flatpak = {
     enable = true;
     packages = [
       "io.github.milkshiift.GoofCord"
-      "com.obsproject.Studio"
+      # "com.obsproject.Studio"
 
       # Games
       "org.taisei_project.Taisei"

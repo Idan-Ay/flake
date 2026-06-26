@@ -4,8 +4,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  services.dbus.implementation = "dbus";
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
