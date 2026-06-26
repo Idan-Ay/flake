@@ -6,7 +6,7 @@
     extraGroups = [ "wheel" "video" "input" "docker" ];
     shell = pkgs.fish;
   };
-  nix.settings.trusted-users = [ "your-username" ];
+  nix.settings.trusted-users = [ "${user}" ];
 
   time.timeZone = "Europe/Berlin";
 

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.git.enable = true;
@@ -72,6 +72,8 @@
     gh
 
     onionshare
+    localsend
+    jocalsend
 
     libsecret
 
@@ -105,8 +107,6 @@
 
     imv # image viewer
     mpv # video viewer
-
-    obs-studio # video recording
 
     # web development
     brave
@@ -148,8 +148,5 @@
     socat
     jq
     mesa-demos
-
-    # Games
-    prismlauncher
   ]);
 }

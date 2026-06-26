@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+
+  services.dbus.implementation = "dbus";
 
   hardware.bluetooth = {
     enable = true;
@@ -61,22 +63,6 @@
       ExecStart = "/run/current-system/sw/bin/mpd-mpris";
     };
   };
-
-  # systemd.services.newTabPagePHPServer = {
-    # description = "PHP Server";
-    # wantedBy = [ "multi-user.target" ];
-    # after = [ "network.target" ];
-    # serviceConfig = {
-      # Type = "simple";
-      # User = "${user}";
-      # WorkingDirectory = "/etc/newTabPage.html";
-      # ExecStart = "${pkgs.php}/bin/php -S 0.0.0.0:8000";  # Adjust port as needed
-      # Restart = "always";
-      # RestartSec = "5";
-      # StandardOutput = "syslog";
-      # StandardError = "syslog";
-    # };
-  # };
 
   systemd.services.php-newtabpage-server = {
     description = "PHP newTabPage server";
@@ -218,6 +204,8 @@
 
   environment.systemPackages = lib.mkAfter (with pkgs; [
     xwayland-satellite
+
+    niri
 
     mpvpaper
 

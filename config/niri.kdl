@@ -49,7 +49,6 @@ output "HDMI-A-2" {
 spawn-at-startup "vicinae" "server"
 spawn-at-startup "quickshell"
 spawn-at-startup "steam" "-silent"
-spawn-at-startup "discord"
 spawn-at-startup "hyprlock"
 spawn-at-startup "swayidle" "-w" "before-sleep" "pidof hyprlock | hyprlock"
 
