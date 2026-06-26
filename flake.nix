@@ -6,7 +6,7 @@
 
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon/6a63e9c";
 
-    niri.url = "github:niri-wm/niri";
+    niri.url = "github:niri-wm/niri/?ref=v25.11";
 
     nixvim.url = "github:nix-community/nixvim";
 
