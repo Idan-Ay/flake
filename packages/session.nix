@@ -46,14 +46,6 @@
     client.enable = true;
   };
 
-  # networking.proxy = {
-    # HTTP/HTTPS proxy
-    # httpProxy = "http://127.0.0.1:9050";
-    # httpsProxy = "https://127.0.0.1:9050";
-
-    # allProxy = "socks5://127.0.0.1:9050";
-  # };
-
   services.avahi.enable = true;
 
   services.cron.systemCronJobs = [
