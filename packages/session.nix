@@ -6,6 +6,14 @@
 
   services.dbus.implementation = "dbus";
 
+  services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    wireplumber.enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -25,6 +33,8 @@
     allowedTCPPorts = [ 8384 25565 ];
     allowedUDPPorts = [ 25565 ];
   };
+
+  services.gnome.gnome-keyring.enable = true;
 
   services.earlyoom.enable = true;
 
@@ -127,7 +137,7 @@
     settings = {
       default_session = {
         command = "niri-session";
-        user = "idan";
+        user = "${user}";
       };
     };
   };

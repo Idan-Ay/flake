@@ -1,4 +1,4 @@
-{ pkgsLatest-arm, lib, niri, ... }:
+{ pkgsLatest-arm, lib, ... }:
 
 {
   services.flatpak = {

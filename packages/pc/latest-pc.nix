@@ -9,7 +9,7 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "io.github.milkshiift.GoofCord"
+      "io.github.milkshiift.GoofCord" # free but uses unfree web application
       "com.obsproject.Studio"
 
       # Games
@@ -18,19 +18,17 @@
       "org.srb2.SRB2"
       "org.supertuxproject.SuperTux"
       "net.supertuxkart.SuperTuxKart"
-      "app.twintaillauncher.ttl"
       "io.github.lavenderdotpet.LibreQuake"
+
+      "app.twintaillauncher.ttl" # free but installs unfree
     ];
   };
 
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      steam = {
-        executable = "${pkgsLatest-x86.steam}/bin/steam";
-        profile = "${pkgs.firejail}/etc/firejail/steam.profile";
-        desktop = "${pkgsLatest-x86.steam}/share/applications/steam.desktop";
-      };
+  programs.firejail.wrappedBinaries = {
+    steam = { # unfree and installs unfree
+      executable = "${pkgsLatest-x86.steam}/bin/steam";
+      profile = "${pkgs.firejail}/etc/firejail/steam.profile";
+      desktop = "${pkgsLatest-x86.steam}/share/applications/steam.desktop";
     };
   };
 
@@ -52,9 +50,6 @@
     focuswriter
 
     vscodium
-
-    # Games
-    prismlauncher
 
     anki
 

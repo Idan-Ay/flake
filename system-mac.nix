@@ -9,7 +9,6 @@
     ./packages/mac/latest-mac.nix
     ./packages/session.nix
     ./packages/mac/session-mac.nix
-    ./packages/sound.nix
     ./packages/fonts.nix
   ];
 

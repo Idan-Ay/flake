@@ -66,13 +66,28 @@
     };
   };
 
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  programs.firejail = {
+    enable = true;
+    wrappedBinaries = {
+      prismlauncher = { # free but installs unfree
+        executable = "${pkgs.prismlauncher}/bin/prismlauncher";
+        profile = "${pkgs.firejail}/etc/firejail/prismlauncher.profile";
+        desktop = "${pkgs.prismlauncher}/share/applications/org.prismlauncher.PrismLauncher.desktop";
+      };
+    };
+  };
+
   environment.systemPackages = lib.mkAfter (with pkgs; [
     home-manager
 
     gh
 
     onionshare
-    localsend
     jocalsend
 
     libsecret
