@@ -4,9 +4,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-<<<<<<< HEAD
-  services.dbus.implementation = "dbus";
-
   services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -15,8 +12,6 @@
     pulse.enable = true;
   };
 
-=======
->>>>>>> a0669ae4adfc61be5e772cebbe6ba8e068beafa0
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
