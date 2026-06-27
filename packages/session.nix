@@ -4,6 +4,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+<<<<<<< HEAD
   services.dbus.implementation = "dbus";
 
   services.pulseaudio.enable = false;
@@ -14,6 +15,8 @@
     pulse.enable = true;
   };
 
+=======
+>>>>>>> a0669ae4adfc61be5e772cebbe6ba8e068beafa0
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -57,14 +60,6 @@
     enable = true;
     client.enable = true;
   };
-
-  # networking.proxy = {
-    # HTTP/HTTPS proxy
-    # httpProxy = "http://127.0.0.1:9050";
-    # httpsProxy = "https://127.0.0.1:9050";
-
-    # allProxy = "socks5://127.0.0.1:9050";
-  # };
 
   services.avahi.enable = true;
 
